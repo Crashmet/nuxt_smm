@@ -184,19 +184,17 @@ export default {
   data() {
     return {
       isActiveMenu: false,
-      access_token: null,
     };
   },
 
   mounted() {
-    this.access_token = localStorage.getItem("access_token") || null;
-
     this.setSearchRequest("");
   },
 
   computed: {
     ...mapGetters({
       users: "headerProfileStore/users",
+      access_token: "authStore/access_token",
     }),
 
     lastPageAccount() {

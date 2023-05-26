@@ -4,11 +4,14 @@ export const state = () => ({
     password: "",
   },
 
+  access_token: null,
+
   validatorResponse: {},
 });
 
 export const getters = {
   validatorResponse: ({ validatorResponse }) => validatorResponse,
+  access_token: ({ access_token }) => access_token,
 };
 
 export const mutations = {
@@ -61,5 +64,9 @@ export const actions = {
     // await this.$axios.$delete();
 
     location.reload();
+  },
+
+  setAccessToken({ commit }, token) {
+    commit("SET_ACCESS_TOKEN", token);
   },
 };
