@@ -1,18 +1,6 @@
 <template>
   <div class="inspection">
-    <ul class="inspection-menu__row">
-      <li class="inspection-menu__cell">
-        <span class="inspection-menu__text inspection-menu__text_active"
-          >Компания №1</span
-        >
-      </li>
-      <li class="inspection-menu__cell">
-        <span class="inspection-menu__text">Название компании</span>
-      </li>
-      <li class="inspection-menu__cell">
-        <span class="inspection-menu__text">Дата</span>
-      </li>
-    </ul>
+    <advertiser-orders-menu />
 
     <table>
       <thead>
@@ -201,8 +189,14 @@
 </template>
 
 <script>
+import AdvertiserOrdersMenu from "~/components/AccountSection/AdvertiserOrdersMenu.vue";
+
 export default {
   name: "AdvertiserOrdersChat",
+
+  components: {
+    AdvertiserOrdersMenu,
+  },
 };
 </script>
 

@@ -1,16 +1,6 @@
 <template>
   <div class="chat">
-    <ul class="chat-menu__row">
-      <li class="chat-menu__cell">
-        <span class="chat-menu__text">Компания №1</span>
-      </li>
-      <li class="chat-menu__cell">
-        <span class="chat-menu__text">Название компании</span>
-      </li>
-      <li class="chat-menu__cell">
-        <span class="chat-menu__text">Дата</span>
-      </li>
-    </ul>
+    <advertiser-orders-menu />
 
     <table>
       <thead>
@@ -67,8 +57,14 @@
 </template>
 
 <script>
+import AdvertiserOrdersMenu from "~/components/AccountSection/AdvertiserOrdersMenu.vue";
+
 export default {
   name: "AdvertiserOrderschat",
+
+  components: {
+    AdvertiserOrdersMenu,
+  },
 };
 </script>
 
