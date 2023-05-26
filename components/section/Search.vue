@@ -134,7 +134,7 @@ export default {
 .search-line__input {
   padding-left: 19.9998px;
   width: 100%;
-  height: 2.5556rem;
+  height: 2.5rem;
   border: none;
   border-radius: 20px;
   background: #ffffff;
@@ -145,7 +145,7 @@ export default {
 .search-line__btn {
   right: 0;
   bottom: 0;
-  padding: 0.5556rem 4.3333rem 0.5556rem;
+  padding: 0.7778rem 4.3333rem 0.7778rem;
   background: rgba(255, 54, 0, 0.8);
   border-radius: 20px;
   -webkit-transition: background 0.2s ease-in;
@@ -159,11 +159,25 @@ export default {
 }
 
 .search-line-btn__text {
+  display: inline-block;
   font-weight: 700;
   font-size: 1rem;
-  line-height: 1.1667rem;
   text-align: center;
   color: #ffffff;
+}
+
+@media (max-width: 960px) {
+  .search-line__btn {
+    padding: 0.7778rem 3rem 0.7778rem;
+  }
+
+  .search-line-btn__text {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    color: #ffffff;
+  }
 }
 
 @media (max-width: 480px) {
@@ -189,12 +203,13 @@ export default {
   }
 
   .search-line__btn {
-    padding: 6.5px 18px 5.5px;
+    padding: 6.5px 18px 6.5px;
   }
 
   .search-line-btn__text {
     font-size: 14px;
     line-height: 16px;
+    padding-bottom: 1.5px;
   }
 }
 

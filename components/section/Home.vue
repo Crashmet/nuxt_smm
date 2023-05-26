@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: 'Home',
+  name: "Home",
 };
 </script>
 
@@ -45,7 +45,7 @@ export default {
 }
 
 .home__container::before {
-  content: '';
+  content: "";
   position: absolute;
   z-index: -10;
   width: 785px;
@@ -75,14 +75,14 @@ export default {
 }
 
 .home__container::after {
-  content: '';
+  content: "";
   position: absolute;
   z-index: -9;
   width: 522px;
   height: 612px;
   top: -67px;
   right: 18px;
-  background-image: url('../../assets/image/hand-mobile.png');
+  background-image: url("../../assets/image/hand-mobile.png");
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: contain;
@@ -157,13 +157,13 @@ export default {
 }
 
 .home-check__item::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 0;
   width: 1.6667rem;
   height: 1.6667rem;
-  background: url('../../assets/image/checkmark.svg') 0 0 / contain no-repeat;
+  background: url("../../assets/image/checkmark.svg") 0 0 / contain no-repeat;
 }
 
 @media (max-width: 960px) {
@@ -238,6 +238,10 @@ export default {
 }
 
 @media (max-width: 440px) {
+  .home__container {
+    padding: 0 15px;
+  }
+
   .home__container::before {
     width: 217px;
     height: 305px;

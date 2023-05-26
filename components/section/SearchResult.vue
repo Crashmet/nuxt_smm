@@ -254,7 +254,7 @@ export default {
       window.history.pushState(
         window.history.state,
         document.title,
-        `${window.location.pathname}/search-result?page=${this.activePage}&page_size=${this.pageSize}&search=${this.searchRequest}`
+        `/search-result?page=${this.activePage}&page_size=${this.pageSize}&search=${this.searchRequest}`
       );
     },
 

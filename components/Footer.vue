@@ -116,7 +116,7 @@ export default {
   background-color: #4c4c4c4b;
   padding: 2.2222rem 2.1111rem;
   box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25);
-  border-radius: 30px;
+  border-radius: 1.6667rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -309,7 +309,7 @@ export default {
 
 @media (max-width: 1000px) {
   .footer-info {
-    margin-right: 10rem;
+    margin-right: 9rem;
   }
 }
 
@@ -326,7 +326,7 @@ export default {
   }
 
   .footer__container {
-    padding: 0 20px;
+    padding: 0;
   }
 
   .footer-info {
@@ -337,10 +337,6 @@ export default {
 }
 
 @media (max-width: 320px) {
-  .footer__container {
-    padding: 0;
-  }
-
   .footer-info {
     margin-right: 3rem;
   }
