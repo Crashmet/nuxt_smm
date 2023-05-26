@@ -124,7 +124,7 @@
 
 <script>
 export default {
-  name: 'BlogerProfile',
+  name: "BlogerProfile",
 };
 </script>
 

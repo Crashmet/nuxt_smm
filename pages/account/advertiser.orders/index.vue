@@ -1,8 +1,6 @@
 <template>
   <div class="advertiser-oreders-home home">
-    <NuxtLink class="home__link" to="new-order">
-      Разместить новый заказ
-    </NuxtLink>
+    <NuxtLink class="home__link" to="order"> Разместить новый заказ </NuxtLink>
 
     <table>
       <thead>

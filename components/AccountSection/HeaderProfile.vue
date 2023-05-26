@@ -4,7 +4,7 @@
       <li
         class="header-profile__cell"
         v-for="user in users"
-        :key="user"
+        :key="user.name"
         @click="handlerClickUser(user.name, user.routerName)"
       >
         <span
@@ -19,7 +19,7 @@
       <li
         class="header-profile__cell"
         v-for="setting in blogerMenu"
-        :key="setting"
+        :key="setting.name"
         @click="handlerClickBlogerMenu(setting.name, setting.routerName)"
       >
         <span

@@ -3,9 +3,9 @@
     <div class="container header__container">
       <div class="header__row">
         <div class="header__row_left">
-          <NuxtLink class="header-left__logo" to="/">
+          <nuxt-link class="header-left__logo" to="/">
             <h2 class="header-left-logo__title_left">SMM</h2>
-            <h2 class="header-left-logo__title_right">Planeta</h2></NuxtLink
+            <h2 class="header-left-logo__title_right">Planeta</h2></nuxt-link
           >
           <p class="header-left__desc">более 50000 блогеров</p>
         </div>
@@ -14,19 +14,21 @@
           <div class="header__row_right">
             <ul class="header-right__list_left">
               <li class="header-right__item">
-                <NuxtLink class="header-right__link" to="/">Контакты</NuxtLink>
+                <nuxt-link class="header-right__link" to="/"
+                  >Контакты</nuxt-link
+                >
               </li>
 
               <li class="header-right__item">
-                <NuxtLink class="header-right__link" to="/register"
-                  >Зарегистрироваться</NuxtLink
+                <nuxt-link class="header-right__link" to="register"
+                  >Зарегистрироваться</nuxt-link
                 >
               </li>
             </ul>
 
-            <NuxtLink to="/login" class="header-right__button_left">
+            <nuxt-link to="login" class="header-right__button_left">
               <span class="header-right-button__text">Войти</span>
-            </NuxtLink>
+            </nuxt-link>
 
             <button
               class="header-right__menu"
@@ -74,14 +76,14 @@
                   </button>
                 </li>
                 <li class="header-absolute__item">
-                  <NuxtLink class="header-absolute__link" to="/"
-                    >Контакты</NuxtLink
+                  <nuxt-link class="header-absolute__link" to="/"
+                    >Контакты</nuxt-link
                   >
                 </li>
 
                 <li class="header-absolute__item">
-                  <NuxtLink class="header-absolute__link" to="/register"
-                    >Зарегистрироваться</NuxtLink
+                  <nuxt-link class="header-absolute__link" to="/register"
+                    >Зарегистрироваться</nuxt-link
                   >
                 </li>
               </ul>
@@ -93,7 +95,9 @@
           <div class="header__row_right">
             <ul class="header-right__list_left">
               <li class="header-right__item">
-                <NuxtLink class="header-right__link" to="/">Контакты</NuxtLink>
+                <nuxt-link class="header-right__link" to="/"
+                  >Контакты</nuxt-link
+                >
               </li>
 
               <li class="header-right__item">
@@ -149,8 +153,8 @@
                   </button>
                 </li>
                 <li class="header-absolute__item">
-                  <NuxtLink class="header-absolute__link" to="/"
-                    >Контакты</NuxtLink
+                  <nuxt-link class="header-absolute__link" to="/"
+                    >Контакты</nuxt-link
                   >
                 </li>
 
@@ -383,7 +387,7 @@ export default {
 
 .header-absolute__list {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   flex-direction: column;
 }
 

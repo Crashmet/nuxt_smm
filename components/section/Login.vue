@@ -172,9 +172,9 @@ export default {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   margin-bottom: 1.6111rem;
   width: 100%;
 }

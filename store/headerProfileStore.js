@@ -3,12 +3,12 @@ export const state = () => ({
     {
       name: "Блогер",
       isActive: true,
-      routerName: "/account/bloger&profile",
+      routerName: "/account/bloger.profile",
     },
     {
       name: "Рекламодатель",
       isActive: false,
-      routerName: "/account/advertiser&profile",
+      routerName: "/account/advertiser.profile",
     },
   ],
 
@@ -16,17 +16,17 @@ export const state = () => ({
     {
       name: "Профиль",
       isActive: true,
-      routerName: "/account/bloger&profile",
+      routerName: "/account/bloger.profile",
     },
     {
       name: "Финансы",
       isActive: false,
-      routerName: "/account/bloger&finance",
+      routerName: "/account/bloger.finance",
     },
     {
       name: "Заказы",
       isActive: false,
-      routerName: "/account/bloger&orders",
+      routerName: "/account/bloger.orders",
     },
   ],
 
@@ -34,17 +34,17 @@ export const state = () => ({
     {
       name: "Профиль",
       isActive: true,
-      routerName: "/account/advertiser&profile",
+      routerName: "/account/advertiser.profile",
     },
     {
       name: "Финансы",
       isActive: false,
-      routerName: "/account/advertiser&finance",
+      routerName: "/account/advertiser.finance",
     },
     {
       name: "Заказы",
       isActive: false,
-      routerName: "/account/advertiser&orders/",
+      routerName: "/account/advertiser.orders/",
     },
   ],
 });
