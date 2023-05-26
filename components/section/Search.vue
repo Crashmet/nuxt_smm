@@ -30,18 +30,18 @@ export default {
     return {
       searchInput: "",
 
-      pageSize: "",
+      pageSize: 12,
     };
   },
 
-  created() {
-    // const maxWidth = window.screen.width;
+  mounted() {
+    const maxWidth = window.screen.width;
 
-    // if (maxWidth === 735) {
-    //   this.pageSize = 10;
-    // } else {
-    this.pageSize = 12;
-    // }
+    if (maxWidth < 735) {
+      this.pageSize = 10;
+    } else {
+      this.pageSize = 12;
+    }
   },
 
   computed: {

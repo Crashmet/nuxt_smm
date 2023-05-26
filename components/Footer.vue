@@ -5,11 +5,9 @@
         <li class="foooter__item">
           <ul class="footer-info footer-info__list">
             <li class="footer-info__item footer-info__item_logo">
-              <router-link class="footer-info__logo" to="/">
+              <NuxtLink class="footer-info__logo" to="/">
                 <h2 class="footer-info-logo__title_left">SMM</h2>
-                <h2 class="footer-info-logo__title_right">
-                  Planeta
-                </h2></router-link
+                <h2 class="footer-info-logo__title_right">Planeta</h2></NuxtLink
               >
               <p class="footer-info-logo__desc">более 50000 блогеров</p>
             </li>
@@ -92,7 +90,7 @@
 
 <script>
 export default {
-  name: 'Footer',
+  name: "Footer",
 };
 </script>
 

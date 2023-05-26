@@ -1,7 +1,7 @@
 <template>
   <div class="new-order">
-    <router-link class="new-order__link" to="home"
-      >Разместить новый заказ</router-link
+    <NuxtLink class="new-order__link" to="home"
+      >Разместить новый заказ</NuxtLink
     >
 
     <div class="new-order__body body">
@@ -131,9 +131,9 @@
         </li>
 
         <li class="body__cell body-footer__link">
-          <router-link to="select">
+          <NuxtLink to="select">
             <p class="footer__link">Разместить заказ</p>
-          </router-link>
+          </NuxtLink>
         </li>
       </ul>
     </div>
@@ -142,7 +142,7 @@
 
 <script>
 export default {
-  name: 'AdvertiserOrdersNewOrder',
+  name: "AdvertiserOrdersNewOrder",
 };
 </script>
 

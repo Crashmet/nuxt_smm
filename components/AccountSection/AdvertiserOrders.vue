@@ -1,9 +1,9 @@
 <template>
-  <router-view />
+  <NuxtChild />
 </template>
 
 <script>
 export default {
-  name: 'BlogerOrders',
+  name: "BlogerOrders",
 };
 </script>

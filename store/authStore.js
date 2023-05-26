@@ -1,5 +1,3 @@
-import { AuthAPI } from "@/api/AuthAPI";
-
 export const state = () => ({
   loginData: {
     username: "",
@@ -7,23 +5,14 @@ export const state = () => ({
   },
 
   validatorResponse: {},
-
-  access_token: null,
-  // localStorage.getItem("access_token") ||
-  // localStorage.getItem("refresh_token") ||
-  refresh_token: null,
 });
 
-export const getters = () => ({
+export const getters = {
   validatorResponse: ({ validatorResponse }) => validatorResponse,
+};
 
-  access_token: ({ access_token }) => access_token,
-});
-
-export const mutations = () => ({
+export const mutations = {
   SET_ACCESS_TOKEN(state, token) {
-    console.log(state.access_token);
-
     state.access_token = token;
 
     localStorage.setItem("access_token", token);
@@ -43,16 +32,17 @@ export const mutations = () => ({
   SET_VALIDATOR_DATA(state, validatorResponse) {
     state.validatorResponse = validatorResponse;
   },
-});
+};
 
-export const actions = () => ({
-  onLogin({ commit }, loginData) {
+export const actions = {
+  async onLogin({ commit }, loginData) {
     const dataJson = JSON.stringify(loginData);
 
-    AuthAPI.login(dataJson)
+    await this.$axios
+      .$post("account/token/", dataJson)
       .then(function (response) {
-        commit("SET_ACCESS_TOKEN", response.data.access);
-        commit("SET_REFRESH_TOKEN", response.data.refresh);
+        commit("SET_ACCESS_TOKEN", response.access);
+        commit("SET_REFRESH_TOKEN", response.refresh);
 
         commit("SET_VALIDATOR_DATA", {});
 
@@ -61,15 +51,15 @@ export const actions = () => ({
       .catch(function (error) {
         commit("DELETE_STATUS");
 
-        commit("SET_VALIDATOR_DATA", error.response.data);
+        // commit("SET_VALIDATOR_DATA", response.data);
       });
   },
 
-  onLogout({ commit }) {
+  async onLogout({ commit }) {
     commit("DELETE_STATUS");
 
-    AuthAPI.logout();
+    // await this.$axios.$delete();
 
-    location.reload();
+    // location.reload();
   },
-});
+};

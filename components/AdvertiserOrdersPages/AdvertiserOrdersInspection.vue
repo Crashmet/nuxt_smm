@@ -45,7 +45,7 @@
           <td>link 1</td>
           <td>кнопка</td>
           <td>
-            <router-link class="table__chat-btn" to="chat"> чат </router-link>
+            <NuxtLink class="table__chat-btn" to="chat"> чат </NuxtLink>
           </td>
         </tr>
 
@@ -62,7 +62,7 @@
           <td>link 1</td>
           <td>кнопка</td>
           <td>
-            <router-link class="table__chat-btn" to="chat"> чат </router-link>
+            <NuxtLink class="table__chat-btn" to="chat"> чат </NuxtLink>
           </td>
         </tr>
 
@@ -79,7 +79,7 @@
           <td>link 1</td>
           <td>кнопка</td>
           <td>
-            <router-link class="table__chat-btn" to="chat"> чат </router-link>
+            <NuxtLink class="table__chat-btn" to="chat"> чат </NuxtLink>
           </td>
         </tr>
 
@@ -96,7 +96,7 @@
           <td>link 1</td>
           <td>кнопка</td>
           <td>
-            <router-link class="table__chat-btn" to="chat"> чат </router-link>
+            <NuxtLink class="table__chat-btn" to="chat"> чат </NuxtLink>
           </td>
         </tr>
 
@@ -113,7 +113,7 @@
           <td>link 1</td>
           <td>кнопка</td>
           <td>
-            <router-link class="table__chat-btn" to="chat"> чат </router-link>
+            <NuxtLink class="table__chat-btn" to="chat"> чат </NuxtLink>
           </td>
         </tr>
 
@@ -130,7 +130,7 @@
           <td>link 1</td>
           <td>кнопка</td>
           <td>
-            <router-link class="table__chat-btn" to="chat"> чат </router-link>
+            <NuxtLink class="table__chat-btn" to="chat"> чат </NuxtLink>
           </td>
         </tr>
 
@@ -147,7 +147,7 @@
           <td>link 1</td>
           <td>кнопка</td>
           <td>
-            <router-link class="table__chat-btn" to="chat"> чат </router-link>
+            <NuxtLink class="table__chat-btn" to="chat"> чат </NuxtLink>
           </td>
         </tr>
 
@@ -164,7 +164,7 @@
           <td>link 1</td>
           <td>кнопка</td>
           <td>
-            <router-link class="table__chat-btn" to="chat"> чат </router-link>
+            <NuxtLink class="table__chat-btn" to="chat"> чат </NuxtLink>
           </td>
         </tr>
 
@@ -181,7 +181,7 @@
           <td>link 1</td>
           <td>кнопка</td>
           <td>
-            <router-link class="table__chat-btn" to="chat"> чат </router-link>
+            <NuxtLink class="table__chat-btn" to="chat"> чат </NuxtLink>
           </td>
         </tr>
       </tbody>
@@ -202,7 +202,7 @@
 
 <script>
 export default {
-  name: 'AdvertiserOrdersChat',
+  name: "AdvertiserOrdersChat",
 };
 </script>
 

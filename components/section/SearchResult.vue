@@ -164,29 +164,29 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters } from "vuex";
 
 export default {
-  name: 'SearchResult',
+  name: "SearchResult",
 
   data() {
     return {
       pageSize: null,
 
-      ordering: '',
+      ordering: "",
     };
   },
 
-  created() {
+  mounted() {
     const maxWidth = window.screen.width;
 
-    if (maxWidth === 735) {
+    if (maxWidth < 735) {
       this.pageSize = 10;
     } else {
       this.pageSize = 12;
     }
 
-    const searchData = JSON.parse(localStorage.getItem('search-list'));
+    const searchData = JSON.parse(localStorage.getItem("search-list")) || null;
 
     if (searchData) {
       this.setActivePage(searchData.activePage);
@@ -204,7 +204,7 @@ export default {
   },
 
   unmounted() {
-    this.setSearchRequest('');
+    this.setSearchRequest("");
   },
 
   computed: {
@@ -226,10 +226,10 @@ export default {
       setSearchRequest: "searchStore/setSearchRequest",
       addSearchResult: "searchStore/addSearchResult",
       setActivePage: "searchStore/setActivePage",
-      saveSearchRequestLocalStorage: "searchStore/saveSearchRequestLocalStorage",
+      saveSearchRequestLocalStorage:
+        "searchStore/saveSearchRequestLocalStorage",
       refreshFiltersTitles: "searchStore/refreshFiltersTitles",
     }),
-    
 
     handlerClickFiltersTitles(item) {
       let { title, isSortUp, APIRequestUp, APIRequestDown } = item;
@@ -368,13 +368,13 @@ export default {
 }
 
 .search-nav__item_arrow::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0.6111rem;
   right: 0.6111rem;
   width: 1.0556rem;
   height: 1.0556rem;
-  background-image: url('../../assets/image/arrow.svg');
+  background-image: url("../../assets/image/arrow.svg");
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: contain;

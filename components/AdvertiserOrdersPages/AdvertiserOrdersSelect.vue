@@ -2,9 +2,9 @@
   <div class="select">
     <ul class="select-menu__row">
       <li class="select-menu__cell">
-        <router-link to="inspection">
+        <NuxtLink to="inspection">
           <span class="select-menu__text">Компания №1</span>
-        </router-link>
+        </NuxtLink>
       </li>
       <li class="select-menu__cell">
         <span class="select-menu__text">Название компании</span>
@@ -231,7 +231,7 @@
 
 <script>
 export default {
-  name: 'AdvertiserOrdersSelect',
+  name: "AdvertiserOrdersSelect",
 };
 </script>
 
@@ -366,7 +366,7 @@ td {
 }
 
 .left-body__cell::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 1.1111rem;
   height: 1.1111rem;
@@ -376,7 +376,7 @@ td {
 }
 
 .left-body__cell_active::after {
-  background-image: url('../../assets/image/check.svg');
+  background-image: url("../../assets/image/check.svg");
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: contain;

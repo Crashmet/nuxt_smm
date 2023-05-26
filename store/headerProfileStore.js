@@ -49,13 +49,13 @@ export const state = () => ({
   ],
 });
 
-export const getters = () => ({
+export const getters = {
   users: ({ users }) => users,
   blogerMenu: ({ blogerMenu }) => blogerMenu,
   advertiserMenu: ({ advertiserMenu }) => advertiserMenu,
-});
+};
 
-export const mutations = () => ({
+export const mutations = {
   SET_USER_STATUS({ users }, name) {
     users.forEach((el) => {
       el.isActive = false;
@@ -98,9 +98,9 @@ export const mutations = () => ({
       }
     });
   },
-});
+};
 
-export const actions = () => ({
+export const actions = {
   setUserStatus({ commit }, name) {
     commit("SET_USER_STATUS", name);
   },
@@ -120,4 +120,4 @@ export const actions = () => ({
   setAdvertiserMenuRouter({ commit }, routerName) {
     commit("SET_ADVERTISER_MENU_ROUTER", routerName);
   },
-});
+};

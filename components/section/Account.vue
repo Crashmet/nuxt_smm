@@ -3,7 +3,7 @@
     <div class="account__container container">
       <div class="account__main">
         <header-profile />
-        <router-view />
+        <NuxtChild />
       </div>
     </div>
   </section>

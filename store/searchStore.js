@@ -1,5 +1,3 @@
-import { SearchResultAPI } from "@/api/SearchResultAPI";
-
 export const state = () => ({
   searchRequest: "",
 
@@ -48,7 +46,7 @@ export const state = () => ({
   ],
 });
 
-export const getters = () => ({
+export const getters = {
   searchRequest: ({ searchRequest }) => searchRequest,
 
   activePage: ({ activePage }) => activePage,
@@ -58,9 +56,9 @@ export const getters = () => ({
   searchResult: ({ searchResult }) => searchResult,
 
   filtersTitles: ({ filtersTitles }) => filtersTitles,
-});
+};
 
-export const mutations = () => ({
+export const mutations = {
   REFRESH_FILTER_TITLE(state, filterTitle) {
     const newfiltersTitles = state.filtersTitles.map((el) => {
       if (el.title === filterTitle.title) {
@@ -122,9 +120,9 @@ export const mutations = () => ({
 
     state.searchResult = resultsData;
   },
-});
+};
 
-export const actions = () => ({
+export const actions = {
   setActivePage({ commit }, value) {
     commit("SET_ACTIVE_PAGE", value);
   },
@@ -133,11 +131,17 @@ export const actions = () => ({
     commit("SET_SEARCH_REQUEST", searchInput);
   },
 
-  addSearchResult({ commit }, { ordering, activePage, pageSize, searchInput }) {
-    SearchResultAPI.getSearchResult(ordering, activePage, pageSize, searchInput)
+  async addSearchResult(
+    { commit },
+    { ordering, activePage, pageSize, searchInput }
+  ) {
+    await this.$axios
+      .$get(
+        `bloggers/?ordering=${ordering}&page=${activePage}&page_size=${pageSize}&search=${searchInput}`
+      )
       .then(function (response) {
-        commit("SET_COUNT_CARDS", response.data.count);
-        commit("ADD_SEARCH_RESULT", response.data.results);
+        commit("SET_COUNT_CARDS", response.count);
+        commit("ADD_SEARCH_RESULT", response.results);
       })
       .catch(function (error) {
         console.log(error);
@@ -160,4 +164,4 @@ export const actions = () => ({
   resetFiltersTitles({ commit }) {
     commit("RESET_FILTER_TITLE");
   },
-});
+};

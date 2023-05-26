@@ -1,5 +1,3 @@
-import { RegisterAPI } from "@/api/RegisterAPI";
-
 export const state = () => ({
   registerData: {
     email: "",
@@ -15,13 +13,13 @@ export const state = () => ({
   entryStatus: null,
 });
 
-export const getters = () => ({
+export const getters = {
   validatorResponse: ({ validatorResponse }) => validatorResponse,
 
   entryStatus: ({ entryStatus }) => entryStatus,
-});
+};
 
-export const mutations = () => ({
+export const mutations = {
   SET_VALIDATOR_DATA(state, validatorResponse) {
     state.validatorResponse = validatorResponse;
   },
@@ -31,13 +29,14 @@ export const mutations = () => ({
 
     localStorage.setItem("entry-status", JSON.stringify(status));
   },
-});
+};
 
-export const actions = () => ({
-  onRegistration({ commit }, registerData) {
+export const actions = {
+  async onRegistration({ commit }, registerData) {
     const dataJson = JSON.stringify(registerData);
 
-    RegisterAPI.register(dataJson)
+    await this.$axios
+      .$post("account/register/", dataJson)
       .then(function (response) {
         const status = String(response.status);
 
@@ -46,7 +45,7 @@ export const actions = () => ({
         commit("SET_VALIDATOR_DATA", {});
       })
       .catch(function (error) {
-        commit("SET_VALIDATOR_DATA", error.response.data);
+        commit("SET_VALIDATOR_DATA", error.response);
       });
   },
-});
+};

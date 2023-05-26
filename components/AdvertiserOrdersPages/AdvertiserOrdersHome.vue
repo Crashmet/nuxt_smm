@@ -1,8 +1,8 @@
 <template>
   <div class="advertiser-oreders-home home">
-    <router-link class="home__link" to="new-order">
+    <NuxtLink class="home__link" to="new-order">
       Разместить новый заказ
-    </router-link>
+    </NuxtLink>
 
     <table>
       <thead>
@@ -101,7 +101,7 @@
 
 <script>
 export default {
-  name: 'AdvertiserOrdersHome',
+  name: "AdvertiserOrdersHome",
 };
 </script>
 

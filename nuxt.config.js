@@ -48,11 +48,27 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: process.env.NUXT_API_ACC_URL,
+    baseURL: process.env.ACC_API_URL,
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
+  },
+
+  publicRuntimeConfig: {
+    axios: {
+      browserBaseURL: process.env.ACC_API_URL,
+    },
+  },
+
+  privateRuntimeConfig: {
+    axios: {
+      baseURL: process.env.ACC_API_URL,
+    },
+  },
+
+  transition: {
+    mode: "in-out",
   },
 
   /*

@@ -3,9 +3,9 @@
     <div class="container header__container">
       <div class="header__row">
         <div class="header__row_left">
-          <router-link class="header-left__logo" to="/">
+          <NuxtLink class="header-left__logo" to="/">
             <h2 class="header-left-logo__title_left">SMM</h2>
-            <h2 class="header-left-logo__title_right">Planeta</h2></router-link
+            <h2 class="header-left-logo__title_right">Planeta</h2></NuxtLink
           >
           <p class="header-left__desc">более 50000 блогеров</p>
         </div>
@@ -14,21 +14,19 @@
           <div class="header__row_right">
             <ul class="header-right__list_left">
               <li class="header-right__item">
-                <router-link class="header-right__link" to="/"
-                  >Контакты</router-link
-                >
+                <NuxtLink class="header-right__link" to="/">Контакты</NuxtLink>
               </li>
 
               <li class="header-right__item">
-                <router-link class="header-right__link" to="/register"
-                  >Зарегистрироваться</router-link
+                <NuxtLink class="header-right__link" to="/register"
+                  >Зарегистрироваться</NuxtLink
                 >
               </li>
             </ul>
 
-            <router-link to="/login" class="header-right__button_left">
+            <NuxtLink to="/login" class="header-right__button_left">
               <span class="header-right-button__text">Войти</span>
-            </router-link>
+            </NuxtLink>
 
             <button
               class="header-right__menu"
@@ -76,14 +74,14 @@
                   </button>
                 </li>
                 <li class="header-absolute__item">
-                  <router-link class="header-absolute__link" to="/"
-                    >Контакты</router-link
+                  <NuxtLink class="header-absolute__link" to="/"
+                    >Контакты</NuxtLink
                   >
                 </li>
 
                 <li class="header-absolute__item">
-                  <router-link class="header-absolute__link" to="/register"
-                    >Зарегистрироваться</router-link
+                  <NuxtLink class="header-absolute__link" to="/register"
+                    >Зарегистрироваться</NuxtLink
                   >
                 </li>
               </ul>
@@ -95,18 +93,13 @@
           <div class="header__row_right">
             <ul class="header-right__list_left">
               <li class="header-right__item">
-                <router-link class="header-right__link" to="/"
-                  >Контакты</router-link
-                >
+                <NuxtLink class="header-right__link" to="/">Контакты</NuxtLink>
               </li>
 
               <li class="header-right__item">
-                <router-link
-                  @click="handlerLogout()"
-                  class="header-right__link"
-                  to="/"
-                  >Выйти из аккаунта</router-link
-                >
+                <button @click="handlerLogout()" class="header-right__link">
+                  Выйти из аккаунта
+                </button>
               </li>
             </ul>
 
@@ -156,18 +149,18 @@
                   </button>
                 </li>
                 <li class="header-absolute__item">
-                  <router-link class="header-absolute__link" to="/"
-                    >Контакты</router-link
+                  <NuxtLink class="header-absolute__link" to="/"
+                    >Контакты</NuxtLink
                   >
                 </li>
 
                 <li class="header-absolute__item">
-                  <router-link
+                  <button
                     @click="handlerLogout()"
                     class="header-absolute__link"
-                    to="/"
-                    >Выйти из аккаунта</router-link
                   >
+                    Выйти из аккаунта
+                  </button>
                 </li>
               </ul>
             </div>
@@ -187,13 +180,17 @@ export default {
   data() {
     return {
       isActiveMenu: false,
+      access_token: null,
     };
+  },
+
+  mounted() {
+    this.access_token = localStorage.getItem("access_token") || null;
   },
 
   computed: {
     ...mapGetters({
       users: "headerProfileStore/users",
-      access_token: "authStore/access_token",
     }),
 
     lastPageAccount() {
@@ -207,6 +204,8 @@ export default {
     ...mapActions({ onLogout: "authStore/onLogout" }),
 
     handlerLogout() {
+      this.$router.push({ path: "/" });
+
       this.onLogout();
     },
   },
@@ -317,6 +316,7 @@ export default {
 .header-right__link {
   font-size: 1rem;
   color: #0d0d0d;
+  background-color: transparent;
   -webkit-transition: color 0.2s ease-in;
   -o-transition: color 0.2s ease-in;
   transition: color 0.2s ease-in;
@@ -389,6 +389,7 @@ export default {
 .header-absolute__link {
   font-size: 1rem;
   color: #0d0d0d;
+  background-color: transparent;
   -webkit-transition: color 0.2s ease-in;
   -o-transition: color 0.2s ease-in;
   transition: color 0.2s ease-in;
