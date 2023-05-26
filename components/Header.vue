@@ -186,6 +186,8 @@ export default {
 
   mounted() {
     this.access_token = localStorage.getItem("access_token") || null;
+
+    this.setSearchRequest("");
   },
 
   computed: {
@@ -201,7 +203,10 @@ export default {
   },
 
   methods: {
-    ...mapActions({ onLogout: "authStore/onLogout" }),
+    ...mapActions({
+      onLogout: "authStore/onLogout",
+      setSearchRequest: "searchStore/setSearchRequest",
+    }),
 
     handlerLogout() {
       this.$router.push({ path: "/" });

@@ -203,10 +203,6 @@ export default {
     this.historyPushState();
   },
 
-  unmounted() {
-    this.setSearchRequest("");
-  },
-
   computed: {
     ...mapGetters({
       searchRequest: "searchStore/searchRequest",
