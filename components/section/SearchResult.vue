@@ -186,7 +186,7 @@ export default {
       this.pageSize = 12;
     }
 
-    const searchData = JSON.parse(localStorage.getItem("search-list")) || null;
+    const searchData = JSON.parse(localStorage.getItem("search-list"));
 
     if (searchData) {
       this.setActivePage(searchData.activePage);
@@ -254,7 +254,7 @@ export default {
       window.history.pushState(
         window.history.state,
         document.title,
-        `${window.location.pathname}#/search-result?page=${this.activePage}&page_size=${this.pageSize}&search=${this.searchRequest}`
+        `${window.location.pathname}/search-result?page=${this.activePage}&page_size=${this.pageSize}&search=${this.searchRequest}`
       );
     },
 

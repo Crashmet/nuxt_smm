@@ -60,6 +60,6 @@ export const actions = {
 
     // await this.$axios.$delete();
 
-    // location.reload();
+    location.reload();
   },
 };

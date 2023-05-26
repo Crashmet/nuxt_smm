@@ -1,45 +1,45 @@
 <template>
-  <div class="header-profile">
-    <ul class="header-profile__row">
+  <div class="profile-menu">
+    <ul class="profile-menu__row">
       <li
-        class="header-profile__cell"
+        class="profile-menu__cell"
         v-for="user in users"
         :key="user.name"
         @click="handlerClickUser(user.name, user.routerName)"
       >
         <span
-          class="header-profile__text"
-          :class="user.isActive ? 'header-profile__text_active' : ''"
+          class="profile-menu__text"
+          :class="user.isActive ? 'profile-menu__text_active' : ''"
           >{{ user.name }}</span
         >
       </li>
     </ul>
 
-    <ul class="header-profile__row" v-if="users[0].isActive">
+    <ul class="profile-menu__row" v-if="users[0].isActive">
       <li
-        class="header-profile__cell"
+        class="profile-menu__cell"
         v-for="setting in blogerMenu"
         :key="setting.name"
         @click="handlerClickBlogerMenu(setting.name, setting.routerName)"
       >
         <span
-          class="header-profile__text"
-          :class="setting.isActive ? 'header-profile__text_active' : ''"
+          class="profile-menu__text"
+          :class="setting.isActive ? 'profile-menu__text_active' : ''"
           >{{ setting.name }}</span
         >
       </li>
     </ul>
 
-    <ul class="header-profile__row" v-else>
+    <ul class="profile-menu__row" v-else>
       <li
-        class="header-profile__cell"
+        class="profile-menu__cell"
         v-for="setting in advertiserMenu"
-        :key="setting"
+        :key="setting.name"
         @click="handlerClickAdvertiserMenu(setting.name, setting.routerName)"
       >
         <span
-          class="header-profile__text"
-          :class="setting.isActive ? 'header-profile__text_active' : ''"
+          class="profile-menu__text"
+          :class="setting.isActive ? 'profile-menu__text_active' : ''"
           >{{ setting.name }}</span
         >
       </li>
@@ -51,7 +51,7 @@
 import { mapGetters, mapActions } from "vuex";
 
 export default {
-  name: "HeaderProfile",
+  name: "ProfileMenu",
 
   data() {
     return {};
@@ -59,19 +59,19 @@ export default {
 
   computed: {
     ...mapGetters({
-      users: "headerProfileStore/users",
-      blogerMenu: "headerProfileStore/blogerMenu",
-      advertiserMenu: "headerProfileStore/advertiserMenu",
+      users: "profileMenuStore/users",
+      blogerMenu: "profileMenuStore/blogerMenu",
+      advertiserMenu: "profileMenuStore/advertiserMenu",
     }),
   },
 
   methods: {
     ...mapActions({
-      setUserStatus: "headerProfileStore/setUserStatus",
-      setBlogerMenuStatus: "headerProfileStore/setBlogerMenuStatus",
-      setBlogerMenuRouter: "headerProfileStore/setBlogerMenuRouter",
-      setAdvertiserMenuStatus: "headerProfileStore/setAdvertiserMenuStatus",
-      setAdvertiserMenuRouter: "headerProfileStore/setAdvertiserMenuRouter",
+      setUserStatus: "profileMenuStore/setUserStatus",
+      setBlogerMenuStatus: "profileMenuStore/setBlogerMenuStatus",
+      setBlogerMenuRouter: "profileMenuStore/setBlogerMenuRouter",
+      setAdvertiserMenuStatus: "profileMenuStore/setAdvertiserMenuStatus",
+      setAdvertiserMenuRouter: "profileMenuStore/setAdvertiserMenuRouter",
     }),
 
     handlerClickUser(name, routerName) {
@@ -102,8 +102,8 @@ export default {
 * Browsers: last 4 version
 */
 
-.header-profile__cell:hover > .header-profile__text,
-.header-profile__cell:active > .header-profile__text {
+.profile-menu__cell:hover > .profile-menu__text,
+.profile-menu__cell:active > .profile-menu__text {
   font-size: 1.1111rem;
   line-height: 1.2778rem;
   color: #ff3600;
@@ -113,28 +113,28 @@ export default {
   transition: all 0.3s ease;
 }
 
-.header-profile {
+.profile-menu {
   cursor: pointer;
 }
 
-.header-profile__row {
+.profile-menu__row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 0.2778rem;
 }
 
-.header-profile__cell:first-child {
+.profile-menu__cell:first-child {
   max-width: 9.2222rem;
   width: 100%;
 }
 
-.header-profile__cell:nth-child(2) {
+.profile-menu__cell:nth-child(2) {
   max-width: 10.7222rem;
   width: 100%;
 }
 
-.header-profile__text_active {
+.profile-menu__text_active {
   font-size: 1.1111rem;
   line-height: 1.2778rem;
   color: #ff3600;
@@ -145,7 +145,7 @@ export default {
 }
 
 @media (max-width: 480px) {
-  .header-profile__cell:nth-child(2) {
+  .profile-menu__cell:nth-child(2) {
     max-width: 108px;
     width: 100%;
   }

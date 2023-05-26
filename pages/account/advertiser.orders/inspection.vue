@@ -45,7 +45,7 @@
           <td>link 1</td>
           <td>кнопка</td>
           <td>
-            <NuxtLink class="table__chat-btn" to="chat"> чат </NuxtLink>
+            <nuxt-link class="table__chat-btn" to="chat"> чат </nuxt-link>
           </td>
         </tr>
 
@@ -62,7 +62,7 @@
           <td>link 1</td>
           <td>кнопка</td>
           <td>
-            <NuxtLink class="table__chat-btn" to="chat"> чат </NuxtLink>
+            <nuxt-link class="table__chat-btn" to="chat"> чат </nuxt-link>
           </td>
         </tr>
 
@@ -79,7 +79,7 @@
           <td>link 1</td>
           <td>кнопка</td>
           <td>
-            <NuxtLink class="table__chat-btn" to="chat"> чат </NuxtLink>
+            <nuxt-link class="table__chat-btn" to="chat"> чат </nuxt-link>
           </td>
         </tr>
 
@@ -224,20 +224,19 @@ export default {
 }
 
 .inspection-menu__cell:first-child {
-  max-width: 9.2222rem;
+  max-width: 9rem;
   width: 100%;
 }
 
 .inspection-menu__cell:nth-child(2) {
-  max-width: 10.7222rem;
+  max-width: 12rem;
   width: 100%;
 }
 
 .inspection-menu__cell:hover > .inspection-menu__text,
 .inspection-menu__cell:active > .inspection-menu__text {
-  font-size: 1.1111rem;
-  line-height: 1.2778rem;
   color: #ff3600;
+  width: 100%;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;

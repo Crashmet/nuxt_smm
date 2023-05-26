@@ -5,9 +5,11 @@
         <li class="foooter__item">
           <ul class="footer-info footer-info__list">
             <li class="footer-info__item footer-info__item_logo">
-              <NuxtLink class="footer-info__logo" to="/">
+              <nuxt-link class="footer-info__logo" to="/">
                 <h2 class="footer-info-logo__title_left">SMM</h2>
-                <h2 class="footer-info-logo__title_right">Planeta</h2></NuxtLink
+                <h2 class="footer-info-logo__title_right">
+                  Planeta
+                </h2></nuxt-link
               >
               <p class="footer-info-logo__desc">более 50000 блогеров</p>
             </li>

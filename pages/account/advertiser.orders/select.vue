@@ -2,9 +2,9 @@
   <div class="select">
     <ul class="select-menu__row">
       <li class="select-menu__cell">
-        <NuxtLink to="inspection">
+        <nuxt-link to="inspection">
           <span class="select-menu__text">Компания №1</span>
-        </NuxtLink>
+        </nuxt-link>
       </li>
       <li class="select-menu__cell">
         <span class="select-menu__text">Название компании</span>
@@ -253,19 +253,19 @@ export default {
 }
 
 .select-menu__cell:first-child {
-  max-width: 9.2222rem;
+  max-width: 9rem;
   width: 100%;
 }
 
 .select-menu__cell:nth-child(2) {
-  max-width: 10.7222rem;
+  max-width: 12rem;
   width: 100%;
 }
 
 .select-menu__cell:hover > .select-menu__text,
 .select-menu__cell:active > .select-menu__text {
-  font-size: 1.1111rem;
-  line-height: 1.2778rem;
+  display: inline-block;
+  width: 100%;
   color: #ff3600;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   -webkit-transition: all 0.3s ease;
@@ -376,7 +376,7 @@ td {
 }
 
 .left-body__cell_active::after {
-  background-image: url("../../assets/image/check.svg");
+  background-image: url("@/assets/image/check.svg");
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: contain;

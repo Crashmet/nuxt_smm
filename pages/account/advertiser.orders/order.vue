@@ -1,7 +1,7 @@
 <template>
   <div class="new-order">
-    <NuxtLink class="new-order__link" to="home"
-      >Разместить новый заказ</NuxtLink
+    <nuxt-link class="new-order__link" to="home"
+      >Разместить новый заказ</nuxt-link
     >
 
     <div class="new-order__body body">
@@ -131,9 +131,9 @@
         </li>
 
         <li class="body__cell body-footer__link">
-          <NuxtLink to="select">
+          <nuxt-link to="select">
             <p class="footer__link">Разместить заказ</p>
-          </NuxtLink>
+          </nuxt-link>
         </li>
       </ul>
     </div>

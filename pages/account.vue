@@ -7,7 +7,7 @@
       <section class="account">
         <div class="account__container container">
           <div class="account__main">
-            <header-profile />
+            <profile-menu />
             <nuxt-child />
           </div>
         </div>
@@ -28,7 +28,7 @@ import Search from "@/components/section/Search.vue";
 import Statistics from "@/components/section/Statistics.vue";
 import Footer from "@/components/Footer.vue";
 
-import HeaderProfile from "@/components/AccountSection/HeaderProfile.vue";
+import ProfileMenu from "@/components/AccountSection/profileMenu.vue";
 
 export default {
   name: "AccountPage",
@@ -37,7 +37,7 @@ export default {
     Search,
     Statistics,
     Footer,
-    HeaderProfile,
+    ProfileMenu,
   },
 
   mounted() {
@@ -48,7 +48,7 @@ export default {
 
   computed: {
     ...mapGetters({
-      users: "headerProfileStore/users",
+      users: "profileMenuStore/users",
     }),
   },
 };

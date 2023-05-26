@@ -68,7 +68,7 @@
 
 <script>
 export default {
-  name: 'AdvertiserOrderschat',
+  name: "AdvertiserOrderschat",
 };
 </script>
 
@@ -188,7 +188,7 @@ td {
 }
 
 .chat_check__cell::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 1.1111rem;
   height: 1.1111rem;
@@ -198,7 +198,7 @@ td {
 }
 
 .chat_check__cell_active::after {
-  background-image: url('../../assets/image/check.svg');
+  background-image: url("@/assets/image/check.svg");
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: contain;
@@ -237,9 +237,9 @@ td {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: end;
+  -webkit-box-pack: flex-end;
+  -ms-flex-pack: flex-end;
+  justify-content: flex-end;
 }
 
 .footer__input-label {
