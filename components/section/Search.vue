@@ -12,7 +12,7 @@
             <span class="search-line-btn__text">поиск</span>
           </button>
         </div>
-        <template v-if="searchRequest">
+        <template v-if="searchRequest.length > 0">
           <p class="search-bar__desc">Выдача по слову «{{ searchRequest }}»</p>
         </template>
       </div>
@@ -30,7 +30,7 @@ export default {
     return {
       searchInput: "",
 
-      pageSize: 12,
+      pageSize: null,
     };
   },
 
