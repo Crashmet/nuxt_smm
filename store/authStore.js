@@ -43,7 +43,7 @@ export const actions = {
 
     await this.$axios
       .$post("account/token/", dataJson)
-      .then(function (response) {
+      .then((response) => {
         commit("SET_ACCESS_TOKEN", response.access);
         commit("SET_REFRESH_TOKEN", response.refresh);
 
@@ -51,10 +51,10 @@ export const actions = {
 
         location.reload();
       })
-      .catch(function (error) {
+      .catch((error) => {
         commit("DELETE_STATUS");
 
-        // commit("SET_VALIDATOR_DATA", response.data);
+        commit("SET_VALIDATOR_DATA", error.response.data);
       });
   },
 

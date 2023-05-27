@@ -34,6 +34,7 @@ export const mutations = {
 export const actions = {
   async onRegistration({ commit }, registerData) {
     const dataJson = JSON.stringify(registerData);
+    console.log(dataJson);
 
     await this.$axios
       .$post("account/register/", dataJson)
@@ -45,7 +46,7 @@ export const actions = {
         commit("SET_VALIDATOR_DATA", {});
       })
       .catch(function (error) {
-        commit("SET_VALIDATOR_DATA", error.response);
+        commit("SET_VALIDATOR_DATA", error.response.data);
       });
   },
 };

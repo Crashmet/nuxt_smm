@@ -16,6 +16,8 @@ export default {
     if (token !== null) {
       this.setAccessToken(token);
     }
+
+    console.log(token);
   },
 
   methods: {

@@ -33,7 +33,7 @@ import ProfileMenu from "@/components/AccountSection/profileMenu.vue";
 export default {
   name: "AccountPage",
 
-  middleware: "auth",
+  // middleware: "authGuard",
 
   components: {
     Header,

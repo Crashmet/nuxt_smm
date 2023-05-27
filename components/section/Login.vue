@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "Login",
@@ -66,6 +66,12 @@ export default {
       validatorPassword: "",
       nonFieldErrors: "",
     };
+  },
+
+  computed: {
+    ...mapGetters({
+      validatorResponse: "authStore/validatorResponse",
+    }),
   },
 
   methods: {
@@ -96,13 +102,19 @@ export default {
 
     addValidatorMassages() {
       for (let el of Object.entries(this.validatorResponse)) {
-        const massage = el[1].reduce((acc, el) => acc + " " + el);
+        let massage = "";
+
+        if (Array.isArray(el[1])) {
+          massage = el[1].reduce((acc, el) => acc + " " + el);
+        } else {
+          massage = el[1];
+        }
 
         if (el[0] === "username") {
           this.validatorUsername = massage;
         } else if (el[0] === "password") {
           this.validatorPassword = massage;
-        } else if (el[0] === "non_field_errors") {
+        } else if (el[0] === "detail") {
           this.nonFieldErrors = massage;
         }
       }

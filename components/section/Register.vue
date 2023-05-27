@@ -37,6 +37,37 @@
               />
             </div>
 
+            <div class="register-form__item register-form__item-radio">
+              <div class="item-radio">
+                <input
+                  v-model="role"
+                  id="bloger-radio-input"
+                  value="blogger"
+                  type="radio"
+                  name="redirecttarget"
+                  class="item-radio__input"
+                  checked
+                />
+                <label for="bloger-radio-input" class="item-radio__label"
+                  >Блогер</label
+                >
+              </div>
+
+              <div class="item-radio">
+                <input
+                  v-model="role"
+                  id="advertiser-radio-input"
+                  value="advertiser"
+                  type="radio"
+                  name="redirecttarget"
+                  class="item-radio__input"
+                />
+                <label for="advertiser-radio-input" class="item-radio__label"
+                  >Рекламодатель</label
+                >
+              </div>
+            </div>
+
             <div class="register-form__item">
               <input
                 v-model="email"
@@ -108,6 +139,7 @@ export default {
       email: "",
       password: "",
       password2: "",
+      role: "blogger",
 
       validatorUsername: "",
       validatorPassword: "",
@@ -137,6 +169,7 @@ export default {
         password: this.password,
         password2: this.password2,
         username: this.username,
+        role: this.role,
       };
 
       this.onRegistration(registerData);
@@ -159,7 +192,13 @@ export default {
 
     addValidatorMassages() {
       for (let el of Object.entries(this.validatorResponse)) {
-        const massage = el[1].reduce((acc, el) => acc + " " + el);
+        let massage = "";
+
+        if (Array.isArray(el[1])) {
+          massage = el[1].reduce((acc, el) => acc + " " + el);
+        } else {
+          massage = el[1];
+        }
 
         if (el[0] === "email") {
           this.validatorEmail = massage;
@@ -169,7 +208,7 @@ export default {
           this.validatorPassword2 = massage;
         } else if (el[0] === "username") {
           this.validatorUsername = massage;
-        } else if (el[0] === "non_field_errors") {
+        } else if (el[0] === "detail") {
           this.nonFieldErrors = massage;
         }
       }
@@ -315,6 +354,89 @@ export default {
   text-decoration: underline;
   -webkit-text-decoration-color: #0d0d0d;
   text-decoration-color: #0d0d0d;
+}
+
+/* *** RADIO ***  */
+.register-form__item-radio {
+  display: flex;
+  margin-left: 10px;
+}
+
+.item-radio:not(:last-child) {
+  margin-right: 20px;
+}
+
+.item-radio__input {
+  position: absolute;
+  overflow: hidden;
+  visibility: hidden;
+  top: -9999px;
+  left: -9999px;
+  height: 1px;
+  width: 1px;
+  opacity: 0;
+}
+
+.item-radio__label {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  font-size: 0.8889rem;
+  margin: 0;
+  padding: 0 0 0 1.3889rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.item-radio__label:after,
+.item-radio__label:before {
+  position: absolute;
+  content: "";
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.item-radio__label:before {
+  left: 0;
+  top: 0.1667rem;
+  height: 1rem;
+  width: 1rem;
+  border: 0.1111rem solid rgba(255, 54, 0, 0.7);
+  background: #fff;
+}
+
+.item-radio__label:after {
+  height: 0.4722rem;
+  width: 0.4722rem;
+  left: 0.2667rem;
+  top: 0.4167rem;
+  background-color: transparent;
+}
+
+.item-radio__input:checked + .item-radio__label:before {
+  border-width: 0.1389rem;
+}
+
+.item-radio__input:checked + .item-radio__label:after {
+  background-color: rgba(255, 54, 0, 0.7);
+}
+
+@media (max-width: 480px) {
+  .item-radio__label:before {
+    top: 1.5px;
+  }
 }
 
 @media (max-width: 440px) {
