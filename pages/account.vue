@@ -28,7 +28,7 @@ import Search from "@/components/section/Search.vue";
 import Statistics from "@/components/section/Statistics.vue";
 import Footer from "@/components/Footer.vue";
 
-import ProfileMenu from "@/components/AccountSection/profileMenu.vue";
+import ProfileMenu from "@/components/AccountSection/ProfileMenu.vue";
 
 export default {
   name: "AccountPage",
