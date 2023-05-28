@@ -23,7 +23,7 @@
 <script>
 import { mapGetters } from "vuex";
 
-import Header from "../components/Header.vue";
+import Header from "@/components/Header.vue";
 import Search from "@/components/section/Search.vue";
 import Statistics from "@/components/section/Statistics.vue";
 import Footer from "@/components/Footer.vue";
