@@ -189,7 +189,7 @@
 </template>
 
 <script>
-import AdvertiserOrdersMenu from "~/components/AccountSection/AdvertiserOrdersMenu.vue";
+import AdvertiserOrdersMenu from "@/components/AccountSection/AdvertiserOrdersMenu.vue";
 
 export default {
   name: "AdvertiserOrdersChat",
