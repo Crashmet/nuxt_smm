@@ -45,13 +45,13 @@ export default {
 
   asyncData({ store }) {
     // console.log(store.state.authStore.access_token);
-    console.log(process.client);
+    // console.log(process.client);
 
-    if (process.client && localStorage.getItem("access_token")) {
-      console.log(localStorage.getItem("access_token"));
+    // if (process.client && localStorage.getItem("access_token")) {
+    console.log(localStorage.getItem("access_token"));
 
-      return true;
-    }
+    // return true;
+    // }
 
     return true;
   },
