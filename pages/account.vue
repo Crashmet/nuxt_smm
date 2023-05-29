@@ -43,6 +43,12 @@ export default {
     ProfileMenu,
   },
 
+  asyncData({ store }) {
+    console.log(store.state.authStore.access_token);
+
+    return true;
+  },
+
   mounted() {
     const pageActive = this.users.find((el) => el.isActive === true);
 
