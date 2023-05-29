@@ -13,11 +13,11 @@ export default {
   mounted() {
     const token = localStorage.getItem("access_token") || null;
 
-    if (token !== null) {
-      this.setAccessToken(token);
-    }
+    // if (token !== null) {
+    //   this.setAccessToken(token);
+    // }
 
-    console.log(token);
+    // console.log(token);
   },
 
   methods: {
