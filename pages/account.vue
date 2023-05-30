@@ -44,13 +44,18 @@ export default {
   },
 
   mounted() {
-    const pageActive = this.users.find((el) => el.isActive === true);
+    if (this.access_token === null) {
+      this.$router.push({ path: "/login" });
+    } else {
+      const pageActive = this.users.find((el) => el.isActive === true);
 
-    this.$router.push(pageActive.routerName);
+      this.$router.push(pageActive.routerName);
+    }
   },
 
   computed: {
     ...mapGetters({
+      access_token: "authStore/access_token",
       users: "profileMenuStore/users",
     }),
   },

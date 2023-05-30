@@ -188,6 +188,12 @@ export default {
   },
 
   mounted() {
+    const token = localStorage.getItem("access_token") || null;
+
+    if (token !== null) {
+      this.setAccessToken(token);
+    }
+
     this.setSearchRequest("");
   },
 
@@ -206,6 +212,7 @@ export default {
 
   methods: {
     ...mapActions({
+      setAccessToken: "authStore/setAccessToken",
       onLogout: "authStore/onLogout",
       setSearchRequest: "searchStore/setSearchRequest",
     }),

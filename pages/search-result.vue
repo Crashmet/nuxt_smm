@@ -27,14 +27,24 @@ export default {
     Footer,
   },
 
-  asyncData({ store }) {
-    // console.log(store.state.authStore.access_token);
-    // console.log(process.client);
-    // if (process.client && localStorage.getItem("access_token")) {
-    // console.log(localStorage.getItem("access_token"));
-    // return true;
-    // }
-    // return true;
-  },
+  // async asyncData({ $axios, store }) {
+  //   // console.log(process.client);
+
+  //   await store.dispatch("searchStore/addSearchResult", {
+  //     ordering: "",
+  //     activePage: 1,
+  //     pageSize: 12,
+  //     searchInput: "",
+  //   });
+
+  //   const searchResult = store.state.searchStore.searchResult;
+
+  //   const count = store.state.searchStore.count;
+
+  //   return {
+  //     count,
+  //     searchResult,
+  //   };
+  // },
 };
 </script>

@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 import Header from "@/components/Header.vue";
 import Search from "@/components/section/Search.vue";
 import Register from "@/components/section/Register.vue";
@@ -25,6 +27,18 @@ export default {
     Register,
     Statistics,
     Footer,
+  },
+
+  mounted() {
+    if (this.access_token !== null) {
+      this.$router.push({ path: "/account" });
+    }
+  },
+
+  computed: {
+    ...mapGetters({
+      access_token: "authStore/access_token",
+    }),
   },
 };
 </script>
