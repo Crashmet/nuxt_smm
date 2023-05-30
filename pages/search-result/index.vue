@@ -170,27 +170,24 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   name: "SearchResult",
 
-  // async asyncData({ $axios, store }) {
-  //   // console.log(process.client);
+  async fetch({ store }) {
+    const activePage = store.state.searchStore.activePage;
 
-  //   const activePage = store.state.searchStore.activePage;
+    await store.dispatch("searchStore/addSearchResult", {
+      ordering: "",
+      activePage,
+      pageSize: 12,
+      searchInput: "",
+    });
 
-  //   await store.dispatch("searchStore/addSearchResult", {
-  //     ordering: "",
-  //     activePage,
-  //     pageSize: 12,
-  //     searchInput: "",
-  //   });
+    // const searchResultSSR = store.state.searchStore.searchResult;
 
-  //   const searchResult = store.state.searchStore.searchResult;
+    // const countSSR = store.state.searchStore.count;
 
-  //   const count = store.state.searchStore.count;
+    // console.log(process.client);
 
-  //   return {
-  //     count,
-  //     searchResult,
-  //   };
-  // },
+    return;
+  },
 
   data() {
     return {
