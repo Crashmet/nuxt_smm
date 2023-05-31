@@ -1,11 +1,11 @@
-export default function (context) {
-  const cookieRes = context.app.$cookies.get("access_token");
+export default function ({ app, redirect, from }) {
+  const cookieRes = app.$cookies.get("access_token");
 
   if (cookieRes) {
-    if (context.from.matched[0].name === "account") {
-      return context.redirect(context.from.fullPath);
+    if (from && from.matched[0].name === "account") {
+      return redirect(from.fullPath);
     } else {
-      return context.redirect("/account");
+      return redirect("/account");
     }
   }
 }
