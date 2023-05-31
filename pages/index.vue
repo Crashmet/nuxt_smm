@@ -13,8 +13,6 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
 import Header from "@/components/Header.vue";
 import Search from "@/components/section/Search.vue";
 import Home from "@/components/section/Home.vue";
@@ -23,6 +21,9 @@ import Footer from "@/components/Footer.vue";
 
 export default {
   name: "HomePage",
+
+  middleware: "authDone",
+
   components: {
     Header,
     Search,
@@ -31,17 +32,11 @@ export default {
     Footer,
   },
 
-  mounted() {
-    if (this.access_token !== null) {
-      this.$router.push({ path: "/account" });
-    }
-  },
-
-  computed: {
-    ...mapGetters({
-      access_token: "authStore/access_token",
-    }),
-  },
+  // mounted() {
+  //   if (this.access_token !== null) {
+  //     this.$router.push({ path: "/account" });
+  //   }
+  // },
 };
 </script>
 

@@ -33,7 +33,7 @@ import ProfileMenu from "@/components/AccountSection/ProfileMenu.vue";
 export default {
   name: "AccountPage",
 
-  // middleware: "authGuard",
+  middleware: "authGuard",
 
   components: {
     Header,
@@ -44,18 +44,13 @@ export default {
   },
 
   mounted() {
-    if (this.access_token === null) {
-      this.$router.push({ path: "/login" });
-    } else {
-      const pageActive = this.users.find((el) => el.isActive === true);
+    const pageActive = this.users.find((el) => el.isActive === true);
 
-      this.$router.push(pageActive.routerName);
-    }
+    this.$router.push(pageActive.routerName);
   },
 
   computed: {
     ...mapGetters({
-      access_token: "authStore/access_token",
       users: "profileMenuStore/users",
     }),
   },

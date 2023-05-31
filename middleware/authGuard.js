@@ -1,7 +1,7 @@
-export default function ({ redirect, store }) {
-  const isAuthenticated = store.state.authStore.access_token;
+export default function ({ app, redirect }) {
+  const cookieRes = app.$cookies.get("access_token");
 
-  if (isAuthenticated === null) {
-    redirect({ path: "/login" });
+  if (cookieRes === undefined || cookieRes === null) {
+    return redirect("/login");
   }
 }

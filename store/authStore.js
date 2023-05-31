@@ -4,32 +4,25 @@ export const state = () => ({
     password: "",
   },
 
-  access_token: null,
-
   validatorResponse: {},
 });
 
 export const getters = {
   validatorResponse: ({ validatorResponse }) => validatorResponse,
-  access_token: ({ access_token }) => access_token,
 };
 
 export const mutations = {
-  SET_ACCESS_TOKEN(state, token) {
-    state.access_token = token;
-
-    localStorage.setItem("access_token", token);
+  ADD_ACCESS_TOKEN(state, { name, token }) {
+    this.$cookies.set(name, token, {
+      path: "/",
+      maxAge: 60 * 60 * 60 * 24 * 7,
+    });
   },
 
-  SET_REFRESH_TOKEN(state, token) {
-    state.refresh_token = token;
-
-    localStorage.setItem("refresh_token", token);
-  },
+  ADD_REFRESH_TOKEN(state, token) {},
 
   DELETE_STATUS() {
-    localStorage.removeItem("access_token");
-    localStorage.removeItem("refresh_token");
+    this.$cookies.removeAll();
   },
 
   SET_VALIDATOR_DATA(state, validatorResponse) {
@@ -44,8 +37,10 @@ export const actions = {
     await this.$axios
       .$post("account/token/", dataJson)
       .then((response) => {
-        commit("SET_ACCESS_TOKEN", response.access);
-        commit("SET_REFRESH_TOKEN", response.refresh);
+        commit("ADD_ACCESS_TOKEN", {
+          name: "access_token",
+          token: response.access,
+        });
 
         commit("SET_VALIDATOR_DATA", {});
 
@@ -66,7 +61,7 @@ export const actions = {
     location.reload();
   },
 
-  setAccessToken({ commit }, token) {
-    commit("SET_ACCESS_TOKEN", token);
+  addAccessToken({ commit }, token) {
+    commit("ADD_ACCESS_TOKEN", token);
   },
 };

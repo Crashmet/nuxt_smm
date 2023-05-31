@@ -1,6 +1,8 @@
 export default {
   mode: "universal",
 
+  ssr: true,
+  target: "server",
   /*
    ** Headers of the page
    */
@@ -39,6 +41,9 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
+    "cookie-universal-nuxt",
+
+    ["cookie-universal-nuxt", { alias: "cookiz" }],
   ],
   /*
    ** Axios module configuration

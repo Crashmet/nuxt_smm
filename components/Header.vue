@@ -187,20 +187,10 @@ export default {
     };
   },
 
-  mounted() {
-    const token = localStorage.getItem("access_token") || null;
-
-    if (token !== null) {
-      this.setAccessToken(token);
-    }
-
-    this.setSearchRequest("");
-  },
-
   computed: {
     ...mapGetters({
       users: "headerProfileStore/users",
-      access_token: "authStore/access_token",
+      access_token: "access_token",
     }),
 
     lastPageAccount() {
@@ -212,9 +202,7 @@ export default {
 
   methods: {
     ...mapActions({
-      setAccessToken: "authStore/setAccessToken",
       onLogout: "authStore/onLogout",
-      setSearchRequest: "searchStore/setSearchRequest",
     }),
 
     handlerLogout() {
