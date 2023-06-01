@@ -12,7 +12,7 @@
             <span class="search-line-btn__text">поиск</span>
           </button>
         </div>
-        <template v-if="searchRequest.length > 0">
+        <template v-if="searchRequest">
           <p class="search-bar__desc">Выдача по слову «{{ searchRequest }}»</p>
         </template>
       </div>
@@ -56,8 +56,6 @@ export default {
       setSearchRequest: "searchStore/setSearchRequest",
       addSearchResult: "searchStore/addSearchResult",
       setActivePage: "searchStore/setActivePage",
-      saveSearchRequestLocalStorage:
-        "searchStore/saveSearchRequestLocalStorage",
       resetFiltersTitles: "searchStore/resetFiltersTitles",
     }),
 
@@ -66,11 +64,6 @@ export default {
 
       this.setActivePage(1);
       this.setSearchRequest(this.searchInput);
-
-      this.saveSearchRequestLocalStorage({
-        activePage: this.activePage,
-        searchRequest: this.searchInput,
-      });
 
       this.addSearchResult({
         ordering: "",
@@ -81,10 +74,20 @@ export default {
 
       this.resetFiltersTitles();
     },
+
+    historyPushState() {
+      window.history.pushState(
+        window.history.state,
+        document.title,
+        `/search-result?page=1&page_size=${this.pageSize}&search=${this.searchInput}`
+      );
+    },
   },
 
   watch: {
-    searchRequest() {},
+    searchInput() {
+      this.historyPushState();
+    },
   },
 };
 </script>

@@ -206,11 +206,17 @@ export default {
       this.pageSize = 12;
     }
 
-    const searchData = JSON.parse(localStorage.getItem("search-list"));
+    const windowData = Object.fromEntries(
+      new URL(window.location).searchParams.entries()
+    );
 
-    if (searchData) {
-      this.setActivePage(searchData.activePage);
-      this.setSearchRequest(searchData.searchRequest);
+    console.log(windowData);
+
+    if (windowData.search && windowData.page) {
+      this.setActivePage(windowData.page);
+      this.setSearchRequest(windowData.search);
+    } else {
+      this.historyPushState();
     }
 
     this.addSearchResult({
@@ -219,8 +225,6 @@ export default {
       pageSize: this.pageSize,
       searchInput: this.searchRequest,
     });
-
-    this.historyPushState();
   },
 
   computed: {
@@ -242,8 +246,6 @@ export default {
       setSearchRequest: "searchStore/setSearchRequest",
       addSearchResult: "searchStore/addSearchResult",
       setActivePage: "searchStore/setActivePage",
-      saveSearchRequestLocalStorage:
-        "searchStore/saveSearchRequestLocalStorage",
       refreshFiltersTitles: "searchStore/refreshFiltersTitles",
       addBloggerData: "bloggerCardStore/addBloggerData",
     }),
@@ -299,21 +301,11 @@ export default {
   },
 
   watch: {
-    searchRequest() {
-      this.saveSearchRequestLocalStorage({
-        activePage: this.activePage,
-        searchRequest: this.searchRequest,
-      });
-
+    searchResult() {
       this.historyPushState();
     },
 
     activePage() {
-      this.saveSearchRequestLocalStorage({
-        activePage: this.activePage,
-        searchRequest: this.searchRequest,
-      });
-
       this.addSearchResult({
         ordering: this.ordering,
         activePage: this.activePage,

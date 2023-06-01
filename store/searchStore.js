@@ -148,15 +148,6 @@ export const actions = {
       });
   },
 
-  saveSearchRequestLocalStorage({ commit }, { activePage, searchRequest }) {
-    const searchData = {
-      activePage: activePage || 1,
-      searchRequest: searchRequest || "",
-    };
-
-    localStorage.setItem("search-list", JSON.stringify(searchData));
-  },
-
   refreshFiltersTitles({ commit }, filterTitle) {
     commit("REFRESH_FILTER_TITLE", filterTitle);
   },

@@ -32,11 +32,7 @@ export default {
     Footer,
   },
 
-  // mounted() {
-  //   if (this.access_token !== null) {
-  //     this.$router.push({ path: "/account" });
-  //   }
-  // },
+  mounted() {},
 };
 </script>
 
