@@ -20,7 +20,7 @@ import Footer from "@/components/Footer.vue";
 export default {
   name: "LoginPage",
 
-  middleware: "authDone",
+  middleware: ["searchRequestReset", "authDone"],
 
   components: {
     Header,

@@ -210,8 +210,6 @@ export default {
       new URL(window.location).searchParams.entries()
     );
 
-    console.log(windowData);
-
     if (windowData.search && windowData.page) {
       this.setActivePage(windowData.page);
       this.setSearchRequest(windowData.search);

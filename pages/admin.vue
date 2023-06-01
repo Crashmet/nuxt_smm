@@ -19,6 +19,9 @@ import Footer from "@/components/Footer.vue";
 
 export default {
   name: "AdminPage",
+
+  middleware: ["searchRequestReset"],
+
   components: {
     Header,
     Search,
