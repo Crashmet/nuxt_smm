@@ -211,7 +211,7 @@ export default {
     );
 
     if (windowData.search && windowData.page) {
-      this.setActivePage(windowData.page);
+      this.setActivePage(Number(windowData.page));
       this.setSearchRequest(windowData.search);
     } else {
       this.historyPushState();

@@ -23,7 +23,6 @@ export const mutations = {
 
 export const actions = {
   addBloggerData({ commit }, data) {
-    console.log(data);
     commit("ADD_BLOGGER_DATA", data);
   },
 };
