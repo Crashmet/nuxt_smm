@@ -26,16 +26,12 @@ export const mutations = {
 
   SET_STATUS(state, status) {
     state.entryStatus = status;
-
-    console.log(state.entryStatus, 2222222);
   },
 };
 
 export const actions = {
   async onRegistration({ commit }, registerData) {
     const dataJson = JSON.stringify(registerData);
-    console.log(dataJson);
-
     await this.$axios
       .$post("account/register/", dataJson)
       .then(function (response) {
