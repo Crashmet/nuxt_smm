@@ -1,7 +1,7 @@
 <template>
   <section class="register">
     <div class="register__container container">
-      <div class="register__body">
+      <div class="register__body" :class="entryStatus === 201 ? 'blur' : ''">
         <h2 class="register__title">Регистрация</h2>
 
         <form class="register__form">
@@ -121,6 +121,13 @@
           </button>
         </form>
       </div>
+
+      <div class="register-modal" v-show="entryStatus === 201">
+        <h3 class="register-modal__title">Регистрация прошла успешно!</h3>
+        <button class="register-modal__btn" @click="handlerClickHome()">
+          <p class="register-modal__btn-text">На главную</p>
+        </button>
+      </div>
     </div>
   </section>
 </template>
@@ -213,18 +220,16 @@ export default {
         }
       }
     },
+
+    handlerClickHome() {
+      this.$router.push({ path: "/" });
+    },
   },
 
   watch: {
     validatorResponse() {
       this.resetValidatorMassages();
       this.addValidatorMassages();
-    },
-
-    entryStatus() {
-      if (this.entryStatus === "201") {
-        this.$router.push({ path: "/" });
-      }
     },
   },
 };
@@ -433,9 +438,75 @@ export default {
   background-color: rgba(255, 54, 0, 0.7);
 }
 
+/* ******** MODAL ******* */
+
+.register-modal {
+  position: absolute;
+  top: 37%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.6667rem 2.2222rem;
+  border-radius: 1.1111rem;
+  background: #ffffff;
+  -webkit-filter: drop-shadow(5px 5px 7px rgba(255, 54, 0, 0.43));
+  filter: drop-shadow(5px 5px 7px rgba(255, 54, 0, 0.43));
+  -webkit-box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.25);
+}
+
+.register-modal__title {
+  margin-bottom: 1.1rem;
+  font-weight: 500;
+  font-size: 1.3333rem;
+  color: #0d0d0d;
+}
+
+.register-modal__btn {
+  padding: 0.5rem 1.8889rem 0.5556rem;
+  border-radius: 20px;
+  background: rgba(255, 54, 0, 0.8);
+  -webkit-transition: background 0.2s ease-in;
+  -o-transition: background 0.2s ease-in;
+  transition: background 0.2s ease-in;
+}
+
+.register-modal__btn:hover,
+.register-modal__btn:active {
+  background: rgba(255, 54, 0, 0.91);
+  -webkit-transition: background 0.2s ease-in;
+  -o-transition: background 0.2s ease-in;
+  transition: background 0.2s ease-in;
+}
+
+.register-modal__btn-text {
+  font-weight: 500;
+  font-size: 1rem;
+  /* line-height: 1rem; */
+  color: #ffffff;
+}
+
 @media (max-width: 480px) {
   .item-radio__label:before {
     top: 1.5px;
+  }
+
+  .register-modal {
+    position: absolute;
+    top: 30%;
+  }
+
+  .register-modal__btn {
+    padding: 3px 17px 3.5px;
+  }
+
+  .register-modal__btn-text {
+    font-size: 14px;
   }
 }
 
@@ -476,5 +547,9 @@ export default {
     font-size: 14px;
     line-height: 16px;
   }
+}
+
+.blur {
+  filter: blur(15px);
 }
 </style>

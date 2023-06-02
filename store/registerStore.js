@@ -27,7 +27,7 @@ export const mutations = {
   SET_STATUS(state, status) {
     state.entryStatus = status;
 
-    localStorage.setItem("entry-status", JSON.stringify(status));
+    console.log(state.entryStatus, 2222222);
   },
 };
 
@@ -39,9 +39,7 @@ export const actions = {
     await this.$axios
       .$post("account/register/", dataJson)
       .then(function (response) {
-        const status = String(response.status);
-
-        commit("SET_STATUS", status);
+        commit("SET_STATUS", 201);
 
         commit("SET_VALIDATOR_DATA", {});
       })
