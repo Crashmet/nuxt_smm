@@ -10,13 +10,13 @@ export const state = () => ({
 
   validatorResponse: {},
 
-  entryStatus: null,
+  isRegistered: false,
 });
 
 export const getters = {
   validatorResponse: ({ validatorResponse }) => validatorResponse,
 
-  entryStatus: ({ entryStatus }) => entryStatus,
+  isRegistered: ({ isRegistered }) => isRegistered,
 };
 
 export const mutations = {
@@ -25,7 +25,7 @@ export const mutations = {
   },
 
   SET_STATUS(state, status) {
-    state.entryStatus = status;
+    state.isRegistered = status;
   },
 };
 
@@ -35,12 +35,16 @@ export const actions = {
     await this.$axios
       .$post("account/register/", dataJson)
       .then(function (response) {
-        commit("SET_STATUS", 201);
+        commit("SET_STATUS", true);
 
         commit("SET_VALIDATOR_DATA", {});
       })
       .catch(function (error) {
         commit("SET_VALIDATOR_DATA", error.response.data);
       });
+  },
+
+  setRegisterStatus({ commit }, status) {
+    commit("SET_STATUS", status);
   },
 };

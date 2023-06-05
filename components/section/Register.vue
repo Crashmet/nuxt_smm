@@ -1,7 +1,7 @@
 <template>
   <section class="register">
     <div class="register__container container">
-      <div class="register__body" :class="entryStatus === 201 ? 'blur' : ''">
+      <div class="register__body" :class="isRegistered ? 'blur' : ''">
         <h2 class="register__title">Регистрация</h2>
 
         <form class="register__form">
@@ -122,10 +122,32 @@
         </form>
       </div>
 
-      <div class="register-modal" v-show="entryStatus === 201">
+      <div class="register-modal" v-show="isRegistered">
         <h3 class="register-modal__title">Регистрация прошла успешно!</h3>
-        <button class="register-modal__btn" @click="handlerClickHome()">
-          <p class="register-modal__btn-text">На главную</p>
+        <button
+          class="register-modal__btn-close"
+          @click="handlerClickCloseModal()"
+        >
+          <svg
+            class="btn-close__svg"
+            width="16"
+            height="16"
+            viewBox="0 0 17 17"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.641389 2.92264C0.28716 2.56841 0.287159 1.99409 0.641388 1.63986C0.995617 1.28563 1.56993 1.28563 1.92416 1.63986L15.3584 15.0742C15.7127 15.4284 15.7127 16.0027 15.3584 16.3569C15.0042 16.7112 14.4299 16.7112 14.0757 16.3569L0.641389 2.92264Z"
+              fill="#0d0d0d"
+            ></path>
+            <path
+              d="M14.0774 1.64139C14.4316 1.28716 15.0059 1.28716 15.3601 1.64139C15.7144 1.99562 15.7144 2.56994 15.3601 2.92417L1.92586 16.3585C1.57163 16.7127 0.997315 16.7127 0.643086 16.3585C0.288857 16.0042 0.288857 15.4299 0.643086 15.0757L14.0774 1.64139Z"
+              fill="#0d0d0d"
+            ></path>
+          </svg>
+        </button>
+        <button class="register-modal__btn-home" @click="handlerClickHome()">
+          <p class="btn-home__text">На главную</p>
         </button>
       </div>
     </div>
@@ -159,13 +181,14 @@ export default {
   computed: {
     ...mapGetters({
       validatorResponse: "registerStore/validatorResponse",
-      entryStatus: "registerStore/entryStatus",
+      isRegistered: "registerStore/isRegistered",
     }),
   },
 
   methods: {
     ...mapActions({
       onRegistration: "registerStore/onRegistration",
+      setRegisterStatus: "registerStore/setRegisterStatus",
     }),
 
     handlerSubmit() {
@@ -182,6 +205,15 @@ export default {
       this.onRegistration(registerData);
 
       this.resetFormPassword();
+    },
+
+    resetForm() {
+      this.username = "";
+      this.first_name = "";
+      this.last_name = "";
+      this.email = "";
+      this.password = "";
+      this.password2 = "";
     },
 
     resetFormPassword() {
@@ -221,7 +253,12 @@ export default {
       }
     },
 
+    handlerClickCloseModal() {
+      this.setRegisterStatus(false);
+    },
+
     handlerClickHome() {
+      this.setRegisterStatus(false);
       this.$router.push({ path: "/" });
     },
   },
@@ -230,6 +267,12 @@ export default {
     validatorResponse() {
       this.resetValidatorMassages();
       this.addValidatorMassages();
+    },
+
+    isRegistered() {
+      if (this.isRegistered === true) {
+        this.resetForm();
+      }
     },
   },
 };
@@ -451,7 +494,7 @@ export default {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  padding: 1.6667rem 2.2222rem;
+  padding: 1.6667rem 3.8889rem;
   border-radius: 1.1111rem;
   background: #ffffff;
   -webkit-filter: drop-shadow(5px 5px 7px rgba(255, 54, 0, 0.43));
@@ -460,14 +503,26 @@ export default {
   box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.25);
 }
 
+.register-modal__btn-close {
+  position: absolute;
+  right: 5%;
+  top: 10%;
+  background-color: #fff;
+}
+
+.btn-close__svg {
+  width: 1rem;
+  height: 1rem;
+}
+
 .register-modal__title {
-  margin-bottom: 1.1rem;
+  margin-bottom: 1.625rem;
   font-weight: 500;
   font-size: 1.3333rem;
   color: #0d0d0d;
 }
 
-.register-modal__btn {
+.register-modal__btn-home {
   padding: 0.5rem 1.8889rem 0.5556rem;
   border-radius: 20px;
   background: rgba(255, 54, 0, 0.8);
@@ -476,18 +531,17 @@ export default {
   transition: background 0.2s ease-in;
 }
 
-.register-modal__btn:hover,
-.register-modal__btn:active {
+.register-modal__btn-home:hover,
+.register-modal__btn-home:active {
   background: rgba(255, 54, 0, 0.91);
   -webkit-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
 }
 
-.register-modal__btn-text {
+.btn-home__text {
   font-weight: 500;
   font-size: 1rem;
-  /* line-height: 1rem; */
   color: #ffffff;
 }
 
@@ -499,13 +553,14 @@ export default {
   .register-modal {
     position: absolute;
     top: 30%;
+    padding: 18px 40px;
   }
 
-  .register-modal__btn {
+  .register-modal__btn-home {
     padding: 3px 17px 3.5px;
   }
 
-  .register-modal__btn-text {
+  .btn-home__text {
     font-size: 14px;
   }
 }
