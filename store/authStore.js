@@ -49,9 +49,16 @@ export const actions = {
   async onLogout({ commit }) {
     // commit("DELETE_STATUS");
 
-    await this.$axios.$delete();
+    await this.$axios
+      .$delete()
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
-    location.reload();
+    // location.reload();
   },
 
   addAccessToken({ commit }, token) {
