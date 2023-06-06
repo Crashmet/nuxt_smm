@@ -245,18 +245,17 @@ export default {
 
 table {
   table-layout: fixed;
-  width: 914px;
-  border: 1px solid rgba(13, 13, 13, 0.59);
+  width: 1014px;
   border-collapse: collapse;
 }
 
 thead {
-  height: 55px;
+  height: 90px;
 }
 
 thead tr th {
-  background: #f09e565e;
-  border: 2px solid rgba(13, 13, 13, 0.2);
+  text-align: left;
+  border: none;
 }
 
 thead th {
@@ -297,13 +296,24 @@ thead th:nth-child(8) {
   width: 12%;
 }
 
+tbody th {
+  text-align: left;
+}
+
+tbody tr {
+  border-bottom: 1px solid rgba(240, 158, 86, 0.58);
+}
+
+tbody tr:hover {
+  background: #f09e565e;
+}
+
 th,
 td {
-  height: 1.6667rem;
+  padding: 0.7778rem 0.8333rem;
   font-size: 0.8889rem;
   line-height: 1.0556rem;
-  text-align: center;
-  border: 2px solid rgba(13, 13, 13, 0.59);
+  border: none;
 }
 
 .table-left {
@@ -312,8 +322,6 @@ td {
 }
 
 .left-head__cell {
-  font-weight: 400;
-  font-size: 0.7778rem;
   line-height: 0.8889rem;
   text-align: center;
   border: none;

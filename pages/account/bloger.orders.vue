@@ -128,7 +128,7 @@
 
 <script>
 export default {
-  name: "AdvertiserOrders",
+  name: "BlogerOrders",
 };
 </script>
 
@@ -148,13 +148,13 @@ table {
 }
 
 thead tr th {
-  border: none;
   text-align: left;
+  border: none;
 }
 
 thead th {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 1rem;
   line-height: 1.1667rem;
 }
 

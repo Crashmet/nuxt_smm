@@ -105,7 +105,7 @@ export default {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 0.2778rem;
+  margin-bottom: 0.7778rem;
 }
 
 .profile-menu__cell:first-child {
@@ -115,6 +115,11 @@ export default {
 
 .profile-menu__cell:nth-child(2) {
   max-width: 10.7222rem;
+  width: 100%;
+}
+
+.profile-menu__cell:nth-child(3) {
+  max-width: 8rem;
   width: 100%;
 }
 
@@ -143,8 +148,8 @@ export default {
 }
 
 @media (max-width: 480px) {
-  .profile-menu__cell:nth-child(2) {
-    max-width: 108px;
+  .profile-menu__cell:nth-child(1) {
+    max-width: 80px;
     width: 100%;
   }
 }

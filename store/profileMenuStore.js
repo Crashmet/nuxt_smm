@@ -30,6 +30,11 @@ export const state = () => ({
       isActive: false,
       routerName: "/account/bloger.orders",
     },
+    {
+      name: "Чат",
+      isActive: false,
+      routerName: "/account/bloger.chat",
+    },
   ],
 
   advertiserMenu: [
@@ -47,6 +52,11 @@ export const state = () => ({
       name: "Заказы",
       isActive: false,
       routerName: "/account/advertiser.orders/",
+    },
+    {
+      name: "Чат",
+      isActive: false,
+      routerName: "/account/advertiser.chat",
     },
   ],
 });

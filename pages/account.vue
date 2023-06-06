@@ -95,7 +95,7 @@ export default {
   }
 
   .account__main {
-    padding: 27px 0px 15px 10px;
+    padding: 27px 10px 15px;
   }
 
   .account__container {

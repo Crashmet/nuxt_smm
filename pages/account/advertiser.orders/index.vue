@@ -123,15 +123,13 @@ export default {
 
 table {
   table-layout: fixed;
-
-  width: 788px;
-  border: 1px solid rgba(13, 13, 13, 0.59);
+  width: 888px;
   border-collapse: collapse;
 }
 
 thead tr th {
-  background: #f09e565e;
-  border: 2px solid rgba(13, 13, 13, 0.2);
+  text-align: left;
+  border: none;
 }
 
 thead th {
@@ -141,28 +139,39 @@ thead th {
 }
 
 thead th:nth-child(1) {
-  width: 24%;
+  width: 22%;
 }
 
 thead th:nth-child(2) {
-  width: 19%;
+  width: 15%;
 }
 
 thead th:nth-child(3) {
-  width: 14%;
+  width: 19%;
 }
 
 thead th:nth-child(4) {
-  width: 20%;
+  width: 23%;
+}
+
+tbody th {
+  text-align: left;
+}
+
+tbody tr {
+  border-bottom: 1px solid rgba(240, 158, 86, 0.58);
+}
+
+tbody tr:hover {
+  background: #f09e565e;
 }
 
 th,
 td {
-  height: 1.6667rem;
+  padding: 0.7778rem 0.8333rem;
   font-size: 0.8889rem;
   line-height: 1.0556rem;
-  text-align: center;
-  border: 2px solid rgba(13, 13, 13, 0.59);
+  border: none;
 }
 
 @media (max-width: 480px) {

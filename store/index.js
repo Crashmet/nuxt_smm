@@ -1,7 +1,7 @@
 export const state = () => ({
   sessionid: null,
 
-  role: "blogger",
+  role: "advertiser",
 });
 
 export const getters = {

@@ -1,5 +1,5 @@
 export default function ({ redirect, from, store }) {
-  const cookieRes = "true";
+  const cookieRes = store.state.sessionid;
   // store.state.sessionid
 
   if (cookieRes) {
