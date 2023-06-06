@@ -47,7 +47,7 @@ export const actions = {
   },
 
   async onLogout({ commit }) {
-    commit("DELETE_STATUS");
+    // commit("DELETE_STATUS");
 
     await this.$axios
       .$delete("account/")
@@ -58,6 +58,6 @@ export const actions = {
         console.log(error);
       });
 
-    location.reload();
+    // location.reload();
   },
 };
