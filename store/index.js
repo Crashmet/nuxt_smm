@@ -1,23 +1,24 @@
 export const state = () => ({
-  access_token: null,
+  sessionid: null,
 });
 
 export const getters = {
-  access_token: ({ access_token }) => access_token,
+  sessionid: ({ sessionid }) => sessionid,
 };
 
 export const mutations = {
-  SET_ACCESS_TOKEN(state, token) {
-    state.access_token = token;
+  SET_SESSION_ID(state, token) {
+    state.sessionid = token;
   },
 };
 
 export const actions = {
   nuxtServerInit({ commit }) {
-    const token = this.$cookies.get("access_token");
+    const token = this.$cookies.get("sessionid");
+    console.log(token);
 
     if (token) {
-      commit("SET_ACCESS_TOKEN", token);
+      commit("SET_SESSION_ID", token);
     }
   },
 };

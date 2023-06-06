@@ -10,7 +10,7 @@
           <p class="header-left__desc">более 50000 блогеров</p>
         </div>
 
-        <div v-if="access_token === null">
+        <div v-if="sessionid === null">
           <div class="header__row_right">
             <ul class="header-right__list_left">
               <li class="header-right__item">
@@ -190,7 +190,7 @@ export default {
   computed: {
     ...mapGetters({
       users: "headerProfileStore/users",
-      access_token: "access_token",
+      sessionid: "sessionid",
     }),
 
     lastPageAccount() {

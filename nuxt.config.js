@@ -51,6 +51,7 @@ export default {
    */
   axios: {
     baseURL: process.env.ACC_API_URL,
+    withCredentials: true,
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",

@@ -35,16 +35,18 @@ export const actions = {
     const dataJson = JSON.stringify(loginData);
 
     await this.$axios
-      .$post("account/token/", dataJson)
+      .$post("account/login/", dataJson)
       .then((response) => {
-        commit("ADD_ACCESS_TOKEN", {
-          name: "access_token",
-          token: response.access,
-        });
+        // commit("ADD_ACCESS_TOKEN", {
+        //   name: "access_token",
+        //   token: response.access,
+        // });
+
+        console.log(response.headers);
 
         commit("SET_VALIDATOR_DATA", {});
 
-        location.reload();
+        // location.reload();
       })
       .catch((error) => {
         commit("DELETE_STATUS");
@@ -54,9 +56,9 @@ export const actions = {
   },
 
   async onLogout({ commit }) {
-    commit("DELETE_STATUS");
+    // commit("DELETE_STATUS");
 
-    // await this.$axios.$delete();
+    await this.$axios.$delete();
 
     location.reload();
   },
