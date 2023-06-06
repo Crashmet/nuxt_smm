@@ -46,7 +46,11 @@ export default {
   mounted() {
     const pageActive = this.users.find((el) => el.isActive === true);
 
-    this.$router.push(pageActive.routerName);
+    if (pageActive) {
+      this.$router.push(pageActive.routerName);
+    } else {
+      this.$router.push({ path: "/" });
+    }
   },
 
   computed: {

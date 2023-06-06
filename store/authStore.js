@@ -35,13 +35,13 @@ export const actions = {
     await this.$axios
       .$post("account/login/", dataJson)
       .then((response) => {
+        console.log(response);
+
         commit("SET_VALIDATOR_DATA", {});
 
         location.reload();
       })
       .catch((error) => {
-        commit("DELETE_STATUS");
-
         commit("SET_VALIDATOR_DATA", error.response.data);
       });
   },

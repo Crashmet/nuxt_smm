@@ -2,11 +2,13 @@ export const state = () => ({
   users: [
     {
       name: "Блогер",
+      role: "blogger",
       isActive: true,
       routerName: "/account/bloger.profile",
     },
     {
       name: "Рекламодатель",
+      role: "advertiser",
       isActive: false,
       routerName: "/account/advertiser.profile",
     },
@@ -56,10 +58,10 @@ export const getters = {
 };
 
 export const mutations = {
-  SET_USER_STATUS({ users }, name) {
+  SET_USER_STATUS({ users }, role) {
     users.forEach((el) => {
       el.isActive = false;
-      if (el.name === name) {
+      if (el.role === role) {
         el.isActive = true;
       }
     });
@@ -101,8 +103,8 @@ export const mutations = {
 };
 
 export const actions = {
-  setUserStatus({ commit }, name) {
-    commit("SET_USER_STATUS", name);
+  setUserStatus({ commit }, role) {
+    commit("SET_USER_STATUS", role);
   },
 
   setBlogerMenuStatus({ commit }, name) {

@@ -2,10 +2,9 @@
   <div class="profile-menu">
     <ul class="profile-menu__row">
       <li
-        class="profile-menu__cell"
+        class="profile-menu__cell profile-menu__cell_role"
         v-for="user in users"
         :key="user.name"
-        @click="handlerClickUser(user.name, user.routerName)"
       >
         <span
           class="profile-menu__text"
@@ -17,7 +16,7 @@
 
     <ul class="profile-menu__row" v-if="users[0].isActive">
       <li
-        class="profile-menu__cell"
+        class="profile-menu__cell profile-menu__cell_active"
         v-for="setting in blogerMenu"
         :key="setting.name"
         @click="handlerClickBlogerMenu(setting.name, setting.routerName)"
@@ -32,7 +31,7 @@
 
     <ul class="profile-menu__row" v-else>
       <li
-        class="profile-menu__cell"
+        class="profile-menu__cell profile-menu__cell_active"
         v-for="setting in advertiserMenu"
         :key="setting.name"
         @click="handlerClickAdvertiserMenu(setting.name, setting.routerName)"
@@ -57,8 +56,13 @@ export default {
     return {};
   },
 
+  mounted() {
+    this.setUserStatus(this.role);
+  },
+
   computed: {
     ...mapGetters({
+      role: "role",
       users: "profileMenuStore/users",
       blogerMenu: "profileMenuStore/blogerMenu",
       advertiserMenu: "profileMenuStore/advertiserMenu",
@@ -73,11 +77,6 @@ export default {
       setAdvertiserMenuStatus: "profileMenuStore/setAdvertiserMenuStatus",
       setAdvertiserMenuRouter: "profileMenuStore/setAdvertiserMenuRouter",
     }),
-
-    handlerClickUser(name, routerName) {
-      this.setUserStatus(name);
-      this.$router.push(routerName);
-    },
 
     handlerClickBlogerMenu(name, routerName) {
       this.setBlogerMenuStatus(name);
@@ -102,21 +101,6 @@ export default {
 * Browsers: last 4 version
 */
 
-.profile-menu__cell:hover > .profile-menu__text,
-.profile-menu__cell:active > .profile-menu__text {
-  font-size: 1.1111rem;
-  line-height: 1.2778rem;
-  color: #ff3600;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-
-.profile-menu {
-  cursor: pointer;
-}
-
 .profile-menu__row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -135,6 +119,20 @@ export default {
 }
 
 .profile-menu__text_active {
+  font-size: 1.1111rem;
+  line-height: 1.2778rem;
+  color: #ff3600;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.profile-menu__cell_active {
+  cursor: pointer;
+}
+
+.profile-menu__cell_active:hover > .profile-menu__text,
+.profile-menu__cell_active:active > .profile-menu__text {
   font-size: 1.1111rem;
   line-height: 1.2778rem;
   color: #ff3600;
