@@ -1,5 +1,5 @@
 export const state = () => ({
-  sessionid: "dddd",
+  sessionid: null,
 
   role: null,
 });
