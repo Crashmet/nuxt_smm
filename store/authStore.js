@@ -19,8 +19,6 @@ export const mutations = {
     });
   },
 
-  ADD_REFRESH_TOKEN(state, token) {},
-
   DELETE_STATUS() {
     this.$cookies.removeAll();
   },
@@ -37,16 +35,9 @@ export const actions = {
     await this.$axios
       .$post("account/login/", dataJson)
       .then((response) => {
-        // commit("ADD_ACCESS_TOKEN", {
-        //   name: "access_token",
-        //   token: response.access,
-        // });
-
-        console.log(response.headers);
-
         commit("SET_VALIDATOR_DATA", {});
 
-        // location.reload();
+        location.reload();
       })
       .catch((error) => {
         commit("DELETE_STATUS");
