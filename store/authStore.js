@@ -52,7 +52,7 @@ export const actions = {
     await this.$axios
       .$request("account/", {
         data: {},
-        method: "DELETE",
+        method: "delete",
       })
       .then((response) => {
         console.log(response);
