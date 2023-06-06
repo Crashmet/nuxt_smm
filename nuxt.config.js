@@ -55,8 +55,8 @@ export default {
     headers: {
       "Content-Type": "application/json",
       Accept: "*/*",
-      credentials: "same-origin",
-      "Access-Control-Allow-Origin": "*",
+      // credentials: "same-origin",
+      referrerPolicy: "same-origin",
     },
   },
 
