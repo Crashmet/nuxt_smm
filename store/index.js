@@ -1,7 +1,7 @@
 export const state = () => ({
   sessionid: null,
 
-  role: "advertiser",
+  role: null,
 });
 
 export const getters = {
@@ -30,8 +30,6 @@ export const actions = {
     await this.$axios
       .$get("account")
       .then((response) => {
-        console.log(response.role);
-
         commit("SET_ROLE", response.role);
       })
       .catch((error) => {});
