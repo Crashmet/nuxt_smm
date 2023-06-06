@@ -50,7 +50,7 @@ export const actions = {
     // commit("DELETE_STATUS");
 
     await this.$axios
-      .$delete()
+      .$delete("account/")
       .then((response) => {
         console.log(response);
       })
@@ -59,9 +59,5 @@ export const actions = {
       });
 
     // location.reload();
-  },
-
-  addAccessToken({ commit }, token) {
-    commit("ADD_ACCESS_TOKEN", token);
   },
 };
