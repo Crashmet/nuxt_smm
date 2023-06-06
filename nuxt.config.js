@@ -54,16 +54,8 @@ export default {
     withCredentials: true,
     headers: {
       "Content-Type": "application/json",
-      Accept: [
-        "text/html",
-        "application/xhtml+xml",
-        "application/xml;q=0.9",
-        "image/avif",
-        "image/webp",
-        "image/apng",
-        "*/*",
-        "application/signed-exchange",
-      ],
+      Accept: "*/*",
+      credentials: "same-origin",
     },
   },
 
