@@ -1,5 +1,5 @@
 export default function ({ app, redirect, from, store }) {
-  const cookieRes = app.$cookies.get("sessionid", { fromRes: true });
+  const cookieRes = app.$cookies.get("sessionid", { fromRes: false });
 
   console.log(store.state.sessionid, 1111111, cookieRes);
 
