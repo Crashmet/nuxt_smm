@@ -50,9 +50,9 @@ export const actions = {
     // commit("DELETE_STATUS");
 
     await this.$axios
-      .request("account/", {
+      .$request("account/", {
         data: {},
-        method: "delete",
+        method: "DELETE",
       })
       .then((response) => {
         console.log(response);
