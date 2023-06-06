@@ -56,6 +56,7 @@ export default {
       "Content-Type": "application/json",
       Accept: "*/*",
       credentials: "same-origin",
+      "Access-Control-Allow-Origin": "*",
     },
   },
 
