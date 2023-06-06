@@ -1,6 +1,5 @@
 <template>
   <header>
-    {{ sessionid }}tut
     <div class="container header__container">
       <div class="header__row">
         <div class="header__row_left">

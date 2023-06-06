@@ -15,7 +15,6 @@ export const mutations = {
 export const actions = {
   nuxtServerInit({ commit }) {
     const token = this.$cookies.get("sessionid");
-    console.log(token, "actions index");
 
     if (token) {
       commit("SET_SESSION_ID", token);

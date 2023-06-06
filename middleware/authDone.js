@@ -1,13 +1,15 @@
-export default function ({ app, redirect, from }) {
-  const cookieRes = app.$cookies.get("sessionid");
+export default function ({ app, redirect, from, store }) {
+  // const cookieRes = app.$cookies.getAll();
 
-  console.log(cookieRes, "cookieRes account");
+  console.log(store.state.sessionid, 1111111);
 
-  if (cookieRes) {
-    if (from && from.matched[0].name === "account") {
-      return redirect(from.fullPath);
-    } else {
-      return redirect("/account");
-    }
-  }
+  // console.log(cookieRes, "cookieRes account");
+
+  // if (cookieRes) {
+  //   if (from && from.matched[0].name === "account") {
+  //     return redirect(from.fullPath);
+  //   } else {
+  //     return redirect("/account");
+  //   }
+  // }
 }
