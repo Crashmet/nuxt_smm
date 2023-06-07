@@ -55,6 +55,7 @@ export const actions = {
           "Content-Type": "application/x-www-form-urlencoded",
           "X-Csrftoken":
             "aXs2JqTYEQNaA5amLiwBZkTjS2eNZKh4j1v4OF4yM68ke0M70lrsKR5fT6tpr5sU",
+          "X-Requested-With": "XMLHttpRequest",
         },
       })
       .then((response) => {
