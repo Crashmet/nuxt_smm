@@ -22,7 +22,7 @@ import Footer from "@/components/Footer.vue";
 export default {
   name: "HomePage",
 
-  // middleware: ["searchRequestReset", "authDone"],
+  middleware: ["searchRequestReset", "authDone"],
 
   components: {
     Header,

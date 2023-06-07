@@ -54,7 +54,7 @@ export default {
     withCredentials: true,
     headers: {
       "Content-Type": "application/json",
-      Accept: "*/*",
+      Accept: ["*/*", "text/html"],
       // credentials: "same-origin",
       // referrerPolicy: "same-origin",
     },
