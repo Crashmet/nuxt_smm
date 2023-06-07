@@ -28,7 +28,7 @@ export const actions = {
     }
 
     await this.$axios
-      .$get("account")
+      .$get("account/")
       .then((response) => {
         commit("SET_ROLE", response.role);
       })

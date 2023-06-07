@@ -50,7 +50,10 @@ export const actions = {
     // commit("DELETE_STATUS");
 
     await this.$axios
-      .$delete("account/")
+      .$delete("account/", {
+        data: {},
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      })
       .then((response) => {
         console.log(response);
       })
