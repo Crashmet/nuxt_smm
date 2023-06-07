@@ -51,9 +51,10 @@ export const actions = {
 
     await this.$axios
       .$delete("account/", {
-        data,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
+          "X-Csrftoken":
+            "aXs2JqTYEQNaA5amLiwBZkTjS2eNZKh4j1v4OF4yM68ke0M70lrsKR5fT6tpr5sU",
         },
       })
       .then((response) => {
