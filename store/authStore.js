@@ -52,7 +52,10 @@ export const actions = {
     await this.$axios
       .$delete("account/", {
         data: {},
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          Accept: "text/html",
+        },
       })
       .then((response) => {
         console.log(response);
