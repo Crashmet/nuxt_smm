@@ -56,7 +56,7 @@ export default {
       "Content-Type": "application/json",
       Accept: "*/*",
       // credentials: "same-origin",
-      referrerPolicy: "same-origin",
+      // referrerPolicy: "same-origin",
     },
   },
 
