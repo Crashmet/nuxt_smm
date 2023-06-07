@@ -35,11 +35,9 @@ export const actions = {
     await this.$axios
       .$post("account/login/", dataJson)
       .then((response) => {
-        console.log(response);
-
         commit("SET_VALIDATOR_DATA", {});
 
-        // location.reload();
+        location.reload();
       })
       .catch((error) => {
         commit("SET_VALIDATOR_DATA", error.response.data);
@@ -51,18 +49,16 @@ export const actions = {
       .$delete("account/", {
         data: {},
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          // "Content-Type": "application/x-www-form-urlencoded",
           "X-Csrftoken": `${this.$cookies.get("csrftoken")}`,
           "X-Requested-With": "XMLHttpRequest",
         },
       })
       .then((response) => {
-        console.log(response);
+        location.reload();
       })
       .catch((error) => {
         console.log(error);
       });
-
-    // location.reload();
   },
 };
