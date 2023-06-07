@@ -55,7 +55,7 @@ export default {
     headers: {
       "Content-Type": "application/json",
       Accept: "*/*",
-      credentials: "include",
+      // credentials: "include",
     },
   },
 
