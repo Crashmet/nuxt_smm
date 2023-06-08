@@ -10,7 +10,7 @@ export const state = () => ({
       name: "Рекламодатель",
       role: "advertiser",
       isActive: false,
-      routerName: "/account/advertiser.profile",
+      routerName: "/account",
     },
   ],
 

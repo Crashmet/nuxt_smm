@@ -1,35 +1,27 @@
 <template>
   <div class="profile-menu">
-    <ul class="profile-menu__row">
-      <li
-        class="profile-menu__cell profile-menu__cell_role"
-        v-for="user in users"
-        :key="user.name"
-      >
-        <span
-          class="profile-menu__text"
-          :class="user.isActive ? 'profile-menu__text_active' : ''"
-          >{{ user.name }}</span
-        >
-      </li>
-    </ul>
+    <div class="profile-menu__block" v-if="users[0].isActive">
+      <h3 class="profile-menu__title">Пользовательское меню блогера</h3>
 
-    <ul class="profile-menu__row" v-if="users[0].isActive">
-      <li
-        class="profile-menu__cell profile-menu__cell_active"
-        v-for="setting in blogerMenu"
-        :key="setting.name"
-        @click="handlerClickBlogerMenu(setting.name, setting.routerName)"
-      >
-        <span
-          class="profile-menu__text"
-          :class="setting.isActive ? 'profile-menu__text_active' : ''"
-          >{{ setting.name }}</span
+      <ul class="profile-menu__row">
+        <li
+          class="profile-menu__cell profile-menu__cell_active"
+          v-for="setting in blogerMenu"
+          :key="setting.name"
+          @click="handlerClickBlogerMenu(setting.name, setting.routerName)"
         >
-      </li>
-    </ul>
+          <span
+            class="profile-menu__text"
+            :class="setting.isActive ? 'profile-menu__text_active' : ''"
+            >{{ setting.name }}</span
+          >
+        </li>
+      </ul>
+    </div>
 
-    <ul class="profile-menu__row" v-else>
+    <div class="profile-menu__block" v-else>
+      <h3 class="profile-menu__title">Пользовательское меню рекламодателя</h3>
+      <!-- <ul class="profile-menu__row" v-else>
       <li
         class="profile-menu__cell profile-menu__cell_active"
         v-for="setting in advertiserMenu"
@@ -42,7 +34,8 @@
           >{{ setting.name }}</span
         >
       </li>
-    </ul>
+    </ul> -->
+    </div>
   </div>
 </template>
 
@@ -108,6 +101,28 @@ export default {
   margin-bottom: 0.7778rem;
 }
 
+.profile-menu__block {
+  margin-bottom: 1.6667rem;
+}
+
+.profile-menu__title {
+  margin-bottom: 1.3889rem;
+  font-size: 1.6667rem;
+  line-height: 1.9444rem;
+  color: #d12f03;
+  /* text-shadow: 4px 1px 6px #d3792b; */
+}
+
+.profile-menu__text_active {
+  font-size: 1.1111rem;
+  line-height: 1.2778rem;
+  color: #ff3600;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
 .profile-menu__cell:first-child {
   max-width: 9.2222rem;
   width: 100%;
@@ -123,15 +138,6 @@ export default {
   width: 100%;
 }
 
-.profile-menu__text_active {
-  font-size: 1.1111rem;
-  line-height: 1.2778rem;
-  color: #ff3600;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
 .profile-menu__cell_active {
   cursor: pointer;
 }
