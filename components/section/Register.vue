@@ -544,10 +544,19 @@ export default {
   font-size: 1rem;
   color: #ffffff;
 }
+@media (max-width: 640px) {
+  .item-radio__label:before {
+    top: 2px;
+  }
+}
 
 @media (max-width: 480px) {
   .item-radio__label:before {
-    top: 1.5px;
+    top: 1.8px;
+  }
+
+  .item-radio__label:after {
+    top: 4.8px;
   }
 
   .register-modal {

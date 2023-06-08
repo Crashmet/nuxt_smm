@@ -162,9 +162,10 @@ export default {
 }
 
 .search-line-btn__text {
-  display: inline-block;
+  display: block;
   font-weight: 700;
   font-size: 1rem;
+  /* line-height: 1.1667rem; */
   text-align: center;
   color: #ffffff;
 }
@@ -175,11 +176,7 @@ export default {
   }
 
   .search-line-btn__text {
-    display: inline-block;
-    font-weight: 700;
     font-size: 16px;
-    text-align: center;
-    color: #ffffff;
   }
 }
 

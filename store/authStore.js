@@ -37,7 +37,7 @@ export const actions = {
       .then((response) => {
         commit("SET_VALIDATOR_DATA", {});
 
-        location.reload();
+        // location.reload();
       })
       .catch((error) => {
         commit("SET_VALIDATOR_DATA", error.response.data);
