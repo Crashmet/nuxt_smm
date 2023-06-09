@@ -54,7 +54,7 @@ export const actions = {
         },
       })
       .then((response) => {
-        location.reload();
+        // location.reload();
       })
       .catch((error) => {
         console.log(error);
