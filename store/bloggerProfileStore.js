@@ -64,12 +64,10 @@ export const actions = {
     await this.$axios
       .$patch("account/", dataJson)
       .then((response) => {
-        console.log(response);
-
-        // location.reload();
+        location.reload();
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.response);
       });
   },
 
@@ -79,12 +77,10 @@ export const actions = {
     await this.$axios
       .$put("account/password_change/", dataJson)
       .then((response) => {
-        console.log(response);
-
-        // location.reload();
+        location.reload();
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.response);
       });
   },
 };
