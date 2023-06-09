@@ -6,10 +6,18 @@ export const state = () => ({
     email: "",
     role: "",
   },
+
+  isOpenModalChangeData: false,
+  isOpenModalChangePassword: false,
 });
 
 export const getters = {
   bloggerData: ({ bloggerData }) => bloggerData,
+
+  isOpenModalChangeData: ({ isOpenModalChangeData }) => isOpenModalChangeData,
+
+  isOpenModalChangePassword: ({ isOpenModalChangePassword }) =>
+    isOpenModalChangePassword,
 };
 
 export const mutations = {
@@ -24,9 +32,25 @@ export const mutations = {
   SET_ROLE(state, role) {
     state.role = role;
   },
+
+  CHANGE_DATA_MODAL_STATUS(state, flag) {
+    state.isOpenModalChangeData = flag;
+  },
+
+  CHANGE_PASSWORD_MODAL_STATUS(state, flag) {
+    state.isOpenModalChangePassword = flag;
+  },
 };
 
 export const actions = {
+  changeDataModalStatus({ commit }, flag) {
+    commit("CHANGE_DATA_MODAL_STATUS", flag);
+  },
+
+  changePasswordModalStatus({ commit }, flag) {
+    commit("CHANGE_PASSWORD_MODAL_STATUS", flag);
+  },
+
   async addBloggerData({ commit }) {
     await this.$axios
       .$get("account/")
@@ -44,22 +68,24 @@ export const actions = {
     await this.$axios
       .$patch("account/", dataJson)
       .then((response) => {
-        // commit("CHANGE_BLOGGER_DATA", response);
         console.log(response);
+
+        // location.reload();
       })
       .catch((error) => {
         console.log(error);
       });
   },
 
-  async changeBloggerPassword({ commit }, bloggerData) {
-    const dataJson = JSON.stringify(bloggerData);
+  async changeBloggerPassword({ commit }, passwordData) {
+    const dataJson = JSON.stringify(passwordData);
 
     await this.$axios
       .$put("account/password_change/", dataJson)
       .then((response) => {
-        // commit("CHANGE_BLOGGER_PASSWORD", response);
         console.log(response);
+
+        // location.reload();
       })
       .catch((error) => {
         console.log(error);

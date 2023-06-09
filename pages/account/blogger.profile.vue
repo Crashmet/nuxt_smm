@@ -1,6 +1,10 @@
 <template>
   <div class="blogger-profile">
-    <div class="blogger-profile__body body">
+    <div
+      class="blogger-profile__body body"
+      v-if="!isOpenModalChangeData && !isOpenModalChangePassword"
+    >
+      {{ isOpenModalChangeData }} {{ isOpenModalChangePassword }}
       <ul class="body__row">
         <li class="body__cell body__cell-label">
           <span class="body__label">E-mail</span>
@@ -58,6 +62,7 @@
                 type="text"
                 class="body__input cell-item__input"
                 placeholder="nickname"
+                disabled
               />
             </li>
 
@@ -66,6 +71,7 @@
                 type="text"
                 placeholder="цена за пост"
                 class="cell-item__input_price"
+                disabled
               />
             </li>
 
@@ -96,6 +102,7 @@
                 type="text"
                 class="body__input cell-item__input"
                 placeholder="nickname"
+                disabled
               />
             </li>
 
@@ -104,6 +111,7 @@
                 type="text"
                 placeholder="цена за пост"
                 class="cell-item__input_price"
+                disabled
               />
             </li>
 
@@ -123,23 +131,33 @@
       </ul>
 
       <nav class="body-change__row">
-        <button class="body-change__btn">
+        <button class="body-change__btn" @click="changeDataModalStatus(true)">
           <span class="body-change__text">Изменить профиль</span>
         </button>
 
-        <button class="body-change__btn">
+        <button
+          class="body-change__btn"
+          @click="changePasswordModalStatus(true)"
+        >
           <span class="body-change__text">Изменить пароль</span>
         </button>
       </nav>
     </div>
+    <change-blogger-profile-data v-else-if="isOpenModalChangeData" />
+    <change-blogger-profile-password v-else-if="isOpenModalChangePassword" />
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from "vuex";
 
+import changeBloggerProfileData from "~/components/modal/changeBloggerProfileData.vue";
+import changeBloggerProfilePassword from "~/components/modal/changeBloggerProfilePassword.vue";
+
 export default {
   name: "BloggerProfile",
+
+  components: { changeBloggerProfileData, changeBloggerProfilePassword },
 
   mounted() {
     this.addBloggerData();
@@ -148,14 +166,18 @@ export default {
   computed: {
     ...mapGetters({
       bloggerData: "bloggerProfileStore/bloggerData",
+      isOpenModalChangeData: "bloggerProfileStore/isOpenModalChangeData",
+      isOpenModalChangePassword:
+        "bloggerProfileStore/isOpenModalChangePassword",
     }),
   },
 
   methods: {
     ...mapActions({
       addBloggerData: "bloggerProfileStore/addBloggerData",
-      changeBloggerData: "bloggerProfileStore/changeBloggerData",
-      changeBloggerPassword: "bloggerProfileStore/changeBloggerPassword",
+      changeDataModalStatus: "bloggerProfileStore/changeDataModalStatus",
+      changePasswordModalStatus:
+        "bloggerProfileStore/changePasswordModalStatus",
     }),
   },
 };
@@ -168,6 +190,9 @@ export default {
 * Autoprefixer: v10.4.7
 * Browsers: last 4 version
 */
+.blogger-profile {
+  position: relative;
+}
 
 .body__row {
   display: -webkit-box;
@@ -252,7 +277,7 @@ export default {
 
 .cell-item__btn {
   padding: 6px 8px;
-  max-width: 350px;
+  max-width: 19.4444rem;
   width: 100%;
   min-height: 1.6667rem;
   font-size: 0.7778rem;
