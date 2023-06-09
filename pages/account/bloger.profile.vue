@@ -1,7 +1,5 @@
 <template>
   <div class="bloger-profile">
-    <p class="bloger-profile__link">Изменить профиль</p>
-
     <div class="bloger-profile__body body">
       <ul class="body__row">
         <li class="body__cell body__cell-label">
@@ -109,15 +107,15 @@
         </li>
       </ul>
 
-      <ul class="body__row">
-        <li class="body__cell body__cell-label">
-          <span class="body__label">Сменить пароль</span>
-        </li>
+      <nav class="body-change__row">
+        <button class="body-change__btn">
+          <span class="body-change__text">Изменить профиль</span>
+        </button>
 
-        <li class="body__cell">
-          <input type="password" class="body__input" />
-        </li>
-      </ul>
+        <button class="body-change__btn">
+          <span class="body-change__text">Изменить пароль</span>
+        </button>
+      </nav>
     </div>
   </div>
 </template>
@@ -145,7 +143,7 @@ export default {
   align-items: center;
 }
 
-.body__row:not(:last-child) {
+.body__row {
   margin-bottom: 0.8889rem;
 }
 
@@ -241,13 +239,69 @@ export default {
   text-decoration-line: underline;
 }
 
+.body-change__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+
+  margin-top: 2.5rem;
+}
+
+.body-change__btn {
+  margin-bottom: 0.5556rem;
+  padding: 0.2222rem 0.5556rem;
+  background: #f09e56;
+  border: 1px solid rgba(240, 158, 86, 0.58);
+  border-radius: 10px;
+  background-color: transparent;
+  -webkit-transition: border 0.3s ease;
+  -o-transition: border 0.3s ease;
+  transition: border 0.3s ease;
+}
+
+.body-change__btn:not(:last-child) {
+  margin-right: 2.7778rem;
+}
+
+.body-change__btn:hover,
+.body-change__btn:active {
+  border: 1.5px solid rgba(240, 158, 86, 0.94);
+  -webkit-transition: border 0.3s ease;
+  -o-transition: border 0.3s ease;
+  transition: border 0.3s ease;
+}
+
+.body-change__text {
+  font-size: 0.8889rem;
+  line-height: 1.0556rem;
+  color: rgba(13, 13, 13, 0.61);
+}
+
+.body-change__btn:hover > .body-change__text,
+.body-change__btn:active > .body-change__text {
+  color: #ff3600;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.body-change__text_active {
+  color: #ff3600;
+  /* text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  text-decoration-line: underline;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
 @media (max-width: 1175px) {
   .body__row_long {
     -webkit-box-align: start;
     -ms-flex-align: start;
     align-items: start;
   }
-  .body__row:not(:last-child) {
+  .body__row {
     margin-bottom: 15px;
   }
 
@@ -257,7 +311,7 @@ export default {
 }
 
 @media (max-width: 480px) {
-  .body__row:not(:last-child) {
+  .body__row {
     margin-bottom: 13px;
   }
 

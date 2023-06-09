@@ -82,14 +82,6 @@ export default {
 * Browsers: last 4 version
 */
 
-.profile-menu__row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 0.7778rem;
-}
-
 .profile-menu__block {
   margin-bottom: 1.6667rem;
 }
@@ -102,11 +94,17 @@ export default {
   /* text-shadow: 1px 1px 1px #d3792b; */
 }
 
+.profile-menu__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1.9444rem;
+}
+
 .profile-menu__btn {
-  margin-bottom: 10px;
-  padding: 0.4444rem 0.8889rem;
-  font-size: 0.7778rem;
-  line-height: 0.8889rem;
+  margin-bottom: 0.5556rem;
+  padding: 0.3333rem 0.7778rem;
   background: #f09e56;
   border: 1px solid rgba(240, 158, 86, 0.58);
   border-radius: 10px;
@@ -150,10 +148,6 @@ export default {
 }
 
 @media (max-width: 700px) {
-  .profile-menu__btn {
-    padding: 6px 12px;
-  }
-
   .profile-menu__btn:not(:last-child) {
     margin-right: 30px;
   }
