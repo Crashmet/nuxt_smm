@@ -4,7 +4,7 @@ export const state = () => ({
       name: "Блогер",
       role: "blogger",
       isActive: true,
-      routerName: "/account/bloger.profile",
+      routerName: "/account/blogger.profile",
     },
     {
       name: "Рекламодатель",
@@ -14,26 +14,26 @@ export const state = () => ({
     },
   ],
 
-  blogerMenu: [
+  bloggerMenu: [
     {
       name: "Профиль",
       isActive: true,
-      routerName: "/account/bloger.profile",
+      routerName: "/account/blogger.profile",
     },
     {
       name: "Финансы",
       isActive: false,
-      routerName: "/account/bloger.finance",
+      routerName: "/account/blogger.finance",
     },
     {
       name: "Заказы",
       isActive: false,
-      routerName: "/account/bloger.orders",
+      routerName: "/account/blogger.orders",
     },
     {
       name: "Чат",
       isActive: false,
-      routerName: "/account/bloger.chat",
+      routerName: "/account/blogger.chat",
     },
   ],
 
@@ -63,7 +63,7 @@ export const state = () => ({
 
 export const getters = {
   users: ({ users }) => users,
-  blogerMenu: ({ blogerMenu }) => blogerMenu,
+  bloggerMenu: ({ bloggerMenu }) => bloggerMenu,
   advertiserMenu: ({ advertiserMenu }) => advertiserMenu,
 };
 
@@ -77,8 +77,8 @@ export const mutations = {
     });
   },
 
-  SET_BLOGER_MENU_STATUS({ blogerMenu }, name) {
-    blogerMenu.forEach((el) => {
+  SET_BLOgGER_MENU_STATUS({ bloggerMenu }, name) {
+    bloggerMenu.forEach((el) => {
       el.isActive = false;
       if (el.name === name) {
         el.isActive = true;
@@ -86,7 +86,7 @@ export const mutations = {
     });
   },
 
-  SET_BLOGER_MENU_ROUTER({ users }, routerName) {
+  SET_BLOgGER_MENU_ROUTER({ users }, routerName) {
     users.forEach((el) => {
       if (el.name === "Блогер") {
         el.routerName = routerName;
@@ -117,12 +117,12 @@ export const actions = {
     commit("SET_USER_STATUS", role);
   },
 
-  setBlogerMenuStatus({ commit }, name) {
-    commit("SET_BLOGER_MENU_STATUS", name);
+  setBloggerMenuStatus({ commit }, name) {
+    commit("SET_BLOgGER_MENU_STATUS", name);
   },
 
-  setBlogerMenuRouter({ commit }, routerName) {
-    commit("SET_BLOGER_MENU_ROUTER", routerName);
+  setBloggerMenuRouter({ commit }, routerName) {
+    commit("SET_BLOgGER_MENU_ROUTER", routerName);
   },
 
   setAdvertiserMenuStatus({ commit }, name) {

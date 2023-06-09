@@ -6,9 +6,9 @@
       <nav class="profile-menu__row">
         <button
           class="profile-menu__btn"
-          v-for="setting in blogerMenu"
+          v-for="setting in bloggerMenu"
           :key="setting.name"
-          @click="handlerClickBlogerMenu(setting.name, setting.routerName)"
+          @click="handlerClickBloggerMenu(setting.name, setting.routerName)"
         >
           <span
             class="profile-menu__text"
@@ -45,7 +45,7 @@ export default {
     ...mapGetters({
       role: "role",
       users: "profileMenuStore/users",
-      blogerMenu: "profileMenuStore/blogerMenu",
+      bloggerMenu: "profileMenuStore/bloggerMenu",
       advertiserMenu: "profileMenuStore/advertiserMenu",
     }),
   },
@@ -53,15 +53,15 @@ export default {
   methods: {
     ...mapActions({
       setUserStatus: "profileMenuStore/setUserStatus",
-      setBlogerMenuStatus: "profileMenuStore/setBlogerMenuStatus",
-      setBlogerMenuRouter: "profileMenuStore/setBlogerMenuRouter",
+      setBloggerMenuStatus: "profileMenuStore/setBloggerMenuStatus",
+      setBloggerMenuRouter: "profileMenuStore/setBloggerMenuRouter",
       setAdvertiserMenuStatus: "profileMenuStore/setAdvertiserMenuStatus",
       setAdvertiserMenuRouter: "profileMenuStore/setAdvertiserMenuRouter",
     }),
 
-    handlerClickBlogerMenu(name, routerName) {
-      this.setBlogerMenuStatus(name);
-      this.setBlogerMenuRouter(routerName);
+    handlerClickBloggerMenu(name, routerName) {
+      this.setBloggerMenuStatus(name);
+      this.setBloggerMenuRouter(routerName);
       this.$router.push(routerName);
     },
 

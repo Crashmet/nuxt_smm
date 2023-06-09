@@ -1,6 +1,6 @@
 <template>
-  <div class="bloger-profile">
-    <div class="bloger-profile__body body">
+  <div class="blogger-profile">
+    <div class="blogger-profile__body body">
       <ul class="body__row">
         <li class="body__cell body__cell-label">
           <span class="body__label">E-mail</span>
@@ -122,7 +122,7 @@
 
 <script>
 export default {
-  name: "BlogerProfile",
+  name: "BloggerProfile",
 };
 </script>
 

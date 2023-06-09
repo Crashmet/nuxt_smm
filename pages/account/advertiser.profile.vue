@@ -157,9 +157,6 @@ export default {
 }
 
 @media (max-width: 480px) {
-  .bloger-profile__link {
-    margin-bottom: 9px;
-  }
 
   .body__row:not(:last-child) {
     margin-bottom: 13px;

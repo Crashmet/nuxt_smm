@@ -1,5 +1,5 @@
 <template>
-  <div class="bloger-chat">
+  <div class="blogger-chat">
     <h5 class="chat__title">Чат</h5>
 
     <textarea name="massage" class="chat__textarea">блогер клиент</textarea>
@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: "BlogerChat",
+  name: "BloggerChat",
 };
 </script>
 
@@ -33,7 +33,7 @@ export default {
 * Browsers: last 4 version
 */
 
-.bloger-chat {
+.blogger-chat {
   margin-top: 2.5555rem;
   max-width: 392.0004px;
   margin-left: 2px;

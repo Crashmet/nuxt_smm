@@ -4,6 +4,6 @@
 
 <script>
 export default {
-  name: "BlogerOrders",
+  name: "AdvertiserOrders",
 };
 </script>

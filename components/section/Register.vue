@@ -41,14 +41,14 @@
               <div class="item-radio">
                 <input
                   v-model="role"
-                  id="bloger-radio-input"
+                  id="blogger-radio-input"
                   value="blogger"
                   type="radio"
                   name="redirecttarget"
                   class="item-radio__input"
                   checked
                 />
-                <label for="bloger-radio-input" class="item-radio__label"
+                <label for="blogger-radio-input" class="item-radio__label"
                   >Блогер</label
                 >
               </div>

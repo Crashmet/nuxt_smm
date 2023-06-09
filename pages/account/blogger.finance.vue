@@ -1,8 +1,8 @@
 <template>
-  <div class="bloger-finance">
-    <p class="bloger-finance__link">Изменить профиль</p>
+  <div class="blogger-finance">
+    <p class="blogger-finance__link">Изменить профиль</p>
 
-    <div class="bloger-finance__body body">
+    <div class="blogger-finance__body body">
       <ul class="body__row">
         <li class="body__cell body__cell-label">
           <span class="body__label">Ваш баланс</span>
@@ -48,7 +48,7 @@
 
 <script>
 export default {
-  name: 'BlogerFinance',
+  name: "BloggerFinance",
 };
 </script>
 
@@ -60,7 +60,7 @@ export default {
 * Browsers: last 4 version
 */
 
-.bloger-finance__link {
+.blogger-finance__link {
   margin-bottom: 1.6667rem;
   -webkit-text-decoration-line: underline;
   text-decoration-line: underline;
@@ -117,7 +117,7 @@ export default {
 }
 
 @media (max-width: 480px) {
-  .bloger-finance__link {
+  .blogger-finance__link {
     margin-bottom: 9px;
   }
 
