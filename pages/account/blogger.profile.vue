@@ -7,7 +7,12 @@
         </li>
 
         <li class="body__cell">
-          <input type="email" class="body__input" />
+          <input
+            type="email"
+            class="body__input"
+            disabled
+            v-model="bloggerData.email"
+          />
         </li>
       </ul>
 
@@ -17,7 +22,12 @@
         </li>
 
         <li class="body__cell">
-          <input type="text" class="body__input" />
+          <input
+            type="text"
+            class="body__input"
+            disabled
+            v-model="bloggerData.first_name"
+          />
         </li>
       </ul>
 
@@ -27,7 +37,12 @@
         </li>
 
         <li class="body__cell">
-          <input type="text" class="body__input" />
+          <input
+            type="text"
+            class="body__input"
+            disabled
+            v-model="bloggerData.last_name"
+          />
         </li>
       </ul>
 
@@ -121,8 +136,28 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: "BloggerProfile",
+
+  mounted() {
+    this.addBloggerData();
+  },
+
+  computed: {
+    ...mapGetters({
+      bloggerData: "bloggerProfileStore/bloggerData",
+    }),
+  },
+
+  methods: {
+    ...mapActions({
+      addBloggerData: "bloggerProfileStore/addBloggerData",
+      changeBloggerData: "bloggerProfileStore/changeBloggerData",
+      changeBloggerPassword: "bloggerProfileStore/changeBloggerPassword",
+    }),
+  },
 };
 </script>
 
