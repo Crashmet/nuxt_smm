@@ -10,7 +10,7 @@
           <p class="header-left__desc">более 50000 блогеров</p>
         </div>
 
-        <div v-if="sessionid === null">
+        <div v-if="!sessionid">
           <div class="header__row_right">
             <ul class="header-right__list_left">
               <li class="header-right__item">

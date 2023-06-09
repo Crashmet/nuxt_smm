@@ -63,11 +63,11 @@ export const actions = {
 
     await this.$axios
       .$patch("account/", {
-        data: dataJson,
         headers: {
           "X-Csrftoken": `${this.$cookies.get("csrftoken")}`,
           "X-Requested-With": "XMLHttpRequest",
         },
+        data: dataJson,
       })
       .then((response) => {
         console.log(response);
@@ -84,11 +84,11 @@ export const actions = {
 
     await this.$axios
       .$put("account/password_change/", {
-        data: dataJson,
         headers: {
           "X-Csrftoken": `${this.$cookies.get("csrftoken")}`,
           "X-Requested-With": "XMLHttpRequest",
         },
+        data: dataJson,
       })
       .then((response) => {
         console.log(response);
