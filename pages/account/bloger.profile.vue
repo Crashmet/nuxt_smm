@@ -136,14 +136,6 @@ export default {
 * Browsers: last 4 version
 */
 
-.bloger-profile__link {
-  margin-bottom: 1.6667rem;
-  -webkit-text-decoration-line: underline;
-  text-decoration-line: underline;
-  color: #ff3600;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
 .body__row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -265,10 +257,6 @@ export default {
 }
 
 @media (max-width: 480px) {
-  .bloger-profile__link {
-    margin-bottom: 9px;
-  }
-
   .body__row:not(:last-child) {
     margin-bottom: 13px;
   }

@@ -3,9 +3,9 @@
     <div class="profile-menu__block" v-if="users[0].isActive">
       <h3 class="profile-menu__title">Пользовательское меню блогера</h3>
 
-      <ul class="profile-menu__row">
-        <li
-          class="profile-menu__cell profile-menu__cell_active"
+      <nav class="profile-menu__row">
+        <button
+          class="profile-menu__btn"
           v-for="setting in blogerMenu"
           :key="setting.name"
           @click="handlerClickBlogerMenu(setting.name, setting.routerName)"
@@ -15,26 +15,14 @@
             :class="setting.isActive ? 'profile-menu__text_active' : ''"
             >{{ setting.name }}</span
           >
-        </li>
-      </ul>
+        </button>
+      </nav>
     </div>
 
     <div class="profile-menu__block" v-else>
       <h3 class="profile-menu__title">Пользовательское меню рекламодателя</h3>
-      <!-- <ul class="profile-menu__row" v-else>
-      <li
-        class="profile-menu__cell profile-menu__cell_active"
-        v-for="setting in advertiserMenu"
-        :key="setting.name"
-        @click="handlerClickAdvertiserMenu(setting.name, setting.routerName)"
-      >
-        <span
-          class="profile-menu__text"
-          :class="setting.isActive ? 'profile-menu__text_active' : ''"
-          >{{ setting.name }}</span
-        >
-      </li>
-    </ul> -->
+
+      <!-- hz -->
     </div>
   </div>
 </template>
@@ -98,6 +86,7 @@ export default {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 0.7778rem;
 }
 
@@ -109,54 +98,74 @@ export default {
   margin-bottom: 1.3889rem;
   font-size: 1.6667rem;
   line-height: 1.9444rem;
-  color: #d12f03;
-  /* text-shadow: 4px 1px 6px #d3792b; */
+  color: rgba(255, 54, 0, 0.8);
+  /* text-shadow: 1px 1px 1px #d3792b; */
+}
+
+.profile-menu__btn {
+  margin-bottom: 10px;
+  padding: 0.4444rem 0.8889rem;
+  font-size: 0.7778rem;
+  line-height: 0.8889rem;
+  background: #f09e56;
+  border: 1px solid rgba(240, 158, 86, 0.58);
+  border-radius: 10px;
+  background-color: transparent;
+  -webkit-transition: border 0.3s ease;
+  -o-transition: border 0.3s ease;
+  transition: border 0.3s ease;
+}
+
+.profile-menu__btn:not(:last-child) {
+  margin-right: 4.4444rem;
+}
+
+.profile-menu__btn:hover,
+.profile-menu__btn:active {
+  border: 1.5px solid rgba(240, 158, 86, 0.94);
+  -webkit-transition: border 0.3s ease;
+  -o-transition: border 0.3s ease;
+  transition: border 0.3s ease;
+}
+
+.profile-menu__text {
+  color: rgba(13, 13, 13, 0.61);
+}
+
+.profile-menu__btn:hover > .profile-menu__text,
+.profile-menu__btn:active > .profile-menu__text {
+  color: #ff3600;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .profile-menu__text_active {
-  font-size: 1.1111rem;
-  line-height: 1.2778rem;
   color: #ff3600;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  /* text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  text-decoration-line: underline;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
-.profile-menu__cell:first-child {
-  max-width: 9.2222rem;
-  width: 100%;
+@media (max-width: 700px) {
+  .profile-menu__btn {
+    padding: 6px 12px;
+  }
+
+  .profile-menu__btn:not(:last-child) {
+    margin-right: 30px;
+  }
 }
 
-.profile-menu__cell:nth-child(2) {
-  max-width: 10.7222rem;
-  width: 100%;
-}
+@media (max-width: 540px) {
+  .profile-menu__btn {
+    padding: 4px 10px;
+  }
 
-.profile-menu__cell:nth-child(3) {
-  max-width: 8rem;
-  width: 100%;
-}
-
-.profile-menu__cell_active {
-  cursor: pointer;
-}
-
-.profile-menu__cell_active:hover > .profile-menu__text,
-.profile-menu__cell_active:active > .profile-menu__text {
-  font-size: 1.1111rem;
-  line-height: 1.2778rem;
-  color: #ff3600;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-
-@media (max-width: 480px) {
-  .profile-menu__cell:nth-child(1) {
-    max-width: 80px;
-    width: 100%;
+  .profile-menu__btn:not(:last-child) {
+    margin-right: 15px;
   }
 }
 </style>
