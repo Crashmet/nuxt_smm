@@ -46,13 +46,7 @@ export const actions = {
 
   async onLogout() {
     await this.$axios
-      .$delete("account/", {
-        data: {},
-        headers: {
-          "X-Csrftoken": `${this.$cookies.get("csrftoken")}`,
-          "X-Requested-With": "XMLHttpRequest",
-        },
-      })
+      .$delete("account/", {})
       .then((response) => {
         location.reload();
       })

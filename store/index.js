@@ -1,6 +1,8 @@
 export const state = () => ({
   sessionid: null,
 
+  csrftoken: null,
+
   role: null,
 });
 
@@ -14,6 +16,11 @@ export const mutations = {
     state.sessionid = token;
   },
 
+  SET_CSRF_TOKEN(state, csrf) {
+    console.log(csrf);
+    state.csrftoken = csrf;
+  },
+
   SET_ROLE(state, role) {
     state.role = role;
   },
@@ -22,9 +29,14 @@ export const mutations = {
 export const actions = {
   async nuxtServerInit({ commit }) {
     const token = this.$cookies.get("sessionid");
+    const csrf = this.$cookies.get("csrftoken");
 
     if (token) {
       commit("SET_SESSION_ID", token);
+    }
+
+    if (csrf) {
+      commit("SET_SESSION_ID", csrf);
     }
 
     await this.$axios
