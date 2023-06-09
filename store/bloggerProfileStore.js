@@ -51,8 +51,6 @@ export const actions = {
     await this.$axios
       .$get("account/")
       .then((response) => {
-        console.log(response);
-
         commit("ADD_BLOGGER_DATA", response);
       })
       .catch((error) => {
@@ -64,7 +62,13 @@ export const actions = {
     const dataJson = JSON.stringify(bloggerData);
 
     await this.$axios
-      .$patch("account/", dataJson)
+      .$patch("account/", {
+        data: dataJson,
+        headers: {
+          "X-Csrftoken": `${this.$cookies.get("csrftoken")}`,
+          "X-Requested-With": "XMLHttpRequest",
+        },
+      })
       .then((response) => {
         console.log(response);
 
@@ -79,7 +83,13 @@ export const actions = {
     const dataJson = JSON.stringify(passwordData);
 
     await this.$axios
-      .$put("account/password_change/", dataJson)
+      .$put("account/password_change/", {
+        data: dataJson,
+        headers: {
+          "X-Csrftoken": `${this.$cookies.get("csrftoken")}`,
+          "X-Requested-With": "XMLHttpRequest",
+        },
+      })
       .then((response) => {
         console.log(response);
 

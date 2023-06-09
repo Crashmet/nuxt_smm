@@ -49,7 +49,6 @@ export const actions = {
       .$delete("account/", {
         data: {},
         headers: {
-          // "Content-Type": "application/x-www-form-urlencoded",
           "X-Csrftoken": `${this.$cookies.get("csrftoken")}`,
           "X-Requested-With": "XMLHttpRequest",
         },
