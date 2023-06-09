@@ -55,10 +55,24 @@ export default {
   axios: {
     baseURL: process.env.ACC_API_URL,
     withCredentials: true,
-    headers: {
+    common: {
       "Content-Type": "application/json",
-      Accept: "*/*",
-      // credentials: "include",
+      Accept: "application/json, text/plain, */*",
+    },
+    delete: {
+      "X-Csrftoken": `${this.$cookies.get("csrftoken")}`,
+      "X-Requested-With": "XMLHttpRequest",
+    },
+    get: {},
+    head: {},
+    post: {},
+    put: {
+      "X-Csrftoken": `${this.$cookies.get("csrftoken")}`,
+      "X-Requested-With": "XMLHttpRequest",
+    },
+    patch: {
+      "X-Csrftoken": `${this.$cookies.get("csrftoken")}`,
+      "X-Requested-With": "XMLHttpRequest",
     },
   },
 
