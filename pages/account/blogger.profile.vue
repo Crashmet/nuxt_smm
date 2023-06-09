@@ -4,7 +4,6 @@
       class="blogger-profile__body body"
       v-if="!isOpenModalChangeData && !isOpenModalChangePassword"
     >
-      {{ isOpenModalChangeData }} {{ isOpenModalChangePassword }}
       <ul class="body__row">
         <li class="body__cell body__cell-label">
           <span class="body__label">E-mail</span>

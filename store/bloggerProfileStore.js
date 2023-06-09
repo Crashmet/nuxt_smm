@@ -21,16 +21,12 @@ export const getters = {
 };
 
 export const mutations = {
-  SET_SESSION_ID(state, response) {
+  ADD_BLOGGER_DATA(state, response) {
     const { username, first_name, last_name, email } = response;
 
     const bloggerData = { username, first_name, last_name, email };
 
     state.bloggerData = bloggerData;
-  },
-
-  SET_ROLE(state, role) {
-    state.role = role;
   },
 
   CHANGE_DATA_MODAL_STATUS(state, flag) {
@@ -55,6 +51,8 @@ export const actions = {
     await this.$axios
       .$get("account/")
       .then((response) => {
+        console.log(response);
+
         commit("ADD_BLOGGER_DATA", response);
       })
       .catch((error) => {
