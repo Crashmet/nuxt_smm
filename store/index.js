@@ -17,7 +17,6 @@ export const mutations = {
   },
 
   SET_CSRF_TOKEN(state, csrf) {
-    console.log(csrf);
     state.csrftoken = csrf;
   },
 
@@ -29,6 +28,7 @@ export const mutations = {
 export const actions = {
   async nuxtServerInit({ commit }) {
     const token = this.$cookies.get("sessionid");
+
     const csrf = this.$cookies.get("csrftoken");
 
     if (token) {
@@ -36,7 +36,7 @@ export const actions = {
     }
 
     if (csrf) {
-      commit("SET_SESSION_ID", csrf);
+      commit("SET_CSRF_TOKEN", csrf);
     }
 
     await this.$axios
