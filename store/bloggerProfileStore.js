@@ -26,9 +26,9 @@ export const getters = {
 
 export const mutations = {
   ADD_BLOGGER_DATA(state, response) {
-    const { username, first_name, last_name, email } = response;
+    const { username, first_name, last_name, email, role } = response;
 
-    const bloggerData = { username, first_name, last_name, email };
+    const bloggerData = { username, first_name, last_name, email, role };
 
     state.bloggerData = bloggerData;
   },
