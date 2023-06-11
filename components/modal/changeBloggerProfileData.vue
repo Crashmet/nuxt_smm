@@ -151,22 +151,24 @@ export default {
 <style scoped>
 .modal {
   position: relative;
-  max-width: 450px;
+  padding: 1.25rem 3.125rem;
+  max-width: 25.0139rem;
   background-color: #fff;
-  padding: 20px 50px;
+  border: 2px solid rgba(240, 158, 86, 0.58);
   border-radius: 20px;
 }
 
 .modal__title {
   font-size: 1.1111rem;
   margin-bottom: 1.1111rem;
+  text-decoration-line: underline;
 }
 
 .modal__btn-close {
   position: absolute;
   right: 7%;
   top: 7%;
-  background-color: #fff;
+  background-color: transparent;
 }
 
 .btn-close__svg {

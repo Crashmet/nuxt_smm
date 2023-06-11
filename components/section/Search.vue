@@ -5,6 +5,7 @@
         <div class="search-bar__line">
           <input
             class="search-line__input"
+            autocomplete="off"
             type="text"
             v-model.trim="searchInput"
           />

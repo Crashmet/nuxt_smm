@@ -141,8 +141,8 @@ export default {
 */
 
 table {
-  margin-top: 2.5001rem;
-  width: 1180px;
+  margin-top: 2.5rem;
+  width: 56.9444rem;
   table-layout: fixed;
   border-collapse: collapse;
 }
@@ -159,15 +159,15 @@ thead th {
 }
 
 thead th:nth-child(1) {
-  width: 13%;
+  width: 12%;
 }
 
 thead th:nth-child(2) {
-  width: 22%;
+  width: 23%;
 }
 
 thead th:nth-child(3) {
-  width: 9%;
+  width: 10%;
 }
 
 thead th:nth-child(4) {
@@ -179,15 +179,16 @@ thead th:nth-child(5) {
 }
 
 thead th:nth-child(6) {
-  width: 9%;
+  width: 10%;
 }
 
 thead th:nth-child(7) {
-  width: 13%;
+  width: 15%;
 }
 
-tbody th {
-  text-align: left;
+th,
+td:nth-child(5) {
+  text-align: center;
 }
 
 tbody tr {

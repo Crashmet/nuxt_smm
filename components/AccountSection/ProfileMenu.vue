@@ -106,7 +106,7 @@ export default {
   margin-bottom: 0.5556rem;
   padding: 0.3333rem 0.7778rem;
   background: #f09e56;
-  border: 1px solid rgba(240, 158, 86, 0.58);
+  border: 2px solid rgba(240, 158, 86, 0.58);
   border-radius: 10px;
   background-color: transparent;
   -webkit-transition: border 0.3s ease;
@@ -120,7 +120,7 @@ export default {
 
 .profile-menu__btn:hover,
 .profile-menu__btn:active {
-  border: 1.5px solid rgba(240, 158, 86, 0.94);
+  border: 2px solid rgba(240, 158, 86, 0.94);
   -webkit-transition: border 0.3s ease;
   -o-transition: border 0.3s ease;
   transition: border 0.3s ease;
