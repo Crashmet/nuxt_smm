@@ -14,7 +14,7 @@
                 placeholder="Username"
               />
 
-              <template v-if="validatorUsername.length">
+              <template v-if="validatorUsername.length > 0">
                 <p class="register__validation">{{ validatorUsername }}</p>
               </template>
             </div>
@@ -76,7 +76,7 @@
                 placeholder="E-mail"
               />
 
-              <template v-if="validatorEmail.length">
+              <template v-if="validatorEmail.length > 0">
                 <p class="register__validation">{{ validatorEmail }}</p>
               </template>
             </div>
@@ -89,7 +89,7 @@
                 placeholder="Пароль 1"
               />
 
-              <template v-if="validatorPassword.length">
+              <template v-if="validatorPassword.length > 0">
                 <p class="register__validation">{{ validatorPassword }}</p>
               </template>
             </div>
@@ -103,7 +103,9 @@
               />
 
               <template
-                v-if="validatorPassword2.length || nonFieldErrors.length"
+                v-if="
+                  validatorPassword2.length > 0 || nonFieldErrors.length > 0
+                "
               >
                 <p class="register__validation">
                   {{ validatorPassword2 }} {{ nonFieldErrors }}

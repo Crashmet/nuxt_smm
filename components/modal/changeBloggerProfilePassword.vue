@@ -21,35 +21,61 @@
       </svg>
     </button>
 
-    <ul class="modal__row">
-      <li class="modal__cell modal__cell-label">
-        <span class="modal__label">Старый пароль</span>
-      </li>
+    <div class="modal__block">
+      <ul class="modal__row">
+        <li class="modal__cell modal__cell-label">
+          <span class="modal__label">Старый пароль</span>
+        </li>
 
-      <li class="modal__cell">
-        <input type="password" class="modal__input" v-model="old_password" />
-      </li>
-    </ul>
+        <li class="modal__cell">
+          <input type="password" class="modal__input" v-model="old_password" />
+        </li>
+      </ul>
 
-    <ul class="modal__row">
-      <li class="modal__cell modal__cell-label">
-        <span class="modal__label">Новый пароль</span>
-      </li>
+      <template v-if="validatorOldPassword.length > 0">
+        <p class="modal__validation">{{ validatorOldPassword }}</p>
+      </template>
+    </div>
 
-      <li class="modal__cell">
-        <input type="password" class="modal__input" v-model="old_password" />
-      </li>
-    </ul>
+    <div class="modal__block">
+      <ul class="modal__row">
+        <li class="modal__cell modal__cell-label">
+          <span class="modal__label">Новый пароль</span>
+        </li>
 
-    <ul class="modal__row">
-      <li class="modal__cell modal__cell-label">
-        <span class="modal__label">Повторите новый пароль</span>
-      </li>
+        <li class="modal__cell">
+          <input type="password" class="modal__input" v-model="new_password" />
+        </li>
+      </ul>
 
-      <li class="modal__cell">
-        <input type="password" class="modal__input" v-model="old_password" />
-      </li>
-    </ul>
+      <template v-if="validatorPassword.length > 0">
+        <p class="modal__validation">{{ validatorPassword }}</p>
+      </template>
+    </div>
+
+    <div class="modal__block">
+      <ul class="modal__row">
+        <li class="modal__cell modal__cell-label">
+          <span class="modal__label">Повторите новый пароль</span>
+        </li>
+
+        <li class="modal__cell">
+          <input
+            type="password"
+            class="modal__input"
+            v-model="new_password_confirm"
+          />
+        </li>
+      </ul>
+
+      <template
+        v-if="validatorPassword2.length > 0 || nonFieldErrors.length > 0"
+      >
+        <p class="modal__validation">
+          {{ validatorPassword2 }} {{ nonFieldErrors }}
+        </p>
+      </template>
+    </div>
 
     <button class="cell-item__btn" @click.prevent="handlerSubmitSettings()">
       Изменить
@@ -58,7 +84,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "BloggerProfileDataModal",
@@ -68,7 +94,18 @@ export default {
       old_password: "",
       new_password: "",
       new_password_confirm: "",
+
+      validatorOldPassword: "",
+      validatorPassword: "",
+      validatorPassword2: "",
+      nonFieldErrors: "",
     };
+  },
+
+  computed: {
+    ...mapGetters({
+      validatorResponse: "bloggerProfileStore/validatorResponse",
+    }),
   },
 
   methods: {
@@ -87,11 +124,61 @@ export default {
 
       this.changeBloggerPassword(passwordData);
     },
+
+    resetFormPassword() {
+      this.old_password = "";
+      this.new_password = "";
+      this.new_password_confirm = "";
+    },
+
+    resetValidatorMassages() {
+      this.validatorOldPassword = "";
+      this.validatorPassword = "";
+      this.validatorPassword2 = "";
+      this.nonFieldErrors = "";
+    },
+
+    addValidatorMassages() {
+      for (let el of Object.entries(this.validatorResponse)) {
+        let massage = "";
+
+        if (Array.isArray(el[1])) {
+          massage = el[1].reduce((acc, el) => acc + " " + el);
+        } else {
+          massage = el[1];
+        }
+
+        if (el[0] === "old_password") {
+          this.validatorOldPassword = massage;
+        } else if (el[0] === "new_password") {
+          this.validatorPassword = massage;
+        } else if (el[0] === "new_password_confirm") {
+          this.validatorPassword2 = massage;
+        } else if (el[0] === "non_field_errors") {
+          this.nonFieldErrors = massage;
+        }
+      }
+    },
+  },
+
+  watch: {
+    validatorResponse() {
+      this.resetFormPassword();
+      this.resetValidatorMassages();
+      this.addValidatorMassages();
+    },
   },
 };
 </script>
 
 <style scoped>
+.modal__validation {
+  font-size: 0.8889rem;
+  margin-left: 1.1111rem;
+  margin-top: 0.3889rem;
+  color: rgba(255, 54, 0, 1);
+}
+
 .modal {
   position: relative;
   max-width: 34.2221rem;
@@ -119,6 +206,10 @@ export default {
   height: 1rem;
 }
 
+.modal__block {
+  margin-bottom: 0.8889rem;
+}
+
 .modal__row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -126,10 +217,6 @@ export default {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
-
-.modal__row {
-  margin-bottom: 0.8889rem;
 }
 
 .modal__cell-label {

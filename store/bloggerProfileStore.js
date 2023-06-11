@@ -9,6 +9,8 @@ export const state = () => ({
 
   isOpenModalChangeData: false,
   isOpenModalChangePassword: false,
+
+  validatorResponse: {},
 });
 
 export const getters = {
@@ -18,6 +20,8 @@ export const getters = {
 
   isOpenModalChangePassword: ({ isOpenModalChangePassword }) =>
     isOpenModalChangePassword,
+
+  validatorResponse: ({ validatorResponse }) => validatorResponse,
 };
 
 export const mutations = {
@@ -35,6 +39,10 @@ export const mutations = {
 
   CHANGE_PASSWORD_MODAL_STATUS(state, flag) {
     state.isOpenModalChangePassword = flag;
+  },
+
+  SET_VALIDATOR_DATA(state, validatorResponse) {
+    state.validatorResponse = validatorResponse;
   },
 };
 
@@ -77,10 +85,12 @@ export const actions = {
     await this.$axios
       .$put("account/password_change/", dataJson)
       .then((response) => {
+        commit("SET_VALIDATOR_DATA", {});
+
         location.reload();
       })
       .catch((error) => {
-        console.log(error.response);
+        commit("SET_VALIDATOR_DATA", error.response.data);
       });
   },
 };

@@ -114,7 +114,7 @@ export default {
           this.validatorUsername = massage;
         } else if (el[0] === "password") {
           this.validatorPassword = massage;
-        } else if (el[0] === "detail") {
+        } else if (el[0] === "non_field_errors") {
           this.nonFieldErrors = massage;
         }
       }
