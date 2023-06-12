@@ -36,7 +36,7 @@ export default {
 
 .home {
   margin-top: 8.3333rem;
-  margin-bottom: 30px;
+  margin-bottom: 7.7778rem;
 }
 
 .home__container {

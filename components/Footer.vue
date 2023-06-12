@@ -105,7 +105,7 @@ export default {
 */
 
 .footer {
-  margin-top: 2.7778rem;
+  margin-top: 3.3334rem;
 }
 
 .footer__container {

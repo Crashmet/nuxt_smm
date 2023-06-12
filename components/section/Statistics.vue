@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: 'Statistics',
+  name: "Statistics",
 };
 </script>
 
@@ -34,11 +34,18 @@ export default {
 */
 
 .statistics {
-  padding-bottom: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1.7222rem;
 }
 
 .statistics__container {
-  padding: 0 4.4444rem;
+  padding: 1rem 2rem;
+  border: 1px solid rgba(240, 158, 86, 0.94);
+  border-radius: 20px;
+  filter: drop-shadow(5px 5px 7px rgba(255, 54, 0, 0.43));
+  box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.25);
 }
 
 .statistics__list {
@@ -51,9 +58,10 @@ export default {
 }
 
 .statistics__item {
+  text-align: center;
   font-size: 1rem;
   line-height: 1.1667rem;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  /* text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
 }
 
 .statistics__item:not(:last-child) {
