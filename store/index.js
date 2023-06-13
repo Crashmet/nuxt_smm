@@ -1,9 +1,9 @@
 export const state = () => ({
-  sessionid: "null",
+  sessionid: null,
 
-  csrftoken: "null",
+  csrftoken: null,
 
-  role: "advertiser",
+  role: null,
 });
 
 export const getters = {
