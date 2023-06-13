@@ -80,7 +80,7 @@ export default {
 
 .account__main {
   overflow-x: auto;
-  max-width: 1102px;
+  max-width: 61.2222rem;
   width: 100%;
   padding: 2.2222rem 2.1111rem;
   background: rgba(255, 119, 0, 0.15);

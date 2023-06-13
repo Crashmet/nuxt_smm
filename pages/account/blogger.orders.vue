@@ -1,134 +1,164 @@
 <template>
-  <table>
-    <thead>
-      <tr>
-        <th scope="col">Заказчик</th>
-        <th scope="col">Задание</th>
-        <th scope="col">Соцсеть</th>
-        <th scope="col">Регион</th>
-        <th scope="col">Сумма</th>
-        <th scope="col">Срок</th>
-        <th scope="col">Статус</th>
-        <th scope="col">Чат</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">Компания 1</th>
-        <td>разместить фото и текст</td>
-        <td>Instagram</td>
-        <td>Москва</td>
-        <td>100</td>
-        <td>01.03.2022</td>
-        <td>взять в работу</td>
-        <td>обсудить с заказчиком</td>
-      </tr>
+  <div class="orders_container">
+    <div :class="isOpenModalAddOrder ? 'blur' : ''">
+      <button
+        class="orders-change__btn"
+        @click="changeAddOrderModalStatus(true)"
+      >
+        <span class="orders-change__text">Сделать заказ</span>
+      </button>
 
-      <tr>
-        <th scope="row">Компания 2</th>
-        <td>разместить фото и текст</td>
-        <td>Instagram</td>
-        <td>Москва</td>
-        <td>100</td>
-        <td>01.03.2022</td>
-        <td>взять в работу</td>
-        <td>обсудить с заказчиком</td>
-      </tr>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Заказчик</th>
+            <th scope="col">Задание</th>
+            <th scope="col">Соцсеть</th>
+            <th scope="col">Регион</th>
+            <th scope="col">Сумма</th>
+            <th scope="col">Срок</th>
+            <th scope="col">Статус</th>
+            <th scope="col">Чат</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Компания 1</th>
+            <td>разместить фото и текст</td>
+            <td>Instagram</td>
+            <td>Москва</td>
+            <td>100</td>
+            <td>01.03.2022</td>
+            <td>взять в работу</td>
+            <td>обсудить с заказчиком</td>
+          </tr>
 
-      <tr>
-        <th scope="row">Компания 3</th>
-        <td>разместить фото и текст</td>
-        <td>Instagram</td>
-        <td>Москва</td>
-        <td>100</td>
-        <td>01.03.2022</td>
-        <td>взять в работу</td>
-        <td>обсудить с заказчиком</td>
-      </tr>
+          <tr>
+            <th scope="row">Компания 2</th>
+            <td>разместить фото и текст</td>
+            <td>Instagram</td>
+            <td>Москва</td>
+            <td>100</td>
+            <td>01.03.2022</td>
+            <td>взять в работу</td>
+            <td>обсудить с заказчиком</td>
+          </tr>
 
-      <tr>
-        <th scope="row">Компания 4</th>
-        <td>разместить фото и текст</td>
-        <td>Instagram</td>
-        <td>Москва</td>
-        <td>100</td>
-        <td>01.03.2022</td>
-        <td>взять в работу</td>
-        <td>обсудить с заказчиком</td>
-      </tr>
+          <tr>
+            <th scope="row">Компания 3</th>
+            <td>разместить фото и текст</td>
+            <td>Instagram</td>
+            <td>Москва</td>
+            <td>100</td>
+            <td>01.03.2022</td>
+            <td>взять в работу</td>
+            <td>обсудить с заказчиком</td>
+          </tr>
 
-      <tr>
-        <th scope="row">Компания 5</th>
-        <td>разместить фото и текст</td>
-        <td>Instagram</td>
-        <td>Москва</td>
-        <td>100</td>
-        <td>01.03.2022</td>
-        <td>взять в работу</td>
-        <td>обсудить с заказчиком</td>
-      </tr>
+          <tr>
+            <th scope="row">Компания 4</th>
+            <td>разместить фото и текст</td>
+            <td>Instagram</td>
+            <td>Москва</td>
+            <td>100</td>
+            <td>01.03.2022</td>
+            <td>взять в работу</td>
+            <td>обсудить с заказчиком</td>
+          </tr>
 
-      <tr>
-        <th scope="row">Компания 6</th>
-        <td>разместить фото и текст</td>
-        <td>Instagram</td>
-        <td>Москва</td>
-        <td>100</td>
-        <td>01.03.2022</td>
-        <td>взять в работу</td>
-        <td>обсудить с заказчиком</td>
-      </tr>
+          <tr>
+            <th scope="row">Компания 5</th>
+            <td>разместить фото и текст</td>
+            <td>Instagram</td>
+            <td>Москва</td>
+            <td>100</td>
+            <td>01.03.2022</td>
+            <td>взять в работу</td>
+            <td>обсудить с заказчиком</td>
+          </tr>
 
-      <tr>
-        <th scope="row">Компания 7</th>
-        <td>разместить фото и текст</td>
-        <td>Instagram</td>
-        <td>Москва</td>
-        <td>100</td>
-        <td>01.03.2022</td>
-        <td>взять в работу</td>
-        <td>обсудить с заказчиком</td>
-      </tr>
+          <tr>
+            <th scope="row">Компания 6</th>
+            <td>разместить фото и текст</td>
+            <td>Instagram</td>
+            <td>Москва</td>
+            <td>100</td>
+            <td>01.03.2022</td>
+            <td>взять в работу</td>
+            <td>обсудить с заказчиком</td>
+          </tr>
 
-      <tr>
-        <th scope="row">Компания 8</th>
-        <td>разместить фото и текст</td>
-        <td>Instagram</td>
-        <td>Москва</td>
-        <td>100</td>
-        <td>01.03.2022</td>
-        <td>взять в работу</td>
-        <td>обсудить с заказчиком</td>
-      </tr>
+          <tr>
+            <th scope="row">Компания 7</th>
+            <td>разместить фото и текст</td>
+            <td>Instagram</td>
+            <td>Москва</td>
+            <td>100</td>
+            <td>01.03.2022</td>
+            <td>взять в работу</td>
+            <td>обсудить с заказчиком</td>
+          </tr>
 
-      <tr>
-        <th scope="row">Компания 9</th>
-        <td>разместить фото и текст</td>
-        <td>Instagram</td>
-        <td>Москва</td>
-        <td>100</td>
-        <td>01.03.2022</td>
-        <td>взять в работу</td>
-        <td>обсудить с заказчиком</td>
-      </tr>
+          <tr>
+            <th scope="row">Компания 8</th>
+            <td>разместить фото и текст</td>
+            <td>Instagram</td>
+            <td>Москва</td>
+            <td>100</td>
+            <td>01.03.2022</td>
+            <td>взять в работу</td>
+            <td>обсудить с заказчиком</td>
+          </tr>
 
-      <tr>
-        <th scope="row">Компания 10</th>
-        <td>разместить фото и текст</td>
-        <td>Instagram</td>
-        <td>Москва</td>
-        <td>100</td>
-        <td>01.03.2022</td>
-        <td>взять в работу</td>
-        <td>обсудить с заказчиком</td>
-      </tr>
-    </tbody>
-  </table>
+          <tr>
+            <th scope="row">Компания 9</th>
+            <td>разместить фото и текст</td>
+            <td>Instagram</td>
+            <td>Москва</td>
+            <td>100</td>
+            <td>01.03.2022</td>
+            <td>взять в работу</td>
+            <td>обсудить с заказчиком</td>
+          </tr>
+
+          <tr>
+            <th scope="row">Компания 10</th>
+            <td>разместить фото и текст</td>
+            <td>Instagram</td>
+            <td>Москва</td>
+            <td>100</td>
+            <td>01.03.2022</td>
+            <td>взять в работу</td>
+            <td>обсудить с заказчиком</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <add-new-order-modal-vue v-show="isOpenModalAddOrder" />
+  </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+import addNewOrderModalVue from "~/components/modal/addNewOrderModal.vue";
+
 export default {
   name: "BloggerOrders",
+
+  components: { addNewOrderModalVue },
+
+  computed: {
+    ...mapGetters({
+      isOpenModalAddOrder: "bloggerOrdersStore/isOpenModalAddOrder",
+    }),
+  },
+
+  methods: {
+    ...mapActions({
+      changeAddOrderModalStatus: "bloggerOrdersStore/changeAddOrderModalStatus",
+    }),
+  },
 };
 </script>
 
@@ -139,9 +169,49 @@ export default {
 * Autoprefixer: v10.4.7
 * Browsers: last 4 version
 */
+.orders_container {
+  margin-top: 2.5rem;
+  position: relative;
+}
+
+.orders-change__btn {
+  margin-left: 0.5556rem;
+  padding: 6px 10.0008px;
+  background: #f09e56;
+  border: 1.5px solid rgba(240, 158, 86, 0.58);
+  border-radius: 10px;
+  background-color: transparent;
+  -webkit-transition: border 0.3s ease;
+  -o-transition: border 0.3s ease;
+  transition: border 0.3s ease;
+}
+
+.orders-change__btn:hover,
+.orders-change__btn:active {
+  border: 1.5px solid rgba(240, 158, 86, 0.94);
+  -webkit-transition: border 0.3s ease;
+  -o-transition: border 0.3s ease;
+  transition: border 0.3s ease;
+}
+
+.orders-change__text {
+  font-size: 1rem;
+  line-height: 1.0556rem;
+  color: rgba(13, 13, 13, 0.9);
+}
+
+.orders-change__btn:hover > .orders-change__text,
+.orders-change__btn:active > .orders-change__text {
+  color: #ff3600;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+/* **** table **** */
 
 table {
-  margin-top: 2.5rem;
+  margin-top: 1.8rem;
   width: 56.9444rem;
   table-layout: fixed;
   border-collapse: collapse;
@@ -223,5 +293,9 @@ td {
     font-size: 12px;
     line-height: 14px;
   }
+}
+
+.blur {
+  filter: blur(15px);
 }
 </style>

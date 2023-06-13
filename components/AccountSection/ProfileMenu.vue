@@ -22,7 +22,20 @@
     <div class="profile-menu__block" v-else>
       <h3 class="profile-menu__title">Пользовательское меню рекламодателя</h3>
 
-      <!-- hz -->
+      <nav class="profile-menu__row">
+        <button
+          class="profile-menu__btn"
+          v-for="setting in advertiserMenu"
+          :key="setting.name"
+          @click="handlerClickAdvertiserMenu(setting.name, setting.routerName)"
+        >
+          <span
+            class="profile-menu__text"
+            :class="setting.isActive ? 'profile-menu__text_active' : ''"
+            >{{ setting.name }}</span
+          >
+        </button>
+      </nav>
     </div>
   </div>
 </template>
