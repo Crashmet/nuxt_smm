@@ -22,7 +22,7 @@
     </button>
     <ul class="modal__row">
       <li class="modal__cell modal__cell-label">
-        <span class="modal__label">Заказчик</span>
+        <span class="modal__label">Название компании</span>
       </li>
 
       <li class="modal__cell">
@@ -32,11 +32,21 @@
 
     <ul class="modal__row">
       <li class="modal__cell modal__cell-label">
-        <span class="modal__label">Задание</span>
+        <span class="modal__label">Бюджет</span>
       </li>
 
       <li class="modal__cell">
-        <input type="text" class="modal__input" v-model="task" />
+        <input type="text" class="modal__input" v-model="sum" />
+      </li>
+    </ul>
+
+    <ul class="modal__row">
+      <li class="modal__cell modal__cell-label">
+        <span class="modal__label">Дата</span>
+      </li>
+
+      <li class="modal__cell">
+        <input type="date" class="modal__input" v-model="date" />
       </li>
     </ul>
 
@@ -50,36 +60,6 @@
       </li>
     </ul>
 
-    <ul class="modal__row">
-      <li class="modal__cell modal__cell-label">
-        <span class="modal__label">Регион</span>
-      </li>
-
-      <li class="modal__cell">
-        <input type="email" class="modal__input" v-model="region" />
-      </li>
-    </ul>
-
-    <ul class="modal__row">
-      <li class="modal__cell modal__cell-label">
-        <span class="modal__label">Сумма</span>
-      </li>
-
-      <li class="modal__cell">
-        <input type="Сумма" class="modal__input" v-model="sum" />
-      </li>
-    </ul>
-
-    <ul class="modal__row">
-      <li class="modal__cell modal__cell-label">
-        <span class="modal__label">Срок</span>
-      </li>
-
-      <li class="modal__cell">
-        <input type="email" class="modal__input" v-model="date" />
-      </li>
-    </ul>
-
     <button class="cell-item__btn">Добавить</button>
   </div>
 </template>
@@ -88,16 +68,14 @@
 import { mapActions, mapGetters } from "vuex";
 
 export default {
-  name: "NewOrderModal",
+  name: "AdvertiserNewOrderModal",
 
   data() {
     return {
       client: "",
-      task: "",
-      network: "",
-      region: "",
       sum: "",
       date: "",
+      network: "",
     };
   },
 
@@ -105,7 +83,8 @@ export default {
 
   methods: {
     ...mapActions({
-      changeAddOrderModalStatus: "bloggerOrdersStore/changeAddOrderModalStatus",
+      changeAddOrderModalStatus:
+        "advertiserOrdersStore/changeAddOrderModalStatus",
     }),
   },
 };
