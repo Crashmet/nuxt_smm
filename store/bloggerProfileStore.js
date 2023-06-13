@@ -1,9 +1,9 @@
 export const state = () => ({
   bloggerData: {
-    username: "",
-    first_name: "",
-    last_name: "",
-    email: "",
+    username: "qqq",
+    first_name: "qqq",
+    last_name: "qqq",
+    email: "qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq ",
     role: "",
   },
 

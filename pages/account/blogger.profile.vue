@@ -10,12 +10,7 @@
         </li>
 
         <li class="body__cell">
-          <input
-            type="email"
-            class="body__input"
-            disabled
-            v-model="bloggerData.email"
-          />
+          <p type="email" class="body__input">{{ bloggerData.email }}</p>
         </li>
       </ul>
 
@@ -25,12 +20,7 @@
         </li>
 
         <li class="body__cell">
-          <input
-            type="text"
-            class="body__input"
-            disabled
-            v-model="bloggerData.first_name"
-          />
+          <p type="text" class="body__input">{{ bloggerData.first_name }}</p>
         </li>
       </ul>
 
@@ -40,12 +30,7 @@
         </li>
 
         <li class="body__cell">
-          <input
-            type="text"
-            class="body__input"
-            disabled
-            v-model="bloggerData.last_name"
-          />
+          <p type="text" class="body__input">{{ bloggerData.last_name }}</p>
         </li>
       </ul>
 
@@ -57,15 +42,10 @@
         <li class="body__cell">
           <ul class="body__cell-list">
             <li class="body__cell-item">
-              <input
-                type="text"
-                class="body__input cell-item__input"
-                placeholder="nickname"
-                disabled
-              />
+              <p type="text" class="body__input cell-item__input">nickname</p>
             </li>
 
-            <li class="body__cell-item">
+            <!-- <li class="body__cell-item">
               <input
                 type="text"
                 placeholder="цена за пост"
@@ -84,7 +64,7 @@
               <a href="#" class="cell-item__link">
                 Описать порядок работы api
               </a>
-            </li>
+            </li> -->
           </ul>
         </li>
       </ul>
@@ -97,14 +77,9 @@
         <li class="body__cell">
           <ul class="body__cell-list">
             <li class="body__cell-item">
-              <input
-                type="text"
-                class="body__input cell-item__input"
-                placeholder="nickname"
-                disabled
-              />
+              <p type="text" class="body__input cell-item__input">nickname</p>
             </li>
-
+            <!-- 
             <li class="body__cell-item">
               <input
                 type="text"
@@ -124,7 +99,7 @@
               <a href="#" class="cell-item__link">
                 Описать порядок работы api
               </a>
-            </li>
+            </li> -->
           </ul>
         </li>
       </ul>
@@ -212,28 +187,29 @@ export default {
 }
 
 .body__input {
-  padding-left: 0.6111rem;
-  max-width: 9.8333rem;
+  padding: 0.2778rem 0.6111rem;
+  min-width: 8.3889rem;
   width: 100%;
   min-height: 1.6667rem;
   font-size: 0.8889rem;
-  line-height: 1.0556rem;
+  line-height: 1rem;
+  text-align: center;
   color: rgba(13, 13, 13, 0.61);
   border: 1px solid rgba(240, 158, 86, 0.58);
   border-radius: 10px;
   background-color: transparent;
-  -webkit-transition: border 0.3s ease;
+  /* -webkit-transition: border 0.3s ease;
   -o-transition: border 0.3s ease;
-  transition: border 0.3s ease;
+  transition: border 0.3s ease; */
 }
-
+/* 
 .body__input:hover,
 .body__input:active {
   border: 1.5px solid rgba(240, 158, 86, 0.94);
   -webkit-transition: border 0.3s ease;
   -o-transition: border 0.3s ease;
   transition: border 0.3s ease;
-}
+} */
 
 .body__cell-list {
   display: -webkit-box;
@@ -378,10 +354,10 @@ export default {
     margin-right: 6px;
   }
 
-  .body__input,
-  .cell-item__input_price {
-    max-width: 88px;
-    width: 100%;
+  .body__input {
+    /* min-width: 0; */
+    overflow: scroll;
+    max-width: 170px;
     border-radius: 5px;
   }
 
