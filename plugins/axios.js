@@ -6,5 +6,7 @@ export default function ({ $axios, store }) {
     config.headers.put["X-Requested-With"] = "XMLHttpRequest";
     config.headers.patch["X-Csrftoken"] = store.state.csrftoken;
     config.headers.patch["X-Requested-With"] = "XMLHttpRequest";
+    config.headers.post["X-Csrftoken"] = store.state.csrftoken;
+    config.headers.post["X-Requested-With"] = "XMLHttpRequest";
   });
 }
