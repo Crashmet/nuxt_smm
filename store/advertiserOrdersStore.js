@@ -31,7 +31,7 @@ export const actions = {
   },
 
   async advertiserNewOrderCreate({ commit }, order) {
-    const dataJson = JSON.stringify(advertiserData);
+    const dataJson = JSON.stringify(order);
 
     await this.$axios
       .$post("orders/create/", dataJson)
