@@ -208,7 +208,8 @@ export default {
     ...mapActions({
       changeAddOrderModalStatus:
         "advertiserOrdersStore/changeAddOrderModalStatus",
-      advertiserNewOrderCreate: "advertiserOrdersStore/advertiserOrderCreate",
+      advertiserNewOrderCreate:
+        "advertiserOrdersStore/advertiserNewOrderCreate",
     }),
 
     handlerAddNewOrder() {
