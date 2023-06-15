@@ -1,13 +1,6 @@
 <template>
   <div class="orders_container">
-    <div :class="isOpenModalAddOrder ? 'blur' : ''">
-      <button
-        class="orders-change__btn"
-        @click="changeAddOrderModalStatus(true)"
-      >
-        <span class="orders-change__text">Разместить новый заказ</span>
-      </button>
-
+    <div>
       <table>
         <thead>
           <tr>
@@ -134,31 +127,18 @@
         </tbody>
       </table>
     </div>
-
-    <add-blogger-new-order-modal v-show="isOpenModalAddOrder" />
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import addBloggerNewOrderModal from "~/components/modal/addBloggerNewOrderModal.vue";
 
 export default {
   name: "BloggerOrders",
 
-  components: { addBloggerNewOrderModal },
+  computed: {},
 
-  computed: {
-    ...mapGetters({
-      isOpenModalAddOrder: "bloggerOrdersStore/isOpenModalAddOrder",
-    }),
-  },
-
-  methods: {
-    ...mapActions({
-      changeAddOrderModalStatus: "bloggerOrdersStore/changeAddOrderModalStatus",
-    }),
-  },
+  methods: {},
 };
 </script>
 

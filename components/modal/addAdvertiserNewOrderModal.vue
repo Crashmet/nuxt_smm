@@ -1,6 +1,6 @@
 <template>
   <div class="modal">
-    <h3 class="modal__title">Новый заказ</h3>
+    <h3 class="modal__title">Разместить новый заказ</h3>
     <button class="modal__btn-close" @click="changeAddOrderModalStatus(false)">
       <svg
         class="btn-close__svg"
@@ -20,47 +20,152 @@
         ></path>
       </svg>
     </button>
-    <ul class="modal__row">
-      <li class="modal__cell modal__cell-label">
-        <span class="modal__label">Название компании</span>
-      </li>
+    <div class="modal__block">
+      <ul class="modal__row">
+        <li class="modal__cell modal__cell-label">
+          <span class="modal__label">Название заказа</span>
+        </li>
 
-      <li class="modal__cell">
-        <input type="text" class="modal__input" v-model="client" />
-      </li>
-    </ul>
+        <li class="modal__cell">
+          <input type="text" class="modal__input" v-model="name" />
+        </li>
+      </ul>
 
-    <ul class="modal__row">
-      <li class="modal__cell modal__cell-label">
-        <span class="modal__label">Бюджет</span>
-      </li>
+      <template v-if="validatorName.length > 0">
+        <p class="modal__validation">{{ validatorName }}</p>
+      </template>
+    </div>
 
-      <li class="modal__cell">
-        <input type="text" class="modal__input" v-model="sum" />
-      </li>
-    </ul>
+    <div class="modal__block">
+      <ul class="modal__row modal__row_textarea">
+        <li class="modal__cell modal__cell-label">
+          <span class="modal__label">Описание заказа</span>
+        </li>
 
-    <ul class="modal__row">
-      <li class="modal__cell modal__cell-label">
-        <span class="modal__label">Дата</span>
-      </li>
+        <li class="modal__cell">
+          <textarea
+            name="massage"
+            class="modal__input modal__input_textarea"
+            v-model="description"
+          >
+          </textarea>
+        </li>
+      </ul>
 
-      <li class="modal__cell">
-        <input type="date" class="modal__input" v-model="date" />
-      </li>
-    </ul>
+      <template v-if="validatorDescription.length > 0">
+        <p class="modal__validation">{{ validatorDescription }}</p>
+      </template>
+    </div>
 
-    <ul class="modal__row">
-      <li class="modal__cell modal__cell-label">
-        <span class="modal__label">Соцсеть</span>
-      </li>
+    <div class="modal__block">
+      <ul class="modal__row">
+        <li class="modal__cell modal__cell-label">
+          <span class="modal__label">Цена за одного подписчика</span>
+        </li>
 
-      <li class="modal__cell">
-        <input type="text" class="modal__input" v-model="network" />
-      </li>
-    </ul>
+        <li class="modal__cell">
+          <input
+            type="number"
+            class="modal__input"
+            v-model="budget_per_subscriber"
+          />
+        </li>
+      </ul>
 
-    <button class="cell-item__btn">Добавить</button>
+      <template v-if="validatorBadget.length > 0">
+        <p class="modal__validation">{{ validatorBadget }}</p>
+      </template>
+    </div>
+
+    <div class="modal__block">
+      <ul class="modal__row">
+        <li class="modal__cell modal__cell-label">
+          <span class="modal__label">Дата</span>
+        </li>
+
+        <li class="modal__cell">
+          <input type="date" class="modal__input" v-model="end_date" />
+        </li>
+      </ul>
+
+      <template v-if="validatorDate.length > 0">
+        <p class="modal__validation">{{ validatorDate }}</p>
+      </template>
+    </div>
+
+    <div class="modal__block">
+      <ul class="modal__row">
+        <li class="modal__cell modal__cell-label">
+          <span class="modal__label">Соцсеть</span>
+        </li>
+
+        <li class="modal__cell">
+          <select class="modal__input" v-model="social">
+            <option
+              v-for="item in socials"
+              v-bind:value="[item.id]"
+              :key="item.id"
+            >
+              {{ item.selectName }}
+            </option>
+          </select>
+        </li>
+      </ul>
+    </div>
+
+    <div class="modal__block">
+      <ul class="modal__row">
+        <li class="modal__cell modal__cell-label">
+          <span class="modal__label">Регион</span>
+        </li>
+
+        <li class="modal__cell">
+          <select class="modal__input" v-model="region">
+            <option
+              v-for="item in regions"
+              v-bind:value="item.id"
+              :key="item.id"
+            >
+              {{ item.name }}
+            </option>
+          </select>
+        </li>
+      </ul>
+    </div>
+
+    <div class="modal__block">
+      <ul class="modal__row">
+        <li class="modal__cell modal__cell-label">
+          <span class="modal__label">Минимальное число подписчиков</span>
+        </li>
+
+        <li class="modal__cell">
+          <input type="number" class="modal__input" v-model="min_subscribers" />
+        </li>
+      </ul>
+
+      <template v-if="validatorMinSubscribers.length > 0">
+        <p class="modal__validation">{{ validatorMinSubscribers }}</p>
+      </template>
+    </div>
+
+    <div class="modal__block">
+      <ul class="modal__row">
+        <li class="modal__cell modal__cell-label">
+          <span class="modal__label">Максимальное число подписчиков</span>
+        </li>
+
+        <li class="modal__cell">
+          <input type="number" class="modal__input" v-model="max_subscribers" />
+        </li>
+      </ul>
+
+      <template v-if="validatorMaxSubscribers.length > 0">
+        <p class="modal__validation">{{ validatorMaxSubscribers }}</p>
+      </template>
+    </div>
+
+    <button class="cell-item__btn">Разместить заказ</button>
   </div>
 </template>
 
@@ -72,20 +177,84 @@ export default {
 
   data() {
     return {
-      client: "",
-      sum: "",
-      date: "",
-      network: "",
+      name: "",
+      description: "",
+      budget_per_subscriber: null,
+      end_date: null,
+      social: [],
+      region: "",
+      min_subscribers: null,
+      max_subscribers: null,
+
+      validatorName: "",
+      validatorDescription: "",
+      validatorBadget: "",
+      validatorDate: "",
+      validatorMinSubscribers: "",
+      validatorMaxSubscribers: "",
     };
   },
-
-  computed: {},
+  computed: {
+    ...mapGetters({
+      socials: "socials",
+      regions: "regions",
+      validatorResponse: "advertiserOrdersStore/validatorResponse",
+    }),
+  },
 
   methods: {
     ...mapActions({
       changeAddOrderModalStatus:
         "advertiserOrdersStore/changeAddOrderModalStatus",
+      advertiserNewOrderCreate: "advertiserOrdersStore/advertiserOrderCreate",
     }),
+
+    handlerAddNewOrder() {
+      const order = {
+        name: this.name,
+        description: this.description,
+        budget_per_subscriber: this.budget_per_subscriber,
+        end_date: this.end_date,
+        social: this.social,
+        region: this.region,
+        min_subscribers: this.min_subscribers,
+        max_subscribers: this.max_subscribers,
+      };
+
+      this.advertiserNewOrderCreate(order);
+    },
+
+    addValidatorMassages() {
+      for (let el of Object.entries(this.validatorResponse)) {
+        let massage = "";
+
+        if (Array.isArray(el[1])) {
+          massage = el[1].reduce((acc, el) => acc + " " + el);
+        } else {
+          massage = el[1];
+        }
+
+        if (el[0] === "name") {
+          this.validatorName = massage;
+        } else if (el[0] === "description") {
+          this.validatorDescription = massage;
+        } else if (el[0] === "budget_per_subscriber") {
+          this.validatorBadget = massage;
+        } else if (el[0] === "end_date") {
+          this.validatorDate = massage;
+        } else if (el[0] === "min_subscribers") {
+          this.validatorMinSubscribers = massage;
+        } else if (el[0] === "max_subscribers") {
+          this.validatorMaxSubscribers = massage;
+        }
+      }
+    },
+  },
+
+  watch: {
+    validatorResponse() {
+      this.addValidatorMassages();
+    },
   },
 };
 </script>
@@ -95,7 +264,7 @@ export default {
   position: absolute;
   top: 2%;
   padding: 1.25rem 3.125rem;
-  max-width: 26.6806rem;
+  max-width: 36.1111rem;
   width: 100%;
   background-color: #fff;
   border: 2px solid rgba(240, 158, 86, 0.58);
@@ -110,14 +279,18 @@ export default {
 
 .modal__btn-close {
   position: absolute;
-  right: 7%;
-  top: 7%;
+  right: 5%;
+  top: 4%;
   background-color: transparent;
 }
 
 .btn-close__svg {
   width: 1rem;
   height: 1rem;
+}
+
+.modal__block {
+  margin-bottom: 0.8889rem;
 }
 
 .modal__row {
@@ -129,19 +302,23 @@ export default {
   align-items: center;
 }
 
-.modal__row {
-  margin-bottom: 0.8889rem;
+.modal__cell {
+  width: 100%;
 }
 
 .modal__cell-label {
-  max-width: 8.3334rem;
-  width: 100%;
+  margin-right: 1.1111rem;
+  width: 60%;
+}
+
+.modal__label {
+  font-size: 0.7778rem;
 }
 
 .modal__input {
   padding-left: 0.6111rem;
-  max-width: 350px;
-  width: 100%;
+  max-width: 380.0002px;
+  width: 60%;
   min-height: 1.6667rem;
   font-size: 0.8889rem;
   line-height: 1.0556rem;
@@ -162,18 +339,39 @@ export default {
   transition: border 0.3s ease;
 }
 
+.modal__row_textarea {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+}
+
+.modal__input_textarea {
+  max-width: 16.6667rem;
+  padding: 5px 10px;
+  height: 8.0555rem;
+}
+
 /* ****** BTN SUBMIT ******  */
 
 .cell-item__btn {
   margin-top: 1.2rem;
   padding: 5.9994px 7.9992px;
-  width: 100%;
+  width: 75%;
   min-height: 1.6667rem;
   font-size: 0.8889rem;
   color: #fff;
   background: #f09e56;
   border: 1px solid rgba(240, 158, 86, 0.58);
   border-radius: 10px;
+}
+
+/* ****** MODAL VALIDATION ******  */
+
+.modal__validation {
+  font-size: 0.7778rem;
+  margin-left: 1.1111rem;
+  margin-top: 0.3889rem;
+  color: rgba(255, 54, 0, 1);
 }
 
 @media (max-width: 480px) {

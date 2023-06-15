@@ -140,15 +140,7 @@ export default {
 .home {
   margin-top: 2.5rem;
   position: relative;
-}
-
-.home__link {
-  display: block;
-  max-width: 7.7778rem;
-  font-size: 1rem;
-  line-height: 1.1667rem;
-  text-decoration-line: underline;
-  margin-bottom: 1.6667rem;
+  height: 50rem;
 }
 
 .orders-change__btn {

@@ -221,8 +221,8 @@ export default {
 }
 
 .modal__cell-label {
-  margin-right: 20px;
-  max-width: 300.0008px;
+  margin-right: 1.1111rem;
+  max-width: 16.6667rem;
   width: 100%;
 }
 
