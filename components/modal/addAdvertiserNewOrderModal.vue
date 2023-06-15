@@ -165,7 +165,9 @@
       </template>
     </div>
 
-    <button class="cell-item__btn">Разместить заказ</button>
+    <button class="cell-item__btn" @click.prevent="handlerAddNewOrder()">
+      Разместить заказ
+    </button>
   </div>
 </template>
 
