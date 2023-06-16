@@ -37,9 +37,13 @@ export const actions = {
       .$post("orders/create/", dataJson)
       .then((response) => {
         commit("SET_VALIDATOR_DATA", {});
+
+        commit("statusMassageModalStore/ADD_STATUS", "success", { root: true });
       })
       .catch((error) => {
         commit("SET_VALIDATOR_DATA", error.response.data);
+
+        commit("statusMassageModalStore/ADD_STATUS", "error", { root: true });
 
         console.log(error.response);
       });

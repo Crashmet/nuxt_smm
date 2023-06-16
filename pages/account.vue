@@ -7,6 +7,7 @@
       <section class="account">
         <div class="account__container container">
           <div class="account__main">
+            <status-massage-modal v-if="isOpenModal" />
             <profile-menu />
             <nuxt-child />
           </div>
@@ -21,7 +22,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 import Header from "@/components/Header.vue";
 import Search from "@/components/section/Search.vue";
@@ -29,6 +30,7 @@ import Statistics from "@/components/section/Statistics.vue";
 import Footer from "@/components/Footer.vue";
 
 import ProfileMenu from "@/components/AccountSection/ProfileMenu.vue";
+import statusMassageModal from "~/components/modal/statusMassageModal.vue";
 
 export default {
   name: "AccountPage",
@@ -41,9 +43,12 @@ export default {
     Statistics,
     Footer,
     ProfileMenu,
+    statusMassageModal,
   },
 
   mounted() {
+    this.changeMessageModalStatus(true);
+
     const pageActive = this.users.find((el) => el.isActive === true);
 
     if (pageActive) {
@@ -56,7 +61,31 @@ export default {
   computed: {
     ...mapGetters({
       users: "profileMenuStore/users",
+      isOpenModal: "statusMassageModalStore/isOpenModal",
+      status: "statusMassageModalStore/status",
     }),
+  },
+
+  methods: {
+    ...mapActions({
+      changeMessageModalStatus:
+        "statusMassageModalStore/changeMessageModalStatus",
+      addStatus: "advertiserOrdersStore/addStatus",
+    }),
+  },
+
+  watch: {
+    isOpenModal() {
+      if (this.isOpenModal) {
+        setTimeout(() => this.changeMessageModalStatus(false), 3000);
+      }
+    },
+
+    status() {
+      if (!this.isOpenModal) {
+        setTimeout(() => this.changeMessageModalStatus(true), 2000);
+      }
+    },
   },
 };
 </script>
@@ -79,6 +108,7 @@ export default {
 }
 
 .account__main {
+  position: relative;
   overflow-x: auto;
   max-width: 61.2222rem;
   width: 100%;

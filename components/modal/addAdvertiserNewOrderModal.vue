@@ -196,6 +196,7 @@ export default {
       validatorMaxSubscribers: "",
     };
   },
+
   computed: {
     ...mapGetters({
       socials: "socials",

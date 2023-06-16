@@ -72,9 +72,17 @@ export const actions = {
     await this.$axios
       .$patch("account/", dataJson)
       .then((response) => {
-        location.reload();
+        commit("SET_VALIDATOR_DATA", {});
+
+        commit("statusMassageModalStore/ADD_STATUS", "success", { root: true });
+
+        commit("CHANGE_DATA_MODAL_STATUS", false);
       })
       .catch((error) => {
+        commit("SET_VALIDATOR_DATA", error.response.data);
+
+        commit("statusMassageModalStore/ADD_STATUS", "error", { root: true });
+
         console.log(error.response);
       });
   },
@@ -87,10 +95,14 @@ export const actions = {
       .then((response) => {
         commit("SET_VALIDATOR_DATA", {});
 
-        location.reload();
+        commit("statusMassageModalStore/ADD_STATUS", "success", { root: true });
+
+        commit("CHANGE_PASSWORD_MODAL_STATUS", flag);
       })
       .catch((error) => {
         commit("SET_VALIDATOR_DATA", error.response.data);
+
+        commit("statusMassageModalStore/ADD_STATUS", "error", { root: true });
       });
   },
 };
