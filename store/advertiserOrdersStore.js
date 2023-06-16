@@ -33,7 +33,7 @@ export const actions = {
     commit("CHANGE_ORDER_MODAL_STATUS", flag);
   },
 
-  async advertiserNewOrderCreate({ commit }, order) {
+  async advertiserNewOrderCreate({ commit, dispatch }, order) {
     const dataJson = JSON.stringify(order);
 
     await this.$axios
@@ -44,6 +44,8 @@ export const actions = {
         commit("statusMassageModalStore/ADD_STATUS", "success", { root: true });
 
         commit("CHANGE_ORDER_MODAL_STATUS", false);
+
+        dispatch("getAdvertiserOrdersList");
       })
       .catch((error) => {
         commit("SET_VALIDATOR_DATA", error.response.data);
