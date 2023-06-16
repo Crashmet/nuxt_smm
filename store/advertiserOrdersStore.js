@@ -58,7 +58,7 @@ export const actions = {
 
   async getAdvertiserOrdersList({ commit }) {
     await this.$axios
-      .$get("orders/my_orders/?page_size=10")
+      .$get("orders/my_orders/")
       .then((response) => {
         commit("SET_ADVERTISER_ORDERS_LIST", response.results);
       })
