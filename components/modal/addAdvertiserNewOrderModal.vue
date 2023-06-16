@@ -238,6 +238,17 @@ export default {
       this.advertiserNewOrderCreate(order);
     },
 
+    resetValidatorMassages() {
+      this.validatorName = "";
+      this.validatorDescription = "";
+      this.validatorBadget = "";
+      this.validatorDate = "";
+      this.validatorSocial = "";
+      this.validatorRegion = "";
+      this.validatorMinSubscribers = "";
+      this.validatorMaxSubscribers = "";
+    },
+
     addValidatorMassages() {
       for (let el of Object.entries(this.validatorResponse)) {
         let massage = "";
@@ -271,6 +282,7 @@ export default {
 
   watch: {
     validatorResponse() {
+      this.resetValidatorMassages();
       this.addValidatorMassages();
     },
   },

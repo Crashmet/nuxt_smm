@@ -172,6 +172,12 @@ export default {
       this.changeBloggerData(bloggerData);
     },
 
+    resetValidatorMassages() {
+      this.validatorUsername = "";
+      this.validatorEmail = "";
+      this.validatorRole = "";
+    },
+
     addValidatorMassages() {
       for (let el of Object.entries(this.validatorResponse)) {
         let massage = "";
@@ -195,6 +201,7 @@ export default {
 
   watch: {
     validatorResponse() {
+      this.resetValidatorMassages();
       this.addValidatorMassages();
     },
   },
