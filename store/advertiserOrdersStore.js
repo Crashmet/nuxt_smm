@@ -57,6 +57,7 @@ export const actions = {
       .$get("orders/my_orders/?page_size=10")
       .then((response) => {
         commit("SET_ADVERTISER_ORDERS_LIST", response.data.results);
+        console.log(response.data.results);
       })
       .catch((error) => {
         console.log(error.response);
