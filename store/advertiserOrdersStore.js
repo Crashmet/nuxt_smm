@@ -42,6 +42,8 @@ export const actions = {
         commit("SET_VALIDATOR_DATA", {});
 
         commit("statusMassageModalStore/ADD_STATUS", "success", { root: true });
+
+        commit("CHANGE_ORDER_MODAL_STATUS", false);
       })
       .catch((error) => {
         commit("SET_VALIDATOR_DATA", error.response.data);
@@ -57,7 +59,6 @@ export const actions = {
       .$get("orders/my_orders/?page_size=10")
       .then((response) => {
         commit("SET_ADVERTISER_ORDERS_LIST", response.results);
-        console.log(response);
       })
       .catch((error) => {
         console.log(error.response);
