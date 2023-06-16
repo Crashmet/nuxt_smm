@@ -76,7 +76,9 @@ export const actions = {
 
         commit("statusMassageModalStore/ADD_STATUS", "success", { root: true });
 
-        commit("CHANGE_DATA_MODAL_STATUS", false);
+        // commit("CHANGE_DATA_MODAL_STATUS", false);
+
+        setTimeout(() => location.reload(), 2000);
       })
       .catch((error) => {
         commit("SET_VALIDATOR_DATA", error.response.data);

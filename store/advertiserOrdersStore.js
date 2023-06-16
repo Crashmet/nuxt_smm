@@ -1,7 +1,7 @@
 export const state = () => ({
   isOpenModalAddOrder: false,
 
-  advertiserOrdersResponseData: [],
+  advertiserOrdersList: [],
 
   validatorResponse: {},
 });
@@ -9,8 +9,7 @@ export const state = () => ({
 export const getters = {
   isOpenModalAddOrder: ({ isOpenModalAddOrder }) => isOpenModalAddOrder,
 
-  advertiserOrdersResponseData: ({ advertiserOrdersResponseData }) =>
-    advertiserOrdersResponseData,
+  advertiserOrdersList: ({ advertiserOrdersList }) => advertiserOrdersList,
 
   validatorResponse: ({ validatorResponse }) => validatorResponse,
 };
@@ -22,6 +21,10 @@ export const mutations = {
 
   SET_VALIDATOR_DATA(state, validatorResponse) {
     state.validatorResponse = validatorResponse;
+  },
+
+  SET_ADVERTISER_ORDERS_LIST(state, response) {
+    state.advertiserOrdersList = response;
   },
 };
 
@@ -45,6 +48,17 @@ export const actions = {
 
         commit("statusMassageModalStore/ADD_STATUS", "error", { root: true });
 
+        console.log(error.response);
+      });
+  },
+
+  async getAdvertiserOrdersList({ commit }) {
+    await this.$axios
+      .$get("orders/my_orders/?page_size=10")
+      .then((response) => {
+        commit("SET_ADVERTISER_ORDERS_LIST", response.data.results);
+      })
+      .catch((error) => {
         console.log(error.response);
       });
   },

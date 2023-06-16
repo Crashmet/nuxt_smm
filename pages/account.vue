@@ -75,7 +75,7 @@ export default {
   watch: {
     isOpenModal() {
       if (this.isOpenModal) {
-        setTimeout(() => location.reload(), 3500);
+        setTimeout(() => this.changeMessageModalStatus(false), 3500);
       }
     },
 

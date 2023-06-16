@@ -11,7 +11,7 @@
       <table>
         <thead>
           <tr>
-            <th scope="col">Название компании</th>
+            <th scope="col">Наименование</th>
             <th scope="col">Бюджет</th>
             <th scope="col">Дата</th>
             <th scope="col">Соцсеть</th>
@@ -19,84 +19,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">Заказ 1</th>
-            <td>100</td>
-            <td>01.12.2022</td>
-            <td>Tiktok</td>
-            <td>100%</td>
-          </tr>
-
-          <tr>
-            <th scope="row">Заказ 2</th>
-            <td>200</td>
-            <td>01.12.2022</td>
-            <td>Instagram</td>
-            <td>90%</td>
-          </tr>
-
-          <tr>
-            <th scope="row">Заказ 3</th>
-            <td>300</td>
-            <td>01.12.2022</td>
-            <td>Tiktok+Instagram</td>
-            <td>80%</td>
-          </tr>
-
-          <tr>
-            <th scope="row">Заказ 4</th>
-            <td>400</td>
-            <td>01.12.2022</td>
-            <td>Tiktok</td>
-            <td>70%</td>
-          </tr>
-
-          <tr>
-            <th scope="row">Заказ 5</th>
-            <td>500</td>
-            <td>01.12.2022</td>
-            <td>Instagram</td>
-            <td>60%</td>
-          </tr>
-
-          <tr>
-            <th scope="row">Заказ 6</th>
-            <td>600</td>
-            <td>01.12.2022</td>
-            <td>Tiktok+Instagram</td>
-            <td>50%</td>
-          </tr>
-
-          <tr>
-            <th scope="row">Заказ 7</th>
-            <td>700</td>
-            <td>01.12.2022</td>
-            <td>Tiktok</td>
-            <td>40%</td>
-          </tr>
-
-          <tr>
-            <th scope="row">Заказ 8</th>
-            <td>800</td>
-            <td>01.12.2022</td>
-            <td>Tiktok+Instagram</td>
-            <td>30%</td>
-          </tr>
-
-          <tr>
-            <th scope="row">Заказ 9</th>
-            <td>900</td>
-            <td>01.12.2022</td>
-            <td>Instagram</td>
-            <td>20%</td>
-          </tr>
-
-          <tr>
-            <th scope="row">Заказ 10</th>
-            <td>1000</td>
-            <td>01.12.2022</td>
-            <td>Tiktok</td>
-            <td>10%</td>
+          <tr v-for="item in advertiserOrdersList" :key="item.id">
+            <th scope="row">{{ item.name }}</th>
+            <td>{{ item.budget_per_subscriber }}</td>
+            <td>{{ item.end_date }}</td>
+            <td>{{ item.social[0].name }}</td>
+            <td>-</td>
           </tr>
         </tbody>
       </table>
@@ -118,6 +46,7 @@ export default {
   computed: {
     ...mapGetters({
       isOpenModalAddOrder: "advertiserOrdersStore/isOpenModalAddOrder",
+      advertiserOrdersList: "advertiserOrdersStore/advertiserOrdersList",
     }),
   },
 
