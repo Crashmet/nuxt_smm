@@ -1,7 +1,7 @@
 export const state = () => ({
   isOpenModal: false,
 
-  status: "",
+  status: [],
 });
 
 export const getters = {
@@ -15,9 +15,7 @@ export const mutations = {
   },
 
   ADD_STATUS(state, status) {
-    state.status = status;
-
-    console.log(state.status);
+    state.status.push(status);
   },
 };
 

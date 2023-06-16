@@ -20,75 +20,97 @@
         ></path>
       </svg>
     </button>
-    <ul class="modal__row">
-      <li class="modal__cell modal__cell-label">
-        <span class="modal__label">Username</span>
-      </li>
 
-      <li class="modal__cell">
-        <input type="text" class="modal__input" v-model="username" />
-      </li>
-    </ul>
+    <div class="modal__block">
+      <ul class="modal__row">
+        <li class="modal__cell modal__cell-label">
+          <span class="modal__label">Username</span>
+        </li>
 
-    <ul class="modal__row">
-      <li class="modal__cell modal__cell-label">
-        <span class="modal__label">Имя</span>
-      </li>
+        <li class="modal__cell">
+          <input type="text" class="modal__input" v-model="username" />
+        </li>
+      </ul>
+      <template v-if="validatorUsername.length > 0">
+        <p class="modal__validation">{{ validatorUsername }}</p>
+      </template>
+    </div>
 
-      <li class="modal__cell">
-        <input type="text" class="modal__input" v-model="first_name" />
-      </li>
-    </ul>
+    <div class="modal__block">
+      <ul class="modal__row">
+        <li class="modal__cell modal__cell-label">
+          <span class="modal__label">Имя</span>
+        </li>
 
-    <ul class="modal__row">
-      <li class="modal__cell modal__cell-label">
-        <span class="modal__label">Фамилия</span>
-      </li>
+        <li class="modal__cell">
+          <input type="text" class="modal__input" v-model="first_name" />
+        </li>
+      </ul>
+    </div>
 
-      <li class="modal__cell">
-        <input type="text" class="modal__input" v-model="last_name" />
-      </li>
-    </ul>
+    <div class="modal__block">
+      <ul class="modal__row">
+        <li class="modal__cell modal__cell-label">
+          <span class="modal__label">Фамилия</span>
+        </li>
 
-    <ul class="modal__row">
-      <li class="modal__cell modal__cell-label">
-        <span class="modal__label">E-mail</span>
-      </li>
+        <li class="modal__cell">
+          <input type="text" class="modal__input" v-model="last_name" />
+        </li>
+      </ul>
+    </div>
 
-      <li class="modal__cell">
-        <input type="email" class="modal__input" v-model="email" />
-      </li>
-    </ul>
+    <div class="modal__block">
+      <ul class="modal__row">
+        <li class="modal__cell modal__cell-label">
+          <span class="modal__label">E-mail</span>
+        </li>
 
-    <div class="modal__item-radio">
-      <div class="item-radio">
-        <input
-          v-model="role"
-          id="blogger-radio-input"
-          value="blogger"
-          type="radio"
-          name="redirecttarget"
-          class="item-radio__input"
-          checked
-        />
-        <label for="blogger-radio-input" class="item-radio__label"
-          >Блогер</label
-        >
+        <li class="modal__cell">
+          <input type="email" class="modal__input" v-model="email" />
+        </li>
+      </ul>
+
+      <template v-if="validatorEmail.length > 0">
+        <p class="modal__validation">{{ validatorEmail }}</p>
+      </template>
+    </div>
+
+    <div class="modal__block">
+      <div class="modal__item-radio">
+        <div class="item-radio">
+          <input
+            v-model="role"
+            id="blogger-radio-input"
+            value="blogger"
+            type="radio"
+            name="redirecttarget"
+            class="item-radio__input"
+            checked
+          />
+          <label for="blogger-radio-input" class="item-radio__label"
+            >Блогер</label
+          >
+        </div>
+
+        <div class="item-radio">
+          <input
+            v-model="role"
+            id="advertiser-radio-input"
+            value="advertiser"
+            type="radio"
+            name="redirecttarget"
+            class="item-radio__input"
+          />
+          <label for="advertiser-radio-input" class="item-radio__label"
+            >Рекламодатель</label
+          >
+        </div>
       </div>
 
-      <div class="item-radio">
-        <input
-          v-model="role"
-          id="advertiser-radio-input"
-          value="advertiser"
-          type="radio"
-          name="redirecttarget"
-          class="item-radio__input"
-        />
-        <label for="advertiser-radio-input" class="item-radio__label"
-          >Рекламодатель</label
-        >
-      </div>
+      <template v-if="validatorRole.length > 0">
+        <p class="modal__validation">{{ validatorRole }}</p>
+      </template>
     </div>
 
     <button class="cell-item__btn" @click.prevent="handlerSubmitSettings()">
@@ -110,6 +132,10 @@ export default {
       last_name: "",
       email: "",
       role: "",
+
+      validatorUsername: "",
+      validatorEmail: "",
+      validatorRole: "",
     };
   },
 
@@ -124,6 +150,7 @@ export default {
   computed: {
     ...mapGetters({
       advertiserData: "advertiserProfileStore/advertiserData",
+      validatorResponse: "advertiserProfileStore/validatorResponse",
     }),
   },
 
@@ -143,6 +170,32 @@ export default {
       };
 
       this.changeAdvertiserData(advertiserData);
+    },
+
+    addValidatorMassages() {
+      for (let el of Object.entries(this.validatorResponse)) {
+        let massage = "";
+
+        if (Array.isArray(el[1])) {
+          massage = el[1].reduce((acc, el) => acc + " " + el);
+        } else {
+          massage = el[1];
+        }
+
+        if (el[0] === "username") {
+          this.validatorUsername = massage;
+        } else if (el[0] === "email") {
+          this.validatorEmail = massage;
+        } else if (el[0] === "role") {
+          this.validatorRole = massage;
+        }
+      }
+    },
+  },
+
+  watch: {
+    validatorResponse() {
+      this.addValidatorMassages();
     },
   },
 };
@@ -176,6 +229,10 @@ export default {
   height: 1rem;
 }
 
+.modal__block {
+  margin-bottom: 0.8889rem;
+}
+
 .modal__row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -185,13 +242,17 @@ export default {
   align-items: center;
 }
 
-.modal__row {
-  margin-bottom: 0.8889rem;
+.modal__cell {
+  width: 100%;
 }
 
 .modal__cell-label {
-  max-width: 5.5556rem;
-  width: 100%;
+  margin-right: 1.1111rem;
+  width: 80%;
+}
+
+.modal__label {
+  font-size: 0.8889rem;
 }
 
 .modal__input {
@@ -308,6 +369,15 @@ export default {
   background: #f09e56;
   border: 1px solid rgba(240, 158, 86, 0.58);
   border-radius: 10px;
+}
+
+/* *** VALIDATION *** */
+
+.modal__validation {
+  font-size: 0.8889rem;
+  margin-left: 1.1111rem;
+  margin-top: 0.3889rem;
+  color: rgba(255, 54, 0, 1);
 }
 
 @media (max-width: 480px) {

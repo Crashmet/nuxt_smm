@@ -111,6 +111,10 @@
           </select>
         </li>
       </ul>
+
+      <template v-if="validatorSocial.length > 0">
+        <p class="modal__validation">{{ validatorSocial }}</p>
+      </template>
     </div>
 
     <div class="modal__block">
@@ -131,6 +135,10 @@
           </select>
         </li>
       </ul>
+
+      <template v-if="validatorRegion.length > 0">
+        <p class="modal__validation">{{ validatorRegion }}</p>
+      </template>
     </div>
 
     <div class="modal__block">
@@ -192,6 +200,8 @@ export default {
       validatorDescription: "",
       validatorBadget: "",
       validatorDate: "",
+      validatorSocial: "",
+      validatorRegion: "",
       validatorMinSubscribers: "",
       validatorMaxSubscribers: "",
     };
@@ -246,6 +256,10 @@ export default {
           this.validatorBadget = massage;
         } else if (el[0] === "end_date") {
           this.validatorDate = massage;
+        } else if (el[0] === "social") {
+          this.validatorSocial = massage;
+        } else if (el[0] === "region") {
+          this.validatorRegion = massage;
         } else if (el[0] === "min_subscribers") {
           this.validatorMinSubscribers = massage;
         } else if (el[0] === "max_subscribers") {
@@ -369,10 +383,10 @@ export default {
   border-radius: 10px;
 }
 
-/* ****** MODAL VALIDATION ******  */
+/* *** VALIDATION *** */
 
 .modal__validation {
-  font-size: 0.7778rem;
+  font-size: 0.8889rem;
   margin-left: 1.1111rem;
   margin-top: 0.3889rem;
   color: rgba(255, 54, 0, 1);

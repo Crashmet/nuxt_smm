@@ -172,16 +172,9 @@ export default {
 </script>
 
 <style scoped>
-.modal__validation {
-  font-size: 0.8889rem;
-  margin-left: 1.1111rem;
-  margin-top: 0.3889rem;
-  color: rgba(255, 54, 0, 1);
-}
-
 .modal {
   position: relative;
-  max-width: 34.2221rem;
+  max-width: 33.3333rem;
   background-color: #fff;
   padding: 1.25rem 3.125rem;
   border: 2px solid rgba(240, 158, 86, 0.58);
@@ -218,11 +211,17 @@ export default {
   -ms-flex-align: center;
   align-items: center;
 }
+.modal__cell {
+  width: 100%;
+}
 
 .modal__cell-label {
-  margin-right: 20px;
-  max-width: 300.0008px;
-  width: 100%;
+  margin-right: 1.1111rem;
+  width: 90%;
+}
+
+.modal__label {
+  font-size: 0.8889rem;
 }
 
 .modal__input {
@@ -261,6 +260,15 @@ export default {
   background: #f09e56;
   border: 1px solid rgba(240, 158, 86, 0.58);
   border-radius: 10px;
+}
+
+/* *** VALIDATION *** */
+
+.modal__validation {
+  font-size: 0.8889rem;
+  margin-left: 1.1111rem;
+  margin-top: 0.3889rem;
+  color: rgba(255, 54, 0, 1);
 }
 
 @media (max-width: 480px) {

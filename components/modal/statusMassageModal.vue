@@ -1,7 +1,7 @@
 <template>
-  <div class="modal">
-    <h3 class="modal__title">Успех!</h3>
-    <button class="modal__btn-close" @click="addStatus('sss')">
+  <div class="modal" :class="style">
+    <h3 class="modal__title">{{ title }}</h3>
+    <button class="modal__btn-close" @click="changeMessageModalStatus(false)">
       <svg
         class="btn-close__svg"
         width="16"
@@ -21,7 +21,7 @@
       </svg>
     </button>
 
-    <p class="modal-message">Ваши изменения сохранены {{ status }}</p>
+    <p class="modal-message">{{ description }}</p>
   </div>
 </template>
 
@@ -31,8 +31,8 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   name: "StatusMassageModal",
 
-  mounted() {
-    this.changeMessageModalStatus(true);
+  data() {
+    return {};
   },
 
   computed: {
@@ -40,6 +40,30 @@ export default {
       isOpenModal: "statusMassageModalStore/isOpenModal",
       status: "statusMassageModalStore/status",
     }),
+
+    title() {
+      if (this.status[this.status.length - 1] === "error") {
+        return "Ошибка!";
+      } else if (this.status[this.status.length - 1] === "success") {
+        return "Успех!";
+      }
+    },
+
+    description() {
+      if (this.status[this.status.length - 1] === "error") {
+        return "Введенные данные не верны!";
+      } else if (this.status[this.status.length - 1] === "success") {
+        return "Изменения сохранены!";
+      }
+    },
+
+    style() {
+      if (this.status[this.status.length - 1] === "error") {
+        return "error";
+      } else if (this.status[this.status.length - 1] === "success") {
+        return "success";
+      }
+    },
   },
 
   methods: {
@@ -49,8 +73,6 @@ export default {
       addStatus: "statusMassageModalStore/addStatus",
     }),
   },
-
-  watch: {},
 };
 </script>
 
@@ -59,7 +81,7 @@ export default {
   position: absolute;
   top: 4%;
   right: 2%;
-  padding: 1rem 2.2222rem;
+  padding: 0.5556rem 2.2222rem;
   max-width: 20rem;
   width: 100%;
   background-color: #fff;
@@ -69,18 +91,26 @@ export default {
 .modal__title {
   font-size: 1.1111rem;
   margin-bottom: 0.5556rem;
-  text-decoration-line: underline;
+  font-weight: 700;
 }
 
 .modal__btn-close {
   position: absolute;
   right: 6%;
-  top: 12%;
+  top: 15%;
   background-color: transparent;
 }
 
 .btn-close__svg {
   width: 0.7778rem;
   height: 0.7778rem;
+}
+
+.success {
+  border: 2px solid #4070f4;
+}
+
+.error {
+  border: 2px solid #f44040;
 }
 </style>

@@ -47,8 +47,6 @@ export default {
   },
 
   mounted() {
-    this.changeMessageModalStatus(true);
-
     const pageActive = this.users.find((el) => el.isActive === true);
 
     if (pageActive) {
@@ -77,14 +75,12 @@ export default {
   watch: {
     isOpenModal() {
       if (this.isOpenModal) {
-        setTimeout(() => this.changeMessageModalStatus(false), 3000);
+        setTimeout(() => this.changeMessageModalStatus(false), 3500);
       }
     },
 
     status() {
-      if (!this.isOpenModal) {
-        setTimeout(() => this.changeMessageModalStatus(true), 2000);
-      }
+      setTimeout(() => this.changeMessageModalStatus(true), 1000);
     },
   },
 };
