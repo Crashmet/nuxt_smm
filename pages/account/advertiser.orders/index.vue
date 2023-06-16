@@ -43,6 +43,10 @@ export default {
 
   components: { addAdvertiserNewOrderModal },
 
+  mounted() {
+    this.getAdvertiserOrdersList();
+  },
+
   computed: {
     ...mapGetters({
       isOpenModalAddOrder: "advertiserOrdersStore/isOpenModalAddOrder",
@@ -54,6 +58,7 @@ export default {
     ...mapActions({
       changeAddOrderModalStatus:
         "advertiserOrdersStore/changeAddOrderModalStatus",
+      getAdvertiserOrdersList: "advertiserOrdersStore/getAdvertiserOrdersList",
     }),
   },
 };
