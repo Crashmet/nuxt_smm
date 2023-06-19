@@ -298,8 +298,6 @@ export default {
         return;
       }
 
-      console.log(isSortUp);
-
       const filterTitle = {
         title,
         isActive: true,

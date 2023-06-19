@@ -144,7 +144,7 @@ export const actions = {
         commit("ADD_SEARCH_RESULT", response.results);
       })
       .catch(function (error) {
-        console.log(error);
+        console.log(error.response);
       });
   },
 
