@@ -133,7 +133,7 @@ export const actions = {
 
   async addSearchResult(
     { commit },
-    { ordering, activePage, pageSize, searchInput }
+    { ordering = "", activePage = "", pageSize = "", searchInput = "" }
   ) {
     await this.$axios
       .$get(

@@ -280,17 +280,12 @@ export default {
 .footer-subscribe__btn {
   right: 0;
   bottom: 0;
-  padding: 10.0008px 1.6667rem 10.0008px;
+  padding: 0.5556rem 1.6667rem;
   background: rgba(255, 54, 0, 0.8);
   border-radius: 16.0002px;
   -webkit-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
-  font-weight: 700;
-  font-size: 0.8889rem;
-  line-height: 1.1667rem;
-  text-align: center;
-  color: #ffffff;
 }
 
 .footer-subscribe__btn:hover,

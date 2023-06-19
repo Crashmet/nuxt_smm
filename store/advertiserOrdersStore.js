@@ -1,12 +1,59 @@
 export const state = () => ({
   isOpenModalAddOrder: false,
 
+  count: 48,
+
+  activePage: 1,
+
   advertiserOrdersList: [],
 
   validatorResponse: {},
+
+  filtersTitles: [
+    {
+      title: "Наименование",
+      isSortUp: false,
+      isActive: false,
+      isWorks: false,
+    },
+    {
+      title: "Бюджет",
+      isSortUp: false,
+      isActive: false,
+      isWorks: true,
+      APIRequestUp: "budget_per_subscriber",
+      APIRequestDown: "-budget_per_subscriber",
+    },
+    {
+      title: "Дата",
+      isSortUp: false,
+      isActive: false,
+      isWorks: true,
+      APIRequestUp: "end_date",
+      APIRequestDown: "-end_date",
+    },
+    {
+      title: "Соцсеть",
+      isSortUp: false,
+      isActive: false,
+      isWorks: false,
+    },
+    {
+      title: "Статус исполнения",
+      isSortUp: false,
+      isActive: false,
+      isWorks: false,
+    },
+  ],
 });
 
 export const getters = {
+  count: ({ count }) => count,
+
+  activePage: ({ activePage }) => activePage,
+
+  filtersTitles: ({ filtersTitles }) => filtersTitles,
+
   isOpenModalAddOrder: ({ isOpenModalAddOrder }) => isOpenModalAddOrder,
 
   advertiserOrdersList: ({ advertiserOrdersList }) => advertiserOrdersList,
@@ -25,6 +72,10 @@ export const mutations = {
 
   SET_ADVERTISER_ORDERS_LIST(state, response) {
     state.advertiserOrdersList = response;
+  },
+
+  SET_COUNT_CARDS(state, count) {
+    state.count = count;
   },
 };
 
@@ -56,10 +107,17 @@ export const actions = {
       });
   },
 
-  async getAdvertiserOrdersList({ commit }) {
+  async getAdvertiserOrdersList(
+    { commit },
+    { ordering = "", activePage = "", pageSize = "", searchInput = "" }
+  ) {
     await this.$axios
-      .$get("orders/my_orders/")
+      .$get(
+        `orders/my_orders/?ordering=${ordering}&page=${activePage}&page_size=${pageSize}&search=${searchInput}`
+      )
       .then((response) => {
+        commit("SET_COUNT_CARDS", response.count);
+
         commit("SET_ADVERTISER_ORDERS_LIST", response.results);
       })
       .catch((error) => {

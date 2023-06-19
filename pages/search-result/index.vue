@@ -54,7 +54,7 @@
         </li>
       </ul>
 
-      <div v-if="count === 0" class="search-result__not-found">
+      <div v-if="!count" class="search-result__not-found">
         "По вашему запросу ничего не найдено"
       </div>
     </div>
@@ -451,7 +451,7 @@ export default {
   margin-bottom: 0.2222rem;
 }
 
-/* pagination  */
+/* **** PAGINATION ****  */
 
 .search-pagination,
 .page-numbers {
@@ -500,6 +500,8 @@ export default {
   background-color: rgba(255, 54, 0, 0.8);
   color: #fff;
 }
+
+/* **** NOT FOUND ****  */
 
 .search-result__not-found {
   margin-bottom: 8.3333rem;
