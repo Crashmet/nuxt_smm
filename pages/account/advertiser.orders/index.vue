@@ -11,7 +11,7 @@
           </button>
         </div>
 
-        <div v-if="countPages > 1" class="nav_right">
+        <div class="nav_right">
           <div class="nav-pagination">
             <button
               v-if="activePage > 1"
