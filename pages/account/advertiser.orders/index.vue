@@ -12,7 +12,7 @@
         </div>
 
         <div class="nav_right">
-          <div class="nav-pagination">
+          <div v-if="countPages > 1" class="nav-pagination">
             <button
               v-if="activePage > 1"
               @click="handlerClickPrevPage()"
