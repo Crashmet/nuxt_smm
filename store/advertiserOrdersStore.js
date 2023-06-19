@@ -3,7 +3,7 @@ export const state = () => ({
 
   pageSize: 10,
 
-  count: 160,
+  count: 0,
 
   activePage: 1,
 
@@ -155,7 +155,7 @@ export const actions = {
 
   async getAdvertiserOrdersList(
     { commit },
-    { ordering = "", activePage = "", pageSize = "", searchInput = "" }
+    { ordering = "", activePage = "", pageSize = "10", searchInput = "" }
   ) {
     await this.$axios
       .$get(

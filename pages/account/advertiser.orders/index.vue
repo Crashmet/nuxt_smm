@@ -137,7 +137,7 @@
       </nav>
 
       <div class="orders__table">
-        <table>
+        <table v-if="count">
           <thead>
             <tr>
               <th
@@ -166,44 +166,10 @@
               <td>{{ item.social[0].name }}</td>
               <td>-</td>
             </tr>
-
-            <tr>
-              <th scope="row">123</th>
-              <td>12323123</td>
-              <td>123123</td>
-              <td>123</td>
-              <td>1231</td>
-            </tr>
-
-            <tr>
-              <th scope="row">123</th>
-              <td>12323123</td>
-              <td>123123</td>
-              <td>123</td>
-              <td>1231</td>
-            </tr>
-
-            <tr>
-              <th scope="row">123</th>
-              <td>12323123</td>
-              <td>123123</td>
-              <td>123</td>
-              <td>1231</td>
-            </tr>
-
-            <tr>
-              <th scope="row">123</th>
-              <td>12323123</td>
-              <td>123123</td>
-              <td>123</td>
-              <td>1231</td>
-            </tr>
           </tbody>
         </table>
 
-        <div v-if="!count" class="table__not-found">
-          "По вашему запросу ничего не найдено"
-        </div>
+        <div v-else class="table__not-found">"Нет активных заказов"</div>
       </div>
     </div>
 
@@ -610,8 +576,9 @@ td {
 
 /* **** NOT FOUND ****  */
 
-.nav-result__not-found {
-  margin-bottom: 8.3333rem;
+.table__not-found {
+  text-align: center;
+  margin: 3rem 0;
   font-size: 1.2222rem;
 }
 
