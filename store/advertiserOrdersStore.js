@@ -1,7 +1,7 @@
 export const state = () => ({
   isOpenModalAddOrder: false,
 
-  count: 48,
+  count: 160,
 
   activePage: 1,
 
@@ -77,9 +77,17 @@ export const mutations = {
   SET_COUNT_CARDS(state, count) {
     state.count = count;
   },
+
+  SET_ACTIVE_PAGE(state, value) {
+    state.activePage = value;
+  },
 };
 
 export const actions = {
+  setActivePage({ commit }, value) {
+    commit("SET_ACTIVE_PAGE", value);
+  },
+
   changeAddOrderModalStatus({ commit }, flag) {
     commit("CHANGE_ORDER_MODAL_STATUS", flag);
   },

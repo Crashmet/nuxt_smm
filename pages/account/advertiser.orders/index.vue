@@ -34,17 +34,6 @@
                   />
                 </svg>
               </div>
-
-              <form action="#" class="nav-search__form">
-                <input
-                  type="text"
-                  placeholder="Поиск"
-                  class="nav-search__input"
-                />
-                <button class="nav-search__btn">
-                  <p class="nav-search__btn-arrow"></p>
-                </button>
-              </form>
             </button>
 
             <button
@@ -245,6 +234,8 @@ export default {
       changeAddOrderModalStatus:
         "advertiserOrdersStore/changeAddOrderModalStatus",
       getAdvertiserOrdersList: "advertiserOrdersStore/getAdvertiserOrdersList",
+
+      setActivePage: "advertiserOrdersStore/setActivePage",
     }),
 
     handlerClickFiltersTitles(item) {
@@ -262,7 +253,7 @@ export default {
 
       this.ordering = isSortUp ? APIRequestUp : APIRequestDown;
 
-      this.addSearchResult({
+      this.getAdvertiserOrdersList({
         ordering: this.ordering,
         activePage: this.activePage,
         pageSize: this.pageSize,
@@ -280,14 +271,45 @@ export default {
 
     handlerClickNextPage() {
       this.setActivePage(this.activePage + 1);
+
+      this.getAdvertiserOrdersList({
+        ordering: this.ordering,
+        activePage: this.activePage,
+        pageSize: this.pageSize,
+        searchInput: this.searchRequest,
+      });
     },
 
     handlerClickPrevPage() {
       this.setActivePage(this.activePage - 1);
+
+      this.getAdvertiserOrdersList({
+        ordering: this.ordering,
+        activePage: this.activePage,
+        pageSize: this.pageSize,
+        searchInput: this.searchRequest,
+      });
     },
 
     handlerClickActivePage(e) {
       this.setActivePage(+e.target.textContent);
+
+      this.getAdvertiserOrdersList({
+        ordering: this.ordering,
+        activePage: this.activePage,
+        pageSize: this.pageSize,
+        searchInput: this.searchRequest,
+      });
+    },
+  },
+
+  watch: {
+    searchResult() {
+      this.historyPushState();
+    },
+
+    activePage() {
+      this.historyPushState();
     },
   },
 };
@@ -307,6 +329,7 @@ export default {
 
 .orders__nav {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 1.1111rem;
   padding: 0 0.8rem;
@@ -358,6 +381,7 @@ export default {
 .nav-search__form {
   display: flex;
   align-items: center;
+  width: 10rem;
   border: 1.5px solid rgba(240, 158, 86, 0.58);
   background: #ffffff;
 }
@@ -369,9 +393,9 @@ export default {
 }
 
 .nav-search__input {
-  padding-left: 0.6667rem;
+  padding: 0 0.6667rem;
   height: 2rem;
-  width: 8rem;
+  width: 7rem;
   color: rgba(13, 13, 13, 0.61);
   background: #ffffff;
   font-size: 0.8889rem;
@@ -384,8 +408,7 @@ export default {
   transition: background 0.2s ease-in;
 }
 
-.nav-search__btn:hover,
-.nav-search__btn:active {
+.nav-search__btn:hover {
   background: rgba(255, 54, 0, 0.91);
 }
 
@@ -447,15 +470,6 @@ export default {
 .nav-pagination__btn-icon {
   width: 0.9444rem;
   height: 0.9444rem;
-}
-
-.nav-pagination__btn:hover,
-.page-numbers__btn:hover {
-  border-bottom: 3px solid rgba(255, 54, 0, 0.8);
-  background-color: transparent;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
 }
 
 .page-numbers__btn_selected {
@@ -524,14 +538,38 @@ td {
   font-size: 1.2222rem;
 }
 
-@media (max-width: 480px) {
-  .orders__nav {
-    width: 350px;
+@media (min-width: 980px) {
+  .nav-pagination__btn:hover,
+  .page-numbers__btn:hover {
+    border-bottom: 3px solid rgba(255, 54, 0, 0.8);
+    background-color: transparent;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
   }
+}
 
+@media (max-width: 480px) {
   .orders__nav,
   table {
     width: 550px;
+  }
+
+  .nav_right {
+    flex-direction: column-reverse;
+    align-items: end;
+  }
+
+  .nav-search__form {
+    margin-bottom: 10px;
+  }
+
+  .nav-pagination {
+    margin-right: 0;
+  }
+
+  .nav-pagination::after {
+    bottom: 0;
   }
 
   thead th {

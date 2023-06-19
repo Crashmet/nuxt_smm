@@ -287,14 +287,35 @@ export default {
 
     handlerClickNextPage() {
       this.setActivePage(this.activePage + 1);
+
+      this.addSearchResult({
+        ordering: this.ordering,
+        activePage: this.activePage,
+        pageSize: this.pageSize,
+        searchInput: this.searchRequest,
+      });
     },
 
     handlerClickPrevPage() {
       this.setActivePage(this.activePage - 1);
+
+      this.addSearchResult({
+        ordering: this.ordering,
+        activePage: this.activePage,
+        pageSize: this.pageSize,
+        searchInput: this.searchRequest,
+      });
     },
 
     handlerClickActivePage(e) {
       this.setActivePage(+e.target.textContent);
+
+      this.addSearchResult({
+        ordering: this.ordering,
+        activePage: this.activePage,
+        pageSize: this.pageSize,
+        searchInput: this.searchRequest,
+      });
     },
   },
 
@@ -304,13 +325,6 @@ export default {
     },
 
     activePage() {
-      this.addSearchResult({
-        ordering: this.ordering,
-        activePage: this.activePage,
-        pageSize: this.pageSize,
-        searchInput: this.searchRequest,
-      });
-
       this.historyPushState();
     },
   },
@@ -478,15 +492,6 @@ export default {
   cursor: pointer;
 }
 
-.search-pagination__btn:hover,
-.page-numbers__btn:hover {
-  background-color: rgba(255, 54, 0, 0.8);
-  color: #fff;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-
 .page-numbers__btn {
   width: 2rem;
   height: 2rem;
@@ -506,6 +511,17 @@ export default {
 .search-result__not-found {
   margin-bottom: 8.3333rem;
   font-size: 1.2222rem;
+}
+
+@media (min-width: 980px) {
+  .search-pagination__btn:hover,
+  .page-numbers__btn:hover {
+    background-color: rgba(255, 54, 0, 0.8);
+    color: #fff;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
 }
 
 @media (max-width: 1199px) {
