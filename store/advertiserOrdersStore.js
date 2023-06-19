@@ -1,6 +1,8 @@
 export const state = () => ({
   isOpenModalAddOrder: false,
 
+  pageSize: 10,
+
   count: 160,
 
   activePage: 1,
@@ -49,6 +51,8 @@ export const state = () => ({
 
 export const getters = {
   count: ({ count }) => count,
+
+  pageSize: ({ pageSize }) => pageSize,
 
   activePage: ({ activePage }) => activePage,
 

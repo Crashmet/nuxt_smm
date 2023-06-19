@@ -210,11 +210,12 @@ export default {
       new URL(window.location).searchParams.entries()
     );
 
-    if (windowData.search && windowData.page) {
+    if (windowData.page) {
       this.setActivePage(Number(windowData.page));
+    }
+
+    if (windowData.search) {
       this.setSearchRequest(windowData.search);
-    } else {
-      this.historyPushState();
     }
 
     this.addSearchResult({
@@ -223,6 +224,8 @@ export default {
       pageSize: this.pageSize,
       searchInput: this.searchRequest,
     });
+
+    this.historyPushState();
   },
 
   computed: {

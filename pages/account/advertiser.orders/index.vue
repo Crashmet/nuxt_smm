@@ -120,8 +120,16 @@
           </div>
 
           <form action="#" class="nav-search__form">
-            <input type="text" placeholder="Поиск" class="nav-search__input" />
-            <button class="nav-search__btn">
+            <input
+              type="text"
+              placeholder="Поиск"
+              class="nav-search__input"
+              v-model="filterInput"
+            />
+            <button
+              class="nav-search__btn"
+              @click.prevent="handlerClickSearch()"
+            >
               <p class="nav-search__btn-arrow"></p>
             </button>
           </form>
@@ -202,21 +210,41 @@ export default {
 
   data() {
     return {
-      pageSize: 10,
-
       ordering: "",
+
+      filterInput: "",
     };
   },
 
   components: { addAdvertiserNewOrderModal },
 
   mounted() {
-    this.getAdvertiserOrdersList({ pageSize: this.pageSize });
+    const windowData = Object.fromEntries(
+      new URL(window.location).searchParams.entries()
+    );
+
+    if (windowData.page) {
+      this.setActivePage(Number(windowData.page));
+    }
+
+    if (windowData.search) {
+      this.filterInput = windowData.search;
+    }
+
+    this.getAdvertiserOrdersList({
+      ordering: this.ordering,
+      activePage: this.activePage,
+      pageSize: this.pageSize,
+      searchInput: this.filterInput,
+    });
+
+    this.historyPushState();
   },
 
   computed: {
     ...mapGetters({
       count: "advertiserOrdersStore/count",
+      pageSize: "advertiserOrdersStore/pageSize",
       activePage: "advertiserOrdersStore/activePage",
       filtersTitles: "advertiserOrdersStore/filtersTitles",
 
@@ -238,6 +266,14 @@ export default {
       setActivePage: "advertiserOrdersStore/setActivePage",
     }),
 
+    handlerClickSearch() {
+      this.getAdvertiserOrdersList({
+        searchInput: this.filterInput,
+      });
+
+      this.historyPushState();
+    },
+
     handlerClickFiltersTitles(item) {
       let { title, isSortUp, APIRequestUp, APIRequestDown } = item;
 
@@ -257,7 +293,7 @@ export default {
         ordering: this.ordering,
         activePage: this.activePage,
         pageSize: this.pageSize,
-        searchInput: this.searchRequest,
+        searchInput: this.filterInput,
       });
     },
 
@@ -265,7 +301,7 @@ export default {
       window.history.pushState(
         window.history.state,
         document.title,
-        `/search-result?page=${this.activePage}&page_size=${this.pageSize}&search=${this.searchRequest}`
+        `/account/advertiser.orders?page=${this.activePage}&page_size=${this.pageSize}&search=${this.filterInput}`
       );
     },
 
@@ -276,7 +312,7 @@ export default {
         ordering: this.ordering,
         activePage: this.activePage,
         pageSize: this.pageSize,
-        searchInput: this.searchRequest,
+        searchInput: this.filterInput,
       });
     },
 
@@ -287,7 +323,7 @@ export default {
         ordering: this.ordering,
         activePage: this.activePage,
         pageSize: this.pageSize,
-        searchInput: this.searchRequest,
+        searchInput: this.filterInput,
       });
     },
 
@@ -298,13 +334,13 @@ export default {
         ordering: this.ordering,
         activePage: this.activePage,
         pageSize: this.pageSize,
-        searchInput: this.searchRequest,
+        searchInput: this.filterInput,
       });
     },
   },
 
   watch: {
-    searchResult() {
+    filterInput() {
       this.historyPushState();
     },
 
