@@ -62,7 +62,7 @@ export const mutations = {
   REFRESH_FILTER_TITLE(state, filterTitle) {
     const newfiltersTitles = state.filtersTitles.map((el) => {
       if (el.title === filterTitle.title) {
-        el = filterTitle;
+        el = { ...el, ...filterTitle };
       } else {
         el.isSortUp = false;
         el.isActive = false;

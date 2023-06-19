@@ -85,6 +85,32 @@ export const mutations = {
   SET_ACTIVE_PAGE(state, value) {
     state.activePage = value;
   },
+
+  REFRESH_FILTER_TITLE(state, filterTitle) {
+    const newfiltersTitles = state.filtersTitles.map((el) => {
+      if (el.title === filterTitle.title) {
+        el = { ...el, ...filterTitle };
+      } else {
+        el.isSortUp = false;
+        el.isActive = false;
+      }
+
+      return el;
+    });
+
+    state.filtersTitles = newfiltersTitles;
+  },
+
+  RESET_FILTER_TITLE(state) {
+    const newfiltersTitles = state.filtersTitles.map((el) => {
+      el.isSortUp = false;
+      el.isActive = false;
+
+      return el;
+    });
+
+    state.filtersTitles = newfiltersTitles;
+  },
 };
 
 export const actions = {
@@ -94,6 +120,14 @@ export const actions = {
 
   changeAddOrderModalStatus({ commit }, flag) {
     commit("CHANGE_ORDER_MODAL_STATUS", flag);
+  },
+
+  refreshFiltersTitles({ commit }, filterTitle) {
+    commit("REFRESH_FILTER_TITLE", filterTitle);
+  },
+
+  resetFiltersTitles({ commit }) {
+    commit("RESET_FILTER_TITLE");
   },
 
   async advertiserNewOrderCreate({ commit, dispatch }, order) {

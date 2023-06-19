@@ -140,11 +140,22 @@
         <table>
           <thead>
             <tr>
-              <th scope="col">Наименование</th>
-              <th scope="col">Бюджет</th>
-              <th scope="col">Дата</th>
-              <th scope="col">Соцсеть</th>
-              <th scope="col">Статус исполнения</th>
+              <th
+                v-for="item in filtersTitles"
+                :key="item.title"
+                scope="col"
+                @click="handlerClickFiltersTitles(item)"
+              >
+                <h4
+                  class="table__title"
+                  :class="[
+                    item.isWorks ? 'table-title__sort_arrow' : '',
+                    item.isSortUp ? 'table-title__sort_arrow_up' : '',
+                  ]"
+                >
+                  {{ item.title }}
+                </h4>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -234,7 +245,6 @@ export default {
     this.getAdvertiserOrdersList({
       ordering: this.ordering,
       activePage: this.activePage,
-      pageSize: this.pageSize,
       searchInput: this.filterInput,
     });
 
@@ -263,26 +273,37 @@ export default {
         "advertiserOrdersStore/changeAddOrderModalStatus",
       getAdvertiserOrdersList: "advertiserOrdersStore/getAdvertiserOrdersList",
 
+      refreshFiltersTitles: "advertiserOrdersStore/refreshFiltersTitles",
+
+      resetFiltersTitles: "advertiserOrdersStore/resetFiltersTitles",
+
       setActivePage: "advertiserOrdersStore/setActivePage",
     }),
 
     handlerClickSearch() {
       this.getAdvertiserOrdersList({
+        activePage: 1,
         searchInput: this.filterInput,
       });
+
+      this.resetFiltersTitles();
 
       this.historyPushState();
     },
 
     handlerClickFiltersTitles(item) {
-      let { title, isSortUp, APIRequestUp, APIRequestDown } = item;
+      let { title, isSortUp, isWorks, APIRequestUp, APIRequestDown } = item;
+
+      if (!isWorks) {
+        return;
+      }
+
+      console.log(isSortUp);
 
       const filterTitle = {
         title,
         isActive: true,
         isSortUp: !isSortUp,
-        APIRequestUp,
-        APIRequestDown,
       };
 
       this.refreshFiltersTitles(filterTitle);
@@ -292,7 +313,6 @@ export default {
       this.getAdvertiserOrdersList({
         ordering: this.ordering,
         activePage: this.activePage,
-        pageSize: this.pageSize,
         searchInput: this.filterInput,
       });
     },
@@ -311,7 +331,6 @@ export default {
       this.getAdvertiserOrdersList({
         ordering: this.ordering,
         activePage: this.activePage,
-        pageSize: this.pageSize,
         searchInput: this.filterInput,
       });
     },
@@ -322,7 +341,6 @@ export default {
       this.getAdvertiserOrdersList({
         ordering: this.ordering,
         activePage: this.activePage,
-        pageSize: this.pageSize,
         searchInput: this.filterInput,
       });
     },
@@ -333,7 +351,6 @@ export default {
       this.getAdvertiserOrdersList({
         ordering: this.ordering,
         activePage: this.activePage,
-        pageSize: this.pageSize,
         searchInput: this.filterInput,
       });
     },
@@ -525,10 +542,36 @@ thead tr th {
   border: none;
 }
 
-thead th {
+.table__title {
+  position: relative;
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.1667rem;
+  cursor: pointer;
+}
+
+.table-title__sort_arrow::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  right: 20%;
+  width: 14px;
+  height: 14px;
+  background-image: url("@/assets/image/arrow.svg");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.table-title__sort_arrow_up::after {
+  -webkit-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+  -webkit-transition: -webkit-transform 0.3s easy;
+  transition: -webkit-transform 0.3s easy;
+  -o-transition: transform 0.3s easy;
+  transition: transform 0.3s easy;
+  transition: transform 0.3s easy, -webkit-transform 0.3s easy;
 }
 
 thead th:nth-child(1) {

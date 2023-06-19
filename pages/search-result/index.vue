@@ -264,8 +264,6 @@ export default {
         title,
         isActive: true,
         isSortUp: !isSortUp,
-        APIRequestUp,
-        APIRequestDown,
       };
 
       this.refreshFiltersTitles(filterTitle);
@@ -404,7 +402,7 @@ export default {
   right: 0.6111rem;
   width: 1.0556rem;
   height: 1.0556rem;
-  background-image: url("../../assets/image/arrow.svg");
+  background-image: url("@/assets/image/arrow.svg");
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: contain;
