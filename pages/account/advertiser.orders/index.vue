@@ -11,15 +11,8 @@
           </button>
         </div>
 
-        <div class="nav_right">
-          <form action="#" class="nav-search__form">
-            <input type="text" placeholder="Поиск" class="nav-search__input" />
-            <button class="nav-search__btn">
-              <p class="nav-search__btn-arrow"></p>
-            </button>
-          </form>
-
-          <div v-if="countPages > 1" class="nav-pagination">
+        <div v-if="countPages > 1" class="nav_right">
+          <div class="nav-pagination">
             <button
               v-if="activePage > 1"
               @click="handlerClickPrevPage()"
@@ -41,6 +34,17 @@
                   />
                 </svg>
               </div>
+
+              <form action="#" class="nav-search__form">
+                <input
+                  type="text"
+                  placeholder="Поиск"
+                  class="nav-search__input"
+                />
+                <button class="nav-search__btn">
+                  <p class="nav-search__btn-arrow"></p>
+                </button>
+              </form>
             </button>
 
             <button
@@ -125,6 +129,13 @@
               </div>
             </button>
           </div>
+
+          <form action="#" class="nav-search__form">
+            <input type="text" placeholder="Поиск" class="nav-search__input" />
+            <button class="nav-search__btn">
+              <p class="nav-search__btn-arrow"></p>
+            </button>
+          </form>
         </div>
       </nav>
 
@@ -347,7 +358,6 @@ export default {
 .nav-search__form {
   display: flex;
   align-items: center;
-  margin-right: 1.1111rem;
   border: 1.5px solid rgba(240, 158, 86, 0.58);
   background: #ffffff;
 }
@@ -380,8 +390,8 @@ export default {
 }
 
 .nav-search__btn-arrow {
-  width: 10.0006px;
-  height: 10.0006px;
+  width: 0.5556rem;
+  height: 0.5556rem;
   border-top: 0.1667rem solid #ffffff;
   border-right: 0.1667rem solid #ffffff;
   transform: rotate(45deg);
@@ -401,13 +411,14 @@ export default {
   -ms-flex-pack: center;
   justify-content: center;
   gap: 0.5556rem;
+  margin-right: 1.1111rem;
 }
 
 .nav-pagination::after {
   content: "";
   position: absolute;
   z-index: -1;
-  bottom: 4px;
+  bottom: 3.5px;
   height: 2px;
   width: 100%;
   background: rgba(13, 13, 13, 0.1);
@@ -429,7 +440,7 @@ export default {
   width: 1.6667rem;
   height: 1.6667rem;
   background-color: transparent;
-  border-bottom: 2px solid rgba(255, 255, 255, 0);
+  border-bottom: 3px solid rgba(255, 255, 255, 0);
   cursor: pointer;
 }
 
@@ -440,7 +451,7 @@ export default {
 
 .nav-pagination__btn:hover,
 .page-numbers__btn:hover {
-  border-bottom: 2px solid rgba(255, 54, 0, 0.8);
+  border-bottom: 3px solid rgba(255, 54, 0, 0.8);
   background-color: transparent;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
@@ -448,7 +459,7 @@ export default {
 }
 
 .page-numbers__btn_selected {
-  border-bottom: 2px solid rgba(255, 54, 0, 0.8);
+  border-bottom: 3px solid rgba(255, 54, 0, 0.8);
 }
 
 /* **** TABLE **** */
