@@ -29,8 +29,8 @@ export const actions = {
     await this.$axios
       .$get(`orders/${id}/`)
       .then((response) => {
-        console.log(response.data);
-        commit("SET_ORDER_LIST", response.data);
+        console.log(response);
+        commit("SET_ORDER_LIST", response);
       })
       .catch((error) => {
         console.log(error.response);
