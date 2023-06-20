@@ -159,11 +159,23 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="item in advertiserOrdersList" :key="item.id">
-              <th scope="row">{{ item.name }}</th>
+            <tr
+              v-for="item in advertiserOrdersList"
+              :key="item.id"
+              @click.prevent="handlerClickOrderMenu(item)"
+            >
+              <td>{{ item.name }}</td>
               <td>{{ item.budget_per_subscriber }}</td>
               <td>{{ item.end_date }}</td>
               <td>{{ item.social[0].name }}</td>
+              <td>-</td>
+            </tr>
+
+            <tr @click.prevent="handlerClickOrderMenu((item = { id: 2 }))">
+              <td>2222</td>
+              <td>33333</td>
+              <td>444</td>
+              <td>5555</td>
               <td>-</td>
             </tr>
           </tbody>
@@ -245,6 +257,10 @@ export default {
 
       setActivePage: "advertiserOrdersStore/setActivePage",
     }),
+
+    handlerClickOrderMenu(data) {
+      this.$router.push({ path: `/account/advertiser.orders/${data.id}` });
+    },
 
     handlerClickSearch() {
       this.getAdvertiserOrdersList({
@@ -539,7 +555,7 @@ thead tr th {
 }
 
 thead th:nth-child(1) {
-  width: 24%;
+  width: 26%;
 }
 
 thead th:nth-child(2) {
@@ -551,11 +567,12 @@ thead th:nth-child(3) {
 }
 
 thead th:nth-child(4) {
-  width: 24%;
+  width: 23%;
 }
 
-tbody th {
-  text-align: left;
+thead th:nth-child(5),
+td:nth-child(5) {
+  text-align: center;
 }
 
 tbody tr {
@@ -563,6 +580,7 @@ tbody tr {
 }
 
 tbody tr:hover {
+  cursor: pointer;
   background: #f09e565e;
 }
 

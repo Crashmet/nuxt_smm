@@ -3,7 +3,7 @@ export const state = () => ({
 
   pageSize: 10,
 
-  count: 0,
+  count: 28,
 
   activePage: 1,
 
@@ -41,7 +41,7 @@ export const state = () => ({
       isWorks: false,
     },
     {
-      title: "Статус исполнения",
+      title: "Статус",
       isSortUp: false,
       isActive: false,
       isWorks: false,

@@ -71,15 +71,13 @@ export default {
   //   };
   // },
 
-  data() {
-    return {
-      pageSize: null,
+  // data() {
+  //   return {
+  //     pageSize: null,
 
-      ordering: "",
-    };
-  },
-
-  mounted() {},
+  //     ordering: "",
+  //   };
+  // },
 
   computed: {
     ...mapGetters({

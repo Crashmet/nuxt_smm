@@ -1,10 +1,14 @@
 <template>
-  <div class="new-order">
-    <nuxt-link class="new-order__link" to="home"
-      >Разместить новый заказ</nuxt-link
-    >
+  <div class="order">
+    <div class="order__header">
+      <h3 class="header__title">Заказ</h3>
 
-    <div class="new-order__body body">
+      <button class="header__btn_back" @click="handlerClickBack()">
+        Вернуться
+      </button>
+    </div>
+
+    <div class="order__body body">
       <ul class="body__row">
         <li class="body__cell body__cell-label">
           <span class="body__label">№ заказа</span>
@@ -122,17 +126,22 @@
       </ul>
 
       <ul class="body__row body-footer">
-        <li class="body__cell body__cell-label body-footer__label">
-          <span class="body__label footer__label"></span>
+        <li class="body__cell body__cell-label footer__cell">
+          <!-- <div class="body__label footer__label"></div> -->
+          <button class="footer__button footer__button_delete">
+            Удалить заказ
+          </button>
         </li>
 
-        <li class="body__cell body__cell-input body-footer__button">
-          <button class="footer__button">Разместить заказ</button>
+        <li class="body__cell body__cell-input footer__cell">
+          <button class="footer__button footer__button_add">
+            Разместить заказ
+          </button>
         </li>
 
-        <li class="body__cell body-footer__link">
+        <li class="body__cell body-footer__link footer__cell">
           <nuxt-link to="select">
-            <p class="footer__link">Разместить заказ</p>
+            <p class="footer__link">Выбрать блогеров</p>
           </nuxt-link>
         </li>
       </ul>
@@ -142,7 +151,18 @@
 
 <script>
 export default {
-  name: "AdvertiserOrdersNewOrder",
+  name: "AdvertiserIdOrder",
+
+  validate({ params }) {
+    // Must be a number
+    return /^\d+$/.test(params.id);
+  },
+
+  methods: {
+    handlerClickBack() {
+      this.$router.go(-1);
+    },
+  },
 };
 </script>
 
@@ -154,18 +174,42 @@ export default {
 * Browsers: last 4 version
 */
 
-.new-order__link {
-  display: block;
-  margin-bottom: 0.8333rem;
-  max-width: 7.7778rem;
-  font-size: 1rem;
+/* **** ORDER HEADER **** */
+
+.order__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.2222rem;
+  max-width: 33.3333rem;
+}
+
+.header__title {
+  font-size: 1.2778rem;
   line-height: 1.1667rem;
-  text-decoration-line: underline;
-  -webkit-text-decoration-line: underline;
   text-decoration-line: underline;
   color: #ff3600;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
+.header__btn_back {
+  padding: 0.2222rem 0.4444rem;
+  border: 2px solid rgba(240, 158, 86, 0.58);
+  border-radius: 10px;
+  background-color: transparent;
+  transition: border 0.3s ease;
+}
+
+.header__btn_back:hover,
+.header__btn_back:active {
+  color: #ff3600;
+  border: 2px solid rgba(240, 158, 86, 0.94);
+  -webkit-transition: border 0.3s ease;
+  -o-transition: border 0.3s ease;
+  transition: border 0.3s ease;
+}
+
+/* **** ORDER BODY **** */
 
 .body__row {
   display: -webkit-box;
@@ -178,6 +222,10 @@ export default {
 
 .body__row:not(:last-child) {
   margin-bottom: 16.0002px;
+}
+
+.body__cell {
+  margin-right: 1.1111rem;
 }
 
 .body__cell-input {
@@ -247,10 +295,11 @@ export default {
   z-index: -1;
 }
 
-.body-footer__button {
-  margin-right: 20px;
-}
+/* **** BODY FOOTER **** */
 
+.body-footer {
+  margin-top: 2.2223rem;
+}
 .footer__button {
   width: 100%;
   height: 1.6667rem;
@@ -262,9 +311,14 @@ export default {
   line-height: 1.1667rem;
 }
 
-.footer__button:hover,
-.footer__button:active {
+.footer__button_delete:hover,
+.footer__button_delete:active {
   background: rgba(255, 54, 0, 0.8);
+}
+
+.footer__button_add:hover,
+.footer__button_add:active {
+  background: rgba(61, 200, 36, 0.438);
 }
 
 .footer__link {
@@ -283,13 +337,17 @@ export default {
 }
 
 @media (max-width: 770px) {
-  .body-footer__label {
-    width: 0;
+  .body-footer {
+    flex-direction: column-reverse;
+  }
+
+  .footer__cell {
+    margin-bottom: 0.5556rem;
   }
 }
 
 @media (max-width: 480px) {
-  .new-order__link {
+  .order__link {
     margin-bottom: 18px;
   }
 
@@ -297,24 +355,8 @@ export default {
     margin-bottom: 15px;
   }
 
-  .body__input {
-    max-width: 88px;
-    width: 100%;
-    border-radius: 5px;
-  }
-
   .body__input_textarea {
     height: 90px;
-  }
-
-  .body-footer__button {
-    max-width: 138px;
-    margin-right: 26px;
-  }
-
-  .footer__button {
-    background: rgba(255, 54, 0, 0.7);
-    font-weight: 700;
   }
 }
 </style>

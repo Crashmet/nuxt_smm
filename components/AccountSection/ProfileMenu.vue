@@ -10,11 +10,12 @@
           :key="setting.name"
           @click="handlerClickBloggerMenu(setting.name, setting.routerName)"
         >
-          <span
+          <p
             class="profile-menu__text"
             :class="setting.isActive ? 'profile-menu__text_active' : ''"
-            >{{ setting.name }}</span
           >
+            {{ setting.name }}
+          </p>
         </button>
       </nav>
     </div>
@@ -29,11 +30,12 @@
           :key="setting.name"
           @click="handlerClickAdvertiserMenu(setting.name, setting.routerName)"
         >
-          <span
+          <p
             class="profile-menu__text"
             :class="setting.isActive ? 'profile-menu__text_active' : ''"
-            >{{ setting.name }}</span
           >
+            {{ setting.name }}
+          </p>
         </button>
       </nav>
     </div>
@@ -143,12 +145,11 @@ export default {
   color: rgba(13, 13, 13, 0.61);
 }
 
-.profile-menu__btn:hover > .profile-menu__text,
-.profile-menu__btn:active > .profile-menu__text {
+.profile-menu__btn:hover > .profile-menu__text {
   color: #ff3600;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .profile-menu__text_active {
