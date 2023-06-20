@@ -181,7 +181,7 @@
           </tbody>
         </table>
 
-        <div v-else class="table__not-found">"Нет активных заказов"</div>
+        <h3 v-else class="table__not-found">"Нет активных заказов"</h3>
       </div>
     </div>
 
@@ -252,13 +252,16 @@ export default {
       getAdvertiserOrdersList: "advertiserOrdersStore/getAdvertiserOrdersList",
 
       refreshFiltersTitles: "advertiserOrdersStore/refreshFiltersTitles",
-
       resetFiltersTitles: "advertiserOrdersStore/resetFiltersTitles",
 
       setActivePage: "advertiserOrdersStore/setActivePage",
+
+      setOrderId: "advertiserSettingsOrderStore/setOrderId",
     }),
 
     handlerClickOrderMenu(data) {
+      this.setOrderId(data.id);
+
       this.$router.push({ path: `/account/advertiser.orders/${data.id}` });
     },
 
