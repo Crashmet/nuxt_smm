@@ -1,5 +1,5 @@
 <template>
-  <div class="modal">
+  <div class="modal__section">
     <h3 class="modal__title">Изменить профиль</h3>
     <button class="modal__btn-close" @click="changeDataModalStatus(false)">
       <svg
@@ -209,12 +209,11 @@ export default {
 </script>
 
 <style scoped>
-.modal {
+.modal__section {
   position: relative;
   padding: 1.25rem 3.125rem;
   max-width: 25.0139rem;
   background-color: transparent;
-  border: 2px solid var(--bs-secondary);
   border-radius: 20px;
 }
 

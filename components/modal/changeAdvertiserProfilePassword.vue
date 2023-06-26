@@ -1,5 +1,5 @@
 <template>
-  <div class="modal">
+  <div class="modal__section">
     <h3 class="modal__title">Изменить пароль</h3>
     <button class="modal__btn-close" @click="changePasswordModalStatus(false)">
       <svg
@@ -173,7 +173,7 @@ export default {
 </script>
 
 <style scoped>
-.modal {
+.modal__section {
   position: relative;
   max-width: 33.3333rem;
   padding: 1.25rem 3.125rem;
@@ -257,7 +257,7 @@ export default {
   min-height: 1.6667rem;
   font-size: 0.8889rem;
   color: #fff;
-  background: #f09e56;
+  background: var(--bs-secondary);
   border: 1px solid var(--bs-secondary);
   border-radius: 10px;
 }

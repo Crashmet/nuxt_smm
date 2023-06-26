@@ -1,5 +1,5 @@
 <template>
-  <div class="modal">
+  <div class="modal__section">
     <h3 class="modal__title">Разместить новый заказ</h3>
     <button class="modal__btn-close" @click="changeAddOrderModalStatus(false)">
       <svg
@@ -290,7 +290,7 @@ export default {
 </script>
 
 <style scoped>
-.modal {
+.modal__section {
   position: absolute;
   top: 2%;
   padding: 1.25rem 3.125rem;

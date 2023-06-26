@@ -1,5 +1,5 @@
 <template>
-  <div class="modal" :class="style">
+  <div class="modal__section" :class="style">
     <h3 class="modal__title">{{ title }}</h3>
     <button class="modal__btn-close" @click="changeMessageModalStatus(false)">
       <svg
@@ -77,7 +77,7 @@ export default {
 </script>
 
 <style scoped>
-.modal {
+.modal__section {
   position: absolute;
   top: 4%;
   right: 2%;

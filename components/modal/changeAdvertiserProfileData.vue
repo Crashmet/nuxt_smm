@@ -1,5 +1,5 @@
 <template>
-  <div class="modal">
+  <div class="modal__section">
     <h3 class="modal__title">Изменить профиль</h3>
     <button class="modal__btn-close" @click="changeDataModalStatus(false)">
       <svg
@@ -209,7 +209,7 @@ export default {
 </script>
 
 <style scoped>
-.modal {
+.modal__section {
   position: relative;
   padding: 1.25rem 3.125rem;
   max-width: 25.0139rem;
@@ -268,7 +268,7 @@ export default {
   font-size: 0.8889rem;
   line-height: 1.0556rem;
   color: var(--bs-gray-800);
-  border: 1px solid var(--bs-orange);
+  border: 1px solid var(--bs-secondary);
   border-radius: 10px;
   background-color: transparent;
   -webkit-transition: border 0.3s ease;
@@ -341,7 +341,7 @@ export default {
   top: 0.1667rem;
   height: 1rem;
   width: 1rem;
-  border: 0.1111rem solid var(--bs-orange);
+  border: 0.1111rem solid var(--bs-secondary);
   background: transparent;
 }
 
@@ -358,7 +358,7 @@ export default {
 }
 
 .item-radio__input:checked + .item-radio__label:after {
-  background-color: var(--bs-red);
+  background-color: var(--bs-secondary);
 }
 
 /* ****** BTN SUBMIT ******  */
@@ -372,7 +372,7 @@ export default {
   font-size: 0.8889rem;
   color: #fff;
   background: var(--bs-secondary);
-  border: 1px solid var(--bs-orange);
+  border: 1px solid var(--bs-secondary);
   border-radius: 10px;
 }
 
