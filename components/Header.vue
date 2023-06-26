@@ -48,9 +48,7 @@
               </template>
               <template v-else>
                 <li>
-                  <nuxt-link to="/" @click="handlerLogout()">
-                    Выйти из аккаунта
-                  </nuxt-link>
+                  <a href="/" @click="handlerLogout()"> Выйти из аккаунта </a>
                 </li>
               </template>
             </ul>

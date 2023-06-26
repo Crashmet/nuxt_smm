@@ -58,6 +58,7 @@ export default {
   margin: 5rem 0 0 0;
   font-size: 1.1111rem;
   font-weight: 500;
+  color: rgba(76, 76, 76, 0.906);
 }
 
 .error-text i {
