@@ -20,12 +20,27 @@ export default {
     link: [
       { rel: "icon", type: "image/png", href: "/favicon-32x32.png" },
       { rel: "icon", type: "image/png", href: "/favicon-16x16.png" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap",
+      },
+      { rel: "stylesheet", href: "/fonts/icomoon/style.css" },
+      { rel: "stylesheet", href: "/fonts/flaticon/font/flaticon.css" },
+      { rel: "stylesheet", href: "/css/normalize.css" },
+      { rel: "stylesheet", href: "/css/tiny-slider.css" },
+      { rel: "stylesheet", href: "/css/style.css" },
+    ],
+    script: [
+      { hid: "stripe", src: "/js/bootstrap.bundle.min.js", defer: true },
+      { hid: "stripe", src: "/js/counter.js", defer: true },
     ],
   },
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: "#ff3600" },
+  loading: { color: "#f96f59" },
   /*
    ** Global CSS
    */
@@ -33,7 +48,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ["@/plugins/axios"],
+  plugins: ["@/plugins/axios", "@/plugins/aos"],
   /*
    ** Nuxt.js dev-modules
    */

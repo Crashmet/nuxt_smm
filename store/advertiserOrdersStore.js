@@ -3,7 +3,7 @@ export const state = () => ({
 
   pageSize: 10,
 
-  count: 28,
+  count: 0,
 
   activePage: 1,
 
