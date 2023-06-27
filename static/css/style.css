@@ -9686,8 +9686,7 @@ a {
     /* min-height: 600px;  */
   }
   .hero.page-inner, .hero.page-inner > .container > .row {
-    height: 70vh;
-    min-height: 300px; }
+    min-height: 500px; }
   .hero > .container {
     position: relative;
     z-index: 2; }

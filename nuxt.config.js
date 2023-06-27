@@ -49,7 +49,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ["@/plugins/axios", "@/plugins/aos"],
+  plugins: ["@/plugins/axios"],
   /*
    ** Nuxt.js dev-modules
    */
