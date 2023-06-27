@@ -1,20 +1,20 @@
 <template>
-  <section class="about">
-    <div class="about__container container">
-      <div class="about__logo">
-        <div class="about-logo__title">
-          <h1 class="about-logo__title_left">SMM</h1>
-          <h1 class="about-logo__title_right">Planeta</h1>
+  <section class="home">
+    <div class="home__container container">
+      <div class="home__logo">
+        <div class="home-logo__title">
+          <h1 class="home-logo__title_left">SMM</h1>
+          <h1 class="home-logo__title_right">Planeta</h1>
         </div>
-        <h3 class="about-logo__desc">решения и возможности</h3>
+        <h3 class="home-logo__desc">решения и возможности</h3>
       </div>
 
-      <ul class="about-check__list">
-        <li class="about-check__item">Поиск автора</li>
-        <li class="about-check__item">Открытие сообщества</li>
-        <li class="about-check__item">Захват контента</li>
-        <li class="about-check__item">Адаптация и подбор персонала</li>
-        <li class="about-check__item">Управляй этим</li>
+      <ul class="home-check__list">
+        <li class="home-check__item">Поиск автора</li>
+        <li class="home-check__item">Открытие сообщества</li>
+        <li class="home-check__item">Захват контента</li>
+        <li class="home-check__item">Адаптация и подбор персонала</li>
+        <li class="home-check__item">Управляй этим</li>
       </ul>
     </div>
   </section>
@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: "About",
+  name: "Home",
 };
 </script>
 
@@ -34,16 +34,16 @@ export default {
 * Browsers: last 4 version
 */
 
-.about {
+.home {
   margin-top: 160px;
 }
 
-.about__container {
+.home__container {
   position: relative;
   padding: 0 84px;
 }
 
-.about__container::before {
+.home__container::before {
   content: "";
   position: absolute;
   z-index: -10;
@@ -61,7 +61,7 @@ export default {
   filter: blur(50px);
 }
 
-.about__container::after {
+.home__container::after {
   content: "";
   position: absolute;
   z-index: -9;
@@ -77,12 +77,12 @@ export default {
   filter: drop-shadow(0px 5px 6px rgba(0, 0, 0, 0.25));
 }
 
-.about__logo {
+.home__logo {
   margin-bottom: 3rem;
   cursor: default;
 }
 
-.about-logo__title {
+.home-logo__title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -91,7 +91,7 @@ export default {
   align-items: center;
 }
 
-.about-logo__title_left {
+.home-logo__title_left {
   font-weight: 400;
   font-size: 2.2222rem;
   line-height: 2.6111rem;
@@ -99,7 +99,7 @@ export default {
   text-shadow: 4px 1px 6px #d3792b;
 }
 
-.about-logo__title_right {
+.home-logo__title_right {
   font-weight: 400;
   font-size: 2.2222rem;
   line-height: 2.6111rem;
@@ -110,15 +110,15 @@ export default {
   transition: text-shadow 0.4s ease-in;
 }
 
-.about-logo__title:hover > .about-logo__title_right,
-.about-logo__title:active > .about-logo__title_right {
+.home-logo__title:hover > .home-logo__title_right,
+.home-logo__title:active > .home-logo__title_right {
   text-shadow: 4px 1px 6px #d3792b;
   -webkit-transition: text-shadow 0.2s ease-in;
   -o-transition: text-shadow 0.2s ease-in;
   transition: text-shadow 0.2s ease-in;
 }
 
-.about-logo__desc {
+.home-logo__desc {
   font-weight: 400;
   font-size: 1.3333rem;
   line-height: 1.5556rem;
@@ -126,11 +126,11 @@ export default {
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.about-check__list {
+.home-check__list {
   margin-bottom: 4.7778rem;
 }
 
-.about-check__item {
+.home-check__item {
   position: relative;
   padding-left: 3.2422222rem;
   min-height: 1.6667rem;
@@ -139,11 +139,11 @@ export default {
   color: #0d0d0d;
 }
 
-.about-check__item:not(:last-child) {
+.home-check__item:not(:last-child) {
   margin-bottom: 1.1111rem;
 }
 
-.about-check__item::before {
+.home-check__item::before {
   content: "";
   position: absolute;
   left: 0;
@@ -154,22 +154,22 @@ export default {
 }
 
 @media (max-width: 1200px) {
-  .about__container {
+  .home__container {
     padding: 0 3rem;
   }
 
-  .about__container::after {
+  .home__container::after {
     width: 500px;
   }
 }
 
 @media (max-width: 960px) {
-  .about__container::before {
+  .home__container::before {
     width: 710px;
     height: 710px;
   }
 
-  .about__container::after {
+  .home__container::after {
     top: 22%;
     width: 400px;
     height: 500px;
@@ -177,11 +177,11 @@ export default {
 }
 
 @media (max-width: 780px) {
-  .about {
+  .home {
     margin-top: 2.8571rem;
   }
 
-  .about__container::before {
+  .home__container::before {
     display: none;
     top: -20%;
     width: 550px;
@@ -191,7 +191,7 @@ export default {
     /* right: -120px; */
   }
 
-  .about__container::after {
+  .home__container::after {
     display: none;
     top: 30%;
     width: 300px;
@@ -202,48 +202,48 @@ export default {
 }
 
 @media (max-width: 600px) {
-  /* .about__container::before {
+  /* .home__container::before {
     width: 450px;
     height: 450px;
     top: -05px;
     right: -120px;
   }
 
-  .about__container::after {
+  .home__container::after {
     width: 250px;
     height: 350px;
     top: 50px;
     right: -30px;
   } */
 
-  .about-check__item {
+  .home-check__item {
     padding-left: 24px;
     line-height: 15px;
   }
 
-  .about-check__item:not(:last-child) {
+  .home-check__item:not(:last-child) {
     margin-bottom: 10px;
   }
 
-  .about-check__item::before {
+  .home-check__item::before {
     width: 15px;
     height: 15px;
   }
 }
 
 @media (max-width: 440px) {
-  .about__container {
+  .home__container {
     padding: 0 20px;
   }
 
-  /* .about__container::before {
+  /* .home__container::before {
     width: 217px;
     height: 305px;
     right: -55px;
     top: -15px;
   }
 
-  .about__container::after {
+  .home__container::after {
     width: 205px;
     height: 230px;
     right: -52px;

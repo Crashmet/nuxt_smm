@@ -7,9 +7,11 @@
       <section class="account">
         <div class="account__container container">
           <div class="account__main">
-            <status-massage-modal v-if="isOpenModal" />
             <profile-menu />
-            <nuxt-child />
+            <div class="account__section">
+              <status-massage-modal v-if="isOpenModal" />
+              <nuxt-child />
+            </div>
           </div>
         </div>
       </section>
@@ -97,19 +99,17 @@ export default {
   margin-bottom: 5.5556rem;
 }
 
-.account__container {
-  padding: 0 48.9996px;
-}
-
 .account__main {
   position: relative;
   overflow-x: auto;
   width: 100%;
-  padding: 2.2222rem 2.1111rem;
 
   background-color: #efefefce;
 
-  border-radius: 30px;
+  border-radius: 10px;
+}
+.account__section {
+  padding: 30px 40px;
 }
 
 @media (max-width: 480px) {

@@ -21,7 +21,7 @@
               class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
             >
               <li class="active"><nuxt-link to="/"> Home </nuxt-link></li>
-              <li class="has-children">
+              <!-- <li class="has-children">
                 <a>Properties</a>
                 <ul class="dropdown">
                   <li><a>Buy Property</a></li>
@@ -35,8 +35,8 @@
                     </ul>
                   </li>
                 </ul>
-              </li>
-              <li><a>About</a></li>
+              </li> -->
+              <li><nuxt-link to="/about">About</nuxt-link></li>
               <li><nuxt-link to="/contacts">Contact Us</nuxt-link></li>
               <template v-if="!sessionid">
                 <li>
@@ -48,9 +48,7 @@
               </template>
               <template v-else>
                 <li>
-                  <nuxt-link to="/" @click="handlerLogout()">
-                    Leave in account
-                  </nuxt-link>
+                  <a href="/" @click="handlerLogout()"> Leave in account </a>
                 </li>
               </template>
             </ul>

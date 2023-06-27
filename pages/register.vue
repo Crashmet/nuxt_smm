@@ -37,6 +37,7 @@
                               type="text"
                               id="form3Example1m"
                               class="form-control form-control-lg"
+                              v-model="first_name"
                             />
                             <label class="form-label" for="form3Example1m"
                               >First name</label
@@ -49,6 +50,7 @@
                               type="text"
                               id="form3Example1n"
                               class="form-control form-control-lg"
+                              v-model="last_name"
                             />
                             <label class="form-label" for="form3Example1n"
                               >Last name</label
@@ -124,6 +126,12 @@
                         <label class="form-label" for="form3Example9"
                           >E-mail</label
                         >
+
+                        <template v-if="validatorEmail.length > 0">
+                          <p class="register__validation">
+                            {{ validatorEmail }}
+                          </p>
+                        </template>
                       </div>
 
                       <div class="form-outline mb-4">
@@ -168,13 +176,17 @@
                       </div>
 
                       <div class="d-flex justify-content-end pt-3">
-                        <button type="button" class="btn btn-light btn-lg">
+                        <button
+                          type="button"
+                          class="btn btn-light btn-lg"
+                          @click.prevent="resetForm()"
+                        >
                           Reset all
                         </button>
                         <button
                           type="button"
                           class="btn btn-warning btn-lg ms-2"
-                          @click.prevent="handlerSubmit"
+                          @click.prevent="handlerSubmit()"
                         >
                           Submit form
                         </button>

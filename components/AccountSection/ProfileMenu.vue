@@ -1,43 +1,49 @@
 <template>
   <div class="profile-menu">
-    <div class="profile-menu__block" v-if="users[0].isActive">
-      <h3 class="profile-menu__title">Blogger Custom Menu</h3>
-
-      <nav class="profile-menu__row">
-        <button
-          class="profile-menu__btn"
-          v-for="setting in bloggerMenu"
-          :key="setting.name"
-          @click="handlerClickBloggerMenu(setting.name, setting.routerName)"
-        >
-          <p
-            class="profile-menu__text"
-            :class="setting.isActive ? 'profile-menu__text_active' : ''"
+    <div class="profile-menu__block bg-dark" v-if="users[0].isActive">
+      <div class="profile-menu__row">
+        <nav class="profile-menu__nav">
+          <button
+            class="profile-menu__btn"
+            v-for="setting in bloggerMenu"
+            :key="setting.name"
+            @click="handlerClickBloggerMenu(setting.name, setting.routerName)"
           >
-            {{ setting.name }}
-          </p>
-        </button>
-      </nav>
+            <p
+              class="profile-menu__text"
+              :class="setting.isActive ? 'profile-menu__text_active' : ''"
+            >
+              {{ setting.name }}
+            </p>
+          </button>
+        </nav>
+
+        <h3 class="profile-menu__title">Blogger Menu</h3>
+      </div>
     </div>
 
-    <div class="profile-menu__block" v-else>
-      <h3 class="profile-menu__title">Advertiser Custom Menu</h3>
-
-      <nav class="profile-menu__row">
-        <button
-          class="profile-menu__btn"
-          v-for="setting in advertiserMenu"
-          :key="setting.name"
-          @click="handlerClickAdvertiserMenu(setting.name, setting.routerName)"
-        >
-          <p
-            class="profile-menu__text"
-            :class="setting.isActive ? 'profile-menu__text_active' : ''"
+    <div class="profile-menu__block bg-dark" v-else>
+      <div class="profile-menu__row">
+        <nav class="profile-menu__nav">
+          <button
+            class="profile-menu__btn"
+            v-for="setting in advertiserMenu"
+            :key="setting.name"
+            @click="
+              handlerClickAdvertiserMenu(setting.name, setting.routerName)
+            "
           >
-            {{ setting.name }}
-          </p>
-        </button>
-      </nav>
+            <p
+              class="profile-menu__text"
+              :class="setting.isActive ? 'profile-menu__text_active' : ''"
+            >
+              {{ setting.name }}
+            </p>
+          </button>
+        </nav>
+
+        <h3 class="profile-menu__title">Advertiser menu</h3>
+      </div>
     </div>
   </div>
 </template>
@@ -98,33 +104,33 @@ export default {
 */
 
 .profile-menu__block {
-  margin-bottom: 1.6667rem;
+  padding: 18px 30px;
 }
 
 .profile-menu__title {
-  margin-bottom: 30px;
-  color: var(--bs-secondary);
-  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
-  font-weight: 600;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .profile-menu__row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile-menu__nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 1.9444rem;
 }
 
 .profile-menu__btn {
-  margin-bottom: 0.5556rem;
-  background-color: var(--bs-secondary);
-  padding: 5px 18px;
-  border-radius: 20px;
-
-  -webkit-transition: border 0.3s ease;
-  -o-transition: border 0.3s ease;
-  transition: border 0.3s ease;
+  background-color: transparent;
 }
 
 .profile-menu__btn:not(:last-child) {
