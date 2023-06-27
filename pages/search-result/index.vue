@@ -24,9 +24,8 @@
           class="property-item col-12 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-3"
           v-for="item in searchResult"
           :key="item.id"
-          @click="handlerClickCards(item)"
         >
-          <div class="item-card__img">
+          <div class="item-card__img" @click="handlerClickCards(item)">
             <img src="#" alt="Image-card" class="img-fluid" />
           </div>
 
@@ -59,6 +58,12 @@
               Цена за рилс:
               {{ item.price_for_reels ? item.price_for_reels : 0 }} руб.
             </div>
+            <button
+              class="btn btn-primary py-2 px-3 mt-3"
+              @click="handlerClickCards(item)"
+            >
+              See details
+            </button>
           </div>
         </li>
       </ul>
@@ -453,6 +458,7 @@ export default {
   margin-bottom: 0.9444rem;
   height: 155.5554px;
   background: #d9d9d9;
+  cursor: pointer;
 }
 
 .item-description {
