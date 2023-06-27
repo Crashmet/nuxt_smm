@@ -35,7 +35,7 @@ export default {
 */
 
 .about {
-  margin-top: 4rem;
+  margin-top: 160px;
 }
 
 .about__container {

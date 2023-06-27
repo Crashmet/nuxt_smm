@@ -31,7 +31,7 @@
                 target="_blank"
                 href="https://yandex.ru/maps/213/moscow/house/aviamotornaya_ulitsa_59/Z04YcQVhQUAPQFtvfXt1cH5lYw==/?ll=37.721857%2C55.741267&z=16"
               >
-                Адрес: ул. Авиамоторная, д.59, помещение 21.2, Москва, Россия
+                Location: ул. Авиамоторная, д.59, помещение 21.2, Москва, Россия
               </a>
             </address>
             <ul class="list-unstyled links">
@@ -55,7 +55,7 @@
             <ul class="list-unstyled links">
               <li><a href="">Our Vision</a></li>
               <li><a href="">About us</a></li>
-              <li><a href="">Contact us</a></li>
+              <li><nuxt-link to="/contacts">Contact Us</nuxt-link></li>
             </ul>
 
             <ul class="list-unstyled social">

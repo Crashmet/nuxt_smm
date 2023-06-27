@@ -37,18 +37,20 @@
                 </ul>
               </li>
               <li><a>About</a></li>
-              <li><a>Contact Us</a></li>
+              <li><nuxt-link to="/contacts">Contact Us</nuxt-link></li>
               <template v-if="!sessionid">
                 <li>
-                  <nuxt-link to="register">Зарегистрироваться</nuxt-link>
+                  <nuxt-link to="/register">Register</nuxt-link>
                 </li>
                 <li>
-                  <nuxt-link to="login">Войти</nuxt-link>
+                  <nuxt-link to="/login">Login</nuxt-link>
                 </li>
               </template>
               <template v-else>
                 <li>
-                  <a href="/" @click="handlerLogout()"> Выйти из аккаунта </a>
+                  <nuxt-link to="/" @click="handlerLogout()">
+                    Leave in account
+                  </nuxt-link>
                 </li>
               </template>
             </ul>
@@ -100,7 +102,7 @@ export default {
 
 <style scoped>
 .header {
-  margin-bottom: 7rem;
+  margin-bottom: 40px;
 }
 
 .logo-dot {
