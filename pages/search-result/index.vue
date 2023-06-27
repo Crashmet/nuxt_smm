@@ -360,7 +360,9 @@ export default {
 }
 
 .search-result__container {
-  padding: 0 4.4444rem;
+  padding: 0 15px;
+  max-width: 1320px;
+  margin: 0 auto;
 }
 
 /* **** SEARCH-NAV **** */
