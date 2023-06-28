@@ -76,7 +76,7 @@
             aria-label="Default select example"
             v-model="pageSize"
           >
-            <option value="5">50</option>
+            <option value="5">5</option>
             <option selected value="10">10</option>
             <option value="15">15</option>
             <option value="25">25</option>
