@@ -18,6 +18,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 ul {
   list-style: none;
 }
@@ -59,10 +63,6 @@ ol[class] {
   list-style: none;
 }
 
-/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
 
 /* Упрощаем работу с изображениями */
 img {
@@ -81,21 +81,9 @@ input,
 button,
 textarea,
 select {
-  font: inherit;
   border: none;
-  outline: none;
 }
 
-input,
-button,
-button:focus {
-  cursor: pointer;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 
 /* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
@@ -108,10 +96,7 @@ button:focus {
   }
 }
 
-label {
-  cursor: pointer;
-  display: inline-block;
-}
+
 
 *,
 :after,

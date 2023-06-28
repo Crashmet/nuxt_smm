@@ -10,14 +10,15 @@
               <h1 class="heading" data-aos="fade-up">About</h1>
 
               <nav
+                class="breadcrumb"
                 aria-label="breadcrumb"
                 data-aos="fade-up"
                 data-aos-delay="200"
               >
                 <ol class="breadcrumb text-center justify-content-center">
-                  <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                  <li class="breadcrumb-item text-gray-90">Home</li>
                   <li
-                    class="breadcrumb-item active text-white-50"
+                    class="breadcrumb-item active text-black-10"
                     aria-current="page"
                   >
                     About
@@ -33,9 +34,7 @@
         <div class="container">
           <div class="row text-left mb-5">
             <div class="col-12">
-              <h2 class="font-weight-bold heading text-primary mb-4">
-                About Us
-              </h2>
+              <h2 class="font-weight-bold heading mb-4">About Us</h2>
             </div>
             <div class="col-lg-6">
               <p class="text-black-50">
@@ -204,9 +203,7 @@
         <div class="container">
           <div class="row mb-5 align-items-center">
             <div class="col-md-6">
-              <h2 class="font-weight-bold heading text-primary mb-4 mb-md-0">
-                The Team
-              </h2>
+              <h2 class="font-weight-bold heading mb-4 mb-md-0">The Team</h2>
             </div>
             <div class="col-md-6 text-md-end">
               <div id="testimonial-nav">
@@ -229,7 +226,7 @@
                     alt="Image"
                     class="img-fluid rounded-circle w-25 mb-4"
                   />
-                  <h3 class="h5 text-primary">James Smith</h3>
+                  <h3 class="h5">James Smith</h3>
                   <p class="text-black-50">Designer, Co-founder</p>
 
                   <p>
@@ -263,7 +260,7 @@
                     alt="Image"
                     class="img-fluid rounded-circle w-25 mb-4"
                   />
-                  <h3 class="h5 text-primary">Carol Houston</h3>
+                  <h3 class="h5">Carol Houston</h3>
                   <p class="text-black-50">Designer, Co-founder</p>
 
                   <p>
@@ -297,7 +294,7 @@
                     alt="Image"
                     class="img-fluid rounded-circle w-25 mb-4"
                   />
-                  <h3 class="h5 text-primary">Synthia Cameron</h3>
+                  <h3 class="h5">Synthia Cameron</h3>
                   <p class="text-black-50">Designer, Co-founder</p>
 
                   <p>
@@ -331,7 +328,7 @@
                     alt="Image"
                     class="img-fluid rounded-circle w-25 mb-4"
                   />
-                  <h3 class="h5 text-primary">Davin Smith</h3>
+                  <h3 class="h5">Davin Smith</h3>
                   <p class="text-black-50">Designer, Co-founder</p>
 
                   <p>
@@ -387,5 +384,11 @@ export default {
 .hero {
   background-image: url("@/static/img/hero-bg-abstract.jpg");
   z-index: -1;
+}
+
+.breadcrumb {
+  background-color: transparent;
+  text-align: center;
+  justify-content: center;
 }
 </style>

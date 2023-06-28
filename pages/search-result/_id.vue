@@ -10,7 +10,7 @@
           </div>
         </div>
         <div class="col-lg-4">
-          <h2 class="heading text-primary">
+          <h2 class="heading">
             {{ bloggerData.social_network?.name }}: {{ bloggerData.nickname }}
           </h2>
           <p class="meta">Подписчики: {{ bloggerData.subscribers }}</p>

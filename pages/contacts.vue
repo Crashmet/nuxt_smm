@@ -10,14 +10,15 @@
               <h1 class="heading" data-aos="fade-up">Contact Us</h1>
 
               <nav
+                class="breadcrumb"
                 aria-label="breadcrumb"
                 data-aos="fade-up"
                 data-aos-delay="200"
               >
                 <ol class="breadcrumb text-center justify-content-center">
-                  <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                  <li class="breadcrumb-item text-gray-90">Home</li>
                   <li
-                    class="breadcrumb-item active text-white-50"
+                    class="breadcrumb-item active text-gray-50"
                     aria-current="page"
                   >
                     Contact
@@ -141,5 +142,11 @@ export default {
 .hero {
   background-image: url("@/static/img/hero-bg-abstract.jpg");
   z-index: -1;
+}
+
+.breadcrumb {
+  background-color: transparent;
+  text-align: center;
+  justify-content: center;
 }
 </style>

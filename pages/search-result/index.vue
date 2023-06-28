@@ -58,10 +58,7 @@
               Цена за рилс:
               {{ item.price_for_reels ? item.price_for_reels : 0 }} руб.
             </div>
-            <button
-              class="btn btn-primary py-2 px-3 mt-3"
-              @click="handlerClickCards(item)"
-            >
+            <button class="btn py-2 px-3 mt-3" @click="handlerClickCards(item)">
               See details
             </button>
           </div>
@@ -471,6 +468,12 @@ export default {
   margin-bottom: 0.2222rem;
 }
 
+.btn {
+  color: #fff;
+  font-weight: 500;
+  background-color: var(--bs-secondary);
+}
+
 /* **** PAGINATION ****  */
 
 .search-pagination,
@@ -488,9 +491,9 @@ export default {
 }
 
 .search-pagination__btn {
-  padding: 0.4444rem;
-  width: 2.3333rem;
-  height: 2.3333rem;
+  padding: 0.1875rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
   color: var(--bs-secondary);
   background-color: #fff;
   border-radius: 50%;
@@ -499,8 +502,8 @@ export default {
 }
 
 .page-numbers__btn {
-  width: 2rem;
-  height: 2rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
   font-size: 1rem;
   background-color: #fff;
   border-radius: 50%;
@@ -508,7 +511,7 @@ export default {
 }
 
 .page-numbers__btn_selected {
-  background-color: var(--bs-success);
+  background-color: var(--bs-secondary);
   color: #fff;
 }
 
@@ -523,7 +526,7 @@ export default {
 @media (min-width: 980px) {
   .search-pagination__btn:hover,
   .page-numbers__btn:hover {
-    background-color: var(--bs-success);
+    background-color: var(--bs-secondary);
     color: #fff;
     -webkit-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
@@ -564,6 +567,16 @@ export default {
 @media (max-width: 390px) {
   .search-result__container {
     padding: 0 20px;
+  }
+
+  .search-pagination__btn {
+    min-width: 25px;
+    min-height: 20px;
+  }
+
+  .page-numbers__btn {
+    min-width: 25px;
+    min-height: 20px;
   }
 }
 

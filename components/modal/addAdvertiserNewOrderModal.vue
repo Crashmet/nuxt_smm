@@ -292,8 +292,7 @@ export default {
 <style scoped>
 .modal__section {
   position: absolute;
-  top: 2%;
-  padding: 1.25rem 3.125rem;
+  top: 0%;
   max-width: 36.1111rem;
   width: 100%;
   background-color: transparent;
@@ -341,7 +340,7 @@ export default {
 }
 
 .modal__label {
-  font-size: 0.7778rem;
+  font-size: 0.875rem;
 }
 
 .modal__input {
@@ -352,7 +351,7 @@ export default {
   font-size: 0.8889rem;
   line-height: 1.0556rem;
   color: var(--bs-gray-600);
-  border: 1px solid var(--bs-secondary);
+  border: 1px solid var(--bs-gray-600);
   border-radius: 10px;
   background-color: transparent;
   -webkit-transition: border 0.3s ease;
@@ -362,10 +361,10 @@ export default {
 
 .modal__input:hover,
 .modal__input:active {
-  border: 1.5px solid var(--bs-success);
-  -webkit-transition: border 0.3s ease;
-  -o-transition: border 0.3s ease;
-  transition: border 0.3s ease;
+  -webkit-transition: outline 0.1s ease;
+  -o-transition: outline 0.1s ease;
+  transition: outline 0.1s ease;
+  outline: 1.5px solid var(--bs-secondary);
 }
 
 .modal__row_textarea {
@@ -389,8 +388,8 @@ export default {
   min-height: 1.6667rem;
   font-size: 0.8889rem;
   color: #fff;
-  background: var(--bs-secondary);
-  border: 1px solid var(--bs-secondary);
+  background: var(--bs-gray-600);
+  border: 1px solid var(--bs-gray-600);
   border-radius: 10px;
 }
 

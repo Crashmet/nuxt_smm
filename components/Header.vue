@@ -20,7 +20,7 @@
             <ul
               class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
             >
-              <li class="active"><nuxt-link to="/"> Home </nuxt-link></li>
+              <li><nuxt-link to="/"> Home </nuxt-link></li>
               <!-- <li class="has-children">
                 <a>Properties</a>
                 <ul class="dropdown">

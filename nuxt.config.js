@@ -28,12 +28,10 @@ export default {
       },
       { rel: "stylesheet", href: "/fonts/icomoon/style.css" },
       { rel: "stylesheet", href: "/fonts/flaticon/font/flaticon.css" },
-      { rel: "stylesheet", href: "/css/normalize.css" },
       { rel: "stylesheet", href: "/css/tiny-slider.css" },
       { rel: "stylesheet", href: "/css/style.css" },
     ],
     script: [
-      { hid: "stripe", src: "/js/bootstrap.bundle.min.js", defer: true },
       { hid: "stripe", src: "/js/counter.js", defer: true },
       { hid: "stripe", src: "/js/navbar.js", defer: true },
     ],
@@ -45,7 +43,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ["~/static/css/normalize.css"],
   /*
    ** Plugins to load before mounting the App
    */
@@ -59,6 +57,7 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
+    "bootstrap-vue/nuxt",
     "@nuxtjs/axios",
     "cookie-universal-nuxt",
 

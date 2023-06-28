@@ -3,25 +3,19 @@
     <div class="section-counter">
       <div class="counter-list" data-aos="fade-up" data-aos-delay="300">
         <div class="counter-wrap mb-lg-0">
-          <span class="number"
-            ><span class="countup text-primary">81358879</span></span
-          >
+          <span class="number"><span class="countup">81358879</span></span>
           <span class="caption text-black-50"># Охват</span>
         </div>
       </div>
       <div class="counter-list" data-aos="fade-up" data-aos-delay="400">
         <div class="counter-wrap mb-lg-0">
-          <span class="number"
-            ><span class="countup text-primary">542</span></span
-          >
+          <span class="number"><span class="countup">542</span></span>
           <span class="caption text-black-50"># Блогеров</span>
         </div>
       </div>
       <div class="counter-list" data-aos="fade-up" data-aos-delay="200">
         <div class="counter-wrap mb-lg-0">
-          <span class="number"
-            ><span class="countup text-primary">7236</span></span
-          >
+          <span class="number"><span class="countup">7236</span></span>
           <span class="caption text-black-50"># Постов</span>
         </div>
       </div>
