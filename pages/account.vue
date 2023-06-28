@@ -8,6 +8,7 @@
         <div class="account__container container">
           <div class="account__main">
             <profile-menu />
+
             <div class="account__section">
               <status-massage-modal v-if="isOpenModal" />
               <nuxt-child />
@@ -101,24 +102,22 @@ export default {
 
 .account__main {
   position: relative;
-  overflow-x: auto;
   width: 100%;
+  min-height: 700px;
 
   background-color: #efefefce;
 
   border-radius: 10px;
 }
 .account__section {
+  overflow-x: auto;
+
   padding: 30px 40px;
 }
 
 @media (max-width: 480px) {
   .account {
     margin-bottom: 60px;
-  }
-
-  .account__main {
-    padding: 27px 10px 15px;
   }
 
   .account__container {

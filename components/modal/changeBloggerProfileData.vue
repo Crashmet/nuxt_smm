@@ -1,25 +1,6 @@
 <template>
   <div class="modal__section">
     <h3 class="modal__title">Изменить профиль</h3>
-    <button class="modal__btn-close" @click="changeDataModalStatus(false)">
-      <svg
-        class="btn-close__svg"
-        width="16"
-        height="16"
-        viewBox="0 0 17 17"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M0.641389 2.92264C0.28716 2.56841 0.287159 1.99409 0.641388 1.63986C0.995617 1.28563 1.56993 1.28563 1.92416 1.63986L15.3584 15.0742C15.7127 15.4284 15.7127 16.0027 15.3584 16.3569C15.0042 16.7112 14.4299 16.7112 14.0757 16.3569L0.641389 2.92264Z"
-          fill="#0d0d0d"
-        ></path>
-        <path
-          d="M14.0774 1.64139C14.4316 1.28716 15.0059 1.28716 15.3601 1.64139C15.7144 1.99562 15.7144 2.56994 15.3601 2.92417L1.92586 16.3585C1.57163 16.7127 0.997315 16.7127 0.643086 16.3585C0.288857 16.0042 0.288857 15.4299 0.643086 15.0757L14.0774 1.64139Z"
-          fill="#0d0d0d"
-        ></path>
-      </svg>
-    </button>
 
     <div class="modal__block">
       <ul class="modal__row">
@@ -77,45 +58,71 @@
     </div>
 
     <div class="modal__block">
-      <div class="modal__item-radio">
-        <div class="item-radio">
-          <input
-            v-model="role"
-            id="blogger-radio-input"
-            value="blogger"
-            type="radio"
-            name="redirecttarget"
-            class="item-radio__input"
-            checked
-          />
-          <label for="blogger-radio-input" class="item-radio__label"
-            >Блогер</label
-          >
-        </div>
+      <ul class="modal__row">
+        <li class="modal__cell modal__cell-label">
+          <span class="modal__label">Role</span>
+        </li>
 
-        <div class="item-radio">
-          <input
-            v-model="role"
-            id="advertiser-radio-input"
-            value="advertiser"
-            type="radio"
-            name="redirecttarget"
-            class="item-radio__input"
-          />
-          <label for="advertiser-radio-input" class="item-radio__label"
-            >Рекламодатель</label
-          >
+        <div class="modal__item-radio">
+          <div class="item-radio">
+            <input
+              v-model="role"
+              id="blogger-radio-input"
+              value="blogger"
+              type="radio"
+              name="redirecttarget"
+              class="item-radio__input"
+              checked
+            />
+            <label for="blogger-radio-input" class="item-radio__label"
+              >Блогер</label
+            >
+          </div>
+
+          <div class="item-radio">
+            <input
+              v-model="role"
+              id="advertiser-radio-input"
+              value="advertiser"
+              type="radio"
+              name="redirecttarget"
+              class="item-radio__input"
+            />
+            <label for="advertiser-radio-input" class="item-radio__label"
+              >Рекламодатель</label
+            >
+          </div>
         </div>
-      </div>
+      </ul>
 
       <template v-if="validatorRole.length > 0">
         <p class="modal__validation">{{ validatorRole }}</p>
       </template>
     </div>
 
-    <button class="cell-item__btn" @click.prevent="handlerSubmitSettings()">
-      Изменить
-    </button>
+    <div class="modal__block">
+      <ul class="modal__row">
+        <li class="modal__cell modal__cell-label">
+          <span class="modal__label"
+            ><button
+              class="cell-item__btn cell-item__btn_back"
+              @click="changeDataModalStatus(false)"
+            >
+              Назад
+            </button></span
+          >
+        </li>
+
+        <li class="modal__cell">
+          <button
+            class="cell-item__btn"
+            @click.prevent="handlerSubmitSettings()"
+          >
+            Изменить
+          </button>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -211,7 +218,6 @@ export default {
 <style scoped>
 .modal__section {
   position: relative;
-  padding: 1.25rem 3.125rem;
   max-width: 25.0139rem;
   background-color: transparent;
   border-radius: 20px;
@@ -221,18 +227,6 @@ export default {
   font-size: 1.1111rem;
   margin-bottom: 1.1111rem;
   text-decoration-line: underline;
-}
-
-.modal__btn-close {
-  position: absolute;
-  right: 7%;
-  top: 7%;
-  background-color: transparent;
-}
-
-.btn-close__svg {
-  width: 1rem;
-  height: 1rem;
 }
 
 .modal__block {
@@ -269,20 +263,20 @@ export default {
   font-size: 0.8889rem;
   line-height: 1.0556rem;
   color: var(--bs-gray-600);
-  border: 1px solid var(--bs-secondary);
+  border: 1px solid var(--bs-gray-600);
   border-radius: 10px;
   background-color: transparent;
-  -webkit-transition: border 0.3s ease;
+  /* -webkit-transition: border 0.3s ease;
   -o-transition: border 0.3s ease;
-  transition: border 0.3s ease;
+  transition: border 0.3s ease; */
 }
 
 .modal__input:hover,
 .modal__input:active {
-  border: 1.5px solid var(--bs-success);
-  -webkit-transition: border 0.3s ease;
-  -o-transition: border 0.3s ease;
-  transition: border 0.3s ease;
+  -webkit-transition: outline 0.1s ease;
+  -o-transition: outline 0.1s ease;
+  transition: outline 0.1s ease;
+  outline: 1.5px solid var(--bs-secondary);
 }
 
 /* *** RADIO ***  */
@@ -339,18 +333,18 @@ export default {
 
 .item-radio__label:before {
   left: 0;
-  top: 0.1667rem;
-  height: 1rem;
-  width: 1rem;
-  border: 0.1111rem solid var(--bs-secondary);
+  top: 3px;
+  height: 17px;
+  width: 17px;
+  border: 2px solid var(--bs-gray-600);
   background: transparent;
 }
 
 .item-radio__label:after {
-  height: 0.4722rem;
-  width: 0.4722rem;
-  left: 0.2667rem;
-  top: 0.4167rem;
+  height: 8px;
+  width: 8px;
+  left: 4.5px;
+  top: 7.5px;
   background-color: transparent;
 }
 
@@ -359,10 +353,10 @@ export default {
 }
 
 .item-radio__input:checked + .item-radio__label:after {
-  background-color: var(--bs-secondary);
+  background-color: var(--bs-gray-600);
 }
 
-/* ****** BTN SUBMIT ******  */
+/* ****** BTNs ******  */
 
 .cell-item__btn {
   margin-top: 1.2rem;
@@ -370,11 +364,20 @@ export default {
   max-width: 16.6667rem;
   width: 100%;
   min-height: 1.6667rem;
-  font-size: 0.8889rem;
+  font-weight: 600;
   color: #fff;
-  background: var(--bs-secondary);
-  border: 1px solid var(--bs-secondary);
+  background: var(--bs-gray-600);
   border-radius: 10px;
+}
+
+.cell-item__btn:hover,
+.cell-item__btn:active {
+  background: var(--bs-secondary);
+}
+
+.cell-item__btn_back:hover,
+.cell-item__btn_back:active {
+  background: var(--bs-warning);
 }
 
 /* *** VALIDATION *** */
@@ -383,7 +386,7 @@ export default {
   font-size: 0.8889rem;
   margin-left: 1.1111rem;
   margin-top: 0.3889rem;
-  color: var(--bs-success);
+  color: var(--bs-secondary);
 }
 
 @media (max-width: 480px) {

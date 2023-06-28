@@ -233,8 +233,6 @@
           </div>
         </div>
       </section>
-
-      <!-- <Register /> -->
     </main>
     <Footer />
   </div>

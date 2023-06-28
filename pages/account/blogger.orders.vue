@@ -2,7 +2,7 @@
   <div class="orders_container">
     <div>
       <table>
-        <thead>
+        <thead class="thead-dark">
           <tr>
             <th scope="col">Заказчик</th>
             <th scope="col">Задание</th>
@@ -154,7 +154,7 @@ export default {
   position: relative;
 }
 
-/* **** table **** */
+/* **** TABLE **** */
 
 table {
   margin-top: 1.8rem;
@@ -173,6 +173,7 @@ thead th {
   font-size: 16px;
   line-height: 1.1667rem;
   color: var(--bs-gray-600);
+  background: var(--bs-gray-400);
 }
 
 thead th:nth-child(1) {
@@ -210,11 +211,11 @@ td:nth-child(5) {
 
 tbody tr {
   color: var(--bs-gray-600);
-  border-bottom: 1px solid var(--bs-secondary);
+  border-bottom: 1px solid var(--bs-gray-400);
 }
 
 tbody tr:hover {
-  background: #f09e567c;
+  background: var(--bs-gray-300);
 }
 
 th,
@@ -223,6 +224,14 @@ td {
   font-size: 0.8889rem;
   line-height: 1.0556rem;
   border: none;
+}
+
+/* **** NOT FOUND ****  */
+
+.table__not-found {
+  text-align: center;
+  margin: 3rem 0;
+  font-size: 1.2222rem;
 }
 
 @media (max-width: 480px) {

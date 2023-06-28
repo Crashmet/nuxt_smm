@@ -79,7 +79,7 @@ export default {
 <style scoped>
 .modal__section {
   position: absolute;
-  top: 4%;
+  top: 10%;
   right: 2%;
   padding: 0.5556rem 2.2222rem;
   max-width: 20rem;
@@ -112,5 +112,13 @@ export default {
 
 .error {
   border: 2px solid var(--bs-danger);
+}
+
+@media (max-width: 1000px) {
+  .modal__section {
+    top: 60%;
+    right: 0;
+    left: 3%;
+  }
 }
 </style>

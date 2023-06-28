@@ -48,7 +48,7 @@
               </template>
               <template v-else>
                 <li>
-                  <a href="/" @click="handlerLogout()"> Leave in account </a>
+                  <a href="/" @click="handlerLogout()"> Log out </a>
                 </li>
               </template>
             </ul>

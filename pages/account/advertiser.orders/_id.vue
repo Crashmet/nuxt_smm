@@ -245,13 +245,13 @@ export default {
   font-size: 1.2778rem;
   line-height: 1.1667rem;
   text-decoration-line: underline;
-  color: var(--bs-secondary);
+  color: var(--bs-gray-600);
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .header__btn_back {
   padding: 0.2222rem 0.4444rem;
-  border: 2px solid var(--bs-secondary);
+  border: 2px solid var(--bs-gray-600);
   border-radius: 10px;
   background-color: transparent;
   transition: border 0.3s ease;
@@ -259,11 +259,11 @@ export default {
 
 .header__btn_back:hover,
 .header__btn_back:active {
-  color: var(--bs-success);
-  border: 2px solid var(--bs-success);
-  -webkit-transition: border 0.3s ease;
-  -o-transition: border 0.3s ease;
-  transition: border 0.3s ease;
+  color: var(--bs-secondary);
+  -webkit-transition: outline 0.1s ease;
+  -o-transition: outline 0.1s ease;
+  transition: outline 0.1s ease;
+  outline: 1.5px solid var(--bs-gray-600);
 }
 
 /* **** ORDER BODY **** */
@@ -303,20 +303,17 @@ export default {
   font-size: 0.8889rem;
   line-height: 1.0556rem;
   color: var(--bs-gray-600);
-  border: 1px solid var(--bs-secondary);
+  border: 1px solid var(--bs-gray-600);
   border-radius: 10px;
   background-color: transparent;
-  -webkit-transition: border 0.3s ease;
-  -o-transition: border 0.3s ease;
-  transition: border 0.3s ease;
 }
 
 .body__input:hover,
 .body__input:active {
-  border: 1.5px solid var(--bs-success);
-  -webkit-transition: border 0.3s ease;
-  -o-transition: border 0.3s ease;
-  transition: border 0.3s ease;
+  -webkit-transition: outline 0.1s ease;
+  -o-transition: outline 0.1s ease;
+  transition: outline 0.1s ease;
+  outline: 1.5px solid var(--bs-secondary);
 }
 
 .body__row_textarea {
@@ -365,8 +362,8 @@ export default {
 .footer__button {
   width: 100%;
   height: 1.6667rem;
-  background: var(--bs-secondary);
-  border: 1px solid var(--bs-secondary);
+  color: #fff;
+  background: var(--bs-gray-600);
   border-radius: 10px;
   font-weight: 500;
   font-size: 1rem;
@@ -380,7 +377,7 @@ export default {
 
 .footer__button_add:hover,
 .footer__button_add:active {
-  background: var(--bs-success);
+  background: var(--bs-secondary);
 }
 
 .footer__link {
@@ -388,7 +385,7 @@ export default {
   line-height: 1.1667rem;
   -webkit-text-decoration-line: underline;
   text-decoration-line: underline;
-  color: var(--bs-success);
+  color: var(--bs-secondary);
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 

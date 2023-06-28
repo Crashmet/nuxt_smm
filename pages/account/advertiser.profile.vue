@@ -163,14 +163,14 @@ export default {
 
 .body__input {
   padding: 0.2778rem 0.6111rem;
-  min-width: 8.3889rem;
+  min-width: 11rem;
   width: 100%;
   min-height: 1.6667rem;
   font-size: 0.8889rem;
   line-height: 1rem;
   text-align: center;
   color: var(--bs-gray-600);
-  border: 1px solid var(--bs-secondary);
+  border: 1px solid var(--bs-gray-600);
   border-radius: 10px;
   background-color: transparent;
 }
@@ -197,21 +197,18 @@ export default {
   font-size: 0.8889rem;
   line-height: 1.0556rem;
   color: var(--bs-gray-600);
-  border: 1px solid var(--bs-secondary);
+  border: 1px solid var(--bs-gray-600);
   border-radius: 10px;
   background-color: transparent;
   text-align: center;
-  -webkit-transition: border 0.3s ease;
-  -o-transition: border 0.3s ease;
-  transition: border 0.3s ease;
 }
 
 .cell-item__input_price:hover,
 .cell-item__input_price:active {
-  border: 1.5px solid var(--bs-success);
-  -webkit-transition: border 0.3s ease;
-  -o-transition: border 0.3s ease;
-  transition: border 0.3s ease;
+  -webkit-transition: outline 0.1s ease;
+  -o-transition: outline 0.1s ease;
+  transition: outline 0.1s ease;
+  outline: 1.5px solid var(--bs-gray-600);
 }
 
 .cell-item__btn {
@@ -221,8 +218,8 @@ export default {
   min-height: 1.6667rem;
   font-size: 0.7778rem;
   line-height: 0.8889rem;
-  background: var(--bs-secondary);
-  border: 1px solid var(--bs-secondary);
+  background: var(--bs-gray-600);
+  border: 1px solid var(--bs-gray-600);
   border-radius: 10px;
 }
 
@@ -251,7 +248,7 @@ export default {
   margin-bottom: 0.5556rem;
   padding: 0.2222rem 0.5556rem;
   background: #f09e56;
-  border: 1px solid var(--bs-secondary);
+  border: 1px solid var(--bs-gray-600);
   border-radius: 10px;
   background-color: transparent;
   -webkit-transition: border 0.3s ease;
@@ -265,10 +262,10 @@ export default {
 
 .body-change__btn:hover,
 .body-change__btn:active {
-  border: 1.5px solid var(--bs-success);
-  -webkit-transition: border 0.3s ease;
-  -o-transition: border 0.3s ease;
-  transition: border 0.3s ease;
+  -webkit-transition: outline 0.1s ease;
+  -o-transition: outline 0.1s ease;
+  transition: outline 0.1s ease;
+  outline: 1.5px solid var(--bs-secondary);
 }
 
 .body-change__text {
@@ -279,14 +276,14 @@ export default {
 
 .body-change__btn:hover > .body-change__text,
 .body-change__btn:active > .body-change__text {
-  color: var(--bs-success);
+  color: var(--bs-secondary);
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
 .body-change__text_active {
-  color: var(--bs-success);
+  color: var(--bs-secondary);
   /* text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
   text-decoration-line: underline;
   -webkit-transition: all 0.3s ease;

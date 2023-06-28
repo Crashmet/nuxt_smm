@@ -1,8 +1,6 @@
 export const state = () => ({
   isOpenModalAddOrder: false,
 
-  pageSize: 10,
-
   count: 0,
 
   activePage: 1,
@@ -51,8 +49,6 @@ export const state = () => ({
 
 export const getters = {
   count: ({ count }) => count,
-
-  pageSize: ({ pageSize }) => pageSize,
 
   activePage: ({ activePage }) => activePage,
 
@@ -155,7 +151,7 @@ export const actions = {
 
   async getAdvertiserOrdersList(
     { commit },
-    { ordering = "", activePage = "", pageSize = "10", searchInput = "" }
+    { ordering = "", activePage = "1", pageSize = "10", searchInput = "" }
   ) {
     await this.$axios
       .$get(

@@ -105,6 +105,7 @@ export default {
 
 .profile-menu__block {
   padding: 18px 30px;
+  border-radius: 5px;
 }
 
 .profile-menu__title {
@@ -171,6 +172,9 @@ export default {
 }
 
 @media (max-width: 540px) {
+  .profile-menu__block {
+    padding: 6px 10px;
+  }
   .profile-menu__btn {
     padding: 4px 10px;
   }

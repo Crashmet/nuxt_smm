@@ -88,20 +88,20 @@ export default {
   font-size: 0.8889rem;
   line-height: 1.0556rem;
   color: var(--bs-gray-600);
-  border: 1px solid var(--bs-secondary);
+  border: 1px solid var(--bs-gray-600);
   border-radius: 10px;
   background-color: transparent;
-  -webkit-transition: border 0.3s ease;
-  -o-transition: border 0.3s ease;
-  transition: border 0.3s ease;
+  /* -webkit-transition: border 0.2s ease;
+  -o-transition: border 0.2s ease;
+  transition: border 0.2s ease; */
 }
 
 .body__input:hover,
 .body__input:active {
-  border: 1.5px solid var(--bs-success);
-  -webkit-transition: border 0.3s ease;
-  -o-transition: border 0.3s ease;
-  transition: border 0.3s ease;
+  -webkit-transition: outline 0.1s ease;
+  -o-transition: outline 0.1s ease;
+  transition: outline 0.1s ease;
+  outline: 1.5px solid var(--bs-secondary);
 }
 
 @media (max-width: 1175px) {

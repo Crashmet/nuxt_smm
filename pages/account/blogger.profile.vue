@@ -20,7 +20,7 @@
         </li>
 
         <li class="body__cell">
-          <p type="text" class="body__input">{{ bloggerData.first_name }}</p>
+          <p class="body__input">{{ bloggerData.first_name }}</p>
         </li>
       </ul>
 
@@ -30,77 +30,27 @@
         </li>
 
         <li class="body__cell">
-          <p type="text" class="body__input">{{ bloggerData.last_name }}</p>
+          <p class="body__input">{{ bloggerData.last_name }}</p>
         </li>
       </ul>
 
-      <ul class="body__row body__row_long">
+      <ul class="body__row">
         <li class="body__cell body__cell-label">
           <span class="body__label">Instagram</span>
         </li>
 
         <li class="body__cell">
-          <ul class="body__cell-list">
-            <li class="body__cell-item">
-              <p type="text" class="body__input cell-item__input">nickname</p>
-            </li>
-
-            <!-- <li class="body__cell-item">
-              <input
-                type="text"
-                placeholder="цена за пост"
-                class="cell-item__input_price"
-                disabled
-              />
-            </li>
-
-            <li class="body__cell-item">
-              <button class="cell-item__btn">
-                Разрешить доступ к статистике
-              </button>
-            </li>
-
-            <li class="body__cell-item body__cell-item__link">
-              <a href="#" class="cell-item__link">
-                Описать порядок работы api
-              </a>
-            </li> -->
-          </ul>
+          <p class="body__input">nickname</p>
         </li>
       </ul>
 
-      <ul class="body__row body__row_long">
+      <ul class="body__row">
         <li class="body__cell body__cell-label">
           <span class="body__label">Tiktok</span>
         </li>
 
         <li class="body__cell">
-          <ul class="body__cell-list">
-            <li class="body__cell-item">
-              <p type="text" class="body__input cell-item__input">nickname</p>
-            </li>
-            <!-- 
-            <li class="body__cell-item">
-              <input
-                type="text"
-                placeholder="цена за пост"
-                class="cell-item__input_price"
-                disabled
-              />
-            </li>
-
-            <li class="body__cell-item">
-              <button class="cell-item__btn">
-                Разрешить доступ к статистике
-              </button>
-            </li>
-
-            <li class="body__cell-item body__cell-item__link">
-              <a href="#" class="cell-item__link">
-                Описать порядок работы api
-              </a>
-            </li> -->
-          </ul>
+          <p class="body__input">nickname</p>
         </li>
       </ul>
 
@@ -192,16 +142,23 @@ export default {
 
 .body__input {
   padding: 0.2778rem 0.6111rem;
-  min-width: 8.3889rem;
+  min-width: 11rem;
   width: 100%;
   min-height: 1.6667rem;
   font-size: 0.8889rem;
   line-height: 1rem;
   text-align: center;
   color: var(--bs-gray-600);
-  border: 1px solid var(--bs-secondary);
+  border: 1px solid var(--bs-gray-600);
   border-radius: 10px;
   background-color: transparent;
+}
+
+.body__input:hover {
+  -webkit-transition: outline 0.1s ease;
+  -o-transition: outline 0.1s ease;
+  transition: outline 0.1s ease;
+  outline: 1.5px solid var(--bs-secondary);
 }
 
 .body__cell-list {
@@ -219,30 +176,6 @@ export default {
   margin-right: 0.9rem;
 }
 
-.cell-item__input_price {
-  max-width: 6.9444rem;
-  width: 100%;
-  min-height: 1.6667rem;
-  font-size: 0.8889rem;
-  line-height: 1.0556rem;
-  color: var(--bs-gray-600);
-  border: 1px solid var(--bs-secondary);
-  border-radius: 10px;
-  background-color: transparent;
-  text-align: center;
-  -webkit-transition: border 0.3s ease;
-  -o-transition: border 0.3s ease;
-  transition: border 0.3s ease;
-}
-
-.cell-item__input_price:hover,
-.cell-item__input_price:active {
-  border: 1.5px solid var(--bs-secondary);
-  -webkit-transition: border 0.3s ease;
-  -o-transition: border 0.3s ease;
-  transition: border 0.3s ease;
-}
-
 .cell-item__btn {
   padding: 6px 8px;
   max-width: 19.4444rem;
@@ -250,8 +183,8 @@ export default {
   min-height: 1.6667rem;
   font-size: 0.7778rem;
   line-height: 0.8889rem;
-  background: var(--bs-secondary);
-  border: 1px solid var(--bs-secondary);
+  background: var(--bs-gray-600);
+  border: 1px solid var(--bs-gray-600);
   border-radius: 10px;
 }
 
@@ -279,8 +212,8 @@ export default {
 .body-change__btn {
   margin-bottom: 0.5556rem;
   padding: 0.2222rem 0.5556rem;
-  background: var(--bs-secondary);
-  border: 1px solid var(--bs-secondary);
+  background: var(--bs-gray-600);
+  border: 1px solid var(--bs-gray-600);
   border-radius: 10px;
   background-color: transparent;
   -webkit-transition: border 0.3s ease;
@@ -294,10 +227,10 @@ export default {
 
 .body-change__btn:hover,
 .body-change__btn:active {
-  border: 1.5px solid var(--bs-secondary);
-  -webkit-transition: border 0.3s ease;
-  -o-transition: border 0.3s ease;
-  transition: border 0.3s ease;
+  -webkit-transition: outline 0.1s ease;
+  -o-transition: outline 0.1s ease;
+  transition: outline 0.1s ease;
+  outline: 1.5px solid var(--bs-secondary);
 }
 
 .body-change__text {
@@ -308,14 +241,14 @@ export default {
 
 .body-change__btn:hover > .body-change__text,
 .body-change__btn:active > .body-change__text {
-  color: var(--bs-success);
+  color: var(--bs-secondary);
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
 .body-change__text_active {
-  color: var(--bs-success);
+  color: var(--bs-secondary);
   /* text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
   text-decoration-line: underline;
   -webkit-transition: all 0.3s ease;

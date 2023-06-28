@@ -52,7 +52,7 @@ export default {
   padding: 13px 25px;
   height: 11.3333rem;
   width: 100%;
-  border: 1px solid rgba(240, 158, 86, 0.58);
+  border: 1px solid var(--bs-gray-600);
   border-radius: 10px;
   background-color: transparent;
   font-size: 0.8889rem;
@@ -102,14 +102,15 @@ export default {
   font-weight: 700;
   font-size: 1rem;
   line-height: 1.1667rem;
-  background: #f09e56;
-  border: 1px solid rgba(240, 158, 86, 0.58);
+  color: #fff;
+  background: var(--bs-gray-600);
+  border: 1px solid var(--bs-gray-600);
   border-radius: 10px;
 }
 
 .chat__button:hover,
 .chat__button:active {
-  background: rgba(255, 54, 0, 0.7);
+  background: var(--bs-gray-500);
 }
 
 @media (max-width: 480px) {

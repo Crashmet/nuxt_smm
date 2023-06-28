@@ -11,6 +11,79 @@
           </button>
         </div>
 
+        <div v-if="count" class="nav_right">
+          <form action="#" class="nav-search__form">
+            <input
+              type="text"
+              placeholder="Поиск"
+              class="nav-search__input"
+              v-model="filterInput"
+            />
+            <button
+              class="nav-search__btn"
+              @click.prevent="handlerClickSearch()"
+            >
+              <p class="nav-search__btn-arrow"></p>
+            </button>
+          </form>
+        </div>
+      </nav>
+
+      <div class="orders__table">
+        <table v-if="count">
+          <thead>
+            <tr>
+              <th
+                v-for="item in filtersTitles"
+                :key="item.title"
+                scope="col"
+                @click="handlerClickFiltersTitles(item)"
+              >
+                <p
+                  :class="[
+                    item.isWorks ? 'table-title__sort_arrow' : '',
+                    item.isSortUp ? 'table-title__sort_arrow_up' : '',
+                  ]"
+                >
+                  {{ item.title }}
+                </p>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              v-for="item in advertiserOrdersList"
+              :key="item.id"
+              @click.prevent="handlerClickOrderMenu(item)"
+            >
+              <td>{{ item.name }}</td>
+              <td>{{ item.budget_per_subscriber }}</td>
+              <td>{{ item.end_date }}</td>
+              <td>{{ item.social[0].name }}</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 v-else class="table__not-found">"Нет активных заказов"</h3>
+      </div>
+
+      <nav v-if="count" class="orders__nav">
+        <div class="nav_left">
+          <p class="nav-select__label">Entries per page:</p>
+          <select
+            class="nav-select"
+            aria-label="Default select example"
+            v-model="pageSize"
+          >
+            <option value="5">50</option>
+            <option selected value="10">10</option>
+            <option value="15">15</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+          </select>
+        </div>
+
         <div class="nav_right">
           <div v-if="countPages > 1" class="nav-pagination">
             <button
@@ -118,71 +191,8 @@
               </div>
             </button>
           </div>
-
-          <form action="#" class="nav-search__form">
-            <input
-              type="text"
-              placeholder="Поиск"
-              class="nav-search__input"
-              v-model="filterInput"
-            />
-            <button
-              class="nav-search__btn"
-              @click.prevent="handlerClickSearch()"
-            >
-              <p class="nav-search__btn-arrow"></p>
-            </button>
-          </form>
         </div>
       </nav>
-
-      <div class="orders__table">
-        <table v-if="count">
-          <thead>
-            <tr>
-              <th
-                v-for="item in filtersTitles"
-                :key="item.title"
-                scope="col"
-                @click="handlerClickFiltersTitles(item)"
-              >
-                <h4
-                  class="table__title"
-                  :class="[
-                    item.isWorks ? 'table-title__sort_arrow' : '',
-                    item.isSortUp ? 'table-title__sort_arrow_up' : '',
-                  ]"
-                >
-                  {{ item.title }}
-                </h4>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              v-for="item in advertiserOrdersList"
-              :key="item.id"
-              @click.prevent="handlerClickOrderMenu(item)"
-            >
-              <td>{{ item.name }}</td>
-              <td>{{ item.budget_per_subscriber }}</td>
-              <td>{{ item.end_date }}</td>
-              <td>{{ item.social[0].name }}</td>
-              <td>-</td>
-            </tr>
-
-            <tr @click.prevent="handlerClickOrderMenu((item = { id: 2 }))">
-              <td>2222</td>
-              <td>33333</td>
-              <td>444</td>
-              <td>5555</td>
-              <td>-</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3 v-else class="table__not-found">"Нет активных заказов"</h3>
-      </div>
     </div>
 
     <add-advertiser-new-order-modal v-show="isOpenModalAddOrder" />
@@ -202,6 +212,8 @@ export default {
       ordering: "",
 
       filterInput: "",
+
+      pageSize: 10,
     };
   },
 
@@ -223,6 +235,7 @@ export default {
     this.getAdvertiserOrdersList({
       ordering: this.ordering,
       activePage: this.activePage,
+      pageSize: this.pageSize,
       searchInput: this.filterInput,
     });
 
@@ -232,7 +245,6 @@ export default {
   computed: {
     ...mapGetters({
       count: "advertiserOrdersStore/count",
-      pageSize: "advertiserOrdersStore/pageSize",
       activePage: "advertiserOrdersStore/activePage",
       filtersTitles: "advertiserOrdersStore/filtersTitles",
 
@@ -268,6 +280,7 @@ export default {
     handlerClickSearch() {
       this.getAdvertiserOrdersList({
         activePage: 1,
+        pageSize: this.pageSize,
         searchInput: this.filterInput,
       });
 
@@ -296,6 +309,7 @@ export default {
       this.getAdvertiserOrdersList({
         ordering: this.ordering,
         activePage: this.activePage,
+        pageSize: this.pageSize,
         searchInput: this.filterInput,
       });
     },
@@ -314,6 +328,7 @@ export default {
       this.getAdvertiserOrdersList({
         ordering: this.ordering,
         activePage: this.activePage,
+        pageSize: this.pageSize,
         searchInput: this.filterInput,
       });
     },
@@ -324,6 +339,7 @@ export default {
       this.getAdvertiserOrdersList({
         ordering: this.ordering,
         activePage: this.activePage,
+        pageSize: this.pageSize,
         searchInput: this.filterInput,
       });
     },
@@ -334,6 +350,7 @@ export default {
       this.getAdvertiserOrdersList({
         ordering: this.ordering,
         activePage: this.activePage,
+        pageSize: this.pageSize,
         searchInput: this.filterInput,
       });
     },
@@ -347,6 +364,17 @@ export default {
     activePage() {
       this.historyPushState();
     },
+
+    pageSize() {
+      this.historyPushState();
+
+      this.getAdvertiserOrdersList({
+        ordering: this.ordering,
+        activePage: this.activePage,
+        pageSize: this.pageSize,
+        searchInput: this.filterInput,
+      });
+    },
   },
 };
 </script>
@@ -359,6 +387,7 @@ export default {
 * Browsers: last 4 version
 */
 .home {
+  min-width: 1000px;
   margin-top: 2.5rem;
   position: relative;
 }
@@ -371,9 +400,27 @@ export default {
   padding: 0 1rem;
 }
 
+.nav_left {
+  display: flex;
+  align-items: center;
+}
+
 .nav_right {
   display: flex;
   justify-content: space-between;
+}
+
+/* **** SELECT **** */
+
+.nav-select__label {
+  margin-right: 10px;
+}
+
+.nav-select {
+  padding: 5px;
+  border-radius: 10px;
+  border: 1.5px solid var(--bs-gray-600);
+  background: transparent;
 }
 
 /* **** CHANGE BTTN ****  */
@@ -381,31 +428,29 @@ export default {
 .nav-change__btn {
   padding: 6px 10.0008px;
   background: transparent;
-  border: 1.5px solid var(--bs-secondary);
+  border: 1.5px solid var(--bs-gray-600);
   border-radius: 10px;
   background-color: transparent;
-  -webkit-transition: border 0.3s ease;
-  -o-transition: border 0.3s ease;
-  transition: border 0.3s ease;
 }
 
 .nav-change__btn:hover,
 .nav-change__btn:active {
-  border: 1.5px solid var(--bs-success);
-  -webkit-transition: border 0.3s ease;
-  -o-transition: border 0.3s ease;
-  transition: border 0.3s ease;
+  -webkit-transition: outline 0.1s ease;
+  -o-transition: outline 0.1s ease;
+  transition: outline 0.1s ease;
+  outline: 1.5px solid var(--bs-secondary);
 }
 
 .nav-change__text {
+  font-weight: 600;
   font-size: 1rem;
   line-height: 1.0556rem;
-  color: rgba(13, 13, 13, 0.9);
+  color: var(--bs-gray-600);
 }
 
 .nav-change__btn:hover > .nav-change__text,
 .nav-change__btn:active > .nav-change__text {
-  color: var(--bs-red);
+  color: var(--bs-secondary);
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
@@ -417,7 +462,7 @@ export default {
   display: flex;
   align-items: center;
   width: 10rem;
-  border: 1.5px solid var(--bs-secondary);
+  border: 1.5px solid var(--bs-gray-600);
   background: transparent;
 }
 
@@ -439,12 +484,12 @@ export default {
 
 .nav-search__btn {
   padding: 0.7222rem 1.3rem;
-  background: var(--bs-secondary);
+  background: var(--bs-gray-600);
   transition: background 0.2s ease-in;
 }
 
 .nav-search__btn:hover {
-  background: var(--bs-success);
+  background: var(--bs-secondary);
 }
 
 .nav-search__btn-arrow {
@@ -476,10 +521,10 @@ export default {
   content: "";
   position: absolute;
   z-index: -1;
-  bottom: 3.5px;
+  bottom: 0px;
   height: 2px;
   width: 100%;
-  background: rgba(13, 13, 13, 0.1);
+  background: var(--bs-gray-500);
 }
 
 .page-numbers__btn {
@@ -508,14 +553,18 @@ export default {
 }
 
 .page-numbers__btn_selected {
-  border-bottom: 3px solid var(--bs-secondary);
+  border-bottom: 3px solid var(--bs-gray-600);
 }
 
 /* **** TABLE **** */
 
+.orders__table {
+  margin-bottom: 30px;
+}
+
 table {
   table-layout: fixed;
-  width: 888px;
+  width: 100%;
   border-collapse: collapse;
 }
 
@@ -524,11 +573,16 @@ thead tr th {
   border: none;
 }
 
-.table__title {
-  position: relative;
-  font-weight: 500;
-  font-size: 1rem;
+thead th {
+  font-weight: 600;
+  font-size: 16px;
   line-height: 1.1667rem;
+  color: var(--bs-gray-600);
+  background: var(--bs-gray-400);
+}
+
+.table-title__sort_arrow {
+  position: relative;
   cursor: pointer;
 }
 
@@ -578,13 +632,13 @@ td:nth-child(5) {
 }
 
 tbody tr {
-  color: var(--bs-gray-700);
-  border-bottom: 1px solid var(--bs-secondary);
+  color: var(--bs-gray-600);
+  border-bottom: 1px solid var(--bs-gray-400);
 }
 
 tbody tr:hover {
   cursor: pointer;
-  background: #f96e596b;
+  background: var(--bs-gray-300);
 }
 
 th,
