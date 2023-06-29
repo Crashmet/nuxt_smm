@@ -17,7 +17,7 @@
               />
               <button
                 type="submit"
-                class="btn"
+                class="btn search__btn"
                 @click.prevent="handlerClickSearch()"
               >
                 Search
@@ -113,5 +113,9 @@ export default {
 }
 .search-bar__desc {
   color: rgba(13, 13, 13, 0.61);
+}
+
+.search__btn {
+  border-radius: 20px;
 }
 </style>

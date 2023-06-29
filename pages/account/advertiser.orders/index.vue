@@ -63,7 +63,7 @@
               <td>-</td>
             </tr>
 
-            <tr @click.prevent="handlerClickOrderMenu(item)">
+            <!-- <tr @click.prevent="handlerClickOrderMenu(item)">
               <td>sadasd</td>
               <td>ssdfsdfsd</td>
               <td>asd</td>
@@ -77,7 +77,7 @@
               <td>asd</td>
               <td>asdadasda</td>
               <td>-</td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
 

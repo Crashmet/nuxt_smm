@@ -216,6 +216,7 @@ export default {
     ...mapGetters({
       orderId: "advertiserSettingsOrderStore/orderId",
       orderList: "advertiserSettingsOrderStore/orderList",
+      status: "advertiserSettingsOrderStore/status",
     }),
   },
 
@@ -228,6 +229,14 @@ export default {
 
     handlerClickBack() {
       this.$router.go(-1);
+    },
+  },
+
+  watch: {
+    status() {
+      if (this.status === "success") {
+        this.handlerClickBack();
+      }
     },
   },
 };
