@@ -1,128 +1,127 @@
 <template>
-  <div class="modal__section">
-    <h3 class="modal__title">Изменить профиль</h3>
+  <div>
+    <h4 class="mb-3">Edit Profile</h4>
 
-    <div class="modal__block">
-      <ul class="modal__row">
-        <li class="modal__cell modal__cell-label">
-          <span class="modal__label">Username</span>
-        </li>
+    <div>
+      <b-form-group
+        id="fieldset-horizontal"
+        label-cols-sm="4"
+        label-cols-lg="2"
+        content-cols-sm
+        content-cols-lg="4"
+        label="Username:"
+        label-for="input-username"
+        description="Enter your new username."
+      >
+        <b-form-input id="input-username" v-model="username"></b-form-input>
+      </b-form-group>
 
-        <li class="modal__cell">
-          <input type="text" class="modal__input" v-model="username" />
-        </li>
-      </ul>
       <template v-if="validatorUsername.length > 0">
         <p class="modal__validation">{{ validatorUsername }}</p>
       </template>
     </div>
 
-    <div class="modal__block">
-      <ul class="modal__row">
-        <li class="modal__cell modal__cell-label">
-          <span class="modal__label">Имя</span>
-        </li>
-
-        <li class="modal__cell">
-          <input type="text" class="modal__input" v-model="first_name" />
-        </li>
-      </ul>
+    <div>
+      <b-form-group
+        id="fieldset-horizontal"
+        label-cols-sm="4"
+        label-cols-lg="2"
+        content-cols-sm
+        content-cols-lg="4"
+        label="First name:"
+        label-for="input-firstName"
+        description="Enter your new first name."
+      >
+        <b-form-input id="input-firstName" v-model="first_name"></b-form-input>
+      </b-form-group>
     </div>
 
-    <div class="modal__block">
-      <ul class="modal__row">
-        <li class="modal__cell modal__cell-label">
-          <span class="modal__label">Фамилия</span>
-        </li>
-
-        <li class="modal__cell">
-          <input type="text" class="modal__input" v-model="last_name" />
-        </li>
-      </ul>
+    <div>
+      <b-form-group
+        id="fieldset-horizontal"
+        label-cols-sm="4"
+        label-cols-lg="2"
+        content-cols-sm
+        content-cols-lg="4"
+        label="Last name:"
+        label-for="input-lastName"
+        description="Enter your new last name."
+      >
+        <b-form-input id="input-lastName" v-model="last_name"></b-form-input>
+      </b-form-group>
     </div>
 
-    <div class="modal__block">
-      <ul class="modal__row">
-        <li class="modal__cell modal__cell-label">
-          <span class="modal__label">E-mail</span>
-        </li>
-
-        <li class="modal__cell">
-          <input type="email" class="modal__input" v-model="email" />
-        </li>
-      </ul>
+    <div>
+      <b-form-group
+        id="fieldset-horizontal"
+        label-cols-sm="4"
+        label-cols-lg="2"
+        content-cols-sm
+        content-cols-lg="4"
+        label="E-mail:"
+        label-for="input-email"
+        description="Enter your new E-mail."
+      >
+        <b-form-input id="input-email" v-model="email"></b-form-input>
+      </b-form-group>
 
       <template v-if="validatorEmail.length > 0">
         <p class="modal__validation">{{ validatorEmail }}</p>
       </template>
     </div>
 
-    <div class="modal__block">
-      <ul class="modal__row">
-        <li class="modal__cell modal__cell-label">
-          <span class="modal__label">Role</span>
-        </li>
+    <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
+      <p class="mb-0 col-sm-4 col-lg-2 p-0">Role:</p>
 
-        <div class="modal__item-radio">
-          <div class="item-radio">
-            <input
-              v-model="role"
-              id="blogger-radio-input"
-              value="blogger"
-              type="radio"
-              name="redirecttarget"
-              class="item-radio__input"
-              checked
-            />
-            <label for="blogger-radio-input" class="item-radio__label"
-              >Блогер</label
-            >
-          </div>
+      <div class="form-check form-check-inline mb-0 me-4">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="redirecttarget"
+          id="blogger-radio-input"
+          value="blogger"
+          v-model="role"
+        />
+        <label class="form-check-label" for="blogger-radio-input"
+          >Blogger</label
+        >
+      </div>
 
-          <div class="item-radio">
-            <input
-              v-model="role"
-              id="advertiser-radio-input"
-              value="advertiser"
-              type="radio"
-              name="redirecttarget"
-              class="item-radio__input"
-            />
-            <label for="advertiser-radio-input" class="item-radio__label"
-              >Рекламодатель</label
-            >
-          </div>
-        </div>
-      </ul>
+      <div class="form-check form-check-inline mb-0 me-4">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="redirecttarget"
+          id="advertiser-radio-input"
+          value="advertiser"
+          v-model="role"
+        />
+        <label class="form-check-label" for="advertiser-radio-input"
+          >Advertiser</label
+        >
+      </div>
 
       <template v-if="validatorRole.length > 0">
         <p class="modal__validation">{{ validatorRole }}</p>
       </template>
     </div>
 
-    <div class="modal__block">
-      <ul class="modal__row">
-        <li class="modal__cell modal__cell-label">
-          <span class="modal__label"
-            ><button
-              class="cell-item__btn cell-item__btn_back"
-              @click="changeDataModalStatus(false)"
-            >
-              Назад
-            </button></span
-          >
-        </li>
-
-        <li class="modal__cell">
-          <button
-            class="cell-item__btn"
-            @click.prevent="handlerSubmitSettings()"
-          >
-            Изменить
-          </button>
-        </li>
-      </ul>
-    </div>
+    <b-button-group class="pt-1 mt-4">
+      <b-button
+        class="btn btn-dark mr-5 btn_back"
+        type="button"
+        @click.prevent="changeDataModalStatus(false)"
+      >
+        Назад
+      </b-button>
+      <b-button
+        class="btn btn-dark btn_change"
+        type="button"
+        @click.prevent="handlerSubmitSettings()"
+      >
+        Изменить
+      </b-button>
+    </b-button-group>
   </div>
 </template>
 
@@ -138,7 +137,7 @@ export default {
       first_name: "",
       last_name: "",
       email: "",
-      role: "",
+      role: "blogger",
 
       validatorUsername: "",
       validatorEmail: "",
@@ -216,167 +215,13 @@ export default {
 </script>
 
 <style scoped>
-.modal__section {
-  position: relative;
-  max-width: 25.0139rem;
-  background-color: transparent;
-  border-radius: 20px;
-}
-
-.modal__title {
-  font-size: 1.1111rem;
-  margin-bottom: 1.1111rem;
-  text-decoration-line: underline;
-}
-
-.modal__block {
-  margin-bottom: 0.8889rem;
-}
-
-.modal__row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.modal__cell {
-  width: 100%;
-}
-
-.modal__cell-label {
-  margin-right: 1.1111rem;
-  width: 80%;
-}
-
-.modal__label {
-  font-size: 0.8889rem;
-}
-
-.modal__input {
-  padding-left: 0.6111rem;
-  max-width: 350px;
-  width: 100%;
-  min-height: 1.6667rem;
-  font-size: 0.8889rem;
-  line-height: 1.0556rem;
-  color: var(--bs-gray-600);
-  border: 1px solid var(--bs-gray-600);
-  border-radius: 10px;
-  background-color: transparent;
-  /* -webkit-transition: border 0.3s ease;
-  -o-transition: border 0.3s ease;
-  transition: border 0.3s ease; */
-}
-
-.modal__input:hover,
-.modal__input:active {
-  -webkit-transition: outline 0.1s ease;
-  -o-transition: outline 0.1s ease;
-  transition: outline 0.1s ease;
-  outline: 1.5px solid var(--bs-secondary);
-}
-
-/* *** RADIO ***  */
-
-.modal__item-radio {
-  display: flex;
-}
-
-.item-radio:not(:last-child) {
-  margin-right: 20px;
-}
-
-.item-radio__input {
-  position: absolute;
-  overflow: hidden;
-  visibility: hidden;
-  top: -9999px;
-  left: -9999px;
-  height: 1px;
-  width: 1px;
-  opacity: 0;
-}
-
-.item-radio__label {
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  font-size: 0.8889rem;
-  margin: 0;
-  padding: 0 0 0 1.3889rem;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  cursor: pointer;
-}
-
-.item-radio__label:after,
-.item-radio__label:before {
-  position: absolute;
-  content: "";
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-}
-
-.item-radio__label:before {
-  left: 0;
-  top: 3px;
-  height: 17px;
-  width: 17px;
-  border: 2px solid var(--bs-gray-600);
-  background: transparent;
-}
-
-.item-radio__label:after {
-  height: 8px;
-  width: 8px;
-  left: 4.5px;
-  top: 7.5px;
-  background-color: transparent;
-}
-
-.item-radio__input:checked + .item-radio__label:before {
-  border-width: 0.1389rem;
-}
-
-.item-radio__input:checked + .item-radio__label:after {
-  background-color: var(--bs-gray-600);
-}
-
-/* ****** BTNs ******  */
-
-.cell-item__btn {
-  margin-top: 1.2rem;
-  padding: 5.9994px 7.9992px;
-  max-width: 16.6667rem;
-  width: 100%;
-  min-height: 1.6667rem;
-  font-weight: 600;
-  color: #fff;
-  background: var(--bs-gray-600);
-  border-radius: 10px;
-}
-
-.cell-item__btn:hover,
-.cell-item__btn:active {
+.btn_change:hover,
+.btn_change:active {
   background: var(--bs-secondary);
 }
 
-.cell-item__btn_back:hover,
-.cell-item__btn_back:active {
+.btn_back:hover,
+.btn_back:active {
   background: var(--bs-warning);
 }
 
@@ -387,12 +232,5 @@ export default {
   margin-left: 1.1111rem;
   margin-top: 0.3889rem;
   color: var(--bs-secondary);
-}
-
-@media (max-width: 480px) {
-  .modal {
-    padding: 25px 50px;
-    border-radius: 20px;
-  }
 }
 </style>

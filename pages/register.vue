@@ -23,9 +23,16 @@
                   </div>
                   <div class="col-xl-6">
                     <div class="card-body p-md-5 text-black">
-                      <span class="h1 fw-bold mb-1"
-                        >SMM Planeta . Registration form</span
+                      <div class="d-flex align-items-center mb-3 pb-1">
+                        <span class="h1 fw-bold mb-0">SMM Planeta .</span>
+                      </div>
+
+                      <h5
+                        class="fw-normal mb-3 pb-3"
+                        style="letter-spacing: 1px"
                       >
+                        Register your account
+                      </h5>
 
                       <div class="row">
                         <div class="col-md-6 mb-4">

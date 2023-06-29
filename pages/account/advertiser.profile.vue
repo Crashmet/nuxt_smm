@@ -4,90 +4,130 @@
       class="advertiser-profile__body body"
       v-if="!isOpenModalChangeData && !isOpenModalChangePassword"
     >
-      <ul class="body__row">
-        <li class="body__cell body__cell-label">
-          <span class="body__label">E-mail</span>
-        </li>
+      <b-form-group
+        id="fieldset-horizontal"
+        label-cols-sm="4"
+        label-cols-lg="2"
+        content-cols-sm
+        content-cols-lg="4"
+        label="E-mail"
+        label-for="input-email"
+      >
+        <b-form-input
+          id="input-email"
+          disabled
+          v-model="advertiserData.email"
+        ></b-form-input>
+      </b-form-group>
 
-        <li class="body__cell">
-          <p type="email" class="body__input">{{ advertiserData.email }}</p>
-        </li>
-      </ul>
+      <b-form-group
+        id="fieldset-horizontal"
+        label-cols-sm="4"
+        label-cols-lg="2"
+        content-cols-sm
+        content-cols-lg="4"
+        label="Имя"
+        label-for="input-firstName"
+      >
+        <b-form-input
+          id="input-firstName"
+          disabled
+          v-model="advertiserData.first_name"
+        ></b-form-input>
+      </b-form-group>
 
-      <ul class="body__row">
-        <li class="body__cell body__cell-label">
-          <span class="body__label">Имя</span>
-        </li>
+      <b-form-group
+        id="fieldset-horizontal"
+        label-cols-sm="4"
+        label-cols-lg="2"
+        content-cols-sm
+        content-cols-lg="4"
+        label="Имя"
+        label-for="input-firstName"
+      >
+        <b-form-input
+          id="input-firstName"
+          disabled
+          v-model="advertiserData.first_name"
+        ></b-form-input>
+      </b-form-group>
 
-        <li class="body__cell">
-          <p type="text" class="body__input">{{ advertiserData.first_name }}</p>
-        </li>
-      </ul>
+      <b-form-group
+        id="fieldset-horizontal"
+        label-cols-sm="4"
+        label-cols-lg="2"
+        content-cols-sm
+        content-cols-lg="4"
+        label="Фамилия"
+        label-for="input-lastName"
+      >
+        <b-form-input
+          id="input-lastName"
+          disabled
+          v-model="advertiserData.last_name"
+        ></b-form-input>
+      </b-form-group>
 
-      <ul class="body__row">
-        <li class="body__cell body__cell-label">
-          <span class="body__label">Фамилия</span>
-        </li>
+      <b-form-group
+        id="fieldset-horizontal"
+        label-cols-sm="4"
+        label-cols-lg="2"
+        content-cols-sm
+        content-cols-lg="4"
+        label="Website"
+        label-for="input-website"
+      >
+        <b-form-input
+          id="input-website"
+          disabled
+          placeholder="..."
+        ></b-form-input>
+      </b-form-group>
 
-        <li class="body__cell">
-          <p type="text" class="body__input">{{ advertiserData.last_name }}</p>
-        </li>
-      </ul>
+      <b-form-group
+        id="fieldset-horizontal"
+        label-cols-sm="4"
+        label-cols-lg="2"
+        content-cols-sm
+        content-cols-lg="4"
+        label="ИНН"
+        label-for="input-inn"
+      >
+        <b-form-input id="input-inn" disabled placeholder="..."></b-form-input>
+      </b-form-group>
 
-      <ul class="body__row body__row_long">
-        <li class="body__cell body__cell-label">
-          <span class="body__label">Website</span>
-        </li>
+      <b-form-group
+        id="fieldset-horizontal"
+        label-cols-sm="4"
+        label-cols-lg="2"
+        content-cols-sm
+        content-cols-lg="4"
+        label="Адрес"
+        label-for="input-adress"
+      >
+        <b-form-input
+          id="input-adress"
+          disabled
+          placeholder="..."
+        ></b-form-input>
+      </b-form-group>
 
-        <li class="body__cell">
-          <ul class="body__cell-list">
-            <li class="body__cell-item">
-              <p type="text" class="body__input cell-item__input"></p>
-            </li>
-          </ul>
-        </li>
-      </ul>
-
-      <ul class="body__row body__row_long">
-        <li class="body__cell body__cell-label">
-          <span class="body__label">ИНН</span>
-        </li>
-
-        <li class="body__cell">
-          <ul class="body__cell-list">
-            <li class="body__cell-item">
-              <p type="text" class="body__input cell-item__input"></p>
-            </li>
-          </ul>
-        </li>
-      </ul>
-
-      <ul class="body__row body__row_long">
-        <li class="body__cell body__cell-label">
-          <span class="body__label">Адрес</span>
-        </li>
-
-        <li class="body__cell">
-          <ul class="body__cell-list">
-            <li class="body__cell-item">
-              <p type="text" class="body__input cell-item__input"></p>
-            </li>
-          </ul>
-        </li>
-      </ul>
-
-      <nav class="body-change__row">
-        <button class="body-change__btn" @click="changeDataModalStatus(true)">
-          <span class="body-change__text">Изменить профиль</span>
-        </button>
-
-        <button
-          class="body-change__btn"
-          @click="changePasswordModalStatus(true)"
+      <b-button-group class="pt-1 mt-4">
+        <b-button
+          class="btn btn-dark mr-5"
+          type="button"
+          @click.prevent="changeDataModalStatus(true)"
         >
-          <span class="body-change__text">Изменить пароль</span>
-        </button>
-      </nav>
+          Изменить профиль
+        </b-button>
+        <b-button
+          class="btn btn-dark"
+          type="button"
+          @click.prevent="changePasswordModalStatus(true)"
+        >
+          Изменить пароль
+        </b-button>
+      </b-button-group>
     </div>
     <change-advertiser-profile-data v-else-if="isOpenModalChangeData" />
     <change-advertiser-profile-password v-else-if="isOpenModalChangePassword" />
@@ -129,163 +169,4 @@ export default {
 };
 </script>
 
-<style scoped>
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
-.advertiser-profile {
-  position: relative;
-}
-
-.body__row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.body__row {
-  margin-bottom: 0.8889rem;
-}
-
-.body__cell-label {
-  max-width: 9.2222rem;
-  width: 100%;
-}
-.body__label {
-  color: var(--bs-gray-600);
-}
-
-.body__input {
-  padding: 0.2778rem 0.6111rem;
-  min-width: 11rem;
-  width: 100%;
-  min-height: 1.6667rem;
-  font-size: 0.8889rem;
-  line-height: 1rem;
-  text-align: center;
-  color: var(--bs-gray-600);
-  border: 1px solid var(--bs-gray-600);
-  border-radius: 10px;
-  background-color: transparent;
-}
-
-.body__cell-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-
-.body__cell-item:not(:last-child) {
-  margin-right: 0.9rem;
-}
-
-.body-change__row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-
-  margin-top: 2.5rem;
-}
-
-.body-change__btn {
-  margin-bottom: 0.5556rem;
-  padding: 0.2222rem 0.5556rem;
-  background: #f09e56;
-  border: 1px solid var(--bs-gray-600);
-  border-radius: 10px;
-  background-color: transparent;
-  -webkit-transition: border 0.3s ease;
-  -o-transition: border 0.3s ease;
-  transition: border 0.3s ease;
-}
-
-.body-change__btn:not(:last-child) {
-  margin-right: 2.7778rem;
-}
-
-.body-change__btn:hover,
-.body-change__btn:active {
-  -webkit-transition: outline 0.1s ease;
-  -o-transition: outline 0.1s ease;
-  transition: outline 0.1s ease;
-  outline: 1.5px solid var(--bs-secondary);
-}
-
-.body-change__text {
-  font-weight: 500;
-  color: var(--bs-gray-600);
-}
-
-.body-change__btn:hover > .body-change__text,
-.body-change__btn:active > .body-change__text {
-  color: var(--bs-secondary);
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-
-.body-change__text_active {
-  color: var(--bs-secondary);
-  /* text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
-  text-decoration-line: underline;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-
-@media (max-width: 1175px) {
-  .body__row_long {
-    -webkit-box-align: start;
-    -ms-flex-align: start;
-    align-items: start;
-  }
-  .body__row {
-    margin-bottom: 15px;
-  }
-
-  .body__cell-item {
-    margin-bottom: 9px;
-  }
-}
-
-@media (max-width: 480px) {
-  .body__row {
-    margin-bottom: 13px;
-  }
-
-  .body__cell-item:not(:last-child) {
-    margin-right: 6px;
-  }
-
-  .body__input {
-    /* min-width: 0; */
-    overflow: scroll;
-    max-width: 170px;
-    border-radius: 5px;
-  }
-
-  .cell-item__btn {
-    border-radius: 5px;
-    padding: 4px 4px;
-    max-width: 104px;
-    width: 100%;
-  }
-
-  .body__cell-item__link {
-    max-width: 87px;
-    width: 100%;
-  }
-}
-</style>
+<style scoped></style>
