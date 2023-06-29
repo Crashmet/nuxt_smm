@@ -35,4 +35,18 @@ export const actions = {
         console.log(error.response);
       });
   },
+
+  async deleteOrderList({ commit }, id) {
+    await this.$axios
+      .$delete(`orders/${id}/`)
+      .then((response) => {
+        // commit("SET_ORDER_LIST", response);
+        commit("statusMassageModalStore/ADD_STATUS", "success", { root: true });
+      })
+      .catch((error) => {
+        commit("statusMassageModalStore/ADD_STATUS", "error", { root: true });
+
+        console.log(error.response);
+      });
+  },
 };

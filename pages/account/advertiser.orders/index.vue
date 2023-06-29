@@ -62,6 +62,22 @@
               <td>{{ item.social[0].name }}</td>
               <td>-</td>
             </tr>
+
+            <tr @click.prevent="handlerClickOrderMenu(item)">
+              <td>sadasd</td>
+              <td>ssdfsdfsd</td>
+              <td>asd</td>
+              <td>asdadasda</td>
+              <td>-</td>
+            </tr>
+
+            <tr @click.prevent="handlerClickOrderMenu(item)">
+              <td>sadasd</td>
+              <td>ssdfsdfsd</td>
+              <td>asd</td>
+              <td>asdadasda</td>
+              <td>-</td>
+            </tr>
           </tbody>
         </table>
 
@@ -388,7 +404,7 @@ export default {
 */
 .home {
   min-width: 1000px;
-  margin-top: 2.5rem;
+  margin-top: 1rem;
   position: relative;
 }
 
@@ -396,7 +412,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.1111rem;
+  margin-bottom: 40px;
   padding: 0 1rem;
 }
 
@@ -548,8 +564,8 @@ export default {
 }
 
 .nav-pagination__btn-icon {
-  width: 0.9444rem;
-  height: 0.9444rem;
+  width: 1rem;
+  height: 1.4rem;
 }
 
 .page-numbers__btn_selected {

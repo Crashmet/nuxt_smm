@@ -1,7 +1,7 @@
 export const state = () => ({
   isOpenModalAddOrder: false,
 
-  count: 0,
+  count: 28,
 
   activePage: 1,
 
@@ -138,7 +138,7 @@ export const actions = {
 
         commit("CHANGE_ORDER_MODAL_STATUS", false);
 
-        dispatch("getAdvertiserOrdersList");
+        dispatch("getAdvertiserOrdersList", {});
       })
       .catch((error) => {
         commit("SET_VALIDATOR_DATA", error.response.data);
@@ -151,7 +151,7 @@ export const actions = {
 
   async getAdvertiserOrdersList(
     { commit },
-    { ordering = "", activePage = "1", pageSize = "10", searchInput = "" }
+    { ordering = "", activePage = "1", pageSize = "", searchInput = "" }
   ) {
     await this.$axios
       .$get(

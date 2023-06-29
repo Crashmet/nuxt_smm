@@ -5,7 +5,7 @@
         <span>404</span>
         <p>PAGE NOT FOUND</p>
         <p class="hmpg">
-          <nuxt-link to="/" class="back">Back To Home</nuxt-link>
+          <a href="/" class="back">Back To Home</a>
         </p>
       </div>
     </div>

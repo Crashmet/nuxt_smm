@@ -30,6 +30,10 @@ img {
   max-width: 100%;
 }
 
+svg {
+  vertical-align: baseline;
+}
+
 
 /* Убираем внутренние отступы */
 ul[class],

@@ -161,7 +161,10 @@
 
         <ul class="body__row body-footer">
           <li class="body__cell body__cell-label footer__cell">
-            <button class="footer__button footer__button_delete">
+            <button
+              class="footer__button footer__button_delete"
+              @click.prevent="deleteOrderList(this.orderId)"
+            >
               Удалить заказ
             </button>
           </li>
@@ -214,6 +217,7 @@ export default {
     ...mapActions({
       setOrderId: "advertiserSettingsOrderStore/setOrderId",
       getOrderList: "advertiserSettingsOrderStore/getOrderList",
+      deleteOrderList: "advertiserSettingsOrderStore/deleteOrderList  ",
     }),
 
     handlerClickBack() {
@@ -246,7 +250,7 @@ export default {
   line-height: 1.1667rem;
   text-decoration-line: underline;
   color: var(--bs-gray-600);
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  /* text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
 }
 
 .header__btn_back {
