@@ -36,11 +36,11 @@
             id="textarea-default"
             v-model="description"
           ></b-form-textarea>
-        </b-col>
 
-        <template v-if="validatorDescription.length > 0">
-          <p class="modal__validation">{{ validatorDescription }}</p>
-        </template>
+          <template v-if="validatorDescription.length > 0">
+            <p class="modal__validation">{{ validatorDescription }}</p>
+          </template>
+        </b-col>
       </b-row>
     </div>
 
