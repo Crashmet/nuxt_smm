@@ -1,19 +1,23 @@
 <template>
-  <div class="modal__section">
+  <div class="modal__section container">
     <h4 class="mb-3">Place a new order</h4>
 
     <div>
       <b-form-group
         id="fieldset-horizontal"
-        label-cols-sm="4"
+        label-cols-sm="3"
         label-cols-lg="2"
-        content-cols-sm
+        content-cols-sm="5"
         content-cols-lg="4"
         label="Order name:"
         label-for="input-name"
         description="Enter your order name."
       >
-        <b-form-input id="input-name" v-model="name"></b-form-input>
+        <b-form-input
+          class="col-3 col-sm-12"
+          id="input-name"
+          v-model="name"
+        ></b-form-input>
       </b-form-group>
 
       <template v-if="validatorName.length > 0">
@@ -22,12 +26,13 @@
     </div>
 
     <div>
-      <b-row class="mb-5">
-        <b-col sm="2">
+      <b-row sm="5" lg="4" class="mb-5">
+        <b-col sm="3" lg="2">
           <label for="textarea-default">Order description:</label>
         </b-col>
-        <b-col sm="2" lg="4" class="pl-2 pr-2">
+        <b-col sm="5" lg="4" class="pl-2 pr-2">
           <b-form-textarea
+            class="col-3 col-sm-12"
             id="textarea-default"
             v-model="description"
           ></b-form-textarea>
@@ -42,9 +47,9 @@
     <div>
       <b-form-group
         id="fieldset-horizontal"
-        label-cols-sm="4"
+        label-cols-sm="3"
         label-cols-lg="2"
-        content-cols-sm
+        content-cols-sm="5"
         content-cols-lg="4"
         label="Price per subscriber:"
         label-for="input-price"
@@ -53,6 +58,7 @@
         <b-form-input
           type="number"
           id="input-price"
+          class="col-3 col-sm-12"
           v-model="budget_per_subscriber"
         ></b-form-input>
       </b-form-group>
@@ -65,9 +71,9 @@
     <div>
       <b-form-group
         id="fieldset-horizontal"
-        label-cols-sm="4"
+        label-cols-sm="3"
         label-cols-lg="2"
-        content-cols-sm
+        content-cols-sm="5"
         content-cols-lg="4"
         label="Date:"
         label-for="input-date"
@@ -75,6 +81,7 @@
         <b-form-input
           type="date"
           id="input-date"
+          class="col-3 col-sm-12"
           v-model="end_date"
         ></b-form-input>
       </b-form-group>
@@ -87,15 +94,19 @@
     <div>
       <b-form-group
         id="fieldset-horizontal"
-        label-cols-sm="4"
+        label-cols-sm="3"
         label-cols-lg="2"
-        content-cols-sm
+        content-cols-sm="5"
         content-cols-lg="4"
         label="Social network:"
         label-for="input-social"
         description="Enter social network."
       >
-        <b-form-select id="input-social" v-model="social">
+        <b-form-select
+          id="input-social"
+          class="col-3 col-sm-12"
+          v-model="social"
+        >
           <b-form-select-option
             v-for="item in socials"
             :value="[item.id]"
@@ -113,15 +124,19 @@
     <div>
       <b-form-group
         id="fieldset-horizontal"
-        label-cols-sm="4"
+        label-cols-sm="3"
         label-cols-lg="2"
-        content-cols-sm
+        content-cols-sm="5"
         content-cols-lg="4"
         label="Region:"
         label-for="input-region"
         description="Enter region."
       >
-        <b-form-select id="input-region" v-model="region">
+        <b-form-select
+          id="input-region"
+          class="col-3 col-sm-12"
+          v-model="region"
+        >
           <b-form-select-option
             v-for="item in regions"
             :value="[item.id]"
@@ -139,9 +154,9 @@
     <div>
       <b-form-group
         id="fieldset-horizontal"
-        label-cols-sm="4"
+        label-cols-sm="3"
         label-cols-lg="2"
-        content-cols-sm
+        content-cols-sm="5"
         content-cols-lg="4"
         label="Min number of subscribers:"
         label-for="input-min"
@@ -150,6 +165,7 @@
         <b-form-input
           type="number"
           id="input-min"
+          class="col-3 col-sm-12"
           v-model="min_subscribers"
         ></b-form-input>
       </b-form-group>
@@ -162,9 +178,9 @@
     <div>
       <b-form-group
         id="fieldset-horizontal"
-        label-cols-sm="4"
+        label-cols-sm="3"
         label-cols-lg="2"
-        content-cols-sm
+        content-cols-sm="5"
         content-cols-lg="4"
         label="Max number of subscribers:"
         label-for="input-max"
@@ -173,6 +189,7 @@
         <b-form-input
           type="number"
           id="input-max"
+          class="col-3 col-sm-12"
           v-model="max_subscribers"
         ></b-form-input>
       </b-form-group>
@@ -333,7 +350,7 @@ export default {
 .modal__section {
   position: absolute;
   top: 0%;
-  width: 100%;
+  /* width: 100%; */
   background-color: transparent;
   border-radius: 20px;
 }

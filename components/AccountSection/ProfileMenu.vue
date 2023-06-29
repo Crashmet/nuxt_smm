@@ -1,49 +1,45 @@
 <template>
   <div class="profile-menu">
-    <div class="profile-menu__block bg-dark" v-if="users[0].isActive">
-      <div class="profile-menu__row">
-        <nav class="profile-menu__nav">
-          <button
-            class="profile-menu__btn"
-            v-for="setting in bloggerMenu"
-            :key="setting.name"
-            @click="handlerClickBloggerMenu(setting.name, setting.routerName)"
+    <div class="profile-menu__row bg-dark" v-if="users[0].isActive">
+      <b-nav tabs class="col-8 col-md-6">
+        <b-nav-item
+          class="col-12 col-sm-6 col-lg-3"
+          :active="setting.isActive ? true : false"
+          v-for="setting in bloggerMenu"
+          :key="setting.name"
+          @click="handlerClickBloggerMenu(setting.name, setting.routerName)"
+        >
+          <p
+            :class="setting.isActive ? 'profile-menu__link_active' : ''"
+            class="profile-menu__link"
           >
-            <p
-              class="profile-menu__text"
-              :class="setting.isActive ? 'profile-menu__text_active' : ''"
-            >
-              {{ setting.name }}
-            </p>
-          </button>
-        </nav>
+            {{ setting.name }}
+          </p>
+        </b-nav-item>
+      </b-nav>
 
-        <h3 class="profile-menu__title">Blogger Menu</h3>
-      </div>
+      <h3 class="profile-menu__title col-3">Blogger Menu</h3>
     </div>
 
-    <div class="profile-menu__block bg-dark" v-else>
-      <div class="profile-menu__row">
-        <nav class="profile-menu__nav">
-          <button
-            class="profile-menu__btn"
-            v-for="setting in advertiserMenu"
-            :key="setting.name"
-            @click="
-              handlerClickAdvertiserMenu(setting.name, setting.routerName)
-            "
+    <div class="profile-menu__row bg-dark" v-else>
+      <b-nav tabs class="col-8 col-md-6">
+        <b-nav-item
+          class="col-12 col-sm-6 col-lg-3"
+          :active="setting.isActive ? true : false"
+          v-for="setting in advertiserMenu"
+          :key="setting.name"
+          @click="handlerClickAdvertiserMenu(setting.name, setting.routerName)"
+        >
+          <p
+            :class="setting.isActive ? 'profile-menu__link_active' : ''"
+            class="profile-menu__link"
           >
-            <p
-              class="profile-menu__text"
-              :class="setting.isActive ? 'profile-menu__text_active' : ''"
-            >
-              {{ setting.name }}
-            </p>
-          </button>
-        </nav>
+            {{ setting.name }}
+          </p>
+        </b-nav-item>
+      </b-nav>
 
-        <h3 class="profile-menu__title">Advertiser menu</h3>
-      </div>
+      <h3 class="profile-menu__title col-2">Advertiser menu</h3>
     </div>
   </div>
 </template>
@@ -103,84 +99,29 @@ export default {
 * Browsers: last 4 version
 */
 
-.profile-menu__block {
+.profile-menu__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 18px 30px;
   border-radius: 5px;
+}
+
+.profile-menu__link {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.profile-menu__link_active {
+  color: black;
 }
 
 .profile-menu__title {
   color: #fff;
   font-size: 16px;
   font-weight: 400;
-}
-
-.profile-menu__row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.profile-menu__nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.profile-menu__btn {
-  background-color: transparent;
-}
-
-.profile-menu__btn:not(:last-child) {
-  margin-right: 2.8571rem;
-}
-
-.profile-menu__btn:hover,
-.profile-menu__btn:active {
-  -webkit-transition: border 0.3s ease;
-  -o-transition: border 0.3s ease;
-  transition: border 0.3s ease;
-}
-
-.profile-menu__text {
-  color: #fff;
-}
-
-.profile-menu__btn:hover > .profile-menu__text {
-  color: var(--bs-orange);
-  -webkit-transition: color 0.3s ease;
-  -o-transition: color 0.3s ease;
-  transition: color 0.3s ease;
-}
-
-.profile-menu__text_active {
-  color: var(--bs-orange);
-  /* text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
-  text-decoration-line: underline;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-
-@media (max-width: 700px) {
-  .profile-menu__btn:not(:last-child) {
-    margin-right: 30px;
-  }
-}
-
-@media (max-width: 540px) {
-  .profile-menu__block {
-    padding: 6px 10px;
-  }
-  .profile-menu__btn {
-    padding: 4px 10px;
-  }
-
-  .profile-menu__btn:not(:last-child) {
-    margin-right: 15px;
-  }
+  text-align: right;
 }
 </style>

@@ -2,9 +2,12 @@
   <div class="order">
     <template v-if="Object.keys(orderList).length">
       <div class="order__header">
-        <h3 class="header__title">Заказ</h3>
+        <h4 class="mb-3">information about order</h4>
 
-        <button class="header__btn_back" @click="handlerClickBack()">
+        <button
+          class="header__btn_back btn btn-dark"
+          @click="handlerClickBack()"
+        >
           Вернуться
         </button>
       </div>
@@ -265,14 +268,6 @@ export default {
   text-decoration-line: underline;
   color: var(--bs-gray-600);
   /* text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
-}
-
-.header__btn_back {
-  padding: 0.2222rem 0.4444rem;
-  border: 2px solid var(--bs-gray-600);
-  border-radius: 10px;
-  background-color: transparent;
-  transition: border 0.3s ease;
 }
 
 .header__btn_back:hover,
