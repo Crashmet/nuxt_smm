@@ -16,7 +16,12 @@
           </li>
 
           <li class="body__cell body__cell-input">
-            <input type="text" class="body__input" v-model="orderList.id" />
+            <input
+              type="text"
+              class="body__input"
+              disabled
+              v-model="orderList.id"
+            />
           </li>
         </ul>
 
@@ -163,7 +168,7 @@
           <li class="body__cell body__cell-label footer__cell">
             <button
               class="footer__button footer__button_delete"
-              @click.prevent="deleteOrderList(orderId)"
+              @click.prevent="deleteOrder(orderId)"
             >
               Удалить заказ
             </button>
@@ -204,6 +209,7 @@ export default {
 
   mounted() {
     this.getOrderList(this.orderId);
+    console.log(this.orderId);
   },
 
   computed: {
@@ -217,7 +223,7 @@ export default {
     ...mapActions({
       setOrderId: "advertiserSettingsOrderStore/setOrderId",
       getOrderList: "advertiserSettingsOrderStore/getOrderList",
-      deleteOrderList: "advertiserSettingsOrderStore/deleteOrderList  ",
+      deleteOrder: "advertiserSettingsOrderStore/deleteOrder",
     }),
 
     handlerClickBack() {

@@ -36,7 +36,7 @@ export const actions = {
       });
   },
 
-  async deleteOrderList({ commit }, id) {
+  async deleteOrder({ commit }, id) {
     await this.$axios
       .$delete(`orders/${id}/`)
       .then((response) => {
