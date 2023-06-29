@@ -139,7 +139,7 @@
         >
           <b-form-select-option
             v-for="item in regions"
-            :value="[item.id]"
+            :value="item.id"
             :key="item.id"
             >{{ item.name }}</b-form-select-option
           ></b-form-select
@@ -369,8 +369,8 @@ export default {
 
 .modal__validation {
   font-size: 0.8889rem;
-  margin-left: 1.1111rem;
-  margin-top: 0.3889rem;
-  color: var(--bs-secondary);
+  margin-bottom: 10px;
+  color: var(--bs-orange);
+  text-align: center;
 }
 </style>
