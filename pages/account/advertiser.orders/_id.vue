@@ -209,7 +209,6 @@ export default {
 
   mounted() {
     this.getOrderList(this.orderId);
-    console.log(this.orderId);
   },
 
   computed: {

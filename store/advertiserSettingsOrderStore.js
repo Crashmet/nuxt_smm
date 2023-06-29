@@ -54,7 +54,9 @@ export const actions = {
       .then((response) => {
         commit("statusMassageModalStore/ADD_STATUS", "success", { root: true });
 
-        dispatch("setOrderStatus", "success");
+        // dispatch("setOrderStatus", "success");
+
+        this.app.router.go(-1);
       })
       .catch((error) => {
         commit("statusMassageModalStore/ADD_STATUS", "error", { root: true });
