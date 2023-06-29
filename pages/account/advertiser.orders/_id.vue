@@ -163,7 +163,7 @@
           <li class="body__cell body__cell-label footer__cell">
             <button
               class="footer__button footer__button_delete"
-              @click.prevent="deleteOrderList(this.orderId)"
+              @click.prevent="deleteOrderList(orderId)"
             >
               Удалить заказ
             </button>
