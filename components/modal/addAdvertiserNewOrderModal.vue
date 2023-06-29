@@ -1,180 +1,203 @@
 <template>
   <div class="modal__section">
-    <h3 class="modal__title">Разместить новый заказ</h3>
+    <h4 class="mb-3">Place a new order</h4>
 
-    <div class="modal__block">
-      <ul class="modal__row">
-        <li class="modal__cell modal__cell-label">
-          <span class="modal__label">Название заказа</span>
-        </li>
-
-        <li class="modal__cell">
-          <input type="text" class="modal__input" v-model="name" />
-        </li>
-      </ul>
+    <div>
+      <b-form-group
+        id="fieldset-horizontal"
+        label-cols-sm="4"
+        label-cols-lg="2"
+        content-cols-sm
+        content-cols-lg="4"
+        label="Order name:"
+        label-for="input-name"
+        description="Enter your order name."
+      >
+        <b-form-input id="input-name" v-model="name"></b-form-input>
+      </b-form-group>
 
       <template v-if="validatorName.length > 0">
         <p class="modal__validation">{{ validatorName }}</p>
       </template>
     </div>
 
-    <div class="modal__block">
-      <ul class="modal__row modal__row_textarea">
-        <li class="modal__cell modal__cell-label">
-          <span class="modal__label">Описание заказа</span>
-        </li>
-
-        <li class="modal__cell">
-          <textarea
-            name="massage"
-            class="modal__input modal__input_textarea"
+    <div>
+      <b-row class="mb-5">
+        <b-col sm="2">
+          <label for="textarea-default">Order description:</label>
+        </b-col>
+        <b-col sm="2" lg="4" class="pl-2 pr-2">
+          <b-form-textarea
+            id="textarea-default"
             v-model="description"
-          >
-          </textarea>
-        </li>
-      </ul>
+          ></b-form-textarea>
+        </b-col>
+      </b-row>
 
       <template v-if="validatorDescription.length > 0">
         <p class="modal__validation">{{ validatorDescription }}</p>
       </template>
     </div>
 
-    <div class="modal__block">
-      <ul class="modal__row">
-        <li class="modal__cell modal__cell-label">
-          <span class="modal__label">Цена за одного подписчика</span>
-        </li>
-
-        <li class="modal__cell">
-          <input
-            type="number"
-            class="modal__input"
-            v-model="budget_per_subscriber"
-          />
-        </li>
-      </ul>
+    <div>
+      <b-form-group
+        id="fieldset-horizontal"
+        label-cols-sm="4"
+        label-cols-lg="2"
+        content-cols-sm
+        content-cols-lg="4"
+        label="Price per subscriber:"
+        label-for="input-price"
+        description="Enter price."
+      >
+        <b-form-input
+          type="number"
+          id="input-price"
+          v-model="budget_per_subscriber"
+        ></b-form-input>
+      </b-form-group>
 
       <template v-if="validatorBadget.length > 0">
         <p class="modal__validation">{{ validatorBadget }}</p>
       </template>
     </div>
 
-    <div class="modal__block">
-      <ul class="modal__row">
-        <li class="modal__cell modal__cell-label">
-          <span class="modal__label">Дата</span>
-        </li>
-
-        <li class="modal__cell">
-          <input type="date" class="modal__input" v-model="end_date" />
-        </li>
-      </ul>
+    <div>
+      <b-form-group
+        id="fieldset-horizontal"
+        label-cols-sm="4"
+        label-cols-lg="2"
+        content-cols-sm
+        content-cols-lg="4"
+        label="Date:"
+        label-for="input-date"
+      >
+        <b-form-input
+          type="date"
+          id="input-date"
+          v-model="end_date"
+        ></b-form-input>
+      </b-form-group>
 
       <template v-if="validatorDate.length > 0">
         <p class="modal__validation">{{ validatorDate }}</p>
       </template>
     </div>
 
-    <div class="modal__block">
-      <ul class="modal__row">
-        <li class="modal__cell modal__cell-label">
-          <span class="modal__label">Соцсеть</span>
-        </li>
-
-        <li class="modal__cell">
-          <select class="modal__input" v-model="social">
-            <option
-              v-for="item in socials"
-              v-bind:value="[item.id]"
-              :key="item.id"
-            >
-              {{ item.selectName }}
-            </option>
-          </select>
-        </li>
-      </ul>
+    <div>
+      <b-form-group
+        id="fieldset-horizontal"
+        label-cols-sm="4"
+        label-cols-lg="2"
+        content-cols-sm
+        content-cols-lg="4"
+        label="Social network:"
+        label-for="input-social"
+        description="Enter social network."
+      >
+        <b-form-select id="input-social" v-model="social">
+          <b-form-select-option
+            v-for="item in socials"
+            :value="[item.id]"
+            :key="item.id"
+            >{{ item.selectName }}</b-form-select-option
+          ></b-form-select
+        >
+      </b-form-group>
 
       <template v-if="validatorSocial.length > 0">
         <p class="modal__validation">{{ validatorSocial }}</p>
       </template>
     </div>
 
-    <div class="modal__block">
-      <ul class="modal__row">
-        <li class="modal__cell modal__cell-label">
-          <span class="modal__label">Регион</span>
-        </li>
-
-        <li class="modal__cell">
-          <select class="modal__input" v-model="region">
-            <option
-              v-for="item in regions"
-              v-bind:value="item.id"
-              :key="item.id"
-            >
-              {{ item.name }}
-            </option>
-          </select>
-        </li>
-      </ul>
+    <div>
+      <b-form-group
+        id="fieldset-horizontal"
+        label-cols-sm="4"
+        label-cols-lg="2"
+        content-cols-sm
+        content-cols-lg="4"
+        label="Region:"
+        label-for="input-region"
+        description="Enter region."
+      >
+        <b-form-select id="input-region" v-model="region">
+          <b-form-select-option
+            v-for="item in regions"
+            :value="[item.id]"
+            :key="item.id"
+            >{{ item.name }}</b-form-select-option
+          ></b-form-select
+        >
+      </b-form-group>
 
       <template v-if="validatorRegion.length > 0">
         <p class="modal__validation">{{ validatorRegion }}</p>
       </template>
     </div>
 
-    <div class="modal__block">
-      <ul class="modal__row">
-        <li class="modal__cell modal__cell-label">
-          <span class="modal__label">Минимальное число подписчиков</span>
-        </li>
-
-        <li class="modal__cell">
-          <input type="number" class="modal__input" v-model="min_subscribers" />
-        </li>
-      </ul>
+    <div>
+      <b-form-group
+        id="fieldset-horizontal"
+        label-cols-sm="4"
+        label-cols-lg="2"
+        content-cols-sm
+        content-cols-lg="4"
+        label="Min number of subscribers:"
+        label-for="input-min"
+        description="Enter number of subscribers."
+      >
+        <b-form-input
+          type="number"
+          id="input-min"
+          v-model="min_subscribers"
+        ></b-form-input>
+      </b-form-group>
 
       <template v-if="validatorMinSubscribers.length > 0">
         <p class="modal__validation">{{ validatorMinSubscribers }}</p>
       </template>
     </div>
 
-    <div class="modal__block">
-      <ul class="modal__row">
-        <li class="modal__cell modal__cell-label">
-          <span class="modal__label">Максимальное число подписчиков</span>
-        </li>
-
-        <li class="modal__cell">
-          <input type="number" class="modal__input" v-model="max_subscribers" />
-        </li>
-      </ul>
+    <div>
+      <b-form-group
+        id="fieldset-horizontal"
+        label-cols-sm="4"
+        label-cols-lg="2"
+        content-cols-sm
+        content-cols-lg="4"
+        label="Max number of subscribers:"
+        label-for="input-max"
+        description="Enter number of subscribers."
+      >
+        <b-form-input
+          type="number"
+          id="input-max"
+          v-model="max_subscribers"
+        ></b-form-input>
+      </b-form-group>
 
       <template v-if="validatorMaxSubscribers.length > 0">
         <p class="modal__validation">{{ validatorMaxSubscribers }}</p>
       </template>
     </div>
 
-    <div class="modal__block">
-      <ul class="modal__row">
-        <li class="modal__cell modal__cell-label">
-          <span class="modal__label"
-            ><button
-              class="cell-item__btn cell-item__btn_back"
-              @click="changeAddOrderModalStatus(false)"
-            >
-              Назад
-            </button></span
-          >
-        </li>
-
-        <li class="modal__cell">
-          <button class="cell-item__btn" @click.prevent="handlerAddNewOrder()">
-            Разместить заказ
-          </button>
-        </li>
-      </ul>
-    </div>
+    <b-button-group class="pt-1 mt-4">
+      <b-button
+        class="btn btn-dark mr-5 btn_back rounded"
+        type="button"
+        @click.prevent="changeAddOrderModalStatus(false)"
+      >
+        Назад
+      </b-button>
+      <b-button
+        class="btn btn-dark btn_change rounded"
+        type="button"
+        @click.prevent="handlerAddNewOrder()"
+      >
+        Разместить заказ
+      </b-button>
+    </b-button-group>
   </div>
 </template>
 
@@ -310,113 +333,18 @@ export default {
 .modal__section {
   position: absolute;
   top: 0%;
-  max-width: 36.1111rem;
   width: 100%;
   background-color: transparent;
   border-radius: 20px;
 }
 
-.modal__title {
-  font-size: 1.1111rem;
-  margin-bottom: 1.1111rem;
-  text-decoration-line: underline;
-}
-
-.modal__btn-close {
-  position: absolute;
-  right: 5%;
-  top: 4%;
-  background-color: transparent;
-}
-
-.btn-close__svg {
-  width: 1rem;
-  height: 1rem;
-}
-
-.modal__block {
-  margin-bottom: 0.8889rem;
-}
-
-.modal__row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.modal__cell {
-  width: 100%;
-}
-
-.modal__cell-label {
-  margin-right: 1.1111rem;
-  width: 60%;
-}
-
-.modal__label {
-  font-size: 0.875rem;
-}
-
-.modal__input {
-  padding-left: 0.6111rem;
-  max-width: 16.6667rem;
-  width: 100%;
-  min-height: 1.6667rem;
-  font-size: 0.8889rem;
-  line-height: 1.0556rem;
-  color: var(--bs-gray-600);
-  border: 1px solid var(--bs-gray-600);
-  border-radius: 10px;
-  background-color: transparent;
-  -webkit-transition: border 0.3s ease;
-  -o-transition: border 0.3s ease;
-  transition: border 0.3s ease;
-}
-
-.modal__input:hover,
-.modal__input:active {
-  -webkit-transition: outline 0.1s ease;
-  -o-transition: outline 0.1s ease;
-  transition: outline 0.1s ease;
-  outline: 1.5px solid var(--bs-secondary);
-}
-
-.modal__row_textarea {
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: start;
-}
-
-.modal__input_textarea {
-  max-width: 16.6667rem;
-  padding: 5px 10px;
-  height: 8.0555rem;
-}
-
-/* ****** BTN SUBMIT ******  */
-
-.cell-item__btn {
-  margin-top: 1.2rem;
-  padding: 5.9994px 7.9992px;
-  max-width: 16.6667rem;
-  width: 100%;
-  min-height: 1.6667rem;
-  font-weight: 600;
-  color: #fff;
-  background: var(--bs-gray-600);
-  border-radius: 10px;
-}
-
-.cell-item__btn:hover,
-.cell-item__btn:active {
+.btn_change:hover,
+.btn_change:active {
   background: var(--bs-secondary);
 }
 
-.cell-item__btn_back:hover,
-.cell-item__btn_back:active {
+.btn_back:hover,
+.btn_back:active {
   background: var(--bs-warning);
 }
 
@@ -426,13 +354,6 @@ export default {
   font-size: 0.8889rem;
   margin-left: 1.1111rem;
   margin-top: 0.3889rem;
-  color: var(--bs-orange);
-}
-
-@media (max-width: 480px) {
-  .modal {
-    padding: 25px 50px;
-    border-radius: 20px;
-  }
+  color: var(--bs-secondary);
 }
 </style>

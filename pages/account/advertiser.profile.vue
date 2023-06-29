@@ -1,5 +1,5 @@
 <template>
-  <div class="advertiser-profile">
+  <div>
     <div
       class="advertiser-profile__body body"
       v-if="!isOpenModalChangeData && !isOpenModalChangePassword"
@@ -114,14 +114,14 @@
 
       <b-button-group class="pt-1 mt-4">
         <b-button
-          class="btn btn-dark mr-5"
+          class="btn btn-dark mr-5 rounded"
           type="button"
           @click.prevent="changeDataModalStatus(true)"
         >
           Изменить профиль
         </b-button>
         <b-button
-          class="btn btn-dark"
+          class="btn btn-dark rounded"
           type="button"
           @click.prevent="changePasswordModalStatus(true)"
         >

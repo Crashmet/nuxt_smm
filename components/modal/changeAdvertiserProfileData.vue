@@ -108,14 +108,14 @@
 
     <b-button-group class="pt-1 mt-4">
       <b-button
-        class="btn btn-dark mr-5 btn_back"
+        class="btn btn-dark mr-5 btn_back rounded"
         type="button"
         @click.prevent="changeDataModalStatus(false)"
       >
         Назад
       </b-button>
       <b-button
-        class="btn btn-dark btn_change"
+        class="btn btn-dark btn_change rounded"
         type="button"
         @click.prevent="handlerSubmitSettings()"
       >

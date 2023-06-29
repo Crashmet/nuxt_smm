@@ -97,12 +97,12 @@ export default {
 .account {
   margin-top: 4.1111rem;
   margin-bottom: 5.5556rem;
+  position: relative;
 }
 
 .account__main {
-  position: relative;
   width: 100%;
-  min-height: 700px;
+  min-height: 800px;
 
   background-color: #efefefce;
 

@@ -1,46 +1,64 @@
 <template>
-  <div class="blogger-finance">
-    <div class="blogger-finance__body body">
-      <ul class="body__row">
-        <li class="body__cell body__cell-label">
-          <span class="body__label">Ваш баланс</span>
-        </li>
+  <div>
+    <b-form-group
+      id="fieldset-horizontal"
+      label-cols-sm="4"
+      label-cols-lg="2"
+      content-cols-sm
+      content-cols-lg="4"
+      label="Период:"
+      label-for="input-period"
+    >
+      <b-form-input
+        id="input-period"
+        disabled
+        value="С начала года"
+      ></b-form-input>
+    </b-form-group>
 
-        <li class="body__cell">
-          <input type="text" class="body__input" disabled />
-        </li>
-      </ul>
+    <b-form-group
+      id="fieldset-horizontal"
+      label-cols-sm="4"
+      label-cols-lg="2"
+      content-cols-sm
+      content-cols-lg="4"
+      label="Приход:"
+      label-for="input-coming"
+    >
+      <b-form-input
+        id="input-coming"
+        disabled
+        value="6 600 руб."
+      ></b-form-input>
+    </b-form-group>
 
-      <ul class="body__row">
-        <li class="body__cell body__cell-label">
-          <span class="body__label">Внести деньги</span>
-        </li>
+    <b-form-group
+      id="fieldset-horizontal"
+      label-cols-sm="4"
+      label-cols-lg="2"
+      content-cols-sm
+      content-cols-lg="4"
+      label="Баланс:"
+      label-for="input-balance"
+    >
+      <b-form-input
+        id="input-balance"
+        disabled
+        value="11 150 руб."
+      ></b-form-input>
+    </b-form-group>
 
-        <li class="body__cell">
-          <input type="text" class="body__input" />
-        </li>
-      </ul>
-
-      <ul class="body__row">
-        <li class="body__cell body__cell-label">
-          <span class="body__label">Вывести деньги</span>
-        </li>
-
-        <li class="body__cell">
-          <input type="text" class="body__input" />
-        </li>
-      </ul>
-
-      <ul class="body__row">
-        <li class="body__cell body__cell-label">
-          <span class="body__label">Выписка</span>
-        </li>
-
-        <li class="body__cell">
-          <input type="text" class="body__input" disabled />
-        </li>
-      </ul>
-    </div>
+    <b-form-group
+      id="fieldset-horizontal"
+      label-cols-sm="4"
+      label-cols-lg="2"
+      content-cols-sm
+      content-cols-lg="4"
+      label="Вывести:"
+      label-for="input-balance"
+    >
+      <b-form-input id="input-balance"></b-form-input>
+    </b-form-group>
   </div>
 </template>
 
@@ -50,79 +68,4 @@ export default {
 };
 </script>
 
-<style scoped>
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
-
-.body__row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.body__row:not(:last-child) {
-  margin-bottom: 0.8889rem;
-}
-
-.body__cell-label {
-  max-width: 9.2222rem;
-  width: 100%;
-}
-
-.body__label {
-  color: var(--bs-gray-600);
-}
-
-.body__input {
-  padding-left: 0.6111rem;
-  max-width: 9.8333rem;
-  width: 100%;
-  min-height: 1.6667rem;
-  font-size: 0.8889rem;
-  line-height: 1.0556rem;
-  color: var(--bs-gray-600);
-  border: 1px solid var(--bs-gray-600);
-  border-radius: 10px;
-  background-color: transparent;
-  /* -webkit-transition: border 0.2s ease;
-  -o-transition: border 0.2s ease;
-  transition: border 0.2s ease; */
-}
-
-.body__input:hover,
-.body__input:active {
-  -webkit-transition: outline 0.1s ease;
-  -o-transition: outline 0.1s ease;
-  transition: outline 0.1s ease;
-  outline: 1.5px solid var(--bs-secondary);
-}
-
-@media (max-width: 1175px) {
-  .body__row:not(:last-child) {
-    margin-bottom: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .blogger-finance__link {
-    margin-bottom: 9px;
-  }
-
-  .body__row:not(:last-child) {
-    margin-bottom: 13px;
-  }
-
-  .body__input {
-    max-width: 88px;
-    width: 100%;
-    border-radius: 5px;
-  }
-}
-</style>
+<style scoped></style>

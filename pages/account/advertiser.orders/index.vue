@@ -406,6 +406,7 @@ export default {
   min-width: 1000px;
   margin-top: 1rem;
   position: relative;
+  height: 800px;
 }
 
 .orders__nav {
