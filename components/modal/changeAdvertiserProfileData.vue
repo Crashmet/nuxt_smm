@@ -14,11 +14,11 @@
         description="Enter your new username."
       >
         <b-form-input id="input-username" v-model="username"></b-form-input>
-      </b-form-group>
 
-      <template v-if="validatorUsername.length > 0">
-        <p class="modal__validation">{{ validatorUsername }}</p>
-      </template>
+        <template v-if="validatorUsername.length > 0">
+          <p class="modal__validation">{{ validatorUsername }}</p>
+        </template>
+      </b-form-group>
     </div>
 
     <div>
@@ -63,11 +63,11 @@
         description="Enter your new E-mail."
       >
         <b-form-input id="input-email" v-model="email"></b-form-input>
-      </b-form-group>
 
-      <template v-if="validatorEmail.length > 0">
-        <p class="modal__validation">{{ validatorEmail }}</p>
-      </template>
+        <template v-if="validatorEmail.length > 0">
+          <p class="modal__validation">{{ validatorEmail }}</p>
+        </template>
+      </b-form-group>
     </div>
 
     <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">

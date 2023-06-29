@@ -18,11 +18,11 @@
           id="input-name"
           v-model="name"
         ></b-form-input>
-      </b-form-group>
 
-      <template v-if="validatorName.length > 0">
-        <p class="modal__validation">{{ validatorName }}</p>
-      </template>
+        <template v-if="validatorName.length > 0">
+          <p class="modal__validation">{{ validatorName }}</p>
+        </template>
+      </b-form-group>
     </div>
 
     <div>
@@ -37,11 +37,11 @@
             v-model="description"
           ></b-form-textarea>
         </b-col>
-      </b-row>
 
-      <template v-if="validatorDescription.length > 0">
-        <p class="modal__validation">{{ validatorDescription }}</p>
-      </template>
+        <template v-if="validatorDescription.length > 0">
+          <p class="modal__validation">{{ validatorDescription }}</p>
+        </template>
+      </b-row>
     </div>
 
     <div>
@@ -61,11 +61,11 @@
           class="col-3 col-sm-12"
           v-model="budget_per_subscriber"
         ></b-form-input>
-      </b-form-group>
 
-      <template v-if="validatorBadget.length > 0">
-        <p class="modal__validation">{{ validatorBadget }}</p>
-      </template>
+        <template v-if="validatorBadget.length > 0">
+          <p class="modal__validation">{{ validatorBadget }}</p>
+        </template>
+      </b-form-group>
     </div>
 
     <div>
@@ -84,11 +84,11 @@
           class="col-3 col-sm-12"
           v-model="end_date"
         ></b-form-input>
-      </b-form-group>
 
-      <template v-if="validatorDate.length > 0">
-        <p class="modal__validation">{{ validatorDate }}</p>
-      </template>
+        <template v-if="validatorDate.length > 0">
+          <p class="modal__validation">{{ validatorDate }}</p>
+        </template>
+      </b-form-group>
     </div>
 
     <div>
@@ -114,11 +114,11 @@
             >{{ item.selectName }}</b-form-select-option
           ></b-form-select
         >
-      </b-form-group>
 
-      <template v-if="validatorSocial.length > 0">
-        <p class="modal__validation">{{ validatorSocial }}</p>
-      </template>
+        <template v-if="validatorSocial.length > 0">
+          <p class="modal__validation">{{ validatorSocial }}</p>
+        </template>
+      </b-form-group>
     </div>
 
     <div>
@@ -144,11 +144,11 @@
             >{{ item.name }}</b-form-select-option
           ></b-form-select
         >
-      </b-form-group>
 
-      <template v-if="validatorRegion.length > 0">
-        <p class="modal__validation">{{ validatorRegion }}</p>
-      </template>
+        <template v-if="validatorRegion.length > 0">
+          <p class="modal__validation">{{ validatorRegion }}</p>
+        </template>
+      </b-form-group>
     </div>
 
     <div>
@@ -168,11 +168,11 @@
           class="col-3 col-sm-12"
           v-model="min_subscribers"
         ></b-form-input>
-      </b-form-group>
 
-      <template v-if="validatorMinSubscribers.length > 0">
-        <p class="modal__validation">{{ validatorMinSubscribers }}</p>
-      </template>
+        <template v-if="validatorMinSubscribers.length > 0">
+          <p class="modal__validation">{{ validatorMinSubscribers }}</p>
+        </template>
+      </b-form-group>
     </div>
 
     <div>
@@ -192,11 +192,11 @@
           class="col-3 col-sm-12"
           v-model="max_subscribers"
         ></b-form-input>
-      </b-form-group>
 
-      <template v-if="validatorMaxSubscribers.length > 0">
-        <p class="modal__validation">{{ validatorMaxSubscribers }}</p>
-      </template>
+        <template v-if="validatorMaxSubscribers.length > 0">
+          <p class="modal__validation">{{ validatorMaxSubscribers }}</p>
+        </template>
+      </b-form-group>
     </div>
 
     <b-button-group class="pt-1 mt-4">
