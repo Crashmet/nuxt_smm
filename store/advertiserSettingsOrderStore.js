@@ -2,16 +2,12 @@ export const state = () => ({
   orderId: null,
 
   orderList: {},
-
-  status: "",
 });
 
 export const getters = {
   orderId: ({ orderId }) => orderId,
 
   orderList: ({ orderList }) => orderList,
-
-  status: ({ status }) => status,
 };
 
 export const mutations = {
@@ -22,17 +18,9 @@ export const mutations = {
   SET_ORDER_LIST(state, data) {
     state.orderList = data;
   },
-
-  SET_ORDER_STATUS(state, status) {
-    state.status = status;
-  },
 };
 
 export const actions = {
-  setOrderStatus({ commit }, status = "") {
-    commit("SET_ORDER_STATUS", status);
-  },
-
   setOrderId({ commit }, id) {
     commit("SET_ORDER_ID", id);
   },
@@ -53,8 +41,6 @@ export const actions = {
       .$delete(`orders/${id}/`)
       .then((response) => {
         commit("statusMassageModalStore/ADD_STATUS", "success", { root: true });
-
-        // dispatch("setOrderStatus", "success");
 
         this.app.router.go(-1);
       })

@@ -106,6 +106,7 @@ export default {
   computed: {
     ...mapGetters({
       validatorResponse: "advertiserProfileStore/validatorResponse",
+      status: "statusMassageModalStore/status",
     }),
   },
 

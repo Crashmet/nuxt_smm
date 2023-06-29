@@ -10,7 +10,7 @@
             <profile-menu />
 
             <div class="account__section">
-              <status-massage-modal v-if="isOpenModal" />
+              <b-toast> </b-toast>
               <nuxt-child />
             </div>
           </div>
@@ -31,7 +31,6 @@ import Statistics from "@/components/section/Statistics.vue";
 import Footer from "@/components/Footer.vue";
 
 import ProfileMenu from "@/components/AccountSection/ProfileMenu.vue";
-import statusMassageModal from "~/components/modal/statusMassageModal.vue";
 
 export default {
   name: "AccountPage",
@@ -44,7 +43,6 @@ export default {
     Statistics,
     Footer,
     ProfileMenu,
-    statusMassageModal,
   },
 
   mounted() {
@@ -60,28 +58,29 @@ export default {
   computed: {
     ...mapGetters({
       users: "profileMenuStore/users",
-      isOpenModal: "statusMassageModalStore/isOpenModal",
       status: "statusMassageModalStore/status",
     }),
   },
 
   methods: {
-    ...mapActions({
-      changeMessageModalStatus:
-        "statusMassageModalStore/changeMessageModalStatus",
-      addStatus: "advertiserOrdersStore/addStatus",
-    }),
+    toast(title = "", desc = "", variant = null) {
+      this.$bvToast.toast(`${desc}`, {
+        title: `${title}`,
+        variant: variant,
+        solid: true,
+        autoHideDelay: 3000,
+        appendToast: false,
+      });
+    },
   },
 
   watch: {
-    isOpenModal() {
-      if (this.isOpenModal) {
-        setTimeout(() => this.changeMessageModalStatus(false), 3500);
-      }
-    },
-
     status() {
-      setTimeout(() => this.changeMessageModalStatus(true), 1000);
+      if (this.status[this.status.length - 1] === "error") {
+        this.toast("Ошибка!", "Изменения не сохранены!", "danger");
+      } else if (this.status[this.status.length - 1] === "success") {
+        this.toast("Успех!", "Изменения прошли успешно!", "success");
+      }
     },
   },
 };

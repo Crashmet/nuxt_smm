@@ -113,3 +113,8 @@ select {
 html {
   height: 100%;
 }
+
+
+.toast:not(.show) {
+  display: block;
+}

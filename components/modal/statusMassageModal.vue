@@ -35,6 +35,17 @@ export default {
     return {};
   },
 
+  methods: {
+    toast(title = "", desc = "", variant = null) {
+      // this.counter++;
+      this.$bvToast.toast(`${desc}`, {
+        title: `${title}`,
+        variant: variant,
+        solid: true,
+      });
+    },
+  },
+
   computed: {
     ...mapGetters({
       isOpenModal: "statusMassageModalStore/isOpenModal",
@@ -72,6 +83,16 @@ export default {
         "statusMassageModalStore/changeMessageModalStatus",
       addStatus: "statusMassageModalStore/addStatus",
     }),
+  },
+
+  watch: {
+    // status() {
+    //   if (this.status[this.status.length - 1] === "error") {
+    //     this.toast("Ошибка!", "Изменения не сохранены!", "danger");
+    //   } else if (this.status[this.status.length - 1] === "success") {
+    //     this.toast("Успех!", "Изменения прошли успешно!", "success");
+    //   }
+    // },
   },
 };
 </script>
