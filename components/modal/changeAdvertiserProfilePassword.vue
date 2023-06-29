@@ -18,11 +18,11 @@
           id="input-oldPassword"
           v-model="old_password"
         ></b-form-input>
-      </b-form-group>
 
-      <template v-if="validatorOldPassword.length > 0">
-        <p class="modal__validation">{{ validatorOldPassword }}</p>
-      </template>
+        <template v-if="validatorOldPassword.length > 0">
+          <p class="modal__validation">{{ validatorOldPassword }}</p>
+        </template>
+      </b-form-group>
     </div>
 
     <div>
@@ -41,11 +41,11 @@
           id="input-newPassword"
           v-model="new_password"
         ></b-form-input>
-      </b-form-group>
 
-      <template v-if="validatorPassword.length > 0">
-        <p class="modal__validation">{{ validatorPassword }}</p>
-      </template>
+        <template v-if="validatorPassword.length > 0">
+          <p class="modal__validation">{{ validatorPassword }}</p>
+        </template>
+      </b-form-group>
     </div>
 
     <div>
@@ -64,15 +64,15 @@
           id="input-rNPassword"
           v-model="new_password_confirm"
         ></b-form-input>
-      </b-form-group>
 
-      <template
-        v-if="validatorPassword2.length > 0 || nonFieldErrors.length > 0"
-      >
-        <p class="modal__validation">
-          {{ validatorPassword2 }} {{ nonFieldErrors }}
-        </p>
-      </template>
+        <template
+          v-if="validatorPassword2.length > 0 || nonFieldErrors.length > 0"
+        >
+          <p class="modal__validation">
+            {{ validatorPassword2 }} {{ nonFieldErrors }}
+          </p>
+        </template>
+      </b-form-group>
     </div>
 
     <b-button-group class="pt-1 mt-4">

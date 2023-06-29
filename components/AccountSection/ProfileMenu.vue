@@ -1,7 +1,7 @@
 <template>
   <div class="profile-menu">
     <div class="profile-menu__row bg-dark" v-if="users[0].isActive">
-      <b-nav tabs class="col-8 col-md-6">
+      <b-nav tabs class="col-8 col-xl-6">
         <b-nav-item
           class="col-12 col-sm-6 col-lg-3"
           :active="setting.isActive ? true : false"
@@ -22,7 +22,7 @@
     </div>
 
     <div class="profile-menu__row bg-dark" v-else>
-      <b-nav tabs class="col-8 col-md-6">
+      <b-nav tabs class="col-8 col-xl-6">
         <b-nav-item
           class="col-12 col-sm-6 col-lg-3"
           :active="setting.isActive ? true : false"
