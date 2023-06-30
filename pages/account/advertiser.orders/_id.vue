@@ -353,6 +353,7 @@ export default {
       regions: "regions",
       orderId: "advertiserSettingsOrderStore/orderId",
       orderList: "advertiserSettingsOrderStore/orderList",
+      validatorResponse: "advertiserSettingsOrderStore/validatorResponse",
     }),
   },
 

@@ -62,8 +62,6 @@ export const actions = {
   async updateOrderList({ commit, dispatch }, order) {
     const dataJson = JSON.stringify(order);
 
-    console.log(order);
-
     await this.$axios
       .$patch(`orders/${order.id}/`, dataJson)
       .then((response) => {
