@@ -370,6 +370,7 @@ export default {
 
     handlerUpdateOrder() {
       const order = {
+        id: this.id,
         name: this.name,
         description: this.description,
         budget_per_subscriber: this.budget_per_subscriber,
@@ -389,7 +390,7 @@ export default {
       this.description = this.orderList.description;
       this.budget_per_subscriber = this.orderList.budget_per_subscriber;
       this.end_date = this.orderList.end_date;
-      this.social = this.orderList.social[0];
+      this.social = this.orderList.social;
       this.region = this.orderList.region;
       this.min_subscribers = this.orderList.min_subscribers;
       this.max_subscribers = this.orderList.max_subscribers;
