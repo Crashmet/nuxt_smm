@@ -92,9 +92,7 @@ export default {
     }),
 
     handlerLogout() {
-      this.onLogout().then(() => {
-        this.$router.push({ path: "/" });
-      });
+      this.onLogout();
     },
   },
 };
