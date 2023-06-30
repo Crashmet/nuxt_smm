@@ -48,7 +48,9 @@
               </template>
               <template v-else>
                 <li>
-                  <a @click="handlerLogout()">Log out</a>
+                  <nuxt-link to="/" @click.prevent="handlerLogout()"
+                    >Log out</nuxt-link
+                  >
                 </li>
               </template>
             </ul>
