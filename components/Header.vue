@@ -48,9 +48,7 @@
               </template>
               <template v-else>
                 <li>
-                  <nuxt-link to="/" @click.prevent="handlerLogout()"
-                    >Log out</nuxt-link
-                  >
+                  <a href="/" @click.prevent="handlerLogout()">Log out</a>
                 </li>
               </template>
             </ul>
@@ -94,7 +92,9 @@ export default {
     }),
 
     handlerLogout() {
-      this.onLogout();
+      this.onLogout().then(() => {
+        this.$router.push({ path: "/" });
+      });
     },
   },
 };
