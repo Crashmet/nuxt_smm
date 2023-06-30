@@ -12,184 +12,295 @@
         </button>
       </div>
 
-      <div class="order__body body">
-        <ul class="body__row">
-          <li class="body__cell body__cell-label">
-            <span class="body__label">№ заказа</span>
-          </li>
-
-          <li class="body__cell body__cell-input">
-            <input
-              type="text"
-              class="body__input"
-              disabled
-              v-model="orderList.id"
-            />
-          </li>
-        </ul>
-
-        <ul class="body__row">
-          <li class="body__cell body__cell-label">
-            <span class="body__label">Заголовок</span>
-          </li>
-
-          <li class="body__cell body__cell-input">
-            <input type="text" class="body__input" v-model="orderList.name" />
-          </li>
-        </ul>
-
-        <ul class="body__row">
-          <li class="body__cell body__cell-label">
-            <span class="body__label">Регион</span>
-          </li>
-
-          <li class="body__cell body__cell-input">
-            <input type="text" class="body__input" v-model="orderList.region" />
-          </li>
-        </ul>
-
-        <ul class="body__row">
-          <li class="body__cell body__cell-label">
-            <span class="body__label">Срок исполнения</span>
-          </li>
-
-          <li class="body__cell body__cell-input">
-            <input
-              type="text"
-              class="body__input"
-              v-model="orderList.end_date"
-            />
-          </li>
-        </ul>
-
-        <ul class="body__row body__row_textarea">
-          <li class="body__cell body__cell-label body__cell-label_top">
-            <span class="body__label">Задание</span>
-          </li>
-
-          <li class="body__cell body__cell-input">
-            <textarea
-              name="massage"
-              class="body__input body__input_textarea"
-              v-model="orderList.description"
-            >
-            </textarea>
-          </li>
-        </ul>
-
-        <ul class="body__row">
-          <li class="body__cell body__cell-label">
-            <span class="body__label">Фото</span>
-          </li>
-          <li class="body__cell body__cell-input">
-            <label class="body__input body__input-label" for="file-input-1"
-              >загрузить</label
-            >
-            <input type="file" class="body__input-file" id="file-input-1" />
-          </li>
-        </ul>
-
-        <ul class="body__row">
-          <li class="body__cell body__cell-label">
-            <span class="body__label">Видео</span>
-          </li>
-
-          <li class="body__cell body__cell-input">
-            <label class="body__input body__input-label" for="file-input-2"
-              >загрузить</label
-            >
-            <input type="file" class="body__input-file" id="file-input-2" />
-          </li>
-        </ul>
-
-        <ul class="body__row">
-          <li class="body__cell body__cell-label">
-            <span class="body__label">Аудио</span>
-          </li>
-
-          <li class="body__cell body__cell-input">
-            <label class="body__input body__input-label" for="file-input-3"
-              >загрузить</label
-            >
-            <input type="file" class="body__input-file" id="file-input-3" />
-          </li>
-        </ul>
-
-        <ul class="body__row">
-          <li class="body__cell body__cell-label">
-            <span class="body__label">Соцсеть</span>
-          </li>
-
-          <li class="body__cell body__cell-input">
-            <input
-              type="text"
-              class="body__input"
-              v-model="orderList.social[0]"
-            />
-          </li>
-        </ul>
-
-        <ul class="body__row">
-          <li class="body__cell body__cell-label">
-            <span class="body__label">Сумма, руб.</span>
-          </li>
-
-          <li class="body__cell body__cell-input">
-            <input
-              type="text"
-              class="body__input"
-              v-model="orderList.budget_per_subscriber"
-            />
-          </li>
-        </ul>
-
-        <ul class="body__row">
-          <li class="body__cell body__cell-label">
-            <span class="body__label">Кол-во блогеров</span>
-          </li>
-
-          <li class="body__cell body__cell-input">
-            <input type="text" class="body__input" value="-" />
-          </li>
-        </ul>
-
-        <ul class="body__row">
-          <li class="body__cell body__cell-label">
-            <span class="body__label">Охват</span>
-          </li>
-
-          <li class="body__cell body__cell-input">
-            <input
-              type="text"
-              class="body__input"
-              v-model="orderList.max_subscribers"
-            />
-          </li>
-        </ul>
-
-        <ul class="body__row body-footer">
-          <li class="body__cell body__cell-label footer__cell">
-            <button
-              class="footer__button footer__button_delete"
-              @click.prevent="deleteOrder(orderId)"
-            >
-              Удалить заказ
-            </button>
-          </li>
-
-          <li class="body__cell body__cell-input footer__cell">
-            <button class="footer__button footer__button_add">
-              Разместить заказ
-            </button>
-          </li>
-
-          <li class="body__cell body-footer__link footer__cell">
-            <nuxt-link to="select">
-              <p class="footer__link">Выбрать блогеров</p>
-            </nuxt-link>
-          </li>
-        </ul>
+      <div>
+        <b-form-group
+          id="fieldset-horizontal"
+          label-cols-sm="3"
+          label-cols-lg="2"
+          content-cols-sm="5"
+          content-cols-lg="4"
+          label="ID:"
+          label-for="input-id"
+        >
+          <b-form-input
+            class="col-sm-12"
+            id="input-id"
+            disabled
+            v-model="id"
+          ></b-form-input>
+        </b-form-group>
       </div>
+
+      <div>
+        <b-form-group
+          id="fieldset-horizontal"
+          label-cols-sm="3"
+          label-cols-lg="2"
+          content-cols-sm="5"
+          content-cols-lg="4"
+          label="Order name:"
+          label-for="input-name"
+          description="Update your order name."
+        >
+          <b-form-input
+            class="col-sm-12"
+            id="input-name"
+            v-model="name"
+          ></b-form-input>
+
+          <template v-if="validatorName.length > 0">
+            <p class="modal__validation">{{ validatorName }}</p>
+          </template>
+        </b-form-group>
+      </div>
+
+      <div>
+        <b-row sm="5" lg="4" class="mb-5">
+          <b-col sm="3" lg="2">
+            <label for="textarea-default">Order description:</label>
+          </b-col>
+          <b-col sm="5" lg="4" class="pl-2 pr-2">
+            <b-form-textarea
+              class="col-sm-12"
+              id="textarea-default"
+              v-model="description"
+            ></b-form-textarea>
+
+            <template v-if="validatorDescription.length > 0">
+              <p class="modal__validation">{{ validatorDescription }}</p>
+            </template>
+          </b-col>
+        </b-row>
+      </div>
+
+      <div>
+        <b-form-group
+          id="fieldset-horizontal"
+          label-cols-sm="3"
+          label-cols-lg="2"
+          content-cols-sm="5"
+          content-cols-lg="4"
+          label="Price per subscriber:"
+          label-for="input-price"
+          description="Update price."
+        >
+          <b-form-input
+            type="number"
+            id="input-price"
+            class="col-sm-12"
+            v-model="budget_per_subscriber"
+          ></b-form-input>
+
+          <template v-if="validatorBadget.length > 0">
+            <p class="modal__validation">{{ validatorBadget }}</p>
+          </template>
+        </b-form-group>
+      </div>
+
+      <div>
+        <b-form-group
+          id="fieldset-horizontal"
+          label-cols-sm="3"
+          label-cols-lg="2"
+          content-cols-sm="5"
+          content-cols-lg="4"
+          label="Date:"
+          label-for="input-date"
+        >
+          <b-form-input
+            type="date"
+            id="input-date"
+            class="col-sm-12"
+            v-model="end_date"
+          ></b-form-input>
+
+          <template v-if="validatorDate.length > 0">
+            <p class="modal__validation">{{ validatorDate }}</p>
+          </template>
+        </b-form-group>
+      </div>
+
+      <div>
+        <b-form-group
+          id="fieldset-horizontal"
+          label-cols-sm="3"
+          label-cols-lg="2"
+          content-cols-sm="5"
+          content-cols-lg="4"
+          label="Social network:"
+          label-for="input-social"
+          description="Update social network."
+        >
+          <b-form-select id="input-social" class="col-sm-12" v-model="social">
+            <b-form-select-option
+              v-for="item in socials"
+              :value="[item.id]"
+              :key="item.id"
+              >{{ item.selectName }}</b-form-select-option
+            ></b-form-select
+          >
+
+          <template v-if="validatorSocial.length > 0">
+            <p class="modal__validation">{{ validatorSocial }}</p>
+          </template>
+        </b-form-group>
+      </div>
+
+      <div>
+        <b-form-group
+          id="fieldset-horizontal"
+          label-cols-sm="3"
+          label-cols-lg="2"
+          content-cols-sm="5"
+          content-cols-lg="4"
+          label="Region:"
+          label-for="input-region"
+          description="Update region."
+        >
+          <b-form-select id="input-region" class="col-sm-12" v-model="region">
+            <b-form-select-option
+              v-for="item in regions"
+              :value="item.id"
+              :key="item.id"
+              >{{ item.name }}</b-form-select-option
+            ></b-form-select
+          >
+
+          <template v-if="validatorRegion.length > 0">
+            <p class="modal__validation">{{ validatorRegion }}</p>
+          </template>
+        </b-form-group>
+      </div>
+
+      <div>
+        <b-form-group
+          id="fieldset-horizontal"
+          label-cols-sm="3"
+          label-cols-lg="2"
+          content-cols-sm="5"
+          content-cols-lg="4"
+          label="Min number of subscribers:"
+          label-for="input-min"
+          description="Update number of subscribers."
+        >
+          <b-form-input
+            type="number"
+            id="input-min"
+            class="col-sm-12"
+            v-model="min_subscribers"
+          ></b-form-input>
+
+          <template v-if="validatorMinSubscribers.length > 0">
+            <p class="modal__validation">{{ validatorMinSubscribers }}</p>
+          </template>
+        </b-form-group>
+      </div>
+
+      <div>
+        <b-form-group
+          id="fieldset-horizontal"
+          label-cols-sm="3"
+          label-cols-lg="2"
+          content-cols-sm="5"
+          content-cols-lg="4"
+          label="Max number of subscribers:"
+          label-for="input-max"
+          description="Update number of subscribers."
+        >
+          <b-form-input
+            type="number"
+            id="input-max"
+            class="col-sm-12"
+            v-model="max_subscribers"
+          ></b-form-input>
+
+          <template v-if="validatorMaxSubscribers.length > 0">
+            <p class="modal__validation">{{ validatorMaxSubscribers }}</p>
+          </template>
+        </b-form-group>
+      </div>
+
+      <div>
+        <b-row sm="5" lg="4" class="mb-5">
+          <b-col sm="3" lg="2">
+            <label for="form-img-multiple">Img:</label>
+          </b-col>
+          <b-col sm="5" lg="4" class="pl-2 pr-2">
+            <input
+              class="form-control"
+              type="file"
+              id="form-img-multiple"
+              multiple
+            />
+          </b-col>
+        </b-row>
+      </div>
+
+      <div>
+        <b-row sm="5" lg="4" class="mb-5">
+          <b-col sm="3" lg="2">
+            <label for="form-video-multiple">Video:</label>
+          </b-col>
+          <b-col sm="5" lg="4" class="pl-2 pr-2">
+            <input
+              class="form-control"
+              type="file"
+              id="form-video-multiple"
+              multiple
+            />
+          </b-col>
+        </b-row>
+      </div>
+
+      <div>
+        <b-row sm="5" lg="4" class="mb-5">
+          <b-col sm="3" lg="2">
+            <label for="form-music-multiple">Music:</label>
+          </b-col>
+          <b-col sm="5" lg="4" class="pl-2 pr-2">
+            <input
+              class="form-control"
+              type="file"
+              id="form-music-multiple"
+              multiple
+            />
+          </b-col>
+        </b-row>
+      </div>
+
+      <b-row sm="4" class="pt-1 mt-4">
+        <b-col sm="3" lg="2">
+          <b-button
+            class="btn btn-dark btn_back rounded mb-3"
+            type="button"
+            @click.prevent="deleteOrder(orderId)"
+          >
+            Удалить
+          </b-button>
+        </b-col>
+        <b-col sm="4" lg="3">
+          <b-button
+            sm="5"
+            lg="4"
+            class="btn btn-dark btn_change rounded mb-3"
+            type="button"
+            @click.prevent="handlerUpdateOrder()"
+          >
+            Изменить заказ
+          </b-button>
+        </b-col>
+        <b-col sm="4" lg="3">
+          <nuxt-link
+            sm="5"
+            lg="4"
+            to="select"
+            class="btn btn-dark rounded"
+            type="button"
+          >
+            Выбрать блогеров
+          </nuxt-link>
+        </b-col>
+      </b-row>
     </template>
 
     <template v-else> <h3 class="order__not-found">Ошибка!</h3></template>
@@ -203,7 +314,29 @@ export default {
   name: "AdvertiserIdOrder",
 
   data() {
-    return {};
+    return {
+      id: null,
+      name: "",
+      description: "",
+      budget_per_subscriber: null,
+      end_date: null,
+      social: [],
+      region: "",
+      min_subscribers: null,
+      max_subscribers: null,
+      img: [],
+      video: [],
+      music: [],
+
+      validatorName: "",
+      validatorDescription: "",
+      validatorBadget: "",
+      validatorDate: "",
+      validatorSocial: "",
+      validatorRegion: "",
+      validatorMinSubscribers: "",
+      validatorMaxSubscribers: "",
+    };
   },
 
   validate({ params }) {
@@ -216,9 +349,10 @@ export default {
 
   computed: {
     ...mapGetters({
+      socials: "socials",
+      regions: "regions",
       orderId: "advertiserSettingsOrderStore/orderId",
       orderList: "advertiserSettingsOrderStore/orderList",
-      status: "advertiserSettingsOrderStore/status",
     }),
   },
 
@@ -227,33 +361,96 @@ export default {
       setOrderId: "advertiserSettingsOrderStore/setOrderId",
       getOrderList: "advertiserSettingsOrderStore/getOrderList",
       deleteOrder: "advertiserSettingsOrderStore/deleteOrder",
+      updateOrderList: "advertiserSettingsOrderStore/updateOrderList",
     }),
 
     handlerClickBack() {
       this.$router.go(-1);
     },
+
+    handlerUpdateOrder() {
+      const order = {
+        name: this.name,
+        description: this.description,
+        budget_per_subscriber: this.budget_per_subscriber,
+        end_date: this.end_date,
+        social: this.social,
+        region: this.region,
+        min_subscribers: this.min_subscribers,
+        max_subscribers: this.max_subscribers,
+      };
+
+      this.updateOrderList(order);
+    },
+
+    setOrderList() {
+      this.id = this.orderList.id;
+      this.name = this.orderList.name;
+      this.description = this.orderList.description;
+      this.budget_per_subscriber = this.orderList.budget_per_subscriber;
+      this.end_date = this.orderList.end_date;
+      this.social = this.orderList.social[0];
+      this.region = this.orderList.region;
+      this.min_subscribers = this.orderList.min_subscribers;
+      this.max_subscribers = this.orderList.max_subscribers;
+    },
+
+    resetValidatorMassages() {
+      this.validatorName = "";
+      this.validatorDescription = "";
+      this.validatorBadget = "";
+      this.validatorDate = "";
+      this.validatorSocial = "";
+      this.validatorRegion = "";
+      this.validatorMinSubscribers = "";
+      this.validatorMaxSubscribers = "";
+    },
+
+    addValidatorMassages() {
+      for (let el of Object.entries(this.validatorResponse)) {
+        let massage = "";
+
+        if (Array.isArray(el[1])) {
+          massage = el[1].reduce((acc, el) => acc + " " + el);
+        } else {
+          massage = el[1];
+        }
+
+        if (el[0] === "name") {
+          this.validatorName = massage;
+        } else if (el[0] === "description") {
+          this.validatorDescription = massage;
+        } else if (el[0] === "budget_per_subscriber") {
+          this.validatorBadget = massage;
+        } else if (el[0] === "end_date") {
+          this.validatorDate = massage;
+        } else if (el[0] === "social") {
+          this.validatorSocial = massage;
+        } else if (el[0] === "region") {
+          this.validatorRegion = massage;
+        } else if (el[0] === "min_subscribers") {
+          this.validatorMinSubscribers = massage;
+        } else if (el[0] === "max_subscribers") {
+          this.validatorMaxSubscribers = massage;
+        }
+      }
+    },
   },
 
   watch: {
-    status() {
-      if (this.status === "success") {
-        this.handlerClickBack();
-      }
+    validatorResponse() {
+      this.resetValidatorMassages();
+      this.addValidatorMassages();
+    },
+
+    orderList() {
+      this.setOrderList();
     },
   },
 };
 </script>
 
 <style scoped>
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
-
-/* **** ORDER HEADER **** */
-
 .order__header {
   display: flex;
   align-items: center;
@@ -262,181 +459,22 @@ export default {
   max-width: 33.3333rem;
 }
 
-.header__title {
-  font-size: 1.2778rem;
-  line-height: 1.1667rem;
-  text-decoration-line: underline;
-  color: var(--bs-gray-600);
-  /* text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
-}
-
-.header__btn_back:hover,
-.header__btn_back:active {
-  color: var(--bs-secondary);
-  -webkit-transition: outline 0.1s ease;
-  -o-transition: outline 0.1s ease;
-  transition: outline 0.1s ease;
-  outline: 1.5px solid var(--bs-gray-600);
-}
-
-/* **** ORDER BODY **** */
-
-.body__row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.body__row:not(:last-child) {
-  margin-bottom: 16.0002px;
-}
-
-.body__cell {
-  margin-right: 1.1111rem;
-}
-
-.body__cell-input {
-  max-width: 14.3333rem;
-  width: 100%;
-}
-
-.body__cell-label {
-  max-width: 9.2222rem;
-  width: 100%;
-}
-
-.body__input {
-  text-align: center;
-  padding: 0 0.6111rem;
-  width: 100%;
-  min-height: 1.6667rem;
-  font-size: 0.8889rem;
-  line-height: 1.0556rem;
-  color: var(--bs-gray-600);
-  border: 1px solid var(--bs-gray-600);
-  border-radius: 10px;
-  background-color: transparent;
-}
-
-.body__input:hover,
-.body__input:active {
-  -webkit-transition: outline 0.1s ease;
-  -o-transition: outline 0.1s ease;
-  transition: outline 0.1s ease;
-  outline: 1.5px solid var(--bs-secondary);
-}
-
-.body__row_textarea {
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: start;
-}
-
-.body__input_textarea {
-  height: 8.0555rem;
-}
-
-.body__input-label {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  text-align: center;
-  cursor: pointer;
-}
-
-.body__input-file {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-}
-
-.body__input_textarea {
-  padding: 0.3333rem 0.5556rem;
-  text-align: left;
-}
-
-/* **** BODY FOOTER **** */
-
-.body-footer {
-  margin-top: 2.2223rem;
-}
-.footer__button {
-  width: 100%;
-  height: 1.6667rem;
-  color: #fff;
-  background: var(--bs-gray-600);
-  border-radius: 10px;
-  font-weight: 500;
-  font-size: 1rem;
-  line-height: 1.1667rem;
-}
-
-.footer__button_delete:hover,
-.footer__button_delete:active {
-  background: var(--bs-danger);
-}
-
-.footer__button_add:hover,
-.footer__button_add:active {
+.btn_change:hover,
+.btn_change:active {
   background: var(--bs-secondary);
 }
 
-.footer__link {
-  font-size: 1rem;
-  line-height: 1.1667rem;
-  -webkit-text-decoration-line: underline;
-  text-decoration-line: underline;
-  color: var(--bs-secondary);
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.btn_back:hover,
+.btn_back:active {
+  background: var(--bs-warning);
 }
 
-/* **** NOT FOUND ****  */
+/* *** VALIDATION *** */
 
-.order__not-found {
+.modal__validation {
+  font-size: 0.8889rem;
+  margin-bottom: 10px;
+  color: var(--bs-orange);
   text-align: center;
-  margin: 3rem 0;
-  font-size: 1.2222rem;
-}
-
-@media (max-width: 1175px) {
-  .body__row:not(:last-child) {
-    margin-bottom: 15px;
-  }
-}
-
-@media (max-width: 770px) {
-  .body-footer {
-    flex-direction: column-reverse;
-  }
-
-  .footer__cell {
-    margin-bottom: 0.5556rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .order__link {
-    margin-bottom: 18px;
-  }
-
-  .body__row:not(:last-child) {
-    margin-bottom: 15px;
-  }
-
-  .body__input_textarea {
-    height: 90px;
-  }
 }
 </style>

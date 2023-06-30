@@ -1,7 +1,7 @@
 export const state = () => ({
   isOpenModalAddOrder: false,
 
-  count: 28,
+  count: 0,
 
   activePage: 1,
 

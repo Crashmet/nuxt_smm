@@ -63,7 +63,7 @@
               <td>-</td>
             </tr>
 
-            <!-- <tr @click.prevent="handlerClickOrderMenu(item)">
+            <!-- <tr @click.prevent="handlerClickOrderMenu({ id: 2 })">
               <td>sadasd</td>
               <td>ssdfsdfsd</td>
               <td>asd</td>
