@@ -6,14 +6,14 @@ export const state = () => ({
   role: null,
 
   socials: [
-    { id: 1, name: "tiktok", selectName: "Tiktok" },
-    { id: 2, name: "likee", selectName: "Likee" },
-    { id: 3, name: "youtube", selectName: "Youtube" },
-    { id: 4, name: "instagram", selectName: "Instagram" },
-    { id: 5, name: "telegram", selectName: "Telegram" },
-    { id: 6, name: "twitter", selectName: "Twitter" },
-    { id: 7, name: "vk", selectName: "Вконтаке" },
-    { id: 8, name: "dzen", selectName: "Яндекс Дзен" },
+    { id: 0, name: "tiktok", selectName: "Tiktok" },
+    { id: 1, name: "likee", selectName: "Likee" },
+    { id: 2, name: "youtube", selectName: "Youtube" },
+    { id: 3, name: "instagram", selectName: "Instagram" },
+    { id: 4, name: "telegram", selectName: "Telegram" },
+    { id: 5, name: "twitter", selectName: "Twitter" },
+    { id: 6, name: "vk", selectName: "Вконтаке" },
+    { id: 7, name: "dzen", selectName: "Яндекс Дзен" },
   ],
 
   regions: [

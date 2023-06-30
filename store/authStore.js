@@ -48,6 +48,8 @@ export const actions = {
     await this.$axios
       .$delete("account/", {})
       .then((response) => {
+        this.app.router.push({ path: "/" });
+
         location.reload();
       })
       .catch((error) => {
