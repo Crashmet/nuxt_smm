@@ -478,8 +478,8 @@ export default {
 .nav-search__form {
   display: flex;
   align-items: center;
-  width: 10rem;
-  border: 1.5px solid var(--bs-gray-600);
+  /* width: 15.5rem; */
+  border: 1px solid var(--bs-gray-600);
   background: transparent;
 }
 
@@ -492,7 +492,7 @@ export default {
 .nav-search__input {
   padding: 0 0.6667rem;
   height: 2rem;
-  width: 7rem;
+  width: 11.25rem;
   color: var(--bs-gray-600);
   background: transparent;
   font-size: 0.8889rem;
@@ -500,7 +500,7 @@ export default {
 }
 
 .nav-search__btn {
-  padding: 0.7222rem 1.3rem;
+  padding: 0.75rem 1.3rem;
   background: var(--bs-gray-600);
   transition: background 0.2s ease-in;
 }
