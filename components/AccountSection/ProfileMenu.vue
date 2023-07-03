@@ -18,7 +18,7 @@
         </b-nav-item>
       </b-nav>
 
-      <h3 class="profile-menu__title col-3">Blogger Menu</h3>
+      <h3 class="profile-menu__title col-4 col-sm-3">Blogger Menu</h3>
     </div>
 
     <div class="profile-menu__row bg-dark" v-else>
@@ -39,7 +39,7 @@
         </b-nav-item>
       </b-nav>
 
-      <h3 class="profile-menu__title col-2">Advertiser menu</h3>
+      <h3 class="profile-menu__title col-4 col-sm-3">Advertiser menu</h3>
     </div>
   </div>
 </template>

@@ -118,3 +118,9 @@ html {
 .toast:not(.show) {
   display: block;
 }
+
+
+@media (min-width: 540px) {
+  * {
+    font-size: 14px; } 
+}

@@ -118,4 +118,11 @@ export default {
 .search__btn {
   border-radius: 20px;
 }
+
+@media (max-width: 480px) {
+  .hero .form-search .btn {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
 </style>

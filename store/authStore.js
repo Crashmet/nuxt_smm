@@ -51,6 +51,10 @@ export const actions = {
         location.reload();
       })
       .catch((error) => {
+        this.$cookies.removeAll();
+
+        location.reload();
+
         console.log(error);
       });
   },

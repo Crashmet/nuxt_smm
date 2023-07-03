@@ -194,7 +194,7 @@ td {
 }
 
 .chat_check__cell_active::after {
-  background-image: url("@/assets/image/check.svg");
+  background-image: url("@/static/img/check.svg");
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: contain;

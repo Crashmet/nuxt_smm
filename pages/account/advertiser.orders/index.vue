@@ -610,7 +610,7 @@ thead th {
   right: 20%;
   width: 14px;
   height: 14px;
-  background-image: url("@/assets/image/arrow.svg");
+  background-image: url("@/static/img/arrow.svg");
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: contain;
