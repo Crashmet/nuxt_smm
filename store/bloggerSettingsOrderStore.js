@@ -4,6 +4,8 @@ export const state = () => ({
   orderList: {},
 
   isLoading: true,
+
+  isResponseOk: false,
 });
 
 export const getters = {
@@ -12,6 +14,8 @@ export const getters = {
   orderList: ({ orderList }) => orderList,
 
   isLoading: ({ isLoading }) => isLoading,
+
+  isResponseOk: ({ isResponseOk }) => isResponseOk,
 };
 
 export const mutations = {
@@ -25,6 +29,10 @@ export const mutations = {
 
   SET_STATUS_LOADING(state, flag) {
     state.isLoading = flag;
+  },
+
+  SET_STATUS_RESPONSE(state, flag) {
+    state.isResponseOk = flag;
   },
 };
 
@@ -46,8 +54,12 @@ export const actions = {
         dispatch("setStatusLoading", false);
 
         commit("SET_ORDER_LIST", response);
+
+        commit("SET_STATUS_RESPONSE", true);
       })
       .catch((error) => {
+        commit("SET_STATUS_RESPONSE", false);
+
         console.log(error.response);
       });
   },

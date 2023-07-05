@@ -1,6 +1,13 @@
 <template>
   <div class="orders-home home">
-    <div>
+    <b-skeleton-table
+      v-if="isLoading"
+      :rows="5"
+      :columns="5"
+      :table-props="{ bordered: true, striped: true }"
+    ></b-skeleton-table>
+
+    <div v-else>
       <nav class="orders__nav">
         <form v-if="count" action="#" class="nav-search__form">
           <input
@@ -245,6 +252,8 @@ export default {
       filtersTitles: "bloggerOrdersStore/filtersTitles",
 
       bloggerOrdersList: "bloggerOrdersStore/bloggerOrdersList",
+
+      isLoading: "bloggerOrdersStore/isLoading",
     }),
 
     countPages() {

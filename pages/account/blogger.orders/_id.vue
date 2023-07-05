@@ -1,6 +1,6 @@
 <template>
   <div class="order">
-    <template v-if="Object.keys(orderList).length">
+    <template v-if="isResponseOk">
       <div class="order__header">
         <h4 class="mb-3">information about order</h4>
 
@@ -304,6 +304,7 @@ export default {
       orderList: "bloggerSettingsOrderStore/orderList",
 
       isLoading: "bloggerSettingsOrderStore/isLoading",
+      isResponseOk: "bloggerSettingsOrderStore/isResponseOk",
     }),
   },
 

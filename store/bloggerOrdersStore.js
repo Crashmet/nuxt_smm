@@ -1,4 +1,6 @@
 export const state = () => ({
+  isLoading: true,
+
   count: 0,
 
   activePage: 1,
@@ -44,6 +46,8 @@ export const state = () => ({
 });
 
 export const getters = {
+  isLoading: ({ isLoading }) => isLoading,
+
   count: ({ count }) => count,
 
   activePage: ({ activePage }) => activePage,
@@ -54,6 +58,10 @@ export const getters = {
 };
 
 export const mutations = {
+  SET_STATUS_LOADING(state, flag) {
+    state.isLoading = flag;
+  },
+
   SET_ACTIVE_PAGE(state, value) {
     state.activePage = value;
   },
@@ -94,6 +102,10 @@ export const mutations = {
 };
 
 export const actions = {
+  setStatusLoading({ commit }, flag) {
+    commit("SET_STATUS_LOADING", flag);
+  },
+
   setActivePage({ commit }, value) {
     commit("SET_ACTIVE_PAGE", value);
   },
@@ -107,14 +119,18 @@ export const actions = {
   },
 
   async getBloggerOrdersList(
-    { commit },
+    { commit, dispatch },
     { ordering = "", activePage = "1", pageSize = "", searchInput = "" }
   ) {
+    dispatch("setStatusLoading", true);
+
     await this.$axios
       .$get(
         `orders/?ordering=${ordering}&page=${activePage}&page_size=${pageSize}&search=${searchInput}`
       )
       .then((response) => {
+        dispatch("setStatusLoading", false);
+
         commit("SET_COUNT_CARDS", response.count);
 
         commit("SET_BLOGGER_ORDERS_LIST", response.results);
