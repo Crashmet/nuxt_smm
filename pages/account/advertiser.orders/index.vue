@@ -1,11 +1,37 @@
 <template>
   <div class="orders-home home">
-    <b-skeleton-table
-      v-if="isLoading"
-      :rows="5"
-      :columns="5"
-      :table-props="{ bordered: true, striped: true }"
-    ></b-skeleton-table>
+    <div v-if="isLoading">
+      <nav class="orders__nav">
+        <div class="nav_left">
+          <button
+            class="nav-change__btn"
+            @click="changeAddOrderModalStatus(true)"
+          >
+            <span class="nav-change__text">Разместить новый заказ</span>
+          </button>
+        </div>
+
+        <div class="nav_right">
+          <form action="#" class="nav-search__form">
+            <b-skeleton
+              v-if="isLoading"
+              class="col-sm-12"
+              type="input"
+            ></b-skeleton>
+
+            <button class="nav-search__btn">
+              <p class="nav-search__btn-arrow"></p>
+            </button>
+          </form>
+        </div>
+      </nav>
+
+      <b-skeleton-table
+        :rows="5"
+        :columns="5"
+        :table-props="{ bordered: true, striped: true }"
+      ></b-skeleton-table>
+    </div>
 
     <div v-else :class="isOpenModalAddOrder ? 'blur' : ''">
       <nav class="orders__nav">

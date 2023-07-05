@@ -1,11 +1,26 @@
 <template>
   <div class="orders-home home">
-    <b-skeleton-table
-      v-if="isLoading"
-      :rows="5"
-      :columns="5"
-      :table-props="{ bordered: true, striped: true }"
-    ></b-skeleton-table>
+    <div v-if="isLoading">
+      <nav class="orders__nav">
+        <form action="#" class="nav-search__form">
+          <b-skeleton
+            v-if="isLoading"
+            class="col-sm-12"
+            type="input"
+          ></b-skeleton>
+
+          <button class="nav-search__btn">
+            <p class="nav-search__btn-arrow"></p>
+          </button>
+        </form>
+      </nav>
+
+      <b-skeleton-table
+        :rows="5"
+        :columns="5"
+        :table-props="{ bordered: true, striped: true }"
+      ></b-skeleton-table>
+    </div>
 
     <div v-else>
       <nav class="orders__nav">
