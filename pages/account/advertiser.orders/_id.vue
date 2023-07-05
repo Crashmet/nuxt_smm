@@ -1,6 +1,6 @@
 <template>
   <div class="order">
-    <template v-if="Object.keys(orderList).length">
+    <template v-if="isResponseOk">
       <div class="order__header">
         <h4 class="mb-3">information about order</h4>
 
@@ -22,7 +22,14 @@
           label="ID:"
           label-for="input-id"
         >
+          <b-skeleton
+            v-if="isLoading"
+            class="col-sm-12"
+            type="input"
+          ></b-skeleton>
+
           <b-form-input
+            v-else
             class="col-sm-12"
             id="input-id"
             disabled
@@ -42,7 +49,14 @@
           label-for="input-name"
           description="Update your order name."
         >
+          <b-skeleton
+            v-if="isLoading"
+            class="col-sm-12"
+            type="input"
+          ></b-skeleton>
+
           <b-form-input
+            v-else
             class="col-sm-12"
             id="input-name"
             v-model="name"
@@ -60,7 +74,14 @@
             <label for="textarea-default">Order description:</label>
           </b-col>
           <b-col sm="5" lg="4" class="pl-2 pr-2">
+            <b-skeleton
+              v-if="isLoading"
+              class="col-sm-12"
+              type="input"
+            ></b-skeleton>
+
             <b-form-textarea
+              v-else
               class="col-sm-12"
               id="textarea-default"
               v-model="description"
@@ -84,7 +105,14 @@
           label-for="input-price"
           description="Update price."
         >
+          <b-skeleton
+            v-if="isLoading"
+            class="col-sm-12"
+            type="input"
+          ></b-skeleton>
+
           <b-form-input
+            v-else
             type="number"
             id="input-price"
             class="col-sm-12"
@@ -107,7 +135,14 @@
           label="Date:"
           label-for="input-date"
         >
+          <b-skeleton
+            v-if="isLoading"
+            class="col-sm-12"
+            type="input"
+          ></b-skeleton>
+
           <b-form-input
+            v-else
             type="date"
             id="input-date"
             class="col-sm-12"
@@ -131,7 +166,18 @@
           label-for="input-social"
           description="Update social network."
         >
-          <b-form-select id="input-social" class="col-sm-12" v-model="social">
+          <b-skeleton
+            v-if="isLoading"
+            class="col-sm-12"
+            type="input"
+          ></b-skeleton>
+
+          <b-form-select
+            v-else
+            id="input-social"
+            class="col-sm-12"
+            v-model="social"
+          >
             <b-form-select-option
               v-for="item in socials"
               :value="[item.id]"
@@ -157,7 +203,18 @@
           label-for="input-region"
           description="Update region."
         >
-          <b-form-select id="input-region" class="col-sm-12" v-model="region">
+          <b-skeleton
+            v-if="isLoading"
+            class="col-sm-12"
+            type="input"
+          ></b-skeleton>
+
+          <b-form-select
+            v-else
+            id="input-region"
+            class="col-sm-12"
+            v-model="region"
+          >
             <b-form-select-option
               v-for="item in regions"
               :value="item.id"
@@ -183,7 +240,14 @@
           label-for="input-min"
           description="Update number of subscribers."
         >
+          <b-skeleton
+            v-if="isLoading"
+            class="col-sm-12"
+            type="input"
+          ></b-skeleton>
+
           <b-form-input
+            v-else
             type="number"
             id="input-min"
             class="col-sm-12"
@@ -207,7 +271,14 @@
           label-for="input-max"
           description="Update number of subscribers."
         >
+          <b-skeleton
+            v-if="isLoading"
+            class="col-sm-12"
+            type="input"
+          ></b-skeleton>
+
           <b-form-input
+            v-else
             type="number"
             id="input-max"
             class="col-sm-12"
@@ -351,9 +422,14 @@ export default {
     ...mapGetters({
       socials: "socials",
       regions: "regions",
+
       orderId: "advertiserSettingsOrderStore/orderId",
       orderList: "advertiserSettingsOrderStore/orderList",
+
       validatorResponse: "advertiserSettingsOrderStore/validatorResponse",
+
+      isLoading: "advertiserSettingsOrderStore/isLoading",
+      isResponseOk: "advertiserSettingsOrderStore/isResponseOk",
     }),
   },
 

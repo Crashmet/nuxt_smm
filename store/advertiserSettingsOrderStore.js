@@ -4,6 +4,10 @@ export const state = () => ({
   orderList: {},
 
   validatorResponse: {},
+
+  isLoading: true,
+
+  isResponseOk: true,
 });
 
 export const getters = {
@@ -12,6 +16,10 @@ export const getters = {
   orderList: ({ orderList }) => orderList,
 
   validatorResponse: ({ validatorResponse }) => validatorResponse,
+
+  isLoading: ({ isLoading }) => isLoading,
+
+  isResponseOk: ({ isResponseOk }) => isResponseOk,
 };
 
 export const mutations = {
@@ -26,6 +34,14 @@ export const mutations = {
   SET_VALIDATOR_DATA(state, validatorResponse) {
     state.validatorResponse = validatorResponse;
   },
+
+  SET_STATUS_LOADING(state, flag) {
+    state.isLoading = flag;
+  },
+
+  SET_STATUS_RESPONSE(state, flag) {
+    state.isResponseOk = flag;
+  },
 };
 
 export const actions = {
@@ -33,18 +49,30 @@ export const actions = {
     commit("SET_ORDER_ID", id);
   },
 
-  async getOrderList({ commit }, id) {
+  setStatusLoading({ commit }, flag) {
+    commit("SET_STATUS_LOADING", flag);
+  },
+
+  async getOrderList({ commit, dispatch }, id) {
+    dispatch("setStatusLoading", true);
+
     await this.$axios
       .$get(`orders/${id}/`)
       .then((response) => {
+        dispatch("setStatusLoading", false);
+
+        commit("SET_STATUS_RESPONSE", true);
+
         commit("SET_ORDER_LIST", response);
       })
       .catch((error) => {
+        commit("SET_STATUS_RESPONSE", false);
+
         console.log(error.response);
       });
   },
 
-  async deleteOrder({ commit, dispatch }, id) {
+  async deleteOrder({ commit }, id) {
     await this.$axios
       .$delete(`orders/${id}/`)
       .then((response) => {
@@ -60,11 +88,15 @@ export const actions = {
   },
 
   async updateOrderList({ commit, dispatch }, order) {
+    dispatch("setStatusLoading", true);
+
     const dataJson = JSON.stringify(order);
 
     await this.$axios
       .$patch(`orders/${order.id}/`, dataJson)
       .then((response) => {
+        dispatch("setStatusLoading", false);
+
         commit("SET_VALIDATOR_DATA", {});
 
         commit("SET_ORDER_LIST", response);

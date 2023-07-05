@@ -1,6 +1,13 @@
 <template>
   <div class="orders-home home">
-    <div :class="isOpenModalAddOrder ? 'blur' : ''">
+    <b-skeleton-table
+      v-if="isLoading"
+      :rows="5"
+      :columns="5"
+      :table-props="{ bordered: true, striped: true }"
+    ></b-skeleton-table>
+
+    <div v-else :class="isOpenModalAddOrder ? 'blur' : ''">
       <nav class="orders__nav">
         <div class="nav_left">
           <button
@@ -266,6 +273,8 @@ export default {
 
       isOpenModalAddOrder: "advertiserOrdersStore/isOpenModalAddOrder",
       advertiserOrdersList: "advertiserOrdersStore/advertiserOrdersList",
+
+      isLoading: "advertiserOrdersStore/isLoading",
     }),
 
     countPages() {

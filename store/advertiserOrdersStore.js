@@ -1,4 +1,6 @@
 export const state = () => ({
+  isLoading: true,
+
   isOpenModalAddOrder: false,
 
   count: 0,
@@ -48,6 +50,8 @@ export const state = () => ({
 });
 
 export const getters = {
+  isLoading: ({ isLoading }) => isLoading,
+
   count: ({ count }) => count,
 
   activePage: ({ activePage }) => activePage,
@@ -62,6 +66,10 @@ export const getters = {
 };
 
 export const mutations = {
+  SET_STATUS_LOADING(state, flag) {
+    state.isLoading = flag;
+  },
+
   CHANGE_ORDER_MODAL_STATUS(state, flag) {
     state.isOpenModalAddOrder = flag;
   },
@@ -110,6 +118,10 @@ export const mutations = {
 };
 
 export const actions = {
+  setStatusLoading({ commit }, flag) {
+    commit("SET_STATUS_LOADING", flag);
+  },
+
   setActivePage({ commit }, value) {
     commit("SET_ACTIVE_PAGE", value);
   },
@@ -150,14 +162,18 @@ export const actions = {
   },
 
   async getAdvertiserOrdersList(
-    { commit },
+    { commit, dispatch },
     { ordering = "", activePage = "1", pageSize = "", searchInput = "" }
   ) {
+    dispatch("setStatusLoading", true);
+
     await this.$axios
       .$get(
         `orders/my_orders/?ordering=${ordering}&page=${activePage}&page_size=${pageSize}&search=${searchInput}`
       )
       .then((response) => {
+        dispatch("setStatusLoading", false);
+
         commit("SET_COUNT_CARDS", response.count);
 
         commit("SET_ADVERTISER_ORDERS_LIST", response.results);

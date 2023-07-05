@@ -53,9 +53,9 @@ export const actions = {
       .then((response) => {
         dispatch("setStatusLoading", false);
 
-        commit("SET_ORDER_LIST", response);
-
         commit("SET_STATUS_RESPONSE", true);
+
+        commit("SET_ORDER_LIST", response);
       })
       .catch((error) => {
         commit("SET_STATUS_RESPONSE", false);
