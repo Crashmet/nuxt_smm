@@ -15,7 +15,7 @@
           <form action="#" class="nav-search__form">
             <b-skeleton
               v-if="isLoading"
-              class="col-sm-12"
+              class="nav-search__input"
               type="input"
             ></b-skeleton>
 
