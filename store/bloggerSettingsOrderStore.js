@@ -3,13 +3,15 @@ export const state = () => ({
 
   orderList: {},
 
-  validatorResponse: {},
+  isLoading: true,
 });
 
 export const getters = {
   orderId: ({ orderId }) => orderId,
 
   orderList: ({ orderList }) => orderList,
+
+  isLoading: ({ isLoading }) => isLoading,
 };
 
 export const mutations = {
@@ -20,6 +22,10 @@ export const mutations = {
   SET_ORDER_LIST(state, data) {
     state.orderList = data;
   },
+
+  SET_STATUS_LOADING(state, flag) {
+    state.isLoading = flag;
+  },
 };
 
 export const actions = {
@@ -27,10 +33,18 @@ export const actions = {
     commit("SET_ORDER_ID", id);
   },
 
-  async getOrderList({ commit }, id) {
+  setStatusLoading({ commit }, flag) {
+    commit("SET_STATUS_LOADING", flag);
+  },
+
+  async getOrderList({ commit, dispatch }, id) {
+    dispatch("setStatusLoading", true);
+
     await this.$axios
       .$get(`orders/${id}/`)
       .then((response) => {
+        dispatch("setStatusLoading", false);
+
         commit("SET_ORDER_LIST", response);
       })
       .catch((error) => {

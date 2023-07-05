@@ -22,7 +22,14 @@
           label="ID:"
           label-for="input-id"
         >
+          <b-skeleton
+            v-if="isLoading"
+            class="col-sm-12"
+            type="input"
+          ></b-skeleton>
+
           <b-form-input
+            v-else
             class="col-sm-12"
             id="input-id"
             disabled
@@ -41,7 +48,14 @@
           label="Order name:"
           label-for="input-name"
         >
+          <b-skeleton
+            v-if="isLoading"
+            class="col-sm-12"
+            type="input"
+          ></b-skeleton>
+
           <b-form-input
+            v-else
             class="col-sm-12"
             id="input-name"
             disabled
@@ -56,7 +70,14 @@
             <label for="textarea-default">Order description:</label>
           </b-col>
           <b-col sm="5" lg="4" class="pl-2 pr-2">
+            <b-skeleton
+              v-if="isLoading"
+              class="col-sm-12"
+              type="input"
+            ></b-skeleton>
+
             <b-form-textarea
+              v-else
               class="col-sm-12"
               id="textarea-default"
               disabled
@@ -76,7 +97,14 @@
           label="Price per subscriber:"
           label-for="input-price"
         >
+          <b-skeleton
+            v-if="isLoading"
+            class="col-sm-12"
+            type="input"
+          ></b-skeleton>
+
           <b-form-input
+            v-else
             type="number"
             id="input-price"
             class="col-sm-12"
@@ -96,7 +124,14 @@
           label="Date:"
           label-for="input-date"
         >
+          <b-skeleton
+            v-if="isLoading"
+            class="col-sm-12"
+            type="input"
+          ></b-skeleton>
+
           <b-form-input
+            v-else
             type="date"
             id="input-date"
             class="col-sm-12"
@@ -116,7 +151,14 @@
           label="Social network:"
           label-for="input-social"
         >
+          <b-skeleton
+            v-if="isLoading"
+            class="col-sm-12"
+            type="input"
+          ></b-skeleton>
+
           <b-form-select
+            v-else
             id="input-social"
             class="col-sm-12"
             disabled
@@ -142,7 +184,14 @@
           label="Region:"
           label-for="input-region"
         >
+          <b-skeleton
+            v-if="isLoading"
+            class="col-sm-12"
+            type="input"
+          ></b-skeleton>
+
           <b-form-select
+            v-else
             id="input-region"
             class="col-sm-12"
             disabled
@@ -168,7 +217,14 @@
           label="Min number of subscribers:"
           label-for="input-min"
         >
+          <b-skeleton
+            v-if="isLoading"
+            class="col-sm-12"
+            type="input"
+          ></b-skeleton>
+
           <b-form-input
+            v-else
             type="number"
             id="input-min"
             class="col-sm-12"
@@ -188,7 +244,14 @@
           label="Max number of subscribers:"
           label-for="input-max"
         >
+          <b-skeleton
+            v-if="isLoading"
+            class="col-sm-12"
+            type="input"
+          ></b-skeleton>
+
           <b-form-input
+            v-else
             type="number"
             id="input-max"
             class="col-sm-12"
@@ -236,8 +299,11 @@ export default {
     ...mapGetters({
       socials: "socials",
       regions: "regions",
+
       orderId: "bloggerSettingsOrderStore/orderId",
       orderList: "bloggerSettingsOrderStore/orderList",
+
+      isLoading: "bloggerSettingsOrderStore/isLoading",
     }),
   },
 
