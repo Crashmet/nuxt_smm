@@ -45,6 +45,7 @@
           <b-form-input
             class="col-sm-12"
             id="input-name"
+            disabled
             v-model="name"
           ></b-form-input>
         </b-form-group>
@@ -59,6 +60,7 @@
             <b-form-textarea
               class="col-sm-12"
               id="textarea-default"
+              disabled
               v-model="description"
             ></b-form-textarea>
           </b-col>
@@ -80,6 +82,7 @@
             type="number"
             id="input-price"
             class="col-sm-12"
+            disabled
             v-model="budget_per_subscriber"
           ></b-form-input>
         </b-form-group>
@@ -99,6 +102,7 @@
             type="date"
             id="input-date"
             class="col-sm-12"
+            disabled
             v-model="end_date"
           ></b-form-input>
         </b-form-group>
@@ -115,7 +119,12 @@
           label-for="input-social"
           description="Update social network."
         >
-          <b-form-select id="input-social" class="col-sm-12" v-model="social">
+          <b-form-select
+            id="input-social"
+            class="col-sm-12"
+            disabled
+            v-model="social"
+          >
             <b-form-select-option
               v-for="item in socials"
               :value="[item.id]"
@@ -137,7 +146,12 @@
           label-for="input-region"
           description="Update region."
         >
-          <b-form-select id="input-region" class="col-sm-12" v-model="region">
+          <b-form-select
+            id="input-region"
+            class="col-sm-12"
+            disabled
+            v-model="region"
+          >
             <b-form-select-option
               v-for="item in regions"
               :value="item.id"
@@ -163,6 +177,7 @@
             type="number"
             id="input-min"
             class="col-sm-12"
+            disabled
             v-model="min_subscribers"
           ></b-form-input>
         </b-form-group>
@@ -183,6 +198,7 @@
             type="number"
             id="input-max"
             class="col-sm-12"
+            disabled
             v-model="max_subscribers"
           ></b-form-input>
         </b-form-group>
