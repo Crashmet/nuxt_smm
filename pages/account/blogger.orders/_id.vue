@@ -40,7 +40,6 @@
           content-cols-lg="4"
           label="Order name:"
           label-for="input-name"
-          description="Update your order name."
         >
           <b-form-input
             class="col-sm-12"
@@ -76,7 +75,6 @@
           content-cols-lg="4"
           label="Price per subscriber:"
           label-for="input-price"
-          description="Update price."
         >
           <b-form-input
             type="number"
@@ -117,7 +115,6 @@
           content-cols-lg="4"
           label="Social network:"
           label-for="input-social"
-          description="Update social network."
         >
           <b-form-select
             id="input-social"
@@ -144,7 +141,6 @@
           content-cols-lg="4"
           label="Region:"
           label-for="input-region"
-          description="Update region."
         >
           <b-form-select
             id="input-region"
@@ -171,7 +167,6 @@
           content-cols-lg="4"
           label="Min number of subscribers:"
           label-for="input-min"
-          description="Update number of subscribers."
         >
           <b-form-input
             type="number"
@@ -192,7 +187,6 @@
           content-cols-lg="4"
           label="Max number of subscribers:"
           label-for="input-max"
-          description="Update number of subscribers."
         >
           <b-form-input
             type="number"
