@@ -1,32 +1,18 @@
 <template>
   <div class="orders-home home">
-    <div :class="isOpenModalAddOrder ? 'blur' : ''">
+    <div>
       <nav class="orders__nav">
-        <div class="nav_left">
-          <button
-            class="nav-change__btn"
-            @click="changeAddOrderModalStatus(true)"
-          >
-            <span class="nav-change__text">Разместить новый заказ</span>
+        <form v-if="count" action="#" class="nav-search__form">
+          <input
+            type="text"
+            placeholder="Поиск"
+            class="nav-search__input"
+            v-model="filterInput"
+          />
+          <button class="nav-search__btn" @click.prevent="handlerClickSearch()">
+            <p class="nav-search__btn-arrow"></p>
           </button>
-        </div>
-
-        <div v-if="count" class="nav_right">
-          <form action="#" class="nav-search__form">
-            <input
-              type="text"
-              placeholder="Поиск"
-              class="nav-search__input"
-              v-model="filterInput"
-            />
-            <button
-              class="nav-search__btn"
-              @click.prevent="handlerClickSearch()"
-            >
-              <p class="nav-search__btn-arrow"></p>
-            </button>
-          </form>
-        </div>
+        </form>
       </nav>
 
       <div class="orders__table">
@@ -52,7 +38,7 @@
           </thead>
           <tbody>
             <tr
-              v-for="item in advertiserOrdersList"
+              v-for="item in bloggerOrdersList"
               :key="item.id"
               @click.prevent="handlerClickOrderMenu(item)"
             >
@@ -210,18 +196,14 @@
         </div>
       </nav>
     </div>
-
-    <add-advertiser-new-order-modal v-show="isOpenModalAddOrder" />
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from "vuex";
 
-import addAdvertiserNewOrderModal from "~/components/modal/addAdvertiserNewOrderModal.vue";
-
 export default {
-  name: "AdvertiserOrdersHome",
+  name: "BloggerOrdersHome",
 
   data() {
     return {
@@ -232,8 +214,6 @@ export default {
       pageSize: 10,
     };
   },
-
-  components: { addAdvertiserNewOrderModal },
 
   mounted() {
     const windowData = Object.fromEntries(
@@ -248,7 +228,7 @@ export default {
       this.filterInput = windowData.search;
     }
 
-    this.getAdvertiserOrdersList({
+    this.getBloggerOrdersList({
       ordering: this.ordering,
       activePage: this.activePage,
       pageSize: this.pageSize,
@@ -260,12 +240,11 @@ export default {
 
   computed: {
     ...mapGetters({
-      count: "advertiserOrdersStore/count",
-      activePage: "advertiserOrdersStore/activePage",
-      filtersTitles: "advertiserOrdersStore/filtersTitles",
+      count: "bloggerOrdersStore/count",
+      activePage: "bloggerOrdersStore/activePage",
+      filtersTitles: "bloggerOrdersStore/filtersTitles",
 
-      isOpenModalAddOrder: "advertiserOrdersStore/isOpenModalAddOrder",
-      advertiserOrdersList: "advertiserOrdersStore/advertiserOrdersList",
+      bloggerOrdersList: "bloggerOrdersStore/bloggerOrdersList",
     }),
 
     countPages() {
@@ -275,26 +254,24 @@ export default {
 
   methods: {
     ...mapActions({
-      changeAddOrderModalStatus:
-        "advertiserOrdersStore/changeAddOrderModalStatus",
-      getAdvertiserOrdersList: "advertiserOrdersStore/getAdvertiserOrdersList",
+      getBloggerOrdersList: "bloggerOrdersStore/getBloggerOrdersList",
 
-      updateFiltersTitles: "advertiserOrdersStore/updateFiltersTitles",
-      resetFiltersTitles: "advertiserOrdersStore/resetFiltersTitles",
+      updateFiltersTitles: "bloggerOrdersStore/updateFiltersTitles",
+      resetFiltersTitles: "bloggerOrdersStore/resetFiltersTitles",
 
-      setActivePage: "advertiserOrdersStore/setActivePage",
+      setActivePage: "bloggerOrdersStore/setActivePage",
 
-      setOrderId: "advertiserSettingsOrderStore/setOrderId",
+      setOrderId: "bloggerSettingsOrderStore/setOrderId",
     }),
 
     handlerClickOrderMenu(data) {
       this.setOrderId(data.id);
 
-      this.$router.push({ path: `/account/advertiser.orders/${data.id}` });
+      this.$router.push({ path: `/account/blogger.orders/${data.id}` });
     },
 
     handlerClickSearch() {
-      this.getAdvertiserOrdersList({
+      this.getBloggerOrdersList({
         activePage: 1,
         pageSize: this.pageSize,
         searchInput: this.filterInput,
@@ -322,7 +299,7 @@ export default {
 
       this.ordering = isSortUp ? APIRequestUp : APIRequestDown;
 
-      this.getAdvertiserOrdersList({
+      this.getBloggerOrdersList({
         ordering: this.ordering,
         activePage: this.activePage,
         pageSize: this.pageSize,
@@ -334,14 +311,14 @@ export default {
       window.history.pushState(
         window.history.state,
         document.title,
-        `/account/advertiser.orders?page=${this.activePage}&page_size=${this.pageSize}&search=${this.filterInput}`
+        `/account/blogger.orders?page=${this.activePage}&page_size=${this.pageSize}&search=${this.filterInput}`
       );
     },
 
     handlerClickNextPage() {
       this.setActivePage(this.activePage + 1);
 
-      this.getAdvertiserOrdersList({
+      this.getBloggerOrdersList({
         ordering: this.ordering,
         activePage: this.activePage,
         pageSize: this.pageSize,
@@ -352,7 +329,7 @@ export default {
     handlerClickPrevPage() {
       this.setActivePage(this.activePage - 1);
 
-      this.getAdvertiserOrdersList({
+      this.getBloggerOrdersList({
         ordering: this.ordering,
         activePage: this.activePage,
         pageSize: this.pageSize,
@@ -363,7 +340,7 @@ export default {
     handlerClickActivePage(e) {
       this.setActivePage(+e.target.textContent);
 
-      this.getAdvertiserOrdersList({
+      this.getBloggerOrdersList({
         ordering: this.ordering,
         activePage: this.activePage,
         pageSize: this.pageSize,
@@ -384,7 +361,7 @@ export default {
     pageSize() {
       this.historyPushState();
 
-      this.getAdvertiserOrdersList({
+      this.getBloggerOrdersList({
         ordering: this.ordering,
         activePage: this.activePage,
         pageSize: this.pageSize,

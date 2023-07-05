@@ -82,7 +82,7 @@ export const mutations = {
     state.activePage = value;
   },
 
-  REFRESH_FILTER_TITLE(state, filterTitle) {
+  UPDATE_FILTER_TITLE(state, filterTitle) {
     const newfiltersTitles = state.filtersTitles.map((el) => {
       if (el.title === filterTitle.title) {
         el = { ...el, ...filterTitle };
@@ -118,8 +118,8 @@ export const actions = {
     commit("CHANGE_ORDER_MODAL_STATUS", flag);
   },
 
-  refreshFiltersTitles({ commit }, filterTitle) {
-    commit("REFRESH_FILTER_TITLE", filterTitle);
+  updateFiltersTitles({ commit }, filterTitle) {
+    commit("UPDATE_FILTER_TITLE", filterTitle);
   },
 
   resetFiltersTitles({ commit }) {
