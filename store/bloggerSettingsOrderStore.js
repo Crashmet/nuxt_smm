@@ -5,7 +5,7 @@ export const state = () => ({
 
   isLoading: true,
 
-  isResponseOk: false,
+  isResponseOk: true,
 });
 
 export const getters = {
