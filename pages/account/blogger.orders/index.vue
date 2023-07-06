@@ -397,14 +397,12 @@ export default {
 </script>
 
 <style scoped>
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
+.sceleton {
+  width: 100%;
+}
+
 .home {
-  min-width: 1000px;
+  width: 1000px;
   margin-top: 1rem;
   position: relative;
   height: 800px;
@@ -687,9 +685,8 @@ td {
 }
 
 @media (max-width: 480px) {
-  .orders__nav,
-  table {
-    width: 550px;
+  .home {
+    width: 650px;
   }
 
   .nav_right {

@@ -1,7 +1,7 @@
 <template>
   <div class="profile-menu">
     <div class="profile-menu__row bg-dark" v-if="users[0].isActive">
-      <b-nav tabs class="col-8 col-xl-6">
+      <b-nav tabs class="col-12 col-lg-6">
         <b-nav-item
           class="col-12 col-sm-6 col-lg-3"
           :active="setting.isActive ? true : false"
@@ -18,11 +18,11 @@
         </b-nav-item>
       </b-nav>
 
-      <h3 class="profile-menu__title col-4 col-sm-3">Blogger Menu</h3>
+      <h3 class="profile-menu__title col-12 col-lg-3">Blogger Menu</h3>
     </div>
 
     <div class="profile-menu__row bg-dark" v-else>
-      <b-nav tabs class="col-8 col-xl-6">
+      <b-nav tabs class="col-12 col-lg-6">
         <b-nav-item
           class="col-12 col-sm-6 col-lg-3"
           :active="setting.isActive ? true : false"
@@ -39,7 +39,7 @@
         </b-nav-item>
       </b-nav>
 
-      <h3 class="profile-menu__title col-4 col-sm-3">Advertiser menu</h3>
+      <h3 class="profile-menu__title col-12 col-lg-3">Advertiser menu</h3>
     </div>
   </div>
 </template>
@@ -92,13 +92,6 @@ export default {
 </script>
 
 <style scoped>
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
-
 .profile-menu__row {
   display: flex;
   align-items: center;
@@ -123,5 +116,16 @@ export default {
   font-size: 16px;
   font-weight: 400;
   text-align: right;
+}
+
+@media (max-width: 992px) {
+  .profile-menu__row {
+    flex-direction: column-reverse;
+  }
+
+  .profile-menu__title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
 }
 </style>
