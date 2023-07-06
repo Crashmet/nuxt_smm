@@ -14,7 +14,7 @@
         description="Enter your order name."
       >
         <b-form-input
-          class="col-3 col-sm-12"
+          class="col-5 col-sm-12"
           id="input-name"
           v-model="name"
         ></b-form-input>
@@ -32,7 +32,7 @@
         </b-col>
         <b-col sm="5" lg="4" class="pl-2 pr-2">
           <b-form-textarea
-            class="col-3 col-sm-12"
+            class="col-5 col-sm-12"
             id="textarea-default"
             v-model="description"
           ></b-form-textarea>
@@ -58,7 +58,7 @@
         <b-form-input
           type="number"
           id="input-price"
-          class="col-3 col-sm-12"
+          class="col-5 col-sm-12"
           v-model="budget_per_subscriber"
         ></b-form-input>
 
@@ -81,7 +81,7 @@
         <b-form-input
           type="date"
           id="input-date"
-          class="col-3 col-sm-12"
+          class="col-5 col-sm-12"
           v-model="end_date"
         ></b-form-input>
 
@@ -104,7 +104,7 @@
       >
         <b-form-select
           id="input-social"
-          class="col-3 col-sm-12"
+          class="col-5 col-sm-12"
           v-model="social"
         >
           <b-form-select-option
@@ -134,7 +134,7 @@
       >
         <b-form-select
           id="input-region"
-          class="col-3 col-sm-12"
+          class="col-5 col-sm-12"
           v-model="region"
         >
           <b-form-select-option
@@ -165,7 +165,7 @@
         <b-form-input
           type="number"
           id="input-min"
-          class="col-3 col-sm-12"
+          class="col-5 col-sm-12"
           v-model="min_subscribers"
         ></b-form-input>
 
@@ -189,7 +189,7 @@
         <b-form-input
           type="number"
           id="input-max"
-          class="col-3 col-sm-12"
+          class="col-5 col-sm-12"
           v-model="max_subscribers"
         ></b-form-input>
 

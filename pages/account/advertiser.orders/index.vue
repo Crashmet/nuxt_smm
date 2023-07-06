@@ -7,6 +7,7 @@
       <nav class="orders__nav">
         <div class="nav_left">
           <button class="nav-change__btn">
+            <!-- @click="changeAddOrderModalStatus(true)" -->
             <span class="nav-change__text">Разместить новый заказ</span>
           </button>
         </div>
