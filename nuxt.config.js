@@ -31,10 +31,7 @@ export default {
       { rel: "stylesheet", href: "/css/tiny-slider.css" },
       { rel: "stylesheet", href: "/css/style.css" },
     ],
-    script: [
-      { hid: "stripe", src: "/js/counter.js", defer: true },
-      { hid: "stripe", src: "/js/navbar.js", defer: true },
-    ],
+    script: [{ hid: "stripe", src: "/js/counter.js", defer: true }],
   },
   /*
    ** Customize the progress-bar color

@@ -1,5 +1,8 @@
 <template>
-  <div class="orders-home home">
+  <div
+    class="orders-home home"
+    :class="isOpenModalAddOrder ? 'open-modal' : ''"
+  >
     <div v-if="isLoading" class="sceleton">
       <nav class="orders__nav">
         <div class="nav_left">
@@ -428,6 +431,10 @@ export default {
 </script>
 
 <style scoped>
+.open-modal {
+  height: 700px;
+}
+
 .sceleton {
   width: 100%;
 }
@@ -436,7 +443,6 @@ export default {
   width: 1000px;
   margin-top: 1rem;
   position: relative;
-  height: 800px;
 }
 
 .orders__nav {
@@ -712,6 +718,12 @@ td {
     -webkit-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
+  }
+}
+
+@media (max-width: 572px) {
+  .open-modal {
+    height: 1050px;
   }
 }
 

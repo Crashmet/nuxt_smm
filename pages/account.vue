@@ -87,13 +87,6 @@ export default {
 </script>
 
 <style scoped>
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
-
 .account {
   margin-top: 4.1111rem;
   margin-bottom: 5.5556rem;
@@ -102,7 +95,6 @@ export default {
 
 .account__main {
   width: 100%;
-  min-height: 800px;
 
   background-color: #efefefce;
 

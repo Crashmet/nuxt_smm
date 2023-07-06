@@ -1,90 +1,82 @@
-(function(){
+(function () {
+  "use strict";
 
-	'use strict'
+  var siteMenuClone = function () {
+    var jsCloneNavs = document.querySelectorAll(".js-clone-nav");
+    var siteMobileMenuBody = document.querySelector(".site-mobile-menu-body");
 
+    jsCloneNavs.forEach((nav) => {
+      var navCloned = nav.cloneNode(true);
+      console.log(navCloned);
+      navCloned.setAttribute("class", "site-nav-wrap");
+      siteMobileMenuBody.appendChild(navCloned);
+    });
 
-	var siteMenuClone = function() {
-		var jsCloneNavs = document.querySelectorAll('.js-clone-nav');
-		var siteMobileMenuBody = document.querySelector('.site-mobile-menu-body');
-		
+    setTimeout(function () {
+      var hasChildrens = document
+        .querySelector(".site-mobile-menu")
+        .querySelectorAll(".has-children");
 
+      console.log(hasChildrens);
 
-		jsCloneNavs.forEach(nav => {
-			var navCloned = nav.cloneNode(true);
-			navCloned.setAttribute('class', 'site-nav-wrap');
-			siteMobileMenuBody.appendChild(navCloned);
-		});
+      var counter = 0;
+      hasChildrens.forEach((hasChild) => {
+        var refEl = hasChild.querySelector("a");
 
-		setTimeout(function(){
+        var newElSpan = document.createElement("span");
+        newElSpan.setAttribute("class", "arrow-collapse collapsed");
 
-			var hasChildrens = document.querySelector('.site-mobile-menu').querySelectorAll(' .has-children');
+        // prepend equivalent to jquery
+        hasChild.insertBefore(newElSpan, refEl);
 
-			var counter = 0;
-			hasChildrens.forEach( hasChild => {
-				
-				var refEl = hasChild.querySelector('a');
+        var arrowCollapse = hasChild.querySelector(".arrow-collapse");
+        arrowCollapse.setAttribute("data-bs-toggle", "collapse");
+        arrowCollapse.setAttribute("data-bs-target", "#collapseItem" + counter);
 
-				var newElSpan = document.createElement('span');
-				newElSpan.setAttribute('class', 'arrow-collapse collapsed');
+        var dropdown = hasChild.querySelector(".dropdown");
+        dropdown.setAttribute("class", "collapse");
+        dropdown.setAttribute("id", "collapseItem" + counter);
 
-				// prepend equivalent to jquery
-				hasChild.insertBefore(newElSpan, refEl);
+        counter++;
+      });
+    }, 1000);
 
-				var arrowCollapse = hasChild.querySelector('.arrow-collapse');
-				arrowCollapse.setAttribute('data-bs-toggle', 'collapse');
-				arrowCollapse.setAttribute('data-bs-target', '#collapseItem' + counter);
+    // Click js-menu-toggle
 
-				var dropdown = hasChild.querySelector('.dropdown');
-				dropdown.setAttribute('class', 'collapse');
-				dropdown.setAttribute('id', 'collapseItem' + counter);
+    var menuToggle = document.querySelectorAll(".js-menu-toggle");
+    var mTog;
+    menuToggle.forEach((mtoggle) => {
+      mTog = mtoggle;
+      mtoggle.addEventListener("click", (e) => {
+        if (document.body.classList.contains("offcanvas-menu")) {
+          document.body.classList.remove("offcanvas-menu");
+          mtoggle.classList.remove("active");
+          mTog.classList.remove("active");
+        } else {
+          document.body.classList.add("offcanvas-menu");
+          console.log(document.body);
+          mtoggle.classList.add("active");
+          mTog.classList.add("active");
+        }
+      });
+    });
 
-				counter++;
-			});
+    var specifiedElement = document.querySelector(".site-mobile-menu");
+    var mt, mtoggleTemp;
+    document.addEventListener("click", function (event) {
+      var isClickInside = specifiedElement.contains(event.target);
+      menuToggle.forEach((mtoggle) => {
+        mtoggleTemp = mtoggle;
+        mt = mtoggle.contains(event.target);
+      });
 
-		}, 1000);
-
-
-		// Click js-menu-toggle
-
-		var menuToggle = document.querySelectorAll(".js-menu-toggle");
-		var mTog;
-		menuToggle.forEach(mtoggle => {
-			mTog = mtoggle;
-			mtoggle.addEventListener("click", (e) => {
-				if ( document.body.classList.contains('offcanvas-menu') ) {
-					document.body.classList.remove('offcanvas-menu');
-					mtoggle.classList.remove('active');
-					mTog.classList.remove('active');
-				} else {
-					document.body.classList.add('offcanvas-menu');
-					mtoggle.classList.add('active');
-					mTog.classList.add('active');
-				}
-			});
-		})
-
-
-
-		var specifiedElement = document.querySelector(".site-mobile-menu");
-		var mt, mtoggleTemp;
-		document.addEventListener('click', function(event) {
-			var isClickInside = specifiedElement.contains(event.target);
-			menuToggle.forEach(mtoggle => {
-				mtoggleTemp = mtoggle
-				mt = mtoggle.contains(event.target);
-			})
-
-			if (!isClickInside && !mt) {
-				if ( document.body.classList.contains('offcanvas-menu') ) {
-					document.body.classList.remove('offcanvas-menu');
-					mtoggleTemp.classList.remove('active');
-				}
-			}
-
-		});
-
-	}; 
-	siteMenuClone();
-
-
-})()
+      if (!isClickInside && !mt) {
+        if (document.body.classList.contains("offcanvas-menu")) {
+          document.body.classList.remove("offcanvas-menu");
+          mtoggleTemp.classList.remove("active");
+        }
+      }
+    });
+  };
+  siteMenuClone();
+})();

@@ -5,6 +5,8 @@ export const state = () => ({
 
   role: null,
 
+  isActiveModalMenu: false,
+
   socials: [
     { id: 1, name: "tiktok", selectName: "Tiktok" },
     { id: 2, name: "likee", selectName: "Likee" },
@@ -117,6 +119,8 @@ export const getters = {
 
   socials: ({ socials }) => socials,
   regions: ({ regions }) => regions,
+
+  isActiveModalMenu: ({ isActiveModalMenu }) => isActiveModalMenu,
 };
 
 export const mutations = {
@@ -131,9 +135,17 @@ export const mutations = {
   SET_ROLE(state, role) {
     state.role = role;
   },
+
+  SET_STATUS_MODAL_MENU(state, flag) {
+    state.isActiveModalMenu = flag;
+  },
 };
 
 export const actions = {
+  setStatusModalMenu({ commit }, flag) {
+    commit("SET_STATUS_MODAL_MENU", flag);
+  },
+
   async nuxtServerInit({ commit }) {
     const token = this.$cookies.get("sessionid");
 
