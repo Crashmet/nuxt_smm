@@ -684,7 +684,7 @@ thead th:nth-child(3) {
 }
 
 thead th:nth-child(4) {
-  width: 23%;
+  width: 15%;
 }
 
 thead th:nth-child(5),
