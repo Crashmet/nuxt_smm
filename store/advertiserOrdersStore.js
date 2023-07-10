@@ -87,36 +87,42 @@ export const mutations = {
             name: "Новый заказ",
             style: "badge-info",
           };
+          break;
         case "in_progress":
           el.respond_status = {
             tag: el.respond_status,
             name: "В работе",
             style: "badge-warning",
           };
+          break;
         case "done":
           el.respond_status = {
             tag: el.respond_status,
             name: "Выполнен",
             style: "badge-success",
           };
+          break;
         case "accepted":
           el.respond_status = {
             tag: el.respond_status,
             name: "Принят заказчиком",
             style: "badge-primary",
           };
+          break;
         case "canceled":
           el.respond_status = {
             tag: el.respond_status,
             name: "Отклонен",
             style: "badge-danger",
           };
+          break;
         case "arbitration":
           el.respond_status = {
             tag: el.respond_status,
             name: "Арбитраж",
             style: "badge-secondary",
           };
+          break;
         default:
           el.respond_status = {
             tag: el.respond_status,

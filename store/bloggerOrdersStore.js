@@ -72,8 +72,6 @@ export const mutations = {
 
   SET_BLOGGER_ORDERS_LIST(state, response) {
     const list = response.map((el) => {
-      console.log(el.respond_status);
-
       switch (el.respond_status) {
         case "new_order":
           el.respond_status = {
@@ -124,8 +122,6 @@ export const mutations = {
             style: "badge-light",
           };
       }
-
-      console.log(el.respond_status);
 
       return el;
     });

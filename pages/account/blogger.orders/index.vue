@@ -678,6 +678,10 @@ td {
   border: none;
 }
 
+.badge {
+  font-size: 0.75rem;
+}
+
 /* **** NOT FOUND ****  */
 
 .table__not-found {
