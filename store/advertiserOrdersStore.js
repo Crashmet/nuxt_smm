@@ -82,48 +82,50 @@ export const mutations = {
     const list = response.map((el) => {
       switch (el.respond_status) {
         case "new_order":
-          return (el.respond_status = {
+          el.respond_status = {
             tag: el.respond_status,
             name: "Новый заказ",
             style: "badge-info",
-          });
+          };
         case "in_progress":
-          return (el.respond_status = {
+          el.respond_status = {
             tag: el.respond_status,
             name: "В работе",
             style: "badge-warning",
-          });
+          };
         case "done":
-          return (el.respond_status = {
+          el.respond_status = {
             tag: el.respond_status,
             name: "Выполнен",
             style: "badge-success",
-          });
+          };
         case "accepted":
-          return (el.respond_status = {
+          el.respond_status = {
             tag: el.respond_status,
             name: "Принят заказчиком",
             style: "badge-primary",
-          });
+          };
         case "canceled":
-          return (el.respond_status = {
+          el.respond_status = {
             tag: el.respond_status,
             name: "Отклонен",
             style: "badge-danger",
-          });
+          };
         case "arbitration":
-          return (el.respond_status = {
+          el.respond_status = {
             tag: el.respond_status,
             name: "Арбитраж",
             style: "badge-secondary",
-          });
+          };
         default:
-          return (el.respond_status = {
+          el.respond_status = {
             tag: el.respond_status,
             name: "-",
             style: "badge-light",
-          });
+          };
       }
+
+      return el;
     });
 
     state.advertiserOrdersList = list;
