@@ -119,6 +119,8 @@ export const mutations = {
           };
       }
 
+      console.log(el.respond_status);
+
       return el;
     });
 
