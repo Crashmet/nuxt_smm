@@ -3,7 +3,7 @@
     <div class="profile-menu__row bg-dark" v-if="users[0].isActive">
       <b-nav tabs class="col-12 col-lg-6">
         <b-nav-item
-          class="col-12 col-sm-6 col-lg-3"
+          class="col-12 col-sm-6 col-xl-3"
           :active="setting.isActive ? true : false"
           v-for="setting in bloggerMenu"
           :key="setting.name"
@@ -24,7 +24,7 @@
     <div class="profile-menu__row bg-dark" v-else>
       <b-nav tabs class="col-12 col-lg-6">
         <b-nav-item
-          class="col-12 col-sm-6 col-lg-3"
+          class="col-12 col-sm-6 col-xl-3"
           :active="setting.isActive ? true : false"
           v-for="setting in advertiserMenu"
           :key="setting.name"

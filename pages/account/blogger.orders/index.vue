@@ -71,7 +71,7 @@
               <td>{{ item.budget_per_subscriber }}</td>
               <td>{{ item.end_date }}</td>
               <td>{{ item.social[0].name }}</td>
-              <td>-</td>
+              <td>{{ item.social.respond_status }}</td>
             </tr>
 
             <!-- <tr @click.prevent="handlerClickOrderMenu({ id: 2 })">
