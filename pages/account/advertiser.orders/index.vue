@@ -711,7 +711,7 @@ td {
 }
 
 .badge {
-  font-size: 0.75rem;
+  font-size: 12px;
 }
 
 /* **** NOT FOUND ****  */
