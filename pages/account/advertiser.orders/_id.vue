@@ -339,33 +339,29 @@
         </b-row>
       </div>
 
-      <b-row sm="4" class="pt-1 mt-4">
-        <b-col sm="3" lg="2">
+      <b-row class="pt-1 mt-4">
+        <b-col cols="6" md="2">
           <b-button
-            class="btn btn-dark btn_back rounded mb-3"
+            class="btn btn-dark btn_back rounded mb-3 px-4"
             type="button"
             @click.prevent="deleteOrder(orderId)"
           >
             Удалить
           </b-button>
         </b-col>
-        <b-col sm="4" lg="3">
+        <b-col cols="6" md="2">
           <b-button
-            sm="5"
-            lg="4"
-            class="btn btn-dark btn_change rounded mb-3"
+            class="btn btn-dark btn_change rounded mb-3 px-4"
             type="button"
             @click.prevent="handlerUpdateOrder()"
           >
             Изменить заказ
           </b-button>
         </b-col>
-        <b-col sm="4" lg="3">
+        <b-col cols="6" md="2">
           <nuxt-link
-            sm="5"
-            lg="4"
             to="select"
-            class="btn btn-dark rounded"
+            class="btn btn-dark rounded px-4"
             type="button"
           >
             Выбрать блогеров
