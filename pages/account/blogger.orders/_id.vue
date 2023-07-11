@@ -264,7 +264,7 @@
       <b-row class="pt-1 mt-4">
         <b-col cols="6" md="2">
           <b-button
-            class="btn btn-dark btn_back rounded mb-3"
+            class="btn btn-dark btn_back rounded mb-3 px-2"
             type="button"
             @click.prevent="setStatusOrder({ id: orderId, status: 'canceled' })"
           >
@@ -273,7 +273,7 @@
         </b-col>
         <b-col cols="6" md="2">
           <b-button
-            class="btn btn-dark btn_change rounded mb-3"
+            class="btn btn-dark btn_change rounded mb-3 px-2"
             type="button"
             @click.prevent="
               setStatusOrder({ id: orderId, status: 'in_progress' })
