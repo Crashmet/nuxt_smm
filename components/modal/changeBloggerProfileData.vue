@@ -71,7 +71,7 @@
     </div>
 
     <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
-      <p class="mb-0 col-sm-4 col-lg-2 p-0">Role:</p>
+      <p class="mb-0 col-4 col-lg-2 p-0">Role:</p>
 
       <div class="form-check form-check-inline mb-0 me-4">
         <input
@@ -108,7 +108,7 @@
 
     <b-row class="pt-1 mt-4">
       <b-col cols="0" md="2"></b-col>
-      <b-col cols="6" md="3">
+      <b-col cols="6" md="2">
         <b-button
           class="btn btn-dark mr-5 btn_back rounded mb-3 px-4"
           type="button"
@@ -119,7 +119,7 @@
       </b-col>
       <b-col cols="6" md="3">
         <b-button
-          class="btn btn-dark btn_change rounded  mb-3 px-4"
+          class="btn btn-dark btn_change rounded mb-3 px-4"
           type="button"
           @click.prevent="handlerSubmitSettings()"
         >
