@@ -126,7 +126,9 @@ export const mutations = {
       return el;
     });
 
-    state.bloggerOrdersList = list;
+    const filteredList = list.filter((el) => el.respond_status !== "canceled");
+
+    state.bloggerOrdersList = filteredList;
   },
 
   UPDATE_FILTER_TITLE(state, filterTitle) {

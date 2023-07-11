@@ -262,7 +262,7 @@
       </div>
 
       <b-row class="pt-1 mt-4">
-        <b-col xs="3" lg="2">
+        <b-col cols="3" lg="2">
           <b-button
             class="btn btn-dark btn_back rounded mb-3"
             type="button"
@@ -271,11 +271,13 @@
             Отклонить
           </b-button>
         </b-col>
-        <b-col xs="3" lg="2">
+        <b-col cols="3" lg="2">
           <b-button
             class="btn btn-dark btn_change rounded mb-3"
             type="button"
-            @click.prevent="setStatusOrder({ id: orderId, status: 'accepted' })"
+            @click.prevent="
+              setStatusOrder({ id: orderId, status: 'in_progress' })
+            "
           >
             Принять
           </b-button>
