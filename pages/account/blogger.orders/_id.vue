@@ -261,7 +261,7 @@
         </b-form-group>
       </div>
 
-      <b-row sm="4" class="pt-1 mt-4">
+      <b-row class="pt-1 mt-4">
         <b-col sm="3" lg="2">
           <b-button
             class="btn btn-dark btn_back rounded mb-3"
