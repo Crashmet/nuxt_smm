@@ -210,7 +210,7 @@
           Назад
         </b-button></b-col
       >
-      <b-col cols="4" md="4" lg="3">
+      <b-col cols="4" sm="5" lg="3">
         <b-button
           class="btn btn-dark btn_change rounded mb-3 px-4"
           type="button"
