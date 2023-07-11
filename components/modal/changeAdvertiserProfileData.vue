@@ -106,22 +106,27 @@
       </template>
     </div>
 
-    <b-button-group class="pt-1 mt-4">
-      <b-button
-        class="btn btn-dark mr-5 btn_back rounded"
-        type="button"
-        @click.prevent="changeDataModalStatus(false)"
-      >
-        Назад
-      </b-button>
-      <b-button
-        class="btn btn-dark btn_change rounded"
-        type="button"
-        @click.prevent="handlerSubmitSettings()"
-      >
-        Изменить
-      </b-button>
-    </b-button-group>
+    <b-row class="pt-1 mt-4">
+      <b-col cols="0" md="2"></b-col>
+      <b-col cols="6" md="3">
+        <b-button
+          class="btn btn-dark mr-5 btn_back rounded mb-3 px-4"
+          type="button"
+          @click.prevent="changeDataModalStatus(false)"
+        >
+          Назад
+        </b-button>
+      </b-col>
+      <b-col cols="6" md="3">
+        <b-button
+          class="btn btn-dark btn_change rounded mb-3 px-4"
+          type="button"
+          @click.prevent="handlerSubmitSettings()"
+        >
+          Изменить
+        </b-button>
+      </b-col>
+    </b-row>
   </div>
 </template>
 
