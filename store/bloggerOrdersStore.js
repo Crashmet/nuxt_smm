@@ -71,7 +71,11 @@ export const mutations = {
   },
 
   SET_BLOGGER_ORDERS_LIST(state, response) {
-    const list = response.map((el) => {
+    const filteredList = response.filter(
+      (el) => el.respond_status !== "canceled"
+    );
+
+    const list = filteredList.map((el) => {
       switch (el.respond_status) {
         case "new_order":
           el.respond_status = {
@@ -126,9 +130,7 @@ export const mutations = {
       return el;
     });
 
-    const filteredList = list.filter((el) => el.respond_status !== "canceled");
-
-    state.bloggerOrdersList = filteredList;
+    state.bloggerOrdersList = list;
   },
 
   UPDATE_FILTER_TITLE(state, filterTitle) {
