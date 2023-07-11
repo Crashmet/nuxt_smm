@@ -73,7 +73,7 @@
           <b-col sm="3" lg="2">
             <label for="textarea-default">Order description:</label>
           </b-col>
-          <b-col sm="5" lg="4" class="pl-2 pr-2">
+          <b-col sm="5" lg="4" class="textarea__col">
             <b-skeleton
               v-if="isLoading"
               class="col-sm-12"
@@ -535,6 +535,11 @@ export default {
   justify-content: space-between;
   margin-bottom: 2.2222rem;
   max-width: 33.3333rem;
+}
+
+.textarea__col {
+  padding-left: 11.5px;
+  padding-right: 5px;
 }
 
 .btn_change:hover,

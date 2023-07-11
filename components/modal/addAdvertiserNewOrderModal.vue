@@ -30,7 +30,7 @@
         <b-col sm="3" lg="2">
           <label for="textarea-default">Order description:</label>
         </b-col>
-        <b-col sm="5" lg="4" class="pl-2 pr-2">
+        <b-col sm="5" lg="4" class="textarea__col">
           <b-form-textarea
             class="col-5 col-sm-12"
             id="textarea-default"
@@ -363,6 +363,11 @@ export default {
 .btn_back:hover,
 .btn_back:active {
   background: var(--bs-warning);
+}
+
+.textarea__col {
+  padding-left: 11.5px;
+  padding-right: 5px;
 }
 
 /* *** VALIDATION *** */

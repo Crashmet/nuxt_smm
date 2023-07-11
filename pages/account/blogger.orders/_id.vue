@@ -69,7 +69,7 @@
           <b-col sm="3" lg="2">
             <label for="textarea-default">Order description:</label>
           </b-col>
-          <b-col sm="5" lg="4" class="pl-2 pr-2">
+          <b-col sm="5" lg="4" class="textarea__col">
             <b-skeleton
               v-if="isLoading"
               class="col-sm-12"
@@ -260,6 +260,30 @@
           ></b-form-input>
         </b-form-group>
       </div>
+
+      <b-row sm="4" class="pt-1 mt-4">
+        <b-col sm="3" lg="2">
+          <b-button
+            class="btn btn-dark btn_back rounded mb-3"
+            type="button"
+            @click.prevent="setStatusOrder({ id: orderId, status: 'canceled' })"
+          >
+            Отклонить
+          </b-button>
+        </b-col>
+        <b-col sm="3" lg="2"
+          >>
+          <b-button
+            sm="5"
+            lg="4"
+            class="btn btn-dark btn_change rounded mb-3"
+            type="button"
+            @click.prevent="setStatusOrder({ id: orderId, status: 'accepted' })"
+          >
+            Принять
+          </b-button>
+        </b-col>
+      </b-row>
     </template>
 
     <template v-else> <h3 class="order__not-found">Ошибка!</h3></template>
@@ -312,6 +336,7 @@ export default {
     ...mapActions({
       setOrderId: "bloggerSettingsOrderStore/setOrderId",
       getOrderList: "bloggerSettingsOrderStore/getOrderList",
+      setStatusOrder: "bloggerSettingsOrderStore/setStatusOrder",
     }),
 
     handlerClickBack() {
@@ -356,6 +381,11 @@ export default {
 .btn_back:hover,
 .btn_back:active {
   background: var(--bs-warning);
+}
+
+.textarea__col {
+  padding-left: 11.5px;
+  padding-right: 5px;
 }
 
 /* *** VALIDATION *** */
