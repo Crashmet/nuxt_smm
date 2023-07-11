@@ -271,8 +271,7 @@
             Отклонить
           </b-button>
         </b-col>
-        <b-col sm="3" lg="2"
-          >>
+        <b-col sm="3" lg="2">
           <b-button
             sm="5"
             lg="4"

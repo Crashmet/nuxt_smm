@@ -66,7 +66,7 @@ export const actions = {
 
   async setStatusOrder({ commit }, { id, status }) {
     await this.$axios
-      .$get(`orders/${id}/?status=${status}`)
+      .$get(`orders/response/${id}/?status=${status}`)
       .then((response) => {
         commit("statusMassageModalStore/ADD_STATUS", "success", { root: true });
       })
