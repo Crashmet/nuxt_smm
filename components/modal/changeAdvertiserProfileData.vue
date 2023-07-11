@@ -70,45 +70,51 @@
       </b-form-group>
     </div>
 
-    <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
-      <p class="mb-0 col-4 col-lg-2 p-0">Role:</p>
+    <b-row class="mb-4 py-2">
+      <b-col cols="2" sm="4" lg="2">
+        <p class="mb-2 p-0">Role:</p>
+      </b-col>
 
-      <div class="form-check form-check-inline mb-0 me-4">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="redirecttarget"
-          id="blogger-radio-input"
-          value="blogger"
-          v-model="role"
-        />
-        <label class="form-check-label" for="blogger-radio-input"
-          >Blogger</label
-        >
-      </div>
+      <b-col cols="12" sm="8" lg="6">
+        <b-row class="pl-4">
+          <b-col cols="5" class="form-check form-check-inline mb-0 me-4">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="redirecttarget"
+              id="blogger-radio-input"
+              value="blogger"
+              v-model="role"
+            />
+            <label class="form-check-label" for="blogger-radio-input"
+              >Blogger</label
+            >
+          </b-col>
 
-      <div class="form-check form-check-inline mb-0 me-4">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="redirecttarget"
-          id="advertiser-radio-input"
-          value="advertiser"
-          v-model="role"
-        />
-        <label class="form-check-label" for="advertiser-radio-input"
-          >Advertiser</label
-        >
-      </div>
+          <b-col cols="5" class="form-check form-check-inline mb-0 me-4">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="redirecttarget"
+              id="advertiser-radio-input"
+              value="advertiser"
+              v-model="role"
+            />
+            <label class="form-check-label" for="advertiser-radio-input"
+              >Advertiser</label
+            >
+          </b-col>
+        </b-row>
 
-      <template v-if="validatorRole.length > 0">
-        <p class="modal__validation">{{ validatorRole }}</p>
-      </template>
-    </div>
+        <template v-if="validatorRole.length > 0">
+          <p class="modal__validation">{{ validatorRole }}</p>
+        </template>
+      </b-col>
+    </b-row>
 
     <b-row class="pt-1 mt-4">
-      <b-col cols="0" md="2"></b-col>
-      <b-col cols="6" md="2">
+      <b-col cols="0" md="4" lg="2"></b-col>
+      <b-col cols="6" md="4" lg="2">
         <b-button
           class="btn btn-dark mr-5 btn_back rounded mb-3 px-4"
           type="button"
@@ -117,7 +123,7 @@
           Назад
         </b-button>
       </b-col>
-      <b-col cols="6" md="3">
+      <b-col cols="6" md="4" lg="3">
         <b-button
           class="btn btn-dark btn_change rounded mb-3 px-4"
           type="button"
