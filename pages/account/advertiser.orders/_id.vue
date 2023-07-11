@@ -340,7 +340,7 @@
       </div>
 
       <b-row class="pt-1 mt-4">
-        <b-col cols="12" md="2">
+        <b-col cols="12" md="3" lg="2">
           <b-button
             class="btn btn-dark btn_back rounded mb-3 px-4"
             type="button"
@@ -349,7 +349,7 @@
             Удалить
           </b-button>
         </b-col>
-        <b-col cols="12" md="3">
+        <b-col cols="12" md="4" lg="3">
           <b-button
             class="btn btn-dark btn_change rounded mb-3 px-4"
             type="button"
@@ -358,7 +358,7 @@
             Изменить заказ
           </b-button>
         </b-col>
-        <b-col cols="12" md="3">
+        <b-col cols="12" md="4" lg="3">
           <nuxt-link
             to="select"
             class="btn btn-dark rounded px-4"

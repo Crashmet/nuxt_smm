@@ -262,7 +262,7 @@
       </div>
 
       <b-row class="pt-1 mt-4">
-        <b-col cols="6" md="3">
+        <b-col cols="6" md="5">
           <b-button
             class="btn btn-dark btn_back rounded mb-3 px-4"
             type="button"
