@@ -200,8 +200,8 @@
     </div>
 
     <b-row class="pt-1 mt-4">
-      <b-col cols="0" md="4" lg="2"></b-col>
-      <b-col cols="6" md="4" lg="2">
+      <b-col cols="0" md="3" lg="2"></b-col>
+      <b-col cols="3" lg="2">
         <b-button
           class="btn btn-dark btn_back rounded mb-3 px-4"
           type="button"
@@ -210,7 +210,7 @@
           Назад
         </b-button></b-col
       >
-      <b-col cols="6" md="4" lg="3">
+      <b-col cols="5" md="4" lg="3">
         <b-button
           class="btn btn-dark btn_change rounded mb-3 px-4"
           type="button"
