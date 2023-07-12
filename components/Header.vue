@@ -201,11 +201,6 @@ export default {
   box-shadow: 0 15px 30px -15px rgba(0, 0, 0, 0.1);
 }
 
-.site-navigation {
-  display: flex;
-  justify-content: space-between;
-}
-
 .site-nav {
   padding-top: 20px;
   padding-bottom: 20px;

@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="orders-home home"
-    :class="isOpenModalAddOrder ? 'open-modal' : ''"
-  >
+  <div class="orders-home home">
     <div v-if="isLoading">
       <nav class="orders__nav">
         <form action="#" class="nav-search__form">
@@ -48,18 +45,33 @@
                 v-for="item in filtersTitles"
                 :key="item.title"
                 scope="col"
-                @click="handlerClickFiltersTitles(item)"
+                @click.prevent="handlerClickFiltersTitles(item)"
               >
                 <p
                   :class="[
-                    item.isWorks ? 'table-title__sort_arrow' : '',
-                    item.isSortUp ? 'table-title__sort_arrow_up' : '',
+                    item.isWork ? 'table-title__sort_arrow' : '',
+                    item.isArrowUp ? 'table-title__sort_arrow_up' : '',
                   ]"
                 >
                   {{ item.title }}
                 </p>
               </th>
             </tr>
+
+            <div v-show="isSelectOpen" class="select-status__modal">
+              <ul class="select-status__list">
+                <li
+                  class="select-status__item"
+                  v-for="item in statusList"
+                  :key="item.status"
+                  @click.prevent="handlerClickSortStatus(item.status)"
+                >
+                  <span class="badge badge-pill" :class="item.style">
+                    {{ item.name }}
+                  </span>
+                </li>
+              </ul>
+            </div>
           </thead>
           <tbody>
             <tr
@@ -240,10 +252,11 @@ export default {
   data() {
     return {
       ordering: "",
-
       filterInput: "",
-
       pageSize: 10,
+      status: "",
+
+      isSelectOpen: false,
     };
   },
 
@@ -277,6 +290,7 @@ export default {
       filtersTitles: "bloggerOrdersStore/filtersTitles",
 
       bloggerOrdersList: "bloggerOrdersStore/bloggerOrdersList",
+      statusList: "bloggerOrdersStore/statusList",
 
       isLoading: "bloggerOrdersStore/isLoading",
     }),
@@ -316,28 +330,61 @@ export default {
       this.historyPushState();
     },
 
-    handlerClickFiltersTitles(item) {
-      let { title, isSortUp, isWorks, APIRequestUp, APIRequestDown } = item;
-
-      if (!isWorks) {
-        return;
-      }
-
-      const filterTitle = {
-        title,
-        isActive: true,
-        isSortUp: !isSortUp,
-      };
-
-      this.updateFiltersTitles(filterTitle);
-
-      this.ordering = isSortUp ? APIRequestUp : APIRequestDown;
+    handlerClickSortStatus(status) {
+      this.status = status;
 
       this.getBloggerOrdersList({
         ordering: this.ordering,
         activePage: this.activePage,
         pageSize: this.pageSize,
         searchInput: this.filterInput,
+        status: this.status,
+      });
+
+      this.handlerClickStatusHeader();
+    },
+
+    handlerClickStatusHeader(title, isArrowUp) {
+      const filterTitle = {
+        title,
+        isActive: true,
+        isArrowUp: !isArrowUp,
+      };
+
+      this.updateFiltersTitles(filterTitle);
+
+      this.isSelectOpen = !this.isSelectOpen;
+    },
+
+    handlerClickFiltersTitles(item) {
+      let { title, isArrowUp, isWork, isSelect, APIRequestUp, APIRequestDown } =
+        item;
+
+      if (isSelect) {
+        this.handlerClickStatusHeader(title, isArrowUp);
+        return;
+      }
+
+      if (!isWork) {
+        return;
+      }
+
+      const filterTitle = {
+        title,
+        isActive: true,
+        isArrowUp: !isArrowUp,
+      };
+
+      this.updateFiltersTitles(filterTitle);
+
+      this.ordering = isArrowUp ? APIRequestUp : APIRequestDown;
+
+      this.getBloggerOrdersList({
+        ordering: this.ordering,
+        activePage: this.activePage,
+        pageSize: this.pageSize,
+        searchInput: this.filterInput,
+        status: this.status,
       });
     },
 
@@ -357,6 +404,7 @@ export default {
         activePage: this.activePage,
         pageSize: this.pageSize,
         searchInput: this.filterInput,
+        status: this.status,
       });
     },
 
@@ -368,6 +416,7 @@ export default {
         activePage: this.activePage,
         pageSize: this.pageSize,
         searchInput: this.filterInput,
+        status: this.status,
       });
     },
 
@@ -379,6 +428,7 @@ export default {
         activePage: this.activePage,
         pageSize: this.pageSize,
         searchInput: this.filterInput,
+        status: this.status,
       });
     },
   },
@@ -400,6 +450,7 @@ export default {
         activePage: this.activePage,
         pageSize: this.pageSize,
         searchInput: this.filterInput,
+        status: this.status,
       });
     },
   },
@@ -407,10 +458,6 @@ export default {
 </script>
 
 <style scoped>
-.open-modal {
-  height: 700px;
-}
-
 .sceleton {
   width: 100%;
 }
@@ -597,6 +644,10 @@ table {
   border-collapse: collapse;
 }
 
+thead {
+  position: relative;
+}
+
 thead tr th {
   text-align: left;
   border: none;
@@ -682,6 +733,27 @@ td {
   font-size: 12px;
 }
 
+/* **** SELECT STATUS **** */
+
+.select-status__modal {
+  position: absolute;
+  right: 0;
+  top: 40px;
+  background: var(--bs-gray-400);
+  border-radius: 5px;
+}
+.select-status__list {
+  padding: 10px;
+}
+
+.select-status__item {
+  cursor: pointer;
+}
+
+.select-status__item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
 /* **** NOT FOUND ****  */
 
 .table__not-found {
@@ -698,12 +770,6 @@ td {
     -webkit-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
-  }
-}
-
-@media (max-width: 572px) {
-  .open-modal {
-    height: 1050px;
   }
 }
 

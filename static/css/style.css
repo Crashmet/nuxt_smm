@@ -2051,7 +2051,7 @@
     -moz-appearance: none;
     appearance: none;
     -webkit-print-color-adjust: exact;
-    color-adjust: exact; }
+    print-color-adjust: exact; }
     .form-check-input[type="checkbox"] {
       border-radius: 0.25em; }
     .form-check-input[type="radio"] {
@@ -4344,13 +4344,14 @@
     font-size: 0.75em;
     font-weight: 700;
     line-height: 1;
-    color: #fff;
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
     border-radius: 0.25rem; }
     .badge:empty {
       display: none; }
+
+    
   
   .btn .badge {
     position: relative;

@@ -10,40 +10,53 @@ export const state = () => ({
   filtersTitles: [
     {
       title: "Наименование",
-      isSortUp: false,
+      isArrowUp: false,
       isActive: false,
-      isWorks: false,
+      isWork: false,
+      isSelect: false,
     },
     {
       title: "Бюджет",
-      isSortUp: false,
+      isArrowUp: false,
       isActive: false,
-      isWorks: true,
+      isWork: true,
+      isSelect: false,
       APIRequestUp: "budget_per_subscriber",
       APIRequestDown: "-budget_per_subscriber",
     },
     {
       title: "Дата",
-      isSortUp: false,
+      isArrowUp: false,
       isActive: false,
-      isWorks: true,
+      isWork: true,
+      isSelect: false,
       APIRequestUp: "end_date",
       APIRequestDown: "-end_date",
     },
     {
       title: "Соцсеть",
-      isSortUp: false,
+      isArrowUp: false,
       isActive: false,
-      isWorks: false,
+      isWork: false,
+      isSelect: false,
     },
     {
       title: "Статус",
-      isSortUp: false,
+      isArrowUp: false,
       isActive: false,
-      isWorks: true,
-      APIRequestUp: "respond_status",
-      APIRequestDown: "-respond_status",
+      isWork: true,
+      isSelect: true,
     },
+  ],
+
+  statusList: [
+    { status: "new_order", name: "Новый заказ", style: "badge-info" },
+    { status: "in_progress", name: "В работе", style: "badge-warning" },
+    { status: "done", name: "Выполнен", style: "badge-success" },
+    { status: "accepted", name: "Принят заказчиком", style: "badge-primary" },
+    { status: "canceled", name: "Отклонен", style: "badge-danger" },
+    { status: "arbitration", name: "Арбитраж", style: "badge-secondary" },
+    { status: "-", name: "Сброс", style: "badge-light" },
   ],
 });
 
@@ -57,6 +70,8 @@ export const getters = {
   filtersTitles: ({ filtersTitles }) => filtersTitles,
 
   bloggerOrdersList: ({ bloggerOrdersList }) => bloggerOrdersList,
+
+  statusList: ({ statusList }) => statusList,
 };
 
 export const mutations = {
@@ -81,49 +96,49 @@ export const mutations = {
       switch (el.respond_status) {
         case "new_order":
           el.respond_status = {
-            tag: el.respond_status,
+            status: el.respond_status,
             name: "Новый заказ",
             style: "badge-info",
           };
           break;
         case "in_progress":
           el.respond_status = {
-            tag: el.respond_status,
+            status: el.respond_status,
             name: "В работе",
             style: "badge-warning",
           };
           break;
         case "done":
           el.respond_status = {
-            tag: el.respond_status,
+            status: el.respond_status,
             name: "Выполнен",
             style: "badge-success",
           };
           break;
         case "accepted":
           el.respond_status = {
-            tag: el.respond_status,
+            status: el.respond_status,
             name: "Принят заказчиком",
             style: "badge-primary",
           };
           break;
         case "canceled":
           el.respond_status = {
-            tag: el.respond_status,
+            status: el.respond_status,
             name: "Отклонен",
             style: "badge-danger",
           };
           break;
         case "arbitration":
           el.respond_status = {
-            tag: el.respond_status,
+            status: el.respond_status,
             name: "Арбитраж",
             style: "badge-secondary",
           };
           break;
         default:
           el.respond_status = {
-            tag: el.respond_status,
+            status: el.respond_status,
             name: "-",
             style: "badge-light",
           };
@@ -140,7 +155,7 @@ export const mutations = {
       if (el.title === filterTitle.title) {
         el = { ...el, ...filterTitle };
       } else {
-        el.isSortUp = false;
+        el.isArrowUp = false;
         el.isActive = false;
       }
 
@@ -152,7 +167,7 @@ export const mutations = {
 
   RESET_FILTER_TITLE(state) {
     const newfiltersTitles = state.filtersTitles.map((el) => {
-      el.isSortUp = false;
+      el.isArrowUp = false;
       el.isActive = false;
 
       return el;
@@ -181,13 +196,19 @@ export const actions = {
 
   async getBloggerOrdersList(
     { commit, dispatch },
-    { ordering = "", activePage = "1", pageSize = "", searchInput = "" }
+    {
+      ordering = "",
+      activePage = "1",
+      pageSize = "",
+      searchInput = "",
+      status = "",
+    }
   ) {
     dispatch("setStatusLoading", true);
 
     await this.$axios
       .$get(
-        `orders/?ordering=${ordering}&page=${activePage}&page_size=${pageSize}&search=${searchInput}`
+        `orders/?ordering=${ordering}&page=${activePage}&page_size=${pageSize}&search=${searchInput}&status=${status}`
       )
       .then((response) => {
         dispatch("setStatusLoading", false);
