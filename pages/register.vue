@@ -426,6 +426,16 @@ export default {
   color: #ffffff;
 }
 
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+}
+.card-registration .select-arrow {
+  top: 13px;
+}
+
 @media (max-width: 480px) {
   .register-modal {
     position: absolute;
