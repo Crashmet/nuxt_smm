@@ -467,7 +467,7 @@ export default {
   -webkit-transition: outline 0.1s ease;
   -o-transition: outline 0.1s ease;
   transition: outline 0.1s ease;
-  outline: 1.5px solid var(--bs-secondary);
+  outline: 1.5px solid var(--bs-base-color);
 }
 
 .nav-change__text {
@@ -479,7 +479,7 @@ export default {
 
 .nav-change__btn:hover > .nav-change__text,
 .nav-change__btn:active > .nav-change__text {
-  color: var(--bs-secondary);
+  color: var(--bs-base-color);
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
@@ -693,7 +693,7 @@ td {
 @media (min-width: 980px) {
   .nav-pagination__btn:hover,
   .page-numbers__btn:hover {
-    border-bottom: 3px solid var(--bs-secondary);
+    border-bottom: 3px solid var(--bs-base-color);
     background-color: transparent;
     -webkit-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;

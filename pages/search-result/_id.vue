@@ -109,6 +109,56 @@ export default {
 </script>
 
 <style scoped>
+.property-slider-wrap,
+.img-property-slide-wrap {
+  position: relative;
+}
+.property-slider-wrap .tns-outer .tns-inner,
+.img-property-slide-wrap .tns-outer .tns-inner {
+  padding-bottom: 100px;
+}
+.property-slider-wrap .tns-nav,
+.img-property-slide-wrap .tns-nav {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  bottom: 40px;
+  z-index: 2;
+}
+.property-slider-wrap .tns-nav button,
+.img-property-slide-wrap .tns-nav button {
+  background: none;
+  border: none;
+  display: inline-block;
+  margin: 2px;
+  position: relative;
+}
+.property-slider-wrap .tns-nav button:active,
+.property-slider-wrap .tns-nav button:focus,
+.img-property-slide-wrap .tns-nav button:active,
+.img-property-slide-wrap .tns-nav button:focus {
+  outline: none;
+}
+.property-slider-wrap .tns-nav button:before,
+.img-property-slide-wrap .tns-nav button:before {
+  position: absolute;
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  right: 0;
+  -webkit-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+.property-slider-wrap .tns-nav button.tns-nav-active:before,
+.img-property-slide-wrap .tns-nav button.tns-nav-active:before {
+  background-color: #00204a;
+}
+
 .btn-secondary {
   margin-right: 10px;
 }

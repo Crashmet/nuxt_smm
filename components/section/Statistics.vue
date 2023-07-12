@@ -53,6 +53,12 @@ export default {
   margin-right: 60px;
 }
 
+.countup {
+  font-size: 2.1875rem;
+  display: block;
+  font-weight: 700;
+}
+
 @media (max-width: 1000px) {
   .statistics {
     margin: 110px 0 30px;

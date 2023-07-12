@@ -121,7 +121,7 @@ export default {
 
 .back {
   text-decoration: none;
-  background: var(--bs-secondary);
+  background: var(--bs-base-color);
   color: #fff;
   padding: 10px 20px;
   font-size: 0.8889rem;

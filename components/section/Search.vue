@@ -111,9 +111,12 @@ export default {
 .hero {
   margin-top: 150px;
 }
+
 .search-bar__desc {
   color: rgba(13, 13, 13, 0.61);
 }
+
+/* **** BUTTON **** */
 
 .search__btn {
   border-radius: 20px;

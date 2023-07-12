@@ -471,7 +471,57 @@ export default {
 .btn {
   color: #fff;
   font-weight: 500;
-  background-color: var(--bs-secondary);
+  background-color: var(--bs-base-color);
+}
+
+.property-item.mb-30 {
+  margin-bottom: 30px;
+}
+
+.property-item .img {
+  position: relative;
+  z-index: 1;
+}
+
+.property-item .property-content {
+  background: #fff;
+  padding: 30px;
+  font-size: 13px;
+  position: relative;
+  width: 100%;
+  /* margin-top: -100px; */
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05);
+  z-index: 2;
+}
+.property-item .property-content .price,
+.property-item .property-content .city {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+}
+.property-item .property-content .price {
+  color: var(--bs-base-color);
+}
+.property-item .property-content .price span {
+  position: relative;
+  padding-bottom: 4px;
+  display: inline-block;
+}
+.property-item .property-content .price span:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background-color: var(--bs-base-color);
+}
+.property-item .property-content .specs {
+  font-size: 18px;
+}
+.property-item .property-content .specs .caption {
+  font-size: 13px;
 }
 
 /* **** PAGINATION ****  */
@@ -494,10 +544,10 @@ export default {
   padding: 0.1875rem;
   min-width: 2.5rem;
   min-height: 2.5rem;
-  color: var(--bs-secondary);
+  color: var(--bs-base-color);
   background-color: #fff;
   border-radius: 50%;
-  border: 1.5px solid var(--bs-secondary);
+  border: 1.5px solid var(--bs-base-color);
   cursor: pointer;
 }
 
@@ -511,7 +561,7 @@ export default {
 }
 
 .page-numbers__btn_selected {
-  background-color: var(--bs-secondary);
+  background-color: var(--bs-base-color);
   color: #fff;
 }
 
@@ -526,7 +576,7 @@ export default {
 @media (min-width: 980px) {
   .search-pagination__btn:hover,
   .page-numbers__btn:hover {
-    background-color: var(--bs-secondary);
+    background-color: var(--bs-base-color);
     color: #fff;
     -webkit-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;

@@ -406,7 +406,7 @@ export default {
 .register-modal__btn-home {
   padding: 0.5rem 1.8889rem 0.5556rem;
   border-radius: 20px;
-  background: var(--bs-secondary);
+  background: var(--bs-base-color);
   -webkit-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
