@@ -28,6 +28,7 @@ export default {
       },
       { rel: "stylesheet", href: "/fonts/icomoon/style.css" },
       { rel: "stylesheet", href: "/fonts/flaticon/font/flaticon.css" },
+      { rel: "stylesheet", href: "/css/style.css" },
     ],
     script: [{ hid: "stripe", src: "/js/counter.js", defer: true }],
   },
@@ -38,7 +39,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ["~/static/css/normalize.css", "~/static/css/style.css"],
+  css: ["~/static/css/normalize.css"],
   /*
    ** Plugins to load before mounting the App
    */
