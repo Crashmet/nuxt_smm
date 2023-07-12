@@ -166,7 +166,7 @@ sup {
   top: -.5em; 
 }
 
-a {
+/* a {
   color: #00204a;
   text-decoration: underline; 
 }
@@ -176,7 +176,7 @@ a {
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
   color: inherit;
-  text-decoration: none; }
+  text-decoration: none; } */
 
 
 html {
@@ -215,15 +215,14 @@ a {
   transition: .3s all ease;
   text-decoration: none; }
 
-.form-control {
+/* .form-control {
   font-size: 16px;
-  height: 52px;
   padding-left: 15px;
   padding-right: 15px; }
   .form-control:hover, .form-control:active, .form-control:focus {
     outline: none;
     -webkit-box-shadow: none;
-    box-shadow: none; }
+    box-shadow: none; } */
 
 
 #overlayer {
@@ -370,10 +369,8 @@ a {
 .btn {
   text-decoration: none ;
   border-radius: 30px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 30px;
-  padding-right: 30px;
+  border: none;
+  padding: 8px 24px;
   border-width: 2px;
   border-color: transparent;
   border: none ;
