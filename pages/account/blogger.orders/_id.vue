@@ -265,7 +265,7 @@
         <b-col cols="0" md="3" lg="2"></b-col>
         <b-col cols="6" md="3" lg="2">
           <b-button
-            class="btn btn-dark btn_back rounded mb-3 px-4"
+            class="btn btn-dark btn_canceled rounded mb-3 px-4"
             type="button"
             @click.prevent="setStatusOrder({ id: orderId, status: 'canceled' })"
           >
@@ -274,6 +274,7 @@
         </b-col>
         <b-col cols="6" md="3" lg="3">
           <b-button
+            v-if="respond_status !== 'in_progress'"
             class="btn btn-dark btn_change rounded mb-3 px-4"
             type="button"
             @click.prevent="
@@ -281,6 +282,15 @@
             "
           >
             Принять
+          </b-button>
+
+          <b-button
+            v-else
+            class="btn btn-dark btn_change rounded mb-3 px-4"
+            type="button"
+            @click.prevent="setStatusOrder({ id: orderId, status: 'done' })"
+          >
+            Выполнен
           </b-button>
         </b-col>
       </b-row>
@@ -307,6 +317,7 @@ export default {
       region: "",
       min_subscribers: null,
       max_subscribers: null,
+      respond_status: "",
     };
   },
 
@@ -353,6 +364,7 @@ export default {
       this.region = this.orderList.region;
       this.min_subscribers = this.orderList.min_subscribers;
       this.max_subscribers = this.orderList.max_subscribers;
+      this.respond_status = this.orderList.respond_status;
     },
   },
 
@@ -378,9 +390,9 @@ export default {
   background: var(--bs-secondary);
 }
 
-.btn_back:hover,
-.btn_back:active {
-  background: var(--bs-warning);
+.btn_canceled:hover,
+.btn_canceled:active {
+  background: var(--bs-danger);
 }
 
 .textarea__col {

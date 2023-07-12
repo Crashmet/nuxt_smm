@@ -40,7 +40,9 @@ export const state = () => ({
       title: "Статус",
       isSortUp: false,
       isActive: false,
-      isWorks: false,
+      isWorks: true,
+      APIRequestUp: "respond_status",
+      APIRequestDown: "-respond_status",
     },
   ],
 });
