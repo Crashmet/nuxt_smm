@@ -49,15 +49,7 @@ export const state = () => ({
     },
   ],
 
-  statusList: [
-    { status: "new_order", name: "Новый заказ", style: "badge-info" },
-    { status: "in_progress", name: "В работе", style: "badge-warning" },
-    { status: "done", name: "Выполнен", style: "badge-success" },
-    { status: "accepted", name: "Принят заказчиком", style: "badge-primary" },
-    { status: "canceled", name: "Отклонен", style: "badge-danger" },
-    { status: "arbitration", name: "Арбитраж", style: "badge-secondary" },
-    { status: "-", name: "Сброс", style: "badge-light" },
-  ],
+  statusList: [],
 });
 
 export const getters = {
@@ -91,6 +83,8 @@ export const mutations = {
     const filteredList = response.filter(
       (el) => el.respond_status !== "canceled"
     );
+
+    const statusList = [];
 
     const list = filteredList.map((el) => {
       switch (el.respond_status) {
@@ -144,8 +138,17 @@ export const mutations = {
           };
       }
 
+      statusList.push(el.respond_status);
+
       return el;
     });
+
+    state.statusList = statusList.reduce((acc, el) => {
+      if (!acc.find((item) => item.status === el.status)) {
+        acc.push(el);
+      }
+      return acc;
+    }, []);
 
     state.bloggerOrdersList = list;
   },

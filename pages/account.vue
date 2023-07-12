@@ -103,6 +103,8 @@ export default {
 .account__section {
   overflow-x: auto;
 
+  min-height: 400px;
+
   padding: 30px 40px;
 }
 
