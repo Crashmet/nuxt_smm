@@ -143,12 +143,20 @@ export const mutations = {
       return el;
     });
 
-    state.statusList = statusList.reduce((acc, el) => {
-      if (!acc.find((item) => item.status === el.status)) {
-        acc.push(el);
-      }
-      return acc;
-    }, []);
+    if (state.statusList.length === 0) {
+      state.statusList = statusList.reduce((acc, el) => {
+        if (!acc.find((item) => item.status === el.status)) {
+          acc.push(el);
+        }
+        return acc;
+      }, []);
+
+      state.statusList.push({
+        status: "",
+        name: "Сброс",
+        style: "badge-light",
+      });
+    }
 
     state.bloggerOrdersList = list;
   },
