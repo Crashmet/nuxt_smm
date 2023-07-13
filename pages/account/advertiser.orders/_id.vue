@@ -343,7 +343,7 @@
       <b-row class="pt-1 mt-4">
         <b-col cols="12" md="3" lg="2">
           <b-button
-            class="btn btn-dark btn_back rounded mb-3 px-4"
+            class="btn btn-dark btn_delete rounded mb-3 px-4"
             type="button"
             @click.prevent="deleteOrder(orderId)"
           >
@@ -362,7 +362,7 @@
         <b-col cols="12" md="4" lg="3">
           <nuxt-link
             to="select"
-            class="btn btn-dark rounded px-4"
+            class="btn btn-dark btn_select rounded px-4"
             type="button"
           >
             Выбрать блогеров
@@ -535,7 +535,7 @@ export default {
 }
 
 .textarea__col {
-  padding-left: 11.5px;
+  padding-left: 7.5px;
   padding-right: 5px;
 }
 
@@ -544,9 +544,14 @@ export default {
   background: var(--bs-secondary);
 }
 
-.btn_back:hover,
-.btn_back:active {
-  background: var(--bs-warning);
+.btn_delete:hover,
+.btn_delete:active {
+  background: var(--bs-danger);
+}
+
+.btn_select:hover,
+.btn_select:active {
+  background: var(--bs-info);
 }
 
 /* *** VALIDATION *** */

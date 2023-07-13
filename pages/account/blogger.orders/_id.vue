@@ -396,7 +396,7 @@ export default {
 }
 
 .textarea__col {
-  padding-left: 11.5px;
+  padding-left: 7.5px;
   padding-right: 5px;
 }
 
