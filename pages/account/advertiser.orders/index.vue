@@ -34,6 +34,7 @@
       ></b-skeleton-table>
     </div>
 
+    <!-- добавить v-else обратно чтоб работал код -->
     <div v-else :class="isOpenModalAddOrder ? 'blur' : ''">
       <nav class="orders__nav">
         <div class="nav_left">
@@ -75,8 +76,8 @@
               >
                 <p
                   :class="[
-                    item.isWorks ? 'table-title__sort_arrow' : '',
-                    item.isSortUp ? 'table-title__sort_arrow_up' : '',
+                    item.isWork ? 'table-title__sort_arrow' : '',
+                    item.isArrowUp ? 'table-title__sort_arrow_up' : '',
                   ]"
                 >
                   {{ item.title }}
@@ -349,21 +350,21 @@ export default {
     },
 
     handlerClickFiltersTitles(item) {
-      let { title, isSortUp, isWorks, APIRequestUp, APIRequestDown } = item;
+      let { title, isArrowUp, isWork, APIRequestUp, APIRequestDown } = item;
 
-      if (!isWorks) {
+      if (!isWork) {
         return;
       }
 
       const filterTitle = {
         title,
         isActive: true,
-        isSortUp: !isSortUp,
+        isArrowUp: !isArrowUp,
       };
 
       this.updateFiltersTitles(filterTitle);
 
-      this.ordering = isSortUp ? APIRequestUp : APIRequestDown;
+      this.ordering = isArrowUp ? APIRequestUp : APIRequestDown;
 
       this.getAdvertiserOrdersList({
         ordering: this.ordering,

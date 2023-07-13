@@ -1,47 +1,55 @@
 export const state = () => ({
   isLoading: true,
 
-  isOpenModalAddOrder: false,
-
-  count: 29,
+  count: 0,
 
   activePage: 1,
 
-  advertiserOrdersList: [],
-
-  validatorResponse: {},
+  statusOrderList: [],
 
   filtersTitles: [
     {
-      title: "Наименование",
+      title: "Username",
+      isArrowUp: false,
+      isActive: false,
+      isWork: true,
+      APIRequestUp: "username",
+      APIRequestDown: "-username",
+    },
+    {
+      title: "First name",
       isArrowUp: false,
       isActive: false,
       isWork: false,
     },
     {
-      title: "Бюджет",
-      isArrowUp: false,
-      isActive: false,
-      isWork: true,
-      APIRequestUp: "budget_per_subscriber",
-      APIRequestDown: "-budget_per_subscriber",
-    },
-    {
-      title: "Дата",
-      isArrowUp: false,
-      isActive: false,
-      isWork: true,
-      APIRequestUp: "end_date",
-      APIRequestDown: "-end_date",
-    },
-    {
-      title: "Соцсеть",
+      title: "Last name",
       isArrowUp: false,
       isActive: false,
       isWork: false,
     },
     {
-      title: "Статус",
+      title: "Email",
+      isArrowUp: false,
+      isActive: false,
+      isWork: false,
+    },
+    {
+      title: "Role",
+      isArrowUp: false,
+      isActive: false,
+      isWork: false,
+    },
+    {
+      title: "Status",
+      isArrowUp: false,
+      isActive: false,
+      isWork: true,
+      APIRequestUp: "responses_to_orders__status",
+      APIRequestDown: "-responses_to_orders__status",
+    },
+    {
+      title: "Comand",
       isArrowUp: false,
       isActive: false,
       isWork: false,
@@ -53,16 +61,10 @@ export const getters = {
   isLoading: ({ isLoading }) => isLoading,
 
   count: ({ count }) => count,
-
   activePage: ({ activePage }) => activePage,
-
   filtersTitles: ({ filtersTitles }) => filtersTitles,
 
-  isOpenModalAddOrder: ({ isOpenModalAddOrder }) => isOpenModalAddOrder,
-
-  advertiserOrdersList: ({ advertiserOrdersList }) => advertiserOrdersList,
-
-  validatorResponse: ({ validatorResponse }) => validatorResponse,
+  statusOrderList: ({ statusOrderList }) => statusOrderList,
 };
 
 export const mutations = {
@@ -70,62 +72,62 @@ export const mutations = {
     state.isLoading = flag;
   },
 
-  CHANGE_ORDER_MODAL_STATUS(state, flag) {
-    state.isOpenModalAddOrder = flag;
+  SET_ACTIVE_PAGE(state, value) {
+    state.activePage = value;
   },
 
-  SET_VALIDATOR_DATA(state, validatorResponse) {
-    state.validatorResponse = validatorResponse;
+  SET_COUNT_CARDS(state, count) {
+    state.count = count;
   },
 
-  SET_ADVERTISER_ORDERS_LIST(state, response) {
+  SET_STATUS_ORDER_LIST(state, response) {
     const list = response.map((el) => {
-      switch (el.respond_status) {
+      switch (el.status) {
         case "new_order":
-          el.respond_status = {
-            status: el.respond_status,
+          el.status = {
+            status: el.status,
             name: "Новый заказ",
             style: "badge-info",
           };
           break;
         case "in_progress":
-          el.respond_status = {
-            status: el.respond_status,
+          el.status = {
+            status: el.status,
             name: "В работе",
             style: "badge-warning",
           };
           break;
         case "done":
-          el.respond_status = {
-            status: el.respond_status,
+          el.status = {
+            status: el.status,
             name: "Выполнен",
             style: "badge-success",
           };
           break;
         case "accepted":
-          el.respond_status = {
-            status: el.respond_status,
+          el.status = {
+            status: el.status,
             name: "Принят заказчиком",
             style: "badge-primary",
           };
           break;
         case "canceled":
-          el.respond_status = {
-            status: el.respond_status,
+          el.status = {
+            status: el.status,
             name: "Отклонен",
             style: "badge-danger",
           };
           break;
         case "arbitration":
-          el.respond_status = {
-            status: el.respond_status,
+          el.status = {
+            status: el.status,
             name: "Арбитраж",
             style: "badge-secondary",
           };
           break;
         default:
-          el.respond_status = {
-            status: el.respond_status,
+          el.status = {
+            status: el.status,
             name: "-",
             style: "badge-light",
           };
@@ -134,15 +136,7 @@ export const mutations = {
       return el;
     });
 
-    state.advertiserOrdersList = list;
-  },
-
-  SET_COUNT_CARDS(state, count) {
-    state.count = count;
-  },
-
-  SET_ACTIVE_PAGE(state, value) {
-    state.activePage = value;
+    state.statusOrderList = list;
   },
 
   UPDATE_FILTER_TITLE(state, filterTitle) {
@@ -181,10 +175,6 @@ export const actions = {
     commit("SET_ACTIVE_PAGE", value);
   },
 
-  changeAddOrderModalStatus({ commit }, flag) {
-    commit("CHANGE_ORDER_MODAL_STATUS", flag);
-  },
-
   updateFiltersTitles({ commit }, filterTitle) {
     commit("UPDATE_FILTER_TITLE", filterTitle);
   },
@@ -193,45 +183,28 @@ export const actions = {
     commit("RESET_FILTER_TITLE");
   },
 
-  async advertiserNewOrderCreate({ commit, dispatch }, order) {
-    const dataJson = JSON.stringify(order);
-
-    await this.$axios
-      .$post("orders/create/", dataJson)
-      .then((response) => {
-        commit("SET_VALIDATOR_DATA", {});
-
-        commit("statusMassageModalStore/ADD_STATUS", "success", { root: true });
-
-        commit("CHANGE_ORDER_MODAL_STATUS", false);
-
-        dispatch("getAdvertiserOrdersList", {});
-      })
-      .catch((error) => {
-        commit("SET_VALIDATOR_DATA", error.response.data);
-
-        commit("statusMassageModalStore/ADD_STATUS", "error", { root: true });
-
-        console.log(error.response);
-      });
-  },
-
-  async getAdvertiserOrdersList(
+  async getStatusOrderList(
     { commit, dispatch },
-    { ordering = "", activePage = "1", pageSize = "", searchInput = "" }
+    {
+      id = null,
+      ordering = "",
+      activePage = "1",
+      pageSize = "",
+      searchInput = "",
+    }
   ) {
     dispatch("setStatusLoading", true);
 
     await this.$axios
       .$get(
-        `orders/my_orders/?ordering=${ordering}&page=${activePage}&page_size=${pageSize}&search=${searchInput}`
+        `orders/${id}/respondents/?ordering=${ordering}&page=${activePage}&page_size=${pageSize}&search=${searchInput}`
       )
       .then((response) => {
         dispatch("setStatusLoading", false);
 
         commit("SET_COUNT_CARDS", response.count);
 
-        commit("SET_ADVERTISER_ORDERS_LIST", response.results);
+        commit("SET_STATUS_ORDER_LIST", response.results);
       })
       .catch((error) => {
         console.log(error.response);

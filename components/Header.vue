@@ -424,6 +424,12 @@ export default {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.5);
   background-color: transparent;
+  transition: color 0.3s ease;
+}
+
+.btn-menu:hover {
+  color: #fff;
+  transition: color 0.3s ease;
 }
 
 /* **** LOGO **** */

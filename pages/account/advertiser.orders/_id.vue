@@ -1,5 +1,6 @@
 <template>
   <div class="order">
+    <!-- исправить v-if на оратное значение (! - убрать) -->
     <template v-if="isResponseOk">
       <div class="order__header">
         <h4 class="mb-3">information about order</h4>
