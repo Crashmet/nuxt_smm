@@ -69,6 +69,8 @@ export const actions = {
       .$get(`orders/response/${id}/?status=${status}`)
       .then((response) => {
         commit("statusMassageModalStore/ADD_STATUS", "success", { root: true });
+
+        this.app.router.go(-1);
       })
       .catch((error) => {
         commit("statusMassageModalStore/ADD_STATUS", "error", { root: true });

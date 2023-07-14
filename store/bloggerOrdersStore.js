@@ -1,3 +1,5 @@
+import { STATUS } from "~/assets/consts/status";
+
 export const state = () => ({
   isLoading: true,
 
@@ -89,53 +91,25 @@ export const mutations = {
     const list = filteredList.map((el) => {
       switch (el.respond_status) {
         case "new_order":
-          el.respond_status = {
-            status: el.respond_status,
-            name: "Новый заказ",
-            style: "badge-info",
-          };
+          el.respond_status = STATUS.new_order;
           break;
         case "in_progress":
-          el.respond_status = {
-            status: el.respond_status,
-            name: "В работе",
-            style: "badge-warning",
-          };
+          el.respond_status = STATUS.in_progress;
           break;
         case "done":
-          el.respond_status = {
-            status: el.respond_status,
-            name: "Выполнен",
-            style: "badge-success",
-          };
+          el.respond_status = STATUS.done;
           break;
         case "accepted":
-          el.respond_status = {
-            status: el.respond_status,
-            name: "Принят заказчиком",
-            style: "badge-primary",
-          };
+          el.respond_status = STATUS.accepted;
           break;
         case "canceled":
-          el.respond_status = {
-            status: el.respond_status,
-            name: "Отклонен",
-            style: "badge-danger",
-          };
+          el.respond_status = STATUS.canceled;
           break;
         case "arbitration":
-          el.respond_status = {
-            status: el.respond_status,
-            name: "Арбитраж",
-            style: "badge-secondary",
-          };
+          el.respond_status = STATUS.arbitration;
           break;
         default:
-          el.respond_status = {
-            status: el.respond_status,
-            name: "-",
-            style: "badge-light",
-          };
+          el.respond_status = STATUS.default;
       }
 
       statusList.push(el.respond_status);
@@ -151,11 +125,7 @@ export const mutations = {
         return acc;
       }, []);
 
-      state.statusList.push({
-        status: "",
-        name: "Сброс",
-        style: "badge-light",
-      });
+      state.statusList.push(STATUS.reset);
     }
 
     state.bloggerOrdersList = list;

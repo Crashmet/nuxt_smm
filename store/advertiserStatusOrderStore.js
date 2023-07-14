@@ -1,3 +1,5 @@
+import { STATUS } from "~/assets/consts/status";
+
 export const state = () => ({
   isLoading: true,
 
@@ -81,56 +83,33 @@ export const mutations = {
   },
 
   SET_STATUS_ORDER_LIST(state, response) {
-    const list = response.map((el) => {
+    const filteredList = response.filter(
+      (el) =>
+        el.respond_status !== "canceled" && el.respond_status !== "new_order"
+    );
+
+    const list = filteredList.map((el) => {
       switch (el.status) {
         case "new_order":
-          el.status = {
-            status: el.status,
-            name: "Новый заказ",
-            style: "badge-info",
-          };
+          el.respond_status = STATUS.new_order;
           break;
         case "in_progress":
-          el.status = {
-            status: el.status,
-            name: "В работе",
-            style: "badge-warning",
-          };
+          el.respond_status = STATUS.in_progress;
           break;
         case "done":
-          el.status = {
-            status: el.status,
-            name: "Выполнен",
-            style: "badge-success",
-          };
+          el.respond_status = STATUS.done;
           break;
         case "accepted":
-          el.status = {
-            status: el.status,
-            name: "Принят заказчиком",
-            style: "badge-primary",
-          };
+          el.respond_status = STATUS.accepted;
           break;
         case "canceled":
-          el.status = {
-            status: el.status,
-            name: "Отклонен",
-            style: "badge-danger",
-          };
+          el.respond_status = STATUS.canceled;
           break;
         case "arbitration":
-          el.status = {
-            status: el.status,
-            name: "Арбитраж",
-            style: "badge-secondary",
-          };
+          el.respond_status = STATUS.arbitration;
           break;
         default:
-          el.status = {
-            status: el.status,
-            name: "-",
-            style: "badge-light",
-          };
+          el.respond_status = STATUS.default;
       }
 
       return el;
