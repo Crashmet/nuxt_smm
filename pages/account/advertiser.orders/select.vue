@@ -696,6 +696,10 @@ td {
   font-size: 12px;
 }
 
+.btn {
+  padding: 5px 15px;
+}
+
 /* **** SELECT STATUS **** */
 
 .select-status__modal {
