@@ -686,6 +686,11 @@ thead th:nth-child(6) {
   width: 12%;
 }
 
+thead th:nth-child(7),
+td:nth-child(7) {
+  text-align: center;
+}
+
 tbody tr {
   color: var(--bs-gray-600);
   border-bottom: 1px solid var(--bs-gray-400);
