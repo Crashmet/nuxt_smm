@@ -310,14 +310,18 @@ export default {
         id: orderId,
         userId: item.id,
         status: "accepted",
-      }).then(() =>
-        this.getStatusOrderList({
-          id: this.orderId,
-          ordering: this.ordering,
-          activePage: this.activePage,
-          pageSize: this.pageSize,
-          searchInput: this.filterInput,
-        })
+      });
+
+      setTimeout(
+        () =>
+          this.getStatusOrderList({
+            id: this.orderId,
+            ordering: this.ordering,
+            activePage: this.activePage,
+            pageSize: this.pageSize,
+            searchInput: this.filterInput,
+          }),
+        1000
       );
     },
 
