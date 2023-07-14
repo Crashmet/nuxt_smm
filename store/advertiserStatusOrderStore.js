@@ -189,9 +189,9 @@ export const actions = {
       });
   },
 
-  async setStatusOrder({ commit }, { id, username, status }) {
+  async setStatusOrder({ commit }, { id, userId, status }) {
     await this.$axios
-      .$get(`orders/${id}/respondents/${username}/?status=${status}`)
+      .$get(`orders/${id}/respondents/${userId}/?status=${status}`)
       .then((response) => {
         commit("statusMassageModalStore/ADD_STATUS", "success", { root: true });
       })

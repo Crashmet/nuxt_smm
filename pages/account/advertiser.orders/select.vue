@@ -77,14 +77,16 @@
                   type="button"
                   @click.prevent="
                     setStatusOrder({
-                      id: item.id,
-                      username: item.username,
+                      id: orderId,
+                      userId: item.id,
                       status: 'accepted',
                     })
                   "
                 >
                   Подтвердить
                 </b-button>
+
+                <span v-else> - </span>
               </td>
             </tr>
 
@@ -697,7 +699,12 @@ td {
 }
 
 .btn {
-  padding: 5px 15px;
+  padding: 5px 14px;
+}
+
+.btn_change:hover,
+.btn_change:active {
+  background: var(--bs-secondary);
 }
 
 /* **** SELECT STATUS **** */
