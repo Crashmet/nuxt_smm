@@ -117,16 +117,16 @@ export const mutations = {
       return el;
     });
 
-    if (state.statusList.length === 0) {
-      state.statusList = statusList.reduce((acc, el) => {
-        if (!acc.find((item) => item.status === el.status)) {
-          acc.push(el);
-        }
-        return acc;
-      }, []);
+    statusList.reduce((acc, el) => {
+      if (!acc.find((item) => item.status === el.status)) {
+        acc.push(el);
+      }
+      return acc;
+    }, []);
 
-      state.statusList.push(STATUS.reset);
-    }
+    statusList.push(STATUS.reset);
+
+    state.statusList = statusList;
 
     state.bloggerOrdersList = list;
   },
