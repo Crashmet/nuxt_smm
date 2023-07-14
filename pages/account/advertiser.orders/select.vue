@@ -71,8 +71,20 @@
                 </span>
               </td>
               <td>
-                <button>Button 1</button>
-                <button>Button 1</button>
+                <b-button
+                  v-if="item.status.name === 'done'"
+                  class="btn btn-dark btn_change rounded px-4"
+                  type="button"
+                  @click.prevent="
+                    setStatusOrder({
+                      id: item.id,
+                      username: item.username,
+                      status: 'accepted',
+                    })
+                  "
+                >
+                  Подтвердить
+                </b-button>
               </td>
             </tr>
 
@@ -293,6 +305,8 @@ export default {
       resetFiltersTitles: "advertiserStatusOrderStore/resetFiltersTitles",
 
       setActivePage: "advertiserStatusOrderStore/setActivePage",
+
+      setStatusOrder: "advertiserStatusOrderStore/setStatusOrder",
     }),
 
     handlerClickSearch() {

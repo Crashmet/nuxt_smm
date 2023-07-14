@@ -119,18 +119,18 @@ export const mutations = {
 
     console.log(statusList, 1);
 
-    statusList.reduce((acc, el) => {
-      if (!acc.find((item) => item.status === el.status)) {
-        acc.push(el);
-      }
-      return acc;
-    }, []);
+    if (state.statusList.length === 0) {
+      state.statusList = statusList.reduce((acc, el) => {
+        if (!acc.find((item) => item.status === el.status)) {
+          acc.push(el);
+        }
+        return acc;
+      }, []);
 
-    statusList.push(STATUS.reset);
+      state.statusList.push(STATUS.default);
+    }
 
     console.log(statusList, 2);
-
-    state.statusList = statusList;
 
     state.bloggerOrdersList = list;
   },

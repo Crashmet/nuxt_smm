@@ -188,4 +188,15 @@ export const actions = {
         console.log(error.response);
       });
   },
+
+  async setStatusOrder({ commit }, { id, username, status }) {
+    await this.$axios
+      .$get(`orders/${id}/respondents/${username}/?status=${status}`)
+      .then((response) => {
+        commit("statusMassageModalStore/ADD_STATUS", "success", { root: true });
+      })
+      .catch((error) => {
+        commit("statusMassageModalStore/ADD_STATUS", "error", { root: true });
+      });
+  },
 };
