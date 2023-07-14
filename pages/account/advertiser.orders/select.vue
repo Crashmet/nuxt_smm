@@ -72,7 +72,7 @@
               </td>
               <td>
                 <b-button
-                  v-if="item.status.name === 'done'"
+                  v-if="item.status.status === 'done'"
                   class="btn btn-dark btn_change rounded px-4"
                   type="button"
                   @click.prevent="

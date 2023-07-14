@@ -117,21 +117,16 @@ export const mutations = {
       return el;
     });
 
-    console.log(statusList, 1);
+    const filterStatusList = statusList.reduce((acc, el) => {
+      if (!acc.find((item) => item.status === el.status)) {
+        acc.push(el);
+      }
+      return acc;
+    }, []);
 
-    if (state.statusList.length === 0) {
-      state.statusList = statusList.reduce((acc, el) => {
-        if (!acc.find((item) => item.status === el.status)) {
-          acc.push(el);
-        }
-        return acc;
-      }, []);
+    filterStatusList.push(STATUS.default);
 
-      state.statusList.push(STATUS.default);
-    }
-
-    console.log(statusList, 2);
-
+    state.statusList = filterStatusList;
     state.bloggerOrdersList = list;
   },
 
