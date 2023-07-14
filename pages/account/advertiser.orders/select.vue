@@ -75,7 +75,7 @@
                   v-if="item.status.status === 'done'"
                   class="btn btn-dark btn_change rounded px-4"
                   type="button"
-                  @click.prevent="handlerClickAccept()"
+                  @click.prevent="handlerClickAccept(item)"
                 >
                   Подтвердить
                 </b-button>
@@ -305,23 +305,19 @@ export default {
       setStatusOrder: "advertiserStatusOrderStore/setStatusOrder",
     }),
 
-    handlerClickAccept() {
+    handlerClickAccept(item) {
       this.setStatusOrder({
-        id: orderId,
+        id: this.orderId,
         userId: item.id,
         status: "accepted",
-      });
-
-      setTimeout(
-        () =>
-          this.getStatusOrderList({
-            id: this.orderId,
-            ordering: this.ordering,
-            activePage: this.activePage,
-            pageSize: this.pageSize,
-            searchInput: this.filterInput,
-          }),
-        1000
+      }).then(() =>
+        this.getStatusOrderList({
+          id: this.orderId,
+          ordering: this.ordering,
+          activePage: this.activePage,
+          pageSize: this.pageSize,
+          searchInput: this.filterInput,
+        })
       );
     },
 
