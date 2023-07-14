@@ -274,7 +274,7 @@
         </b-col>
         <b-col cols="6" md="3" lg="3">
           <b-button
-            v-if="respond_status !== 'in_progress'"
+            v-if="respond_status === 'new_order'"
             class="btn btn-dark btn_change rounded mb-3 px-4"
             type="button"
             @click.prevent="
@@ -285,12 +285,21 @@
           </b-button>
 
           <b-button
-            v-else
+            v-else-if="respond_status === 'in_progress'"
             class="btn btn-dark btn_change rounded mb-3 px-4"
             type="button"
             @click.prevent="setStatusOrder({ id: orderId, status: 'done' })"
           >
             Выполнен
+          </b-button>
+
+          <b-button
+            v-else-if="respond_status === 'done'"
+            class="btn btn-dark btn_change rounded mb-3 px-4"
+            type="button"
+            @click.prevent="setStatusOrder({ id: orderId, status: 'done' })"
+          >
+            Продолжить
           </b-button>
         </b-col>
       </b-row>

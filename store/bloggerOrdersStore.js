@@ -117,6 +117,8 @@ export const mutations = {
       return el;
     });
 
+    console.log(statusList, 1);
+
     statusList.reduce((acc, el) => {
       if (!acc.find((item) => item.status === el.status)) {
         acc.push(el);
@@ -125,6 +127,8 @@ export const mutations = {
     }, []);
 
     statusList.push(STATUS.reset);
+
+    console.log(statusList, 2);
 
     state.statusList = statusList;
 
