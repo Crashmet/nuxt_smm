@@ -84,32 +84,31 @@ export const mutations = {
 
   SET_STATUS_ORDER_LIST(state, response) {
     const filteredList = response.filter(
-      (el) =>
-        el.respond_status !== "canceled" && el.respond_status !== "new_order"
+      (el) => el.status !== "canceled" && el.status !== "new_order"
     );
 
     const list = filteredList.map((el) => {
       switch (el.status) {
         case "new_order":
-          el.respond_status = STATUS.new_order;
+          el.status = STATUS.new_order;
           break;
         case "in_progress":
-          el.respond_status = STATUS.in_progress;
+          el.status = STATUS.in_progress;
           break;
         case "done":
-          el.respond_status = STATUS.done;
+          el.status = STATUS.done;
           break;
         case "accepted":
-          el.respond_status = STATUS.accepted;
+          el.status = STATUS.accepted;
           break;
         case "canceled":
-          el.respond_status = STATUS.canceled;
+          el.status = STATUS.canceled;
           break;
         case "arbitration":
-          el.respond_status = STATUS.arbitration;
+          el.status = STATUS.arbitration;
           break;
         default:
-          el.respond_status = STATUS.default;
+          el.status = STATUS.default;
       }
 
       return el;
