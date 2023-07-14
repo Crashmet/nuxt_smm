@@ -297,7 +297,9 @@
             v-else-if="respond_status === 'done'"
             class="btn btn-dark btn_change rounded mb-3 px-4"
             type="button"
-            @click.prevent="setStatusOrder({ id: orderId, status: 'done' })"
+            @click.prevent="
+              setStatusOrder({ id: orderId, status: 'in_progress' })
+            "
           >
             Продолжить
           </b-button>
