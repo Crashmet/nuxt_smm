@@ -38,7 +38,7 @@
       </nav>
 
       <div class="orders__table">
-        <table v-if="count">
+        <table v-if="count && statusList.length > 0">
           <thead>
             <tr>
               <th

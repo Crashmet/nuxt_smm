@@ -5,7 +5,7 @@ export const state = () => ({
 
   isOpenModalAddOrder: false,
 
-  count: 29,
+  count: 0,
 
   activePage: 1,
 

@@ -345,7 +345,7 @@
           <b-button
             class="btn btn-dark btn_delete rounded mb-3 px-4"
             type="button"
-            @click.prevent="deleteOrder(orderId)"
+            @click.prevent="isDeleteOrder = true"
           >
             Удалить
           </b-button>
@@ -365,10 +365,33 @@
             class="btn btn-dark btn_select rounded px-4"
             type="button"
           >
-            Выбрать блогеров
+            Статус заказа
           </nuxt-link>
         </b-col>
       </b-row>
+
+      <b-modal v-model="isDeleteOrder" id="bv-modal-example" hide-footer>
+        <template #modal-title> Предупреждение! </template>
+        <div class="d-block text-center">
+          <h3 class="register-modal__title">
+            Вы действительно хотите удалить заказ?
+          </h3>
+        </div>
+        <b-button
+          class="mt-3"
+          variant="outline-danger"
+          block
+          @click.prevent="isDeleteOrder = false"
+          >Нет</b-button
+        >
+        <b-button
+          class="mt-2"
+          variant="outline-warning"
+          block
+          @click.prevent="deleteOrder(orderId)"
+          >Удалить</b-button
+        >
+      </b-modal>
     </template>
 
     <template v-else> <h3 class="order__not-found">Ошибка!</h3></template>
@@ -404,6 +427,8 @@ export default {
       validatorRegion: "",
       validatorMinSubscribers: "",
       validatorMaxSubscribers: "",
+
+      isDeleteOrder: false,
     };
   },
 
@@ -437,6 +462,7 @@ export default {
       deleteOrder: "advertiserSettingsOrderStore/deleteOrder",
       updateOrderList: "advertiserSettingsOrderStore/updateOrderList",
     }),
+
 
     handlerClickBack() {
       this.$router.go(-1);

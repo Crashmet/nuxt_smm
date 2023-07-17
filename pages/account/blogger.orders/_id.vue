@@ -267,7 +267,7 @@
           <b-button
             class="btn btn-dark btn_canceled rounded mb-3 px-4"
             type="button"
-            @click.prevent="setStatusOrder({ id: orderId, status: 'canceled' })"
+            @click.prevent="isDeleteOrder = true"
           >
             Отклонить
           </b-button>
@@ -305,6 +305,29 @@
           </b-button>
         </b-col>
       </b-row>
+
+      <b-modal v-model="isDeleteOrder" id="bv-modal-example" hide-footer>
+        <template #modal-title> Предупреждение! </template>
+        <div class="d-block text-center">
+          <h3 class="register-modal__title">
+            Вы действительно хотите отказаться от заказа?
+          </h3>
+        </div>
+        <b-button
+          class="mt-3"
+          variant="outline-danger"
+          block
+          @click.prevent="isDeleteOrder = false"
+          >Нет</b-button
+        >
+        <b-button
+          class="mt-2"
+          variant="outline-warning"
+          block
+          @click.prevent="setStatusOrder({ id: orderId, status: 'canceled' })"
+          >Отклонить</b-button
+        >
+      </b-modal>
     </template>
 
     <template v-else> <h3 class="order__not-found">Ошибка!</h3></template>
@@ -329,6 +352,8 @@ export default {
       min_subscribers: null,
       max_subscribers: null,
       respond_status: "",
+
+      isDeleteOrder: false,
     };
   },
 

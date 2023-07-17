@@ -38,7 +38,7 @@
       </nav>
 
       <div class="orders__table">
-        <table v-if="count">
+        <table v-if="count && statusOrderList.length > 0">
           <thead>
             <tr>
               <th
@@ -102,7 +102,7 @@
           </tbody>
         </table>
 
-        <h3 v-else class="table__not-found">"Нет активных заказов"</h3>
+        <h3 v-else class="table__not-found">"Список пуст"</h3>
       </div>
 
       <nav v-if="count" class="orders__nav">
