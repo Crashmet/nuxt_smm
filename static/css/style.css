@@ -9712,11 +9712,9 @@ a {
 .btn {
   text-decoration: none ;
   border-radius: 30px;
-  border: none;
   padding: 8px 24px;
   border-width: 2px;
   border-color: transparent;
-  border: none ;
   top: 0;
   position: relative;
   -webkit-transition: .3s all ease;

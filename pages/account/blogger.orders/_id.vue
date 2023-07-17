@@ -309,19 +309,19 @@
       <b-modal v-model="isDeleteOrder" id="bv-modal-example" hide-footer>
         <template #modal-title> Предупреждение! </template>
         <div class="d-block text-center">
-          <h3 class="register-modal__title">
+          <h4 class="modal__title">
             Вы действительно хотите отказаться от заказа?
-          </h3>
+          </h4>
         </div>
         <b-button
-          class="mt-3"
+          class="mt-3 modal-btn"
           variant="outline-danger"
           block
           @click.prevent="isDeleteOrder = false"
           >Нет</b-button
         >
         <b-button
-          class="mt-2"
+          class="mt-2 modal-btn"
           variant="outline-warning"
           block
           @click.prevent="setStatusOrder({ id: orderId, status: 'canceled' })"
