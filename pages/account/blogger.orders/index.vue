@@ -115,7 +115,7 @@
       </div>
 
       <nav v-if="count" class="orders__nav">
-        <div class="nav_left">
+        <div v-show="statusList.length > 0" class="nav_left">
           <p class="nav-select__label">Entries per page:</p>
           <select
             class="nav-select"
