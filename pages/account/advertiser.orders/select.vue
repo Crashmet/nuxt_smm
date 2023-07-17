@@ -80,6 +80,14 @@
                   Подтвердить
                 </b-button>
 
+                <b-button
+                  v-else-if="item.status.status === 'accepted'"
+                  class="btn btn-dark btn_change rounded px-4"
+                  type="button"
+                >
+                  В архив
+                </b-button>
+
                 <span v-else> - </span>
               </td>
             </tr>
