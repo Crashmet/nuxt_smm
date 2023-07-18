@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <!-- /.col-lg-4 -->
-        <div class="col-lg-4 col-left">
+        <div class="col-lg-5 col-left">
           <div class="widget">
             <ul class="list-unstyled float-start links">
               <li>
@@ -49,7 +49,7 @@
           <!-- /.widget -->
         </div>
         <!-- /.col-lg-4 -->
-        <div class="col-lg-4">
+        <div class="col-lg-3">
           <div class="widget">
             <h3>Links</h3>
             <ul class="list-unstyled links">
@@ -71,9 +71,9 @@
               <li>
                 <a href=""><span class="icon-linkedin"></span></a>
               </li>
-              <li>
+              <!-- <li>
                 <a href=""><span class="icon-pinterest"></span></a>
-              </li>
+              </li> -->
             </ul>
 
             <!-- <div class="list-unstyled">
@@ -110,9 +110,10 @@
             -->
 
           <p>
-            Copyright &copy; . All Rights Reserved. &mdash; Designed with love
-            by
-            <a href="https://untree.co">Untree.co</a>
+            Copyright &copy; . All Rights Reserved.
+            <!-- &mdash; Designed with love
+            by -->
+            <!-- <a href="https://untree.co">Untree.co</a> -->
             <!-- License information: https://untree.co/license/ -->
           </p>
         </div>

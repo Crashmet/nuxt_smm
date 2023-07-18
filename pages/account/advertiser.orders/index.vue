@@ -46,7 +46,7 @@
           </button>
         </div>
 
-        <div v-if="count" class="nav_right">
+        <div v-if="count && advertiserOrdersList.length > 0" class="nav_right">
           <form action="#" class="nav-search__form">
             <input
               type="text"

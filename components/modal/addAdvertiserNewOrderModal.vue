@@ -1,6 +1,6 @@
 <template>
   <div class="modal__section container">
-    <h4 class="mb-3">Place a new order</h4>
+    <h4 class="mr-3">Place a new order</h4>
 
     <div>
       <b-form-group

@@ -24,7 +24,11 @@
 
     <div v-else>
       <nav class="orders__nav">
-        <form v-if="count" action="#" class="nav-search__form">
+        <form
+          v-if="count && statusOrderList.length > 0"
+          action="#"
+          class="nav-search__form"
+        >
           <input
             type="text"
             placeholder="Поиск"
