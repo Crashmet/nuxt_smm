@@ -10246,3 +10246,10 @@ nav[aria-label="breadcrumb"] li:before {
   .form-check-inline .form-check-input{
     margin-top: 0.25em;
   }
+
+
+  .btn-dark.focus, .btn-dark:focus, .btn-dark:hover {
+    background-color: #23272b;
+    border-color: transparent;
+    color: #fff;
+}
