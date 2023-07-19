@@ -35,7 +35,7 @@ export const STATUS = {
     style: "badge-secondary",
   },
   default: {
-    status: "null",
+    status: null,
     name: "-",
     style: "badge-light",
   },

@@ -101,6 +101,9 @@ export const mutations = {
         case "arbitration":
           el.respond_status = STATUS.arbitration;
           break;
+        case "archive":
+          el.respond_status = STATUS.archive;
+          break;
         default:
           el.respond_status = STATUS.default;
       }
