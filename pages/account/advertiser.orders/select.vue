@@ -79,7 +79,7 @@
                   v-if="item.status.status === 'done'"
                   class="btn btn-dark btn_change rounded px-4"
                   type="button"
-                  @click.prevent="handlerClickAccept(item)"
+                  @click.prevent="handlerClickAddStatus(item, 'accepted')"
                 >
                   Подтвердить
                 </b-button>
@@ -88,6 +88,7 @@
                   v-else-if="item.status.status === 'accepted'"
                   class="btn btn-dark btn_change rounded px-4"
                   type="button"
+                  @click.prevent="handlerClickAddStatus(item, 'archive')"
                 >
                   В архив
                 </b-button>
@@ -317,11 +318,11 @@ export default {
       setStatusOrder: "advertiserStatusOrderStore/setStatusOrder",
     }),
 
-    handlerClickAccept(item) {
+    handlerClickAddStatus(item, status) {
       this.setStatusOrder({
         id: this.orderId,
         userId: item.id,
-        status: "accepted",
+        status: status,
       }).then(() =>
         this.getStatusOrderList({
           id: this.orderId,

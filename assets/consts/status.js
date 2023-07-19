@@ -27,6 +27,11 @@ export const STATUS = {
   arbitration: {
     status: "arbitration",
     name: "Арбитраж",
+    style: "badge-danger",
+  },
+  archive: {
+    status: "archive",
+    name: "Архив",
     style: "badge-secondary",
   },
   default: {
