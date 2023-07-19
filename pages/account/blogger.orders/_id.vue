@@ -306,7 +306,12 @@
         </b-col>
       </b-row>
 
-      <b-modal v-model="isDeleteOrder" id="bv-modal-example" hide-footer>
+      <b-modal
+        v-model="isDeleteOrder"
+        id="bv-modal-example"
+        class="px-0"
+        hide-footer
+      >
         <template #modal-title> Предупреждение! </template>
         <div class="d-block text-center">
           <h4 class="modal__title">

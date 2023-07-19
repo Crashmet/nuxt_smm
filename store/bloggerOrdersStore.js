@@ -124,7 +124,7 @@ export const mutations = {
       return acc;
     }, []);
 
-    filterStatusList.push(STATUS.default);
+    filterStatusList.push(STATUS.reset);
 
     state.statusList = filterStatusList;
     state.bloggerOrdersList = list;
