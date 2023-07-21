@@ -191,7 +191,7 @@ export const actions = {
 
     await this.$axios
       .$get(
-        `orders/?ordering=${ordering}&page=${activePage}&page_size=${pageSize}&search=${searchInput}&status=${status}`
+        `orders/responded/?ordering=${ordering}&page=${activePage}&page_size=${pageSize}&search=${searchInput}&status=${status}`
       )
       .then((response) => {
         dispatch("setStatusLoading", false);

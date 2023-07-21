@@ -43,7 +43,7 @@ export const state = () => ({
       isWork: false,
     },
     {
-      title: "Статус",
+      title: "Заказы в работе",
       isArrowUp: false,
       isActive: false,
       isWork: false,

@@ -96,11 +96,8 @@
               <td>{{ item.end_date }}</td>
               <td>{{ item.social[0].name }}</td>
               <td>
-                <span
-                  class="badge badge-pill"
-                  :class="item.respond_status.style"
-                >
-                  {{ item.respond_status.name }}
+                <span class="badge badge-pill badge-light">
+                  {{ item.respondents_count }}
                 </span>
               </td>
             </tr>
