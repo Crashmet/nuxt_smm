@@ -1,6 +1,6 @@
 <template>
   <div class="orders-home home">
-    <div v-if="isLoading">
+    <div v-if="!isLoading">
       <nav class="orders__nav">
         <form action="#" class="nav-search__form">
           <b-skeleton
@@ -24,7 +24,11 @@
 
     <div v-else>
       <nav class="orders__nav">
-        <form v-if="count && statusList.length > 0" action="#" class="nav-search__form">
+        <form
+          v-if="count && bloggerOrdersList.length > 0"
+          action="#"
+          class="nav-search__form"
+        >
           <input
             type="text"
             placeholder="Поиск"
@@ -38,7 +42,7 @@
       </nav>
 
       <div class="orders__table">
-        <table v-if="count && statusList.length > 0">
+        <table v-if="count && bloggerOrdersList.length > 0">
           <thead>
             <tr>
               <th
@@ -79,10 +83,18 @@
               :key="item.id"
               @click.prevent="handlerClickOrderMenu(item)"
             >
+              <td>{{ item.author }}</td>
+
               <td>{{ item.name }}</td>
-              <td>{{ item.budget_per_subscriber }}</td>
-              <td>{{ item.end_date }}</td>
+
               <td>{{ item.social[0].name }}</td>
+
+              <td>{{ item.region }}</td>
+
+              <td>{{ item.budget_per_subscriber }}</td>
+
+              <td>{{ item.end_date }}</td>
+
               <td>
                 <span
                   class="badge badge-pill"
@@ -91,23 +103,29 @@
                   {{ item.respond_status.name }}
                 </span>
               </td>
+
+              <td>Обсудить с заказчиком</td>
             </tr>
 
-            <!-- <tr @click.prevent="handlerClickOrderMenu({ id: 2 })">
-              <td>sadasd</td>
-              <td>ssdfsdfsd</td>
-              <td>asd</td>
-              <td>asdadasda</td>
-              <td>-</td>
-            </tr>
+            <tr @click.prevent="handlerClickOrderMenu({ id: 2 })">
+              <td>112</td>
 
-            <tr @click.prevent="handlerClickOrderMenu(item)">
-              <td>sadasd</td>
-              <td>ssdfsdfsd</td>
-              <td>asd</td>
-              <td>asdadasda</td>
-              <td>-</td>
-            </tr> -->
+              <td>ывфывф</td>
+
+              <td>йцуйцуйцу</td>
+
+              <td>ййййййй</td>
+
+              <td>йцуйцуй</td>
+
+              <td>111111</td>
+
+              <td>
+                <span class="badge badge-pill"> 111 </span>
+              </td>
+
+              <td>Обсудить с заказчиком</td>
+            </tr>
           </tbody>
         </table>
 
@@ -115,7 +133,7 @@
       </div>
 
       <nav v-if="count" class="orders__nav">
-        <div v-show="statusList.length > 0" class="nav_left">
+        <div v-show="bloggerOrdersList.length > 0" class="nav_left">
           <p class="nav-select__label">Entries per page:</p>
           <select
             class="nav-select"
@@ -463,7 +481,7 @@ export default {
 }
 
 .home {
-  width: 1000px;
+  width: 1200px;
   margin-top: 1rem;
   position: relative;
 }
@@ -691,24 +709,33 @@ thead th {
 }
 
 thead th:nth-child(1) {
-  width: 30%;
+  width: 13%;
 }
 
 thead th:nth-child(2) {
-  width: 18%;
+  width: 17%;
 }
 
 thead th:nth-child(3) {
-  width: 19%;
+  width: 12%;
 }
 
 thead th:nth-child(4) {
-  width: 15%;
+  width: 13%;
 }
 
-thead th:nth-child(5),
-td:nth-child(5) {
-  text-align: center;
+thead th:nth-child(5) {
+  width: 12%;
+}
+
+thead th:nth-child(6) {
+  width: 13%;
+}
+
+thead th:nth-child(7),
+td:nth-child(7) {
+  width: 12%;
+  /* text-align: center; */
 }
 
 tbody tr {

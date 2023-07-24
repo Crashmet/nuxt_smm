@@ -11,29 +11,18 @@ export const state = () => ({
 
   filtersTitles: [
     {
-      title: "Наименование",
+      title: "Заказчик",
       isArrowUp: false,
       isActive: false,
       isWork: false,
       isSelect: false,
     },
     {
-      title: "Бюджет",
+      title: "Задание",
       isArrowUp: false,
       isActive: false,
-      isWork: true,
+      isWork: false,
       isSelect: false,
-      APIRequestUp: "budget_per_subscriber",
-      APIRequestDown: "-budget_per_subscriber",
-    },
-    {
-      title: "Дата",
-      isArrowUp: false,
-      isActive: false,
-      isWork: true,
-      isSelect: false,
-      APIRequestUp: "end_date",
-      APIRequestDown: "-end_date",
     },
     {
       title: "Соцсеть",
@@ -43,11 +32,44 @@ export const state = () => ({
       isSelect: false,
     },
     {
+      title: "Регион",
+      isArrowUp: false,
+      isActive: false,
+      isWork: false,
+      isSelect: false,
+    },
+    {
+      title: "Сумма",
+      isArrowUp: false,
+      isActive: false,
+      isWork: true,
+      isSelect: false,
+      APIRequestUp: "budget_per_subscriber",
+      APIRequestDown: "-budget_per_subscriber",
+    },
+    {
+      title: "Срок",
+      isArrowUp: false,
+      isActive: false,
+      isWork: true,
+      isSelect: false,
+      APIRequestUp: "end_date",
+      APIRequestDown: "-end_date",
+    },
+    {
       title: "Статус",
       isArrowUp: false,
       isActive: false,
       isWork: true,
       isSelect: true,
+    },
+
+    {
+      title: "Чат",
+      isArrowUp: false,
+      isActive: false,
+      isWork: false,
+      isSelect: false,
     },
   ],
 
