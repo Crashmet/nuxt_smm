@@ -1,6 +1,6 @@
 <template>
   <div class="orders-home home">
-    <div v-if="!isLoading">
+    <div v-if="isLoading">
       <nav class="orders__nav">
         <form action="#" class="nav-search__form">
           <b-skeleton
@@ -107,7 +107,7 @@
               <td>Обсудить с заказчиком</td>
             </tr>
 
-            <tr @click.prevent="handlerClickOrderMenu({ id: 2 })">
+            <!-- <tr @click.prevent="handlerClickOrderMenu({ id: 2 })">
               <td>112</td>
 
               <td>ывфывф</td>
@@ -125,7 +125,7 @@
               </td>
 
               <td>Обсудить с заказчиком</td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
 
