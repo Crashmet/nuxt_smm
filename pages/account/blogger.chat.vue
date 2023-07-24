@@ -15,8 +15,11 @@
                       aria-label="Search"
                       aria-describedby="search-addon"
                     />
-                    <span class="input-group-text border-0" id="search-addon">
-                      <i class="fas fa-search"></i>
+                    <span
+                      class="input-group-text border-0 bg-transparent"
+                      id="search-addon"
+                    >
+                      <i class="fa fa-search"></i>
                     </span>
                   </div>
 
@@ -47,7 +50,8 @@
                           </div>
                           <div class="pt-1">
                             <p class="small text-muted mb-1">Just now</p>
-                            <span class="badge bg-danger rounded-pill float-end"
+                            <span
+                              class="badge bg-danger rounded-pill float-end text-white"
                               >3</span
                             >
                           </div>
@@ -74,7 +78,8 @@
                           </div>
                           <div class="pt-1">
                             <p class="small text-muted mb-1">5 mins ago</p>
-                            <span class="badge bg-danger rounded-pill float-end"
+                            <span
+                              class="badge bg-danger rounded-pill float-end text-white"
                               >2</span
                             >
                           </div>
@@ -366,13 +371,16 @@
                     placeholder="Type message"
                   />
                   <a class="ms-1 text-muted" href="#!"
-                    ><i class="fas fa-paperclip"></i
+                    ><i class="fa fa-paperclip" style="font-size: 20px"></i
                   ></a>
                   <a class="ms-3 text-muted" href="#!"
-                    ><i class="fas fa-smile"></i
+                    ><i class="fa fa-smile-o" style="font-size: 20px"></i
                   ></a>
                   <a class="ms-3" href="#!"
-                    ><i class="fas fa-paper-plane"></i
+                    ><i
+                      class="fa fa-paper-plane"
+                      style="font-size: 20px; color: #0d6efd"
+                    ></i
                   ></a>
                 </div>
               </div>

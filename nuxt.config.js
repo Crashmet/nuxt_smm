@@ -28,7 +28,10 @@ export default {
       },
       { rel: "stylesheet", href: "/fonts/icomoon/style.css" },
       { rel: "stylesheet", href: "/fonts/flaticon/font/flaticon.css" },
-      // { rel: "stylesheet", href: "/css/style.css" },
+      {
+        rel: "stylesheet",
+        href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+      },
     ],
     script: [{ hid: "stripe", src: "/js/counter.js", defer: true }],
   },

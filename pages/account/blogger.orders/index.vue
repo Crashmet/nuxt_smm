@@ -83,7 +83,7 @@
               :key="item.id"
               @click.prevent="handlerClickOrderMenu(item)"
             >
-              <td>{{ item.author }}</td>
+              <td>{{ item.author.username }}</td>
 
               <td>{{ item.name }}</td>
 
