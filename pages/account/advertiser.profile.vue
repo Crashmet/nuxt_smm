@@ -17,7 +17,7 @@
                   class="img-fluid my-5"
                   style="width: 120px"
                 />
-                <h4>{{ advertiserData.nickname }}</h4>
+                <h4>{{ advertiserData.username }}</h4>
                 <h5>
                   {{ advertiserData.first_name }} {{ advertiserData.last_name }}
                 </h5>

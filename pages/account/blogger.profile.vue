@@ -17,7 +17,7 @@
                   class="img-fluid my-5"
                   style="width: 120px"
                 />
-                <h4>{{ bloggerData.nickname }}</h4>
+                <h4>{{ bloggerData.username }}</h4>
                 <h5>
                   {{ bloggerData.first_name }} {{ bloggerData.last_name }}
                 </h5>
