@@ -93,25 +93,23 @@
                   В архив
                 </b-button>
 
-                <span v-else> - </span>
+                <b-button
+                  class="btn btn-dark btn_change rounded px-4"
+                  type="button"
+                  @click.prevent="handlerClickAddStatus(item, 'in_progress')"
+                >
+                  Доработка
+                </b-button>
+
+                <b-button
+                  class="btn btn-dark btn_change rounded px-4"
+                  type="button"
+                  @click.prevent="handlerClickAddStatus(item, 'arbitration')"
+                >
+                  Арбитраж
+                </b-button>
               </td>
             </tr>
-
-            <!-- <tr >
-              <td>sadasd</td>
-              <td>ssdfsdfsd</td>
-              <td>asd</td>
-              <td>asdadasda</td>
-              <td>-</td>
-            </tr>
-
-            <tr >
-              <td>sadasd</td>
-              <td>ssdfsdfsd</td>
-              <td>asd</td>
-              <td>asdadasda</td>
-              <td>-</td>
-            </tr> -->
           </tbody>
         </table>
 
