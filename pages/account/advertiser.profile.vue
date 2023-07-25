@@ -21,7 +21,7 @@
                 <h5>
                   {{ advertiserData.first_name }} {{ advertiserData.last_name }}
                 </h5>
-                <p>Blogger</p>
+                <p>Advertiser</p>
                 <b-button
                   class="my-4 bg-transparent border-0"
                   type="button"

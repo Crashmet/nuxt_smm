@@ -3,7 +3,7 @@
     <!-- исправить v-if на оратное значение (! - убрать) -->
     <template v-if="isResponseOk">
       <div class="order__header">
-        <h4 class="mr-3">information about order</h4>
+        <h4 class="mr-4">information about order</h4>
 
         <button
           class="header__btn_back btn btn-dark"

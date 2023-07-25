@@ -78,22 +78,35 @@
             </div>
           </thead>
           <tbody>
-            <tr
-              v-for="item in bloggerOrdersList"
-              :key="item.id"
-              @click.prevent="handlerClickOrderMenu(item)"
-            >
-              <td>{{ item.author.username }}</td>
+            <tr v-for="item in bloggerOrdersList" :key="item.id">
+              <td>
+                <button
+                  class="btn"
+                  @click.prevent="handlerClickUsername(item.author.username)"
+                >
+                  {{ item.author.username }}
+                </button>
+              </td>
 
-              <td>{{ item.name }}</td>
+              <td @click.prevent="handlerClickOrderMenu(item)">
+                {{ item.name }}
+              </td>
 
-              <td>{{ item.social[0].name }}</td>
+              <td @click.prevent="handlerClickOrderMenu(item)">
+                {{ item.social[0].name }}
+              </td>
 
-              <td>{{ item.region }}</td>
+              <td @click.prevent="handlerClickOrderMenu(item)">
+                {{ item.region }}
+              </td>
 
-              <td>{{ item.budget_per_subscriber }}</td>
+              <td @click.prevent="handlerClickOrderMenu(item)">
+                {{ item.budget_per_subscriber }}
+              </td>
 
-              <td>{{ item.end_date }}</td>
+              <td @click.prevent="handlerClickOrderMenu(item)">
+                {{ item.end_date }}
+              </td>
 
               <td>
                 <span
@@ -106,26 +119,6 @@
 
               <td>Обсудить с заказчиком</td>
             </tr>
-
-            <!-- <tr @click.prevent="handlerClickOrderMenu({ id: 2 })">
-              <td>112</td>
-
-              <td>ывфывф</td>
-
-              <td>йцуйцуйцу</td>
-
-              <td>ййййййй</td>
-
-              <td>йцуйцуй</td>
-
-              <td>111111</td>
-
-              <td>
-                <span class="badge badge-pill"> 111 </span>
-              </td>
-
-              <td>Обсудить с заказчиком</td>
-            </tr> -->
           </tbody>
         </table>
 
@@ -328,6 +321,8 @@ export default {
       setActivePage: "bloggerOrdersStore/setActivePage",
 
       setOrderId: "bloggerSettingsOrderStore/setOrderId",
+
+      setUsername: "profileCard/setUsername",
     }),
 
     handlerClickOrderMenu(data) {
@@ -448,6 +443,12 @@ export default {
         searchInput: this.filterInput,
         status: this.status,
       });
+    },
+
+    handlerClickUsername(username) {
+      this.setUsername(username);
+
+      this.$router.push({ path: `/account/blogger.orders/user.profile` });
     },
   },
 

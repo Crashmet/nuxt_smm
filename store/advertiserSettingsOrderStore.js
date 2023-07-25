@@ -55,13 +55,12 @@ export const actions = {
 
   async getOrderList({ commit, dispatch }, id) {
     dispatch("setStatusLoading", true);
+    commit("SET_STATUS_RESPONSE", true);
 
     await this.$axios
       .$get(`orders/${id}/`)
       .then((response) => {
         dispatch("setStatusLoading", false);
-
-        commit("SET_STATUS_RESPONSE", true);
 
         commit("SET_ORDER_LIST", response);
       })
