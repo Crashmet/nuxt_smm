@@ -77,7 +77,7 @@
               <td>
                 <b-button
                   v-if="item.status.status === 'done'"
-                  class="btn btn-dark btn_change px-2"
+                  class="btn btn-dark btn_change px-3 my-3"
                   type="button"
                   @click.prevent="handlerClickAddStatus(item, 'accepted')"
                 >
@@ -86,7 +86,7 @@
 
                 <b-button
                   v-else-if="item.status.status === 'accepted'"
-                  class="btn btn-dark btn_change px-2 my-3"
+                  class="btn btn-dark btn_change px-3 my-3"
                   type="button"
                   @click.prevent="handlerClickAddStatus(item, 'archive')"
                 >
@@ -94,7 +94,7 @@
                 </b-button>
 
                 <b-button
-                  class="btn btn-dark btn_change px-2"
+                  class="btn btn-dark btn_change px-3 my-3"
                   type="button"
                   @click.prevent="handlerClickAddStatus(item, 'in_progress')"
                 >
@@ -102,7 +102,7 @@
                 </b-button>
 
                 <b-button
-                  class="btn btn-dark btn_change px-2"
+                  class="btn btn-dark btn_change px-3 my-3"
                   type="button"
                   @click.prevent="handlerClickAddStatus(item, 'arbitration')"
                 >
