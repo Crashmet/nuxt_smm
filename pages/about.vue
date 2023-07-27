@@ -377,6 +377,13 @@ export default {
     Statistics,
     Footer,
   },
+
+  mounted() {
+    console.log(1);
+    const socket = new WebSocket(`wss://socmediamarket.ru/api/chat_ws`);
+
+    console.log(socket.readyState, "11");
+  },
 };
 </script>
 
