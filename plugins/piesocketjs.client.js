@@ -7,9 +7,7 @@ export default ({ app }, inject) => {
   }
   inject("connectPieSocket", (saveToStore) => {
     if (piesocketConnected === false) {
-      piesocket = new WebSocket(
-        `wss://free.nyc1.piesocket.com/v3/1?api_key=eLOkX9oRmb8kOusfxJ90DviUd9tOYff2fpmJdx3h&notify_self=1`
-      );
+      piesocket = new WebSocket(`wss://socmediamarket.ru/api/chat_ws`);
       // wss://us-nyc-1.websocket.me/v3/1?api_key=kZNNVdhuWCmup7DQQyZ5eHYJElbljH90YcDLawby&notify_self
 
       piesocket.onopen = function () {
