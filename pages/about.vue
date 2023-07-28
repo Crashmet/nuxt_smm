@@ -377,12 +377,6 @@ export default {
     Statistics,
     Footer,
   },
-
-  mounted() {
-    this.$connectPieSocket((message) => {
-      this.$store.dispatch("queryPieSocket", message);
-    });
-  },
 };
 </script>
 
