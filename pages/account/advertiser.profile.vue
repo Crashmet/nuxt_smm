@@ -22,13 +22,13 @@
                   {{ advertiserData.first_name }} {{ advertiserData.last_name }}
                 </h5>
                 <p>Advertiser</p>
-                <b-button
+                <button
                   class="my-4 bg-transparent border-0"
                   type="button"
                   @click.prevent="changeDataModalStatus(true)"
                 >
                   <i class="fa fa-edit" style="font-size: 22px"></i>
-                </b-button>
+                </button>
               </div>
               <div class="col-md-8">
                 <div class="card-body p-4">
@@ -77,13 +77,13 @@
                     ></a>
                   </div>
 
-                  <b-button
+                  <button
                     class="mt-5 btn btn-dark rounded"
                     type="button"
                     @click.prevent="changePasswordModalStatus(true)"
                   >
                     Изменить пароль
-                  </b-button>
+                  </button>
                 </div>
               </div>
             </div>

@@ -342,22 +342,22 @@
 
       <b-row class="pt-1 mt-4">
         <b-col cols="12" md="3" lg="2">
-          <b-button
+          <button
             class="btn btn-dark btn_delete rounded mb-3 px-4"
             type="button"
             @click.prevent="isDeleteOrder = true"
           >
             Удалить
-          </b-button>
+          </button>
         </b-col>
         <b-col cols="12" md="4" lg="3">
-          <b-button
+          <button
             class="btn btn-dark btn_change rounded mb-3 px-4"
             type="button"
             @click.prevent="handlerUpdateOrder()"
           >
             Изменить заказ
-          </b-button>
+          </button>
         </b-col>
         <b-col cols="12" md="4" lg="3">
           <nuxt-link
@@ -380,19 +380,19 @@
         <div class="d-block text-center">
           <h4 class="modal__title">Вы действительно хотите удалить заказ?</h4>
         </div>
-        <b-button
+        <button
           class="mt-3 modal-btn"
           variant="outline-danger"
           block
           @click.prevent="isDeleteOrder = false"
-          >Нет</b-button
+          >Нет</button
         >
-        <b-button
+        <button
           class="mt-2 modal-btn"
           variant="outline-warning"
           block
           @click.prevent="deleteOrder(orderId)"
-          >Удалить</b-button
+          >Удалить</button
         >
       </b-modal>
     </template>

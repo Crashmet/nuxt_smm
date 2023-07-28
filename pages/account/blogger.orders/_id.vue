@@ -264,16 +264,16 @@
       <b-row class="pt-1 mt-4">
         <b-col cols="0" md="3" lg="2"></b-col>
         <b-col cols="6" md="3" lg="2">
-          <b-button
+          <button
             class="btn btn-dark btn_canceled rounded mb-3 px-4"
             type="button"
             @click.prevent="isDeleteOrder = true"
           >
             Отклонить
-          </b-button>
+          </button>
         </b-col>
         <b-col cols="6" md="3" lg="3">
-          <b-button
+          <button
             v-if="respond_status === 'new_order'"
             class="btn btn-dark btn_change rounded mb-3 px-4"
             type="button"
@@ -282,18 +282,18 @@
             "
           >
             Принять
-          </b-button>
+          </button>
 
-          <b-button
+          <button
             v-else-if="respond_status === 'in_progress'"
             class="btn btn-dark btn_change rounded mb-3 px-4"
             type="button"
             @click.prevent="setStatusOrder({ id: orderId, status: 'done' })"
           >
             Выполнен
-          </b-button>
+          </button>
 
-          <b-button
+          <button
             v-else-if="respond_status === 'done'"
             class="btn btn-dark btn_change rounded mb-3 px-4"
             type="button"
@@ -302,7 +302,7 @@
             "
           >
             Продолжить
-          </b-button>
+          </button>
         </b-col>
       </b-row>
 
@@ -318,19 +318,19 @@
             Вы действительно хотите отказаться от заказа?
           </h4>
         </div>
-        <b-button
+        <button
           class="mt-3 modal-btn"
           variant="outline-danger"
           block
           @click.prevent="isDeleteOrder = false"
-          >Нет</b-button
+          >Нет</button
         >
-        <b-button
+        <button
           class="mt-2 modal-btn"
           variant="outline-warning"
           block
           @click.prevent="setStatusOrder({ id: orderId, status: 'canceled' })"
-          >Отклонить</b-button
+          >Отклонить</button
         >
       </b-modal>
     </template>

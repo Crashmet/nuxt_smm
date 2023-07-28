@@ -75,39 +75,39 @@
                 </span>
               </td>
               <td>
-                <b-button
+                <button
                   v-if="item.status.status === 'done'"
                   class="btn btn-dark btn_change px-3 mb-3"
                   type="button"
                   @click.prevent="handlerClickAddStatus(item, 'accepted')"
                 >
                   Подтвердить
-                </b-button>
+                </button>
 
-                <b-button
+                <button
                   v-else-if="item.status.status === 'accepted'"
                   class="btn btn-dark btn_change px-3 mb-3"
                   type="button"
                   @click.prevent="handlerClickAddStatus(item, 'archive')"
                 >
                   В архив
-                </b-button>
+                </button>
 
-                <b-button
+                <button
                   class="btn btn-dark btn_change px-3 mb-3"
                   type="button"
                   @click.prevent="handlerClickAddStatus(item, 'in_progress')"
                 >
                   Доработка
-                </b-button>
+                </button>
 
-                <b-button
+                <button
                   class="btn btn-dark btn_change px-3 mb-3"
                   type="button"
                   @click.prevent="handlerClickAddStatus(item, 'arbitration')"
                 >
                   Арбитраж
-                </b-button>
+                </button>
               </td>
             </tr>
           </tbody>
