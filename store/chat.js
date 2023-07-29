@@ -153,6 +153,8 @@ export const actions = {
 
       state.ws.onmessage = function (message) {
         console.log("message:", message, message.data);
+        console.log("messageList:", state.messagesList);
+
         commit("ADD_MESSAGE", message.data);
       };
 
@@ -168,16 +170,17 @@ export const actions = {
   },
 
   sendToWebSocket({ state }, message) {
+    const stringifiedMessage = JSON.stringify(message);
+
     if (state.ws.readyState === 1) {
-      console.log(message);
-      state.ws.send(message);
+      state.ws.send(stringifiedMessage);
       return;
     }
 
     state.ws.addEventListener(
       "open",
       () => {
-        state.ws.send(message);
+        state.ws.send(stringifiedMessage);
       },
       { once: true }
     );
