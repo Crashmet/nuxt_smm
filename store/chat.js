@@ -146,6 +146,8 @@ export const actions = {
     }
 
     if (state.wsConnectedfalse === false) {
+      console.log("start test socket");
+
       state.ws.onopen = function () {
         console.log("socket connected");
         commit("SET_CONNECTED_STATUS", true);
@@ -168,9 +170,13 @@ export const actions = {
   },
 
   sendToWebSocket({ state }, message) {
+    console.log("start test send 1");
+
     const stringifiedMessage = JSON.stringify(message);
 
     if (state.ws.readyState === 1) {
+      console.log("start test send 2");
+
       state.ws.send(stringifiedMessage);
       return;
     }
