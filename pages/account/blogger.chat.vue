@@ -128,319 +128,216 @@
                 </div>
               </div>
 
-              <div v-if="isOpenChat" class="col-md-6 col-lg-7 col-xl-8 bg-chat">
-                <vue-custom-scrollbar v-if="messagesList.length > 0">
+              <div v-if="isOpenChat" class="col-md-6 col-lg-7 col-xl-8">
+                <div>
                   <div
+                    v-if="isLoadingMessagesList"
                     class="pt-3 pe-3"
                     style="position: relative; height: 400px"
                   >
-                    <div class="d-flex flex-row justify-content-start">
-                      <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
-                        alt="avatar 1"
-                        style="width: 45px; height: 100%"
-                      />
+                    <div class="d-flex flex-row justify-content-end mb-4">
+                      <div class="">
+                        <p
+                          class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary"
+                        >
+                          <b-skeleton
+                            animation="wave"
+                            class="skeleton-chat"
+                          ></b-skeleton>
+                        </p>
+                      </div>
+                      <b-skeleton type="avatar"></b-skeleton>
+                    </div>
+
+                    <div class="d-flex flex-row justify-content-start mb-4">
+                      <b-skeleton type="avatar"></b-skeleton>
                       <div>
                         <p
                           class="small p-2 ms-3 mb-1 rounded-3"
                           style="background-color: #f5f6f7"
                         >
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua.
-                        </p>
-                        <p
-                          class="small ms-3 mb-3 rounded-3 text-muted float-end"
-                        >
-                          12:00 PM | Aug 13
+                          <b-skeleton
+                            animation="wave"
+                            class="skeleton-chat"
+                          ></b-skeleton>
                         </p>
                       </div>
                     </div>
 
-                    <div class="d-flex flex-row justify-content-end">
-                      <div>
+                    <div class="d-flex flex-row justify-content-end mb-4">
+                      <div class="">
                         <p
                           class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary"
                         >
-                          Ut enim ad minim veniam, quis nostrud exercitation
-                          ullamco laboris nisi ut aliquip ex ea commodo
-                          consequat.
-                        </p>
-                        <p class="small me-3 mb-3 rounded-3 text-muted">
-                          12:00 PM | Aug 13
+                          <b-skeleton
+                            animation="wave"
+                            class="skeleton-chat"
+                          ></b-skeleton>
                         </p>
                       </div>
-                      <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                        alt="avatar 1"
-                        style="width: 45px; height: 100%"
-                      />
+                      <b-skeleton type="avatar"></b-skeleton>
                     </div>
 
-                    <div class="d-flex flex-row justify-content-start">
-                      <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
-                        alt="avatar 1"
-                        style="width: 45px; height: 100%"
-                      />
+                    <div class="d-flex flex-row justify-content-start mb-4">
+                      <b-skeleton type="avatar"></b-skeleton>
                       <div>
                         <p
                           class="small p-2 ms-3 mb-1 rounded-3"
                           style="background-color: #f5f6f7"
                         >
-                          Duis aute irure dolor in reprehenderit in voluptate
-                          velit esse cillum dolore eu fugiat nulla pariatur.
-                        </p>
-                        <p
-                          class="small ms-3 mb-3 rounded-3 text-muted float-end"
-                        >
-                          12:00 PM | Aug 13
+                          <b-skeleton
+                            animation="wave"
+                            class="skeleton-chat"
+                          ></b-skeleton>
                         </p>
                       </div>
                     </div>
 
-                    <div class="d-flex flex-row justify-content-end">
-                      <div>
+                    <div class="d-flex flex-row justify-content-end mb-4">
+                      <div class="">
                         <p
                           class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary"
                         >
-                          Excepteur sint occaecat cupidatat non proident, sunt
-                          in culpa qui officia deserunt mollit anim id est
-                          laborum.
-                        </p>
-                        <p class="small me-3 mb-3 rounded-3 text-muted">
-                          12:00 PM | Aug 13
+                          <b-skeleton
+                            animation="wave"
+                            class="skeleton-chat"
+                          ></b-skeleton>
                         </p>
                       </div>
-                      <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                        alt="avatar 1"
-                        style="width: 45px; height: 100%"
-                      />
+                      <b-skeleton type="avatar"></b-skeleton>
                     </div>
 
-                    <div class="d-flex flex-row justify-content-start">
-                      <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
-                        alt="avatar 1"
-                        style="width: 45px; height: 100%"
-                      />
+                    <div class="d-flex flex-row justify-content-start mb-4">
+                      <b-skeleton type="avatar"></b-skeleton>
                       <div>
                         <p
                           class="small p-2 ms-3 mb-1 rounded-3"
                           style="background-color: #f5f6f7"
                         >
-                          Sed ut perspiciatis unde omnis iste natus error sit
-                          voluptatem accusantium doloremque laudantium, totam
-                          rem aperiam, eaque ipsa quae ab illo inventore
-                          veritatis et quasi architecto beatae vitae dicta sunt
-                          explicabo.
-                        </p>
-                        <p
-                          class="small ms-3 mb-3 rounded-3 text-muted float-end"
-                        >
-                          12:00 PM | Aug 13
+                          <b-skeleton
+                            animation="wave"
+                            class="skeleton-chat"
+                          ></b-skeleton>
                         </p>
                       </div>
                     </div>
 
-                    <div class="d-flex flex-row justify-content-end">
-                      <div>
+                    <div class="d-flex flex-row justify-content-end mb-4">
+                      <div class="">
                         <p
                           class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary"
                         >
-                          Nemo enim ipsam voluptatem quia voluptas sit
-                          aspernatur aut odit aut fugit, sed quia consequuntur
-                          magni dolores eos qui ratione voluptatem sequi
-                          nesciunt.
-                        </p>
-                        <p class="small me-3 mb-3 rounded-3 text-muted">
-                          12:00 PM | Aug 13
+                          <b-skeleton
+                            animation="wave"
+                            class="skeleton-chat"
+                          ></b-skeleton>
                         </p>
                       </div>
-                      <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                        alt="avatar 1"
-                        style="width: 45px; height: 100%"
-                      />
+                      <b-skeleton type="avatar"></b-skeleton>
                     </div>
+                  </div>
 
-                    <div class="d-flex flex-row justify-content-start">
-                      <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
-                        alt="avatar 1"
-                        style="width: 45px; height: 100%"
-                      />
-                      <div>
-                        <p
-                          class="small p-2 ms-3 mb-1 rounded-3"
-                          style="background-color: #f5f6f7"
-                        >
-                          Neque porro quisquam est, qui dolorem ipsum quia dolor
-                          sit amet, consectetur, adipisci velit, sed quia non
-                          numquam eius modi tempora incidunt ut labore et dolore
-                          magnam aliquam quaerat voluptatem.
-                        </p>
-                        <p
-                          class="small ms-3 mb-3 rounded-3 text-muted float-end"
-                        >
-                          12:00 PM | Aug 13
-                        </p>
+                  <vue-custom-scrollbar class="chat" v-else>
+                    <div
+                      v-if="isResponseMessagesList && messagesList.length > 0"
+                      style="position: relative; height: 400px"
+                      class="d-flex flex-column-reverse"
+                    >
+                      <div class="d-flex flex-row justify-content-start">
+                        <img
+                          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
+                          alt="avatar 1"
+                          style="width: 45px; height: 100%"
+                        />
+                        <div>
+                          <p
+                            class="small p-2 ms-3 mb-1 rounded-3"
+                            style="background-color: #f5f6f7"
+                          >
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua.
+                          </p>
+                          <p
+                            class="small ms-3 mb-3 rounded-3 text-muted float-end"
+                          >
+                            12:00 PM | Aug 13
+                          </p>
+                        </div>
+                      </div>
+
+                      <div class="d-flex flex-row justify-content-end">
+                        <div>
+                          <p
+                            class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary"
+                          >
+                            Ut enim ad minim veniam, quis nostrud exercitation
+                            ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat.
+                          </p>
+                          <p class="small me-3 mb-3 rounded-3 text-muted">
+                            12:00 PM | Aug 13
+                          </p>
+                        </div>
+                        <img
+                          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                          alt="avatar 1"
+                          style="width: 45px; height: 100%"
+                        />
                       </div>
                     </div>
 
-                    <div class="d-flex flex-row justify-content-end">
-                      <div>
-                        <p
-                          class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary"
-                        >
-                          Ut enim ad minima veniam, quis nostrum exercitationem
-                          ullam corporis suscipit laboriosam, nisi ut aliquid ex
-                          ea commodi consequatur?
-                        </p>
-                        <p class="small me-3 mb-3 rounded-3 text-muted">
-                          12:00 PM | Aug 13
-                        </p>
-                      </div>
-                      <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                        alt="avatar 1"
-                        style="width: 45px; height: 100%"
-                      />
+                    <div
+                      v-else-if="isResponseMessagesList"
+                      style="position: relative; height: 400px"
+                      class="d-flex flex-row justify-content-center align-items-end"
+                    >
+                      <p class="text-center">Сообщений пока нет</p>
                     </div>
-                  </div>
-                </vue-custom-scrollbar>
 
-                <div
-                  v-else
-                  class="pt-3 pe-3"
-                  style="position: relative; height: 400px"
-                >
-                  <div class="d-flex flex-row justify-content-end mb-4">
-                    <div class="">
-                      <p
-                        class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary"
+                    <div
+                      v-else
+                      style="position: relative; height: 400px"
+                      class="d-flex flex-row justify-content-center align-items-end"
+                    >
+                      <p class="text-center">Ошибка соединения</p>
+                    </div>
+                  </vue-custom-scrollbar>
+
+                  <div
+                    v-show="isResponseMessagesList"
+                    class="text-muted d-flex justify-content-start align-items-center pt-3 mt-2"
+                  >
+                    <button class="btn text-muted bg-transparent mr-1 rounded">
+                      <i class="fa fa-paperclip" style="font-size: 20px"></i>
+                    </button>
+
+                    <input
+                      type="text"
+                      class="form-control form-control-lg"
+                      id="exampleFormControlInput2"
+                      placeholder="Type message"
+                      v-model.lazy="message"
+                    />
+
+                    <button
+                      class="btn text-muted bg-transparent rounded"
+                      @click="handlerClickSendMessage()"
+                    >
+                      <i
+                        class="fa fa-paper-plane"
+                        style="font-size: 20px; color: #0d6efd"
                       >
-                        <b-skeleton
-                          animation="wave"
-                          class="skeleton-chat"
-                        ></b-skeleton>
-                      </p>
-                    </div>
-                    <b-skeleton type="avatar"></b-skeleton>
+                      </i>
+                    </button>
+                    <a class="ms-3" href="#!"></a>
                   </div>
-
-                  <div class="d-flex flex-row justify-content-start mb-4">
-                    <b-skeleton type="avatar"></b-skeleton>
-                    <div>
-                      <p
-                        class="small p-2 ms-3 mb-1 rounded-3"
-                        style="background-color: #f5f6f7"
-                      >
-                        <b-skeleton
-                          animation="wave"
-                          class="skeleton-chat"
-                        ></b-skeleton>
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="d-flex flex-row justify-content-end mb-4">
-                    <div class="">
-                      <p
-                        class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary"
-                      >
-                        <b-skeleton
-                          animation="wave"
-                          class="skeleton-chat"
-                        ></b-skeleton>
-                      </p>
-                    </div>
-                    <b-skeleton type="avatar"></b-skeleton>
-                  </div>
-
-                  <div class="d-flex flex-row justify-content-start mb-4">
-                    <b-skeleton type="avatar"></b-skeleton>
-                    <div>
-                      <p
-                        class="small p-2 ms-3 mb-1 rounded-3"
-                        style="background-color: #f5f6f7"
-                      >
-                        <b-skeleton
-                          animation="wave"
-                          class="skeleton-chat"
-                        ></b-skeleton>
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="d-flex flex-row justify-content-end mb-4">
-                    <div class="">
-                      <p
-                        class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary"
-                      >
-                        <b-skeleton
-                          animation="wave"
-                          class="skeleton-chat"
-                        ></b-skeleton>
-                      </p>
-                    </div>
-                    <b-skeleton type="avatar"></b-skeleton>
-                  </div>
-
-                  <div class="d-flex flex-row justify-content-start mb-4">
-                    <b-skeleton type="avatar"></b-skeleton>
-                    <div>
-                      <p
-                        class="small p-2 ms-3 mb-1 rounded-3"
-                        style="background-color: #f5f6f7"
-                      >
-                        <b-skeleton
-                          animation="wave"
-                          class="skeleton-chat"
-                        ></b-skeleton>
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="d-flex flex-row justify-content-end mb-4">
-                    <div class="">
-                      <p
-                        class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary"
-                      >
-                        <b-skeleton
-                          animation="wave"
-                          class="skeleton-chat"
-                        ></b-skeleton>
-                      </p>
-                    </div>
-                    <b-skeleton type="avatar"></b-skeleton>
-                  </div>
-                </div>
-
-                <div
-                  class="text-muted d-flex justify-content-start align-items-center pe-3 pt-3 mt-2"
-                >
-                  <input
-                    type="text"
-                    class="form-control form-control-lg"
-                    id="exampleFormControlInput2"
-                    placeholder="Type message"
-                  />
-                  <a class="ms-1 text-muted" href="#!"
-                    ><i class="fa fa-paperclip" style="font-size: 20px"></i
-                  ></a>
-
-                  <a class="ms-3" href="#!"
-                    ><i
-                      class="fa fa-paper-plane"
-                      style="font-size: 20px; color: #0d6efd"
-                    ></i
-                  ></a>
                 </div>
               </div>
 
-              <div v-else class="col-md-6 col-lg-7 col-xl-8 bg-chat"></div>
+              <div v-else class="col-md-6 col-lg-7 col-xl-8">
+                <div class="bg-chat-img"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -466,11 +363,17 @@ export default {
     return {
       isUserList: false,
       isOpenChat: false,
+
+      message: "",
     };
   },
 
   mounted() {
     this.getDialogsList();
+  },
+
+  unmounted() {
+    this.finishWebSocket();
   },
 
   computed: {
@@ -479,6 +382,10 @@ export default {
       dialogsList: "chat/dialogsList",
 
       messagesList: "chat/messagesList",
+      isLoadingMessagesList: "chat/isLoadingMessagesList",
+      isResponseMessagesList: "chat/isResponseMessagesList",
+
+      isWsConnected: "chat/isWsConnected",
     }),
   },
 
@@ -488,7 +395,21 @@ export default {
       getDialogsList: "chat/getDialogsList",
 
       getMessagesList: "chat/getMessagesList",
+
+      startWebSocketChat: "chat/startWebSocketChat",
+
+      sendToWebSocket: "chat/sendToWebSocket",
+
+      finishWebSocket: "chat/finishWebSocket",
     }),
+
+    handlerClickSendMessage() {
+      if (this.isWsConnected) {
+        this.sendToWebSocket(this.message);
+
+        this.message = "";
+      }
+    },
 
     handlerClickContacts() {
       this.isUserList = !this.isUserList;
@@ -501,6 +422,8 @@ export default {
       this.isOpenChat = true;
 
       this.getMessagesList(item.pk);
+
+      this.startWebSocketChat();
     },
 
     handlerClickUserContact(item) {
@@ -508,6 +431,8 @@ export default {
       this.isOpenChat = true;
 
       this.getMessagesList(item.pk);
+
+      this.startWebSocketChat();
     },
   },
 };
@@ -529,6 +454,31 @@ export default {
   width: 10px;
   margin-left: 2.9rem;
   margin-top: -0.75rem;
+}
+
+.bg-chat-img {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  padding-left: 15px;
+}
+
+.bg-chat-img:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.6;
+  background-image: url("@/static/img/bg.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
 }
 
 .skeleton-chat {
@@ -561,7 +511,7 @@ export default {
 
 @media (max-width: 540px) {
   .skeleton-chat {
-    width: 200px;
+    width: 190px;
   }
 }
 
