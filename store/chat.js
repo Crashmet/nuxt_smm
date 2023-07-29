@@ -169,6 +169,7 @@ export const actions = {
 
   sendToWebSocket({ state }, message) {
     if (state.ws.readyState === 1) {
+      console.log(message);
       state.ws.send(message);
       return;
     }

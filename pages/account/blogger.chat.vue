@@ -66,10 +66,6 @@
                             </a>
                           </li>
                         </ul>
-
-                        <div v-else>
-                          <p class="ml-4">Ошибка</p>
-                        </div>
                       </div>
 
                       <div v-else>
