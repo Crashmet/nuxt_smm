@@ -146,15 +146,13 @@ export const actions = {
     }
 
     if (state.isWsConnected === false) {
-      console.log("start test socket");
-
       state.ws.onopen = function () {
         console.log("socket connected");
         commit("SET_CONNECTED_STATUS", true);
       };
 
       state.ws.onmessage = function (message) {
-        console.log("message:", message);
+        console.log("message:", message, message.data);
         commit("ADD_MESSAGE", message.data);
       };
 
@@ -170,21 +168,15 @@ export const actions = {
   },
 
   sendToWebSocket({ state }, message) {
-    console.log("start test send 1");
-
-    const stringifiedMessage = JSON.stringify(message);
-
     if (state.ws.readyState === 1) {
-      console.log("start test send 2");
-
-      state.ws.send(stringifiedMessage);
+      state.ws.send(message);
       return;
     }
 
     state.ws.addEventListener(
       "open",
       () => {
-        state.ws.send(stringifiedMessage);
+        state.ws.send(message);
       },
       { once: true }
     );
