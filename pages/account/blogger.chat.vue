@@ -8,6 +8,17 @@
               <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0">
                 <div class="p-3">
                   <div class="input-group rounded mb-3">
+                    <button
+                      type="button"
+                      class="btn text-muted bg-transparent mr-1 rounded"
+                      @click.prevent="handlerClickContacts()"
+                    >
+                      <i
+                        class="fa fa-address-book-o"
+                        style="font-size: 20px"
+                      ></i>
+                    </button>
+
                     <input
                       type="search"
                       class="form-control rounded"
@@ -25,167 +36,100 @@
 
                   <vue-custom-scrollbar>
                     <div style="position: relative; height: 400px">
-                      <ul class="list-unstyled mb-0">
-                        <li class="p-2 border-bottom">
-                          <a href="#!" class="d-flex justify-content-between">
-                            <div class="d-flex flex-row">
-                              <div>
-                                <img
-                                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                                  alt="avatar"
-                                  class="d-flex align-self-center me-3"
-                                  width="60"
-                                />
-                                <span class="badge bg-success badge-dot"></span>
+                      <div v-if="isUserList" class="contacts-list">
+                        <ul
+                          v-if="userList.length > 0"
+                          class="list-unstyled mb-0"
+                        >
+                          <li
+                            class="p-2 border-bottom"
+                            v-for="item in userList"
+                            :key="item.pk"
+                          >
+                            <a
+                              href="#!"
+                              class="d-flex justify-content-between"
+                              @click.prevent="handlerClickUser(item)"
+                            >
+                              <div class="d-flex flex-row">
+                                <div>
+                                  <span
+                                    class="badge bg-success badge-dot"
+                                  ></span>
+                                </div>
+                                <div class="pt-1">
+                                  <p class="fw-bold mb-0">
+                                    {{ item.username }}
+                                  </p>
+                                </div>
                               </div>
-                              <div class="pt-1">
-                                <p class="fw-bold mb-0">Marie Horwitz</p>
-                                <p class="small text-muted">
-                                  Hello, Are you there?
-                                </p>
+                            </a>
+                          </li>
+                        </ul>
+
+                        <div v-else>
+                          <p class="ml-4">Ошибка</p>
+                        </div>
+                      </div>
+
+                      <div v-else>
+                        <ul
+                          v-if="dialogsList.length > 0"
+                          class="list-unstyled mb-0"
+                        >
+                          <li
+                            class="p-2 border-bottom"
+                            v-for="item in userList"
+                            :key="item.pk"
+                          >
+                            <a
+                              href="#!"
+                              class="d-flex justify-content-between"
+                              @click.prevent="handlerClickUserContact(item)"
+                            >
+                              <div class="d-flex flex-row">
+                                <div>
+                                  <img
+                                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava4-bg.webp"
+                                    alt="avatar"
+                                    class="d-flex align-self-center me-3"
+                                    width="60"
+                                  />
+                                  <span
+                                    class="badge bg-success badge-dot"
+                                  ></span>
+                                </div>
+                                <div class="pt-1">
+                                  <p class="fw-bold mb-0">
+                                    {{ item.username }}
+                                  </p>
+                                  <p class="small text-muted">
+                                    Hello, Are you there?
+                                  </p>
+                                </div>
                               </div>
-                            </div>
-                            <div class="pt-1">
-                              <p class="small text-muted mb-1">Just now</p>
-                              <span
-                                class="badge bg-danger rounded-pill float-end text-white"
-                                >3</span
-                              >
-                            </div>
-                          </a>
-                        </li>
-                        <li class="p-2 border-bottom">
-                          <a href="#!" class="d-flex justify-content-between">
-                            <div class="d-flex flex-row">
-                              <div>
-                                <img
-                                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
-                                  alt="avatar"
-                                  class="d-flex align-self-center me-3"
-                                  width="60"
-                                />
-                                <span class="badge bg-warning badge-dot"></span>
-                              </div>
-                              <div class="pt-1">
-                                <p class="fw-bold mb-0">Alexa Chung</p>
-                                <p class="small text-muted">
-                                  Lorem ipsum dolor sit.
-                                </p>
-                              </div>
-                            </div>
-                            <div class="pt-1">
-                              <p class="small text-muted mb-1">5 mins ago</p>
-                              <span
-                                class="badge bg-danger rounded-pill float-end text-white"
-                                >2</span
-                              >
-                            </div>
-                          </a>
-                        </li>
-                        <li class="p-2 border-bottom">
-                          <a href="#!" class="d-flex justify-content-between">
-                            <div class="d-flex flex-row">
-                              <div>
-                                <img
-                                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3-bg.webp"
-                                  alt="avatar"
-                                  class="d-flex align-self-center me-3"
-                                  width="60"
-                                />
-                                <span class="badge bg-success badge-dot"></span>
-                              </div>
-                              <div class="pt-1">
-                                <p class="fw-bold mb-0">Danny McChain</p>
-                                <p class="small text-muted">
-                                  Lorem ipsum dolor sit.
-                                </p>
-                              </div>
-                            </div>
-                            <div class="pt-1">
-                              <p class="small text-muted mb-1">Yesterday</p>
-                            </div>
-                          </a>
-                        </li>
-                        <li class="p-2 border-bottom">
-                          <a href="#!" class="d-flex justify-content-between">
-                            <div class="d-flex flex-row">
-                              <div>
-                                <img
-                                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava4-bg.webp"
-                                  alt="avatar"
-                                  class="d-flex align-self-center me-3"
-                                  width="60"
-                                />
-                                <span class="badge bg-danger badge-dot"></span>
-                              </div>
-                              <div class="pt-1">
-                                <p class="fw-bold mb-0">Ashley Olsen</p>
-                                <p class="small text-muted">
-                                  Lorem ipsum dolor sit.
-                                </p>
-                              </div>
-                            </div>
-                            <div class="pt-1">
-                              <p class="small text-muted mb-1">Yesterday</p>
-                            </div>
-                          </a>
-                        </li>
-                        <li class="p-2 border-bottom">
-                          <a href="#!" class="d-flex justify-content-between">
-                            <div class="d-flex flex-row">
-                              <div>
-                                <img
-                                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava5-bg.webp"
-                                  alt="avatar"
-                                  class="d-flex align-self-center me-3"
-                                  width="60"
-                                />
-                                <span class="badge bg-warning badge-dot"></span>
-                              </div>
-                              <div class="pt-1">
-                                <p class="fw-bold mb-0">Kate Moss</p>
-                                <p class="small text-muted">
-                                  Lorem ipsum dolor sit.
-                                </p>
-                              </div>
-                            </div>
-                            <div class="pt-1">
-                              <p class="small text-muted mb-1">Yesterday</p>
-                            </div>
-                          </a>
-                        </li>
-                        <li class="p-2">
-                          <a href="#!" class="d-flex justify-content-between">
-                            <div class="d-flex flex-row">
-                              <div>
-                                <img
-                                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
-                                  alt="avatar"
-                                  class="d-flex align-self-center me-3"
-                                  width="60"
-                                />
-                                <span class="badge bg-success badge-dot"></span>
-                              </div>
-                              <div class="pt-1">
-                                <p class="fw-bold mb-0">Ben Smith</p>
-                                <p class="small text-muted">
-                                  Lorem ipsum dolor sit.
-                                </p>
-                              </div>
-                            </div>
-                            <div class="pt-1">
-                              <p class="small text-muted mb-1">Yesterday</p>
-                            </div>
-                          </a>
-                        </li>
-                      </ul>
+                              <!-- <div class="pt-1">
+                                <p class="small text-muted mb-1">Just now</p>
+                                <span
+                                  class="badge bg-danger rounded-pill float-end text-white"
+                                  >3</span
+                                >
+                              </div> -->
+                            </a>
+                          </li>
+                        </ul>
+
+                        <div v-else>
+                          <p class="ml-4">Список диалогов пуст</p>
+                        </div>
+                      </div>
                     </div>
                   </vue-custom-scrollbar>
                 </div>
               </div>
 
-              <div class="col-md-6 col-lg-7 col-xl-8">
-                <vue-custom-scrollbar>
+              <div v-if="isOpenChat" class="col-md-6 col-lg-7 col-xl-8 bg-chat">
+                <vue-custom-scrollbar v-if="messagesList.length > 0">
                   <div
                     class="pt-3 pe-3"
                     style="position: relative; height: 400px"
@@ -366,14 +310,117 @@
                     </div>
                   </div>
                 </vue-custom-scrollbar>
+
+                <div
+                  v-else
+                  class="pt-3 pe-3"
+                  style="position: relative; height: 400px"
+                >
+                  <div class="d-flex flex-row justify-content-end mb-4">
+                    <div class="">
+                      <p
+                        class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary"
+                      >
+                        <b-skeleton
+                          animation="wave"
+                          class="skeleton-chat"
+                        ></b-skeleton>
+                      </p>
+                    </div>
+                    <b-skeleton type="avatar"></b-skeleton>
+                  </div>
+
+                  <div class="d-flex flex-row justify-content-start mb-4">
+                    <b-skeleton type="avatar"></b-skeleton>
+                    <div>
+                      <p
+                        class="small p-2 ms-3 mb-1 rounded-3"
+                        style="background-color: #f5f6f7"
+                      >
+                        <b-skeleton
+                          animation="wave"
+                          class="skeleton-chat"
+                        ></b-skeleton>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row justify-content-end mb-4">
+                    <div class="">
+                      <p
+                        class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary"
+                      >
+                        <b-skeleton
+                          animation="wave"
+                          class="skeleton-chat"
+                        ></b-skeleton>
+                      </p>
+                    </div>
+                    <b-skeleton type="avatar"></b-skeleton>
+                  </div>
+
+                  <div class="d-flex flex-row justify-content-start mb-4">
+                    <b-skeleton type="avatar"></b-skeleton>
+                    <div>
+                      <p
+                        class="small p-2 ms-3 mb-1 rounded-3"
+                        style="background-color: #f5f6f7"
+                      >
+                        <b-skeleton
+                          animation="wave"
+                          class="skeleton-chat"
+                        ></b-skeleton>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row justify-content-end mb-4">
+                    <div class="">
+                      <p
+                        class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary"
+                      >
+                        <b-skeleton
+                          animation="wave"
+                          class="skeleton-chat"
+                        ></b-skeleton>
+                      </p>
+                    </div>
+                    <b-skeleton type="avatar"></b-skeleton>
+                  </div>
+
+                  <div class="d-flex flex-row justify-content-start mb-4">
+                    <b-skeleton type="avatar"></b-skeleton>
+                    <div>
+                      <p
+                        class="small p-2 ms-3 mb-1 rounded-3"
+                        style="background-color: #f5f6f7"
+                      >
+                        <b-skeleton
+                          animation="wave"
+                          class="skeleton-chat"
+                        ></b-skeleton>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row justify-content-end mb-4">
+                    <div class="">
+                      <p
+                        class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary"
+                      >
+                        <b-skeleton
+                          animation="wave"
+                          class="skeleton-chat"
+                        ></b-skeleton>
+                      </p>
+                    </div>
+                    <b-skeleton type="avatar"></b-skeleton>
+                  </div>
+                </div>
+
                 <div
                   class="text-muted d-flex justify-content-start align-items-center pe-3 pt-3 mt-2"
                 >
-                  <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
-                    alt="avatar 3"
-                    style="width: 40px; height: 100%"
-                  />
                   <input
                     type="text"
                     class="form-control form-control-lg"
@@ -383,9 +430,7 @@
                   <a class="ms-1 text-muted" href="#!"
                     ><i class="fa fa-paperclip" style="font-size: 20px"></i
                   ></a>
-                  <a class="ms-3 text-muted" href="#!"
-                    ><i class="fa fa-smile-o" style="font-size: 20px"></i
-                  ></a>
+
                   <a class="ms-3" href="#!"
                     ><i
                       class="fa fa-paper-plane"
@@ -394,6 +439,8 @@
                   ></a>
                 </div>
               </div>
+
+              <div v-else class="col-md-6 col-lg-7 col-xl-8 bg-chat"></div>
             </div>
           </div>
         </div>
@@ -406,11 +453,62 @@
 import vueCustomScrollbar from "vue-custom-scrollbar";
 import "vue-custom-scrollbar/dist/vueScrollbar.css";
 
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: "BloggerChat",
 
   components: {
     vueCustomScrollbar,
+  },
+
+  data() {
+    return {
+      isUserList: false,
+      isOpenChat: false,
+    };
+  },
+
+  mounted() {
+    this.getDialogsList();
+  },
+
+  computed: {
+    ...mapGetters({
+      userList: "chat/userList",
+      dialogsList: "chat/dialogsList",
+
+      messagesList: "chat/messagesList",
+    }),
+  },
+
+  methods: {
+    ...mapActions({
+      getUserList: "chat/getUserList",
+      getDialogsList: "chat/getDialogsList",
+
+      getMessagesList: "chat/getMessagesList",
+    }),
+
+    handlerClickContacts() {
+      this.isUserList = !this.isUserList;
+
+      this.getUserList();
+    },
+
+    handlerClickUser(item) {
+      this.isUserList = false;
+      this.isOpenChat = true;
+
+      this.getMessagesList(item.pk);
+    },
+
+    handlerClickUserContact(item) {
+      this.isUserList = false;
+      this.isOpenChat = true;
+
+      this.getMessagesList(item.pk);
+    },
   },
 };
 </script>
@@ -431,5 +529,57 @@ export default {
   width: 10px;
   margin-left: 2.9rem;
   margin-top: -0.75rem;
+}
+
+.skeleton-chat {
+  width: 670px;
+}
+
+@media (max-width: 1400px) {
+  .skeleton-chat {
+    width: 570px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .skeleton-chat {
+    width: 390px;
+  }
+}
+
+@media (max-width: 990px) {
+  .skeleton-chat {
+    width: 195px;
+  }
+}
+
+@media (max-width: 767px) {
+  .skeleton-chat {
+    width: 305px;
+  }
+}
+
+@media (max-width: 540px) {
+  .skeleton-chat {
+    width: 200px;
+  }
+}
+
+@media (max-width: 420px) {
+  .skeleton-chat {
+    width: 150px;
+  }
+}
+
+@media (max-width: 370px) {
+  .skeleton-chat {
+    width: 120px;
+  }
+}
+
+@media (max-width: 340px) {
+  .skeleton-chat {
+    width: 90px;
+  }
 }
 </style>
