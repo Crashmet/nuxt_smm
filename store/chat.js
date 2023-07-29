@@ -145,7 +145,7 @@ export const actions = {
       commit("SET_WS", socket);
     }
 
-    if (state.wsConnectedfalse === false) {
+    if (state.isWsConnected === false) {
       console.log("start test socket");
 
       state.ws.onopen = function () {
@@ -191,7 +191,7 @@ export const actions = {
   },
 
   finishWebSocket({ commit, state }) {
-    if (state.wsConnectedfalse === true) {
+    if (state.isWsConnected === true) {
       socket.close();
       commit("SET_CONNECTED_STATUS", false);
     }
