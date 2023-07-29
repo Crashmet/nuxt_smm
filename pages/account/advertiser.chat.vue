@@ -66,10 +66,6 @@
                             </a>
                           </li>
                         </ul>
-
-                        <div v-else>
-                          <p class="ml-4">Ошибка</p>
-                        </div>
                       </div>
 
                       <div v-else>
@@ -247,7 +243,7 @@
                         <img
                           src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
                           alt="avatar 1"
-                          style="width: 45px; height: 100%"
+                          style="width: 45px; height: 50%"
                         />
                         <div>
                           <p
@@ -282,7 +278,7 @@
                         <img
                           src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
                           alt="avatar 1"
-                          style="width: 45px; height: 100%"
+                          style="width: 45px; height: 50%"
                         />
                       </div>
                     </div>
