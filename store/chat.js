@@ -170,14 +170,12 @@ export const actions = {
   },
 
   sendToWebSocket({ state }, message) {
-    const stringifiedMessage = JSON.stringify(message);
+    const messageObj = { msg_type: message };
 
-    console.log(message, "string");
-    console.log(stringifiedMessage, "json");
+    const stringifiedMessage = JSON.stringify(messageObj);
 
     if (state.ws.readyState === 1) {
       state.ws.send(stringifiedMessage);
-      console.log(stringifiedMessage, "test 2");
       return;
     }
 
