@@ -170,7 +170,7 @@ export const actions = {
   },
 
   sendToWebSocket({ state }, message) {
-    const messageObj = { msg_type: message };
+    const messageObj = { msg: message };
 
     const stringifiedMessage = JSON.stringify(messageObj);
 
